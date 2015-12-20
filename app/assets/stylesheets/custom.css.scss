@@ -1,0 +1,37 @@
+/*
+ * forms customizations
+ * ______________________________*/
+.help-block {
+    display: block;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    color: #737373;
+    font-size: 0.8rem;
+}
+
+p.checkbox-wrapper {
+  margin-left: -10px;
+  margin-bottom: 25px !important;
+  margin-top: 0;
+}
+
+a.btn-cancel {
+  margin-left: 10px;
+}
+
+/*
+ * has-error style
+ * ______________________________*/
+.has-error span {
+  color: $input-error-color;
+}
+
+.has-error input, .has-error input:focus {
+  border-bottom: 1px solid $input-error-color;
+  box-shadow: 0 1px 0 0 $input-error-color;
+}
+
+.has-error input:focus { 
+  border-bottom: 1px solid rgba(244, 67, 54, 0.49) !important; // error transparent
+  box-shadow: 0 1px 0 0 rgba(244, 67, 54, 0.49) !important;
+}
