@@ -5,9 +5,9 @@ class ApplicationController < ActionController::Base
   layout :layout_by_resource
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  #def after_sign_in_path_for(resource)
-  #  resource.is_a?(Admin) ? admin_path : dashboard_path
-  #end
+  def after_sign_in_path_for(resource)
+    dashboard_path
+  end
 
   protected
 
