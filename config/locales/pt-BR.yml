@@ -1,2 +1,16 @@
 'pt-BR':
   hello: 'Olá'
+  activerecord:
+      models:
+        user:
+          one: "Usuário"
+          other: "Usuários"
+      attributes:
+        user:
+          name: "Nome"
+          email: "Email"
+          password: "Senha"
+          password_confirmation: "Confirmação da senha"
+          remember_me: "Lembrar me"
+          current_password: "Senha atual"
+          reset_password_token: "Token de ateração de senha"

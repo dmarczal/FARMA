@@ -1,0 +1,18 @@
+<% provide(:title, "Altere sua senha") %>
+<% content_for :sub_title do %>
+   <p>Preencha os campos abaixo com uma nova senha</p>
+<% end %>
+
+<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+  
+  <%= f.input :reset_password_token, as: :hidden, error: '' %>
+  <div class="input-field col s12 has-error">
+    <%= f.full_error :reset_password_token %>
+  </div>
+
+  <%= f.input :password, label: "Nova senha", required: true, autofocus: true, hint: ("#{@minimum_password_length} caracteres no mínimo" if @minimum_password_length) %>
+  <%= f.input :password_confirmation, label: "Confirme sua nova senha", required: true %>
+
+  <%= f.button :submit_materialize, "Altere minha senha" %>
+
+<% end %>

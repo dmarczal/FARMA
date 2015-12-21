@@ -1,0 +1,12 @@
+<% provide(:title, "Reenviar instruções de confirmação de email") %>
+<% content_for :sub_title do %>
+   <p>Preencha o campo abaixo com seu email que enviaremos um novo link para confirmação de seu email</p>
+<% end %>
+
+<%= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+  <%= f.full_error :confirmation_token %>
+
+  <%= f.input :email, required: true, autofocus: true %>
+  <%= f.button :submit_materialize, "Reenviar instruções de confirmação de senha" %>
+
+<% end %>

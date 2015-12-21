@@ -98,6 +98,7 @@ SimpleForm.setup do |config|
 
   # How the label text should be generated altogether with the required text.
   # config.label_text = lambda { |label, required, explicit_label| "#{required} #{label}" }
+  config.label_text = lambda { |label, required, explicit_label| "#{label}" }
 
   # You can define the class to use on all labels. Default is nil.
   # config.label_class = nil
@@ -143,6 +144,7 @@ SimpleForm.setup do |config|
 
   # When false, do not use translations for labels.
   # config.translate_labels = true
+
 
   # Automatically discover new inputs in Rails' autoload path.
   # config.inputs_discovery = true

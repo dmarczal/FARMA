@@ -1,0 +1,20 @@
+<% provide(:title, "Editar perfil") %>
+<% content_for :sub_title do %>
+   <p> Atualize seus dados preenchendo os campos abaixo</p>
+<% end %>
+
+
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+
+    <%= f.input :email, required: true, autofocus: true %>
+
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+    <% end %>
+
+    <%= f.input :password, autocomplete: "off", hint: "deixe em branco se você não quiser alterá-la", required: false %>
+    <%= f.input :password_confirmation, required: false %>
+    <%= f.input :current_password, hint: "nós precisamos de sua senha atual para confirmar as alterações", required: true %>
+
+    <%= f.button :submit_materialize, "Atualizar Dados", cancel: root_path %>
+<% end %>
