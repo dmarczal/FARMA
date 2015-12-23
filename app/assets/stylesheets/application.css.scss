@@ -51,4 +51,6 @@ $primary-color: color("green", "lighten-2") !default;
 
 @import "custom.css.scss";
 
-@import "toastr"
+@import "toastr";
+
+@import "home.scss";

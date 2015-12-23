@@ -19,4 +19,5 @@ $(document).on 'page:change', ->
   Materialize.updateTextFields()  # reinitialize form label
   Waves.displayEffect() # reinitialize wave effect on button
   $('.dropdown-button').dropdown() # reinitialize dropdown
-
+  $('.button-collapse').sideNav() #reinitialize nav-mobile
+  $('.parallax').parallax() #reinitialize parallax

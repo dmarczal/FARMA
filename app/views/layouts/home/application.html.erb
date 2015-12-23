@@ -9,14 +9,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  
-  <%= render 'layouts/home/navbar_top' %>
-  
-  <%= render 'shared/flash_messages'  %>
+  <header>
+    <%= render 'layouts/home/navbar_top' %>
 
-  <div class="container">
+    <%= render 'shared/flash_messages'  %>
+  </header>
+
+  <main>
      <%= yield %>
-  </div>
+  </main>
 
+  <%= render 'layouts/home/main_footer' %>
 </body>
 </html>
