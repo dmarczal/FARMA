@@ -17,6 +17,8 @@ class ApplicationController < ActionController::Base
       "devise/users_options"
     elsif self.is_a?(HomeController)
       "home/application"
+    elsif self.is_a?(DashboardController)
+      "dashboard/application"
     else
       "application"
     end
