@@ -2,7 +2,7 @@
   <%= link_to("FARMA", root_path, class: "brand-logo center", id: "logo-container") %>
   <div id="slide-out" class="side-nav green lighten-2">
     <div id="painel" class="green darken-1">
-      <%= image_tag "user.png", class: "circle", id: "img-user" %>
+      <%= image_tag current_user.avatar.url, class: "circle", id: "img-user"%>
       <h6 class="center-align"><%= current_user.name %></h6>
     </div>
     <ul>

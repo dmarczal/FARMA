@@ -18,6 +18,8 @@ gem 'toastr-rails'     # http://www.benkirane.ch/rails-4-toastrjs-notifications/
 gem 'thin'
 gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master' # For 4.x
 
+gem "paperclip", "~> 4.3"
+
 group :development do
   gem 'populator',  '1.0.0'
   gem 'web-console',  '~> 3.0'

@@ -10,6 +10,7 @@
   <%= f.input :email %>
   <%= f.input :password, placeholder: ("#{@minimum_password_length} caracteres no mínimo" if @minimum_password_length) %>
   <%= f.input :password_confirmation %>
+  <%= f.input :avatar, as: :file %>
 
   <%= f.button :submit_materialize, "Registrar-se" %>
 

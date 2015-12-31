@@ -15,6 +15,7 @@
     <%= f.input :password, autocomplete: "off", hint: "deixe em branco se você não quiser alterá-la", required: false %>
     <%= f.input :password_confirmation, required: false %>
     <%= f.input :current_password, hint: "nós precisamos de sua senha atual para confirmar as alterações", required: true %>
+    <%= f.input :avatar, as: :file %>
 
     <%= f.button :submit_materialize, "Atualizar Dados", cancel: root_path %>
 <% end %>
