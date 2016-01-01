@@ -14,3 +14,4 @@
           remember_me: "Lembrar me"
           current_password: "Senha atual"
           reset_password_token: "Token de ateração de senha"
+          confirmation_token: "Token de confirmação"

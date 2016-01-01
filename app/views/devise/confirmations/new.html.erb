@@ -4,9 +4,14 @@
 <% end %>
 
 <%= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.full_error :confirmation_token %>
+  <div class="col s12 has-error">
+    <%= f.full_error :confirmation_token %>
+  </div>
 
   <%= f.input :email, required: true, autofocus: true %>
   <%= f.button :submit_materialize, "Reenviar instruções de confirmação de senha" %>
 
 <% end %>
+
+<p><a href=3D"http://localhost:3000/users/confirmation?confirmation_token=
+=3DEsN9jiXH_Vzj1eW_4C5r">Confirmar minha conta</a></p>
