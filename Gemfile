@@ -17,13 +17,21 @@ gem 'materialize-sass' # https://github.com/mkhairi/materialize-sass
 gem 'toastr-rails'     # http://www.benkirane.ch/rails-4-toastrjs-notifications/
 gem 'thin'
 gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master' # For 4.x
+gem 'puma'
 
 group :development do
   gem 'populator',  '1.0.0'
   gem 'web-console',  '~> 3.0'
   gem 'byebug',       '3.4.0'
   gem 'guard-rails', require: false
+
+  gem 'capistrano',         require: false
+  gem 'capistrano-rvm',     require: false
+  gem 'capistrano-rails',   require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-passenger', require: false
 end
+
 
 group :development, :test do
   gem 'spring',       '1.1.3'
@@ -40,4 +48,3 @@ end
 
 group :production do
 end
-
