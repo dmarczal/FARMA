@@ -28,9 +28,10 @@ SimpleForm.setup do |config|
     b.use :error, wrap_with: { tag: 'span', class: 'help-block' }
   end
 
+
   config.default_wrapper = :vertical_form
   config.wrapper_mappings = {
-    checkbox_materialize: :checkbox_input,
+    checkbox_materialize: :checkbox_input
   }
 
 end
