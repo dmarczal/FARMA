@@ -6,22 +6,32 @@
 //_____ Button-user
 //
  #button-user{
-   margin-left: 3%;
+   position: absolute;
+   left: 275px;
+   top: 35px;
+   i{ // Rotate Icon
+     -ms-transform: rotate(180deg); /* IE 9 */
+     -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+     transform: rotate(180deg);
+   }
  }
 
-#button-user i{ // Rotate Icon
-  -ms-transform: rotate(180deg); /* IE 9 */
-  -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
-  transform: rotate(180deg);
+#button-user.active_painel{ //slide Button
+  left: 0;
 }
 
+#icon_button.active_painel{ // Rotate Icon
+  -ms-transform: rotate(0); /* IE 9 */
+  -webkit-transform: rotate(0); /* Chrome, Safari, Opera */
+  transform: rotate(0);
+}
 //
 //_____ Style User panel
 //
 
 
 #slide-out{//_____ Painel
-  width: 20%;
+  width: 300px;
   height: 100%;
   float: left;
 }
