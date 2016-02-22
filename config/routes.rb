@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   get 'dashboard' => 'dashboard#index'
 
   root to: "home#index"
+  resources :contacts, only: [:create]
 
 end
