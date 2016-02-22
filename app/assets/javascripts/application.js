@@ -16,4 +16,5 @@
 //= require turbolinks
 //= require materialize-sprockets
 //= require loads
+//= require dashboard
 // require_tree .

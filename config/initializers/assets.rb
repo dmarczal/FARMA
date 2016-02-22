@@ -11,3 +11,7 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 
 Rails.application.config.assets.precompile += %w( admin/login.css )
+Rails.application.config.assets.precompile += %w( farma-01.jpg )
+Rails.application.config.assets.precompile += %w( farma-02.png )
+Rails.application.config.assets.precompile += %w( farma-03.jpg )
+Rails.application.config.assets.precompile += %w( missing.png )

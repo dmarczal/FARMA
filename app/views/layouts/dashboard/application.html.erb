@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= full_title(yield(:title)) %></title>
+  <title>FARMA</title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -9,16 +9,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <header>
-    <%= render 'layouts/home/navbar_top' %>
 
-    <%= render 'shared/flash_messages'  %>
+  <header>
+    <%= render 'layouts/dashboard/navbar' %>
   </header>
 
   <main>
+    <%= render 'layouts/dashboard/painel' %>
      <%= yield %>
   </main>
 
-  <%= render 'layouts/home/main_footer' %>
 </body>
 </html>
