@@ -1,22 +1,7 @@
-<h1>users</h1>
-<table>
-  <thead>
-    <tr>
-      <th>name</th>
-      <th>email</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <%@users.each do |user|%>
-    <tr>
-        <td><%= user.name%></td>
-        <td><%= user.email%></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<% provide(:title, "Dashboard") %>
+<h1>Admin::Dashboard#index</h1>
+<p>Find me in app/views/admin/dashboard/index.html.erb</p>
+>>>>>>> remotes/farma-reborned/farma/master
 
 <%= link_to(destroy_admin_session_path, method: :delete) do %>
     <i class="mdi-hardware-keyboard-tab left"></i> Sair

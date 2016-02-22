@@ -27,9 +27,11 @@ $(document).ready ->
 # https://github.com/mkhairi/materialize-sass/issues/63
 # Fixed materialize because turbolinks
 $(document).on 'page:change', ->
-  Materialize.updateTextFields()  # reinitialize form label
   Waves.displayEffect() # reinitialize wave effect on button
   $('.dropdown-button').dropdown() # reinitialize dropdown
   $('.button-collapse').sideNav() #reinitialize nav-mobile
   $('.parallax').parallax() #reinitialize parallax
   activePainel()
+  # reinitialize form label
+  Materialize.updateTextFields()
+  $('input[autofocus]').siblings('label, i').addClass('active')
