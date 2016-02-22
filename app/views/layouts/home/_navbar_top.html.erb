@@ -25,8 +25,8 @@
 
 <nav role="navigation">
   <div class="nav-wrapper container">
-    <%= link_to("FARMA", root_path, class: "brand-logo", id: "logo-container") %>
-    
+    <%= link_to(image_tag("logo-farma-white.png"), root_path, class: "brand-logo", id: "logo-container") %>
+
     <% if user_signed_in? %>
     <ul class="right hide-on-med-and-down">
       <!-- Dropdown Trigger -->

@@ -9,7 +9,8 @@
  * ______________________________*/
 
 @import "materialize/components/color";
-$primary-color: color("green", "lighten-2") !default;
+$primary-color: color("green", "accent-4") !default;
+$secondary-color: color("green", "darken-1") !default;
 
 // Mixins
 @import "materialize/components/prefixer";
@@ -50,9 +51,6 @@ $primary-color: color("green", "lighten-2") !default;
 //@import "materialize/components/date_picker/default.time.scss";
 
 @import "custom.css.scss";
-
 @import "toastr";
-
-@import "home.scss";
-
 @import "dashboard.scss";
+@import "home.scss";

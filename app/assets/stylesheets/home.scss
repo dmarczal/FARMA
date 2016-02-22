@@ -17,6 +17,50 @@
   width: 100%;
 }
 
+#home-page {
+  #index-banner {
+
+    position: relative;
+
+    .pull-down {
+      position: absolute;
+      bottom: 50px;
+      left:0;
+      right:0;
+      margin-left:auto;
+      margin-right:auto;
+    }
+  }
+
+  h1, h4 {
+    // text-shadow: 0.5px 0.5px #FFF;
+    margin-bottom: 0.2em;
+    font-size: 2.2rem;
+  }
+
+  .box-5 {
+    min-height: 150px;
+    margin-bottom: 1em;
+  }
+
+   .box-1 h1, .box-3 h4, .box-5 h4, .box-6 h4  {
+    padding: 5px;
+    background-color: rgba(67, 160, 71, 0.74);//rgba(0,13,0,0.74);
+    border-radius: 15px;
+  }
+}
+
+#home-page-footer {
+  color: #FFF;
+
+  ul {
+     margin-left: 15px;
+     li { 
+       list-style: circle;
+     }
+  }
+}
+
 @media only screen and (max-width : 992px) {
   .parallax-container .section {
     position: absolute;
