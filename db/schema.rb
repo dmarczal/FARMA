@@ -52,7 +52,6 @@ ActiveRecord::Schema.define(version: 20151230185709) do
     t.string   "unconfirmed_email"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "avatar",                 default: ""
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"

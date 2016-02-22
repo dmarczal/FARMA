@@ -31,7 +31,6 @@ class FileMaterializeInput < SimpleForm::Inputs::Base
   end
 
   def text_file
-    puts @builder.methods
     template.content_tag(:div, {class: 'file-path-wrapper'}) do
       template.concat "<input class=\"file optional file-path validate\" id=\"user_avatar_text_file\" type=\"text\">".html_safe
     end
