@@ -1,3 +1,14 @@
+activePainel = ->
+  $('#button-user').click ->
+    if $(this).hasClass 'active_painel'
+      $(this).removeClass 'active_painel'
+      $('#slide-out').removeClass 'hide'
+      $('#icon_button').removeClass 'active_painel'
+    else
+      $(this).addClass 'active_painel'
+      $('#icon_button').addClass 'active_painel'
+      $('#slide-out').addClass 'hide'
+
 $(document).ready ->
   toastr.options =
     "closeButton": false,
@@ -21,3 +32,4 @@ $(document).on 'page:change', ->
   $('.dropdown-button').dropdown() # reinitialize dropdown
   $('.button-collapse').sideNav() #reinitialize nav-mobile
   $('.parallax').parallax() #reinitialize parallax
+  activePainel()
