@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).ready ->
+window.FARMA.toggleVerticalMenu = ->
   $('#button-user').click ->
     if $(this).hasClass 'active_painel'
       $(this).removeClass 'active_painel'
