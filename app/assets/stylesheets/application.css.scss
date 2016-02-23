@@ -1,15 +1,13 @@
 @charset "UTF-8";
 
-
-
-
 /*
  * Added material components as necessary
  * https://github.com/mkhairi/materialize-sass/blob/739d5bc640debf116c2934437c9928f858c11c01/app/assets/stylesheets/materialize.scss
  * ______________________________*/
 
 @import "materialize/components/color";
-$primary-color: color("green", "lighten-2") !default;
+$primary-color: color("green", "accent-4") !default;
+$secondary-color: color("green", "darken-1") !default;
 
 // Mixins
 @import "materialize/components/prefixer";
@@ -50,9 +48,6 @@ $primary-color: color("green", "lighten-2") !default;
 //@import "materialize/components/date_picker/default.time.scss";
 
 @import "custom.css.scss";
-
 @import "toastr";
-
-@import "home.scss";
-
 @import "dashboard.scss";
+@import "home.scss";

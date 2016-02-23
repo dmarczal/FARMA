@@ -1,7 +1,7 @@
 server '45.55.34.225', user: 'apps', roles: %w{web app db}
 
 set :stage, :staging
-set :branch, "staging"
+
 
 
 #======================================================================================

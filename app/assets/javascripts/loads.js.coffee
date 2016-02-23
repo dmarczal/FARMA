@@ -10,6 +10,26 @@ activePainel = ->
       $('#slide-out').addClass 'hide'
 
 $(document).ready ->
+  window.FARMA.displayFlashMessages()
+
+# https://github.com/mkhairi/materialize-sass/issues/63
+# Fixed materialize because turbolinks
+$(document).on 'page:change', ->
+  window.FARMA.reloadMaterilizeEffects()
+  window.FARMA.toggleVerticalMenu()
+
+window.FARMA = {}
+
+window.FARMA.reloadMaterilizeEffects = ->
+  Waves.displayEffect() # reinitialize wave effect on button
+  $('.dropdown-button').dropdown() # reinitialize dropdown
+  # reinitialize form label
+  Materialize.updateTextFields()
+  $('input[autofocus]').siblings('label, i').addClass('active')
+  $('.button-collapse').sideNav() #reinitialize nav-mobile
+  $('.parallax').parallax() #reinitialize parallax
+
+window.FARMA.displayFlashMessages = ->
   toastr.options =
     "closeButton": false,
     "debug": false,
@@ -23,15 +43,3 @@ $(document).ready ->
     "hideEasing": "linear",
     "showMethod": "fadeIn",
     "hideMethod": "fadeOut"
-
-# https://github.com/mkhairi/materialize-sass/issues/63
-# Fixed materialize because turbolinks
-$(document).on 'page:change', ->
-  Waves.displayEffect() # reinitialize wave effect on button
-  $('.dropdown-button').dropdown() # reinitialize dropdown
-  $('.button-collapse').sideNav() #reinitialize nav-mobile
-  $('.parallax').parallax() #reinitialize parallax
-  activePainel()
-  # reinitialize form label
-  Materialize.updateTextFields()
-  $('input[autofocus]').siblings('label, i').addClass('active')

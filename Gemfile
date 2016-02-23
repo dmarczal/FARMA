@@ -15,13 +15,12 @@ gem 'devise',       '3.5.1'
 gem 'simple_form'
 gem 'materialize-sass' # https://github.com/mkhairi/materialize-sass
 gem 'toastr-rails'     # http://www.benkirane.ch/rails-4-toastrjs-notifications/
-gem 'thin'
 gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master' # For 4.x
-gem 'puma'
 
 gem "paperclip", "~> 4.3"
 
 group :development do
+  gem 'thin'
   gem 'populator',  '1.0.0'
   gem 'web-console',  '~> 3.0'
   gem 'byebug',       '3.4.0'
