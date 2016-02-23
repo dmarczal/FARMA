@@ -25,6 +25,7 @@ group :development do
   gem 'web-console',  '~> 3.0'
   gem 'byebug',       '3.4.0'
   gem 'guard-rails', require: false
+  gem 'guard-rspec', require: false
 
   gem 'capistrano',         require: false
   gem 'capistrano-rvm',     require: false
