@@ -16,5 +16,6 @@ describe "the signin process" do
 
     first('button[type="submit"]').click
     expect(page.current_path).to eq dashboard_path
+    
   end
 end
