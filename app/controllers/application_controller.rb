@@ -12,20 +12,20 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  def layout_by_resource
-    if devise_controller?
-      "devise/users_options"
-    elsif self.is_a?(HomeController)
-      "home/application"
-    elsif self.is_a?(DashboardController)
-      "dashboard/application"
-    else
-      "application"
+    def layout_by_resource
+      if devise_controller?
+        "devise/users_options"
+      elsif self.is_a?(HomeController)
+        "home/application"
+      elsif self.is_a?(DashboardController)
+        "dashboard/application"
+      else
+        "application"
+      end
     end
-  end
 
- def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :email, :name, :short_description, :biography, :password, :password_confirmation, :remember_me) }
-    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:name, :email, :password, :password_confirmation, :current_password, :avatar) }
-  end
+   def configure_permitted_parameters
+      devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :email, :name, :short_description, :biography, :password, :password_confirmation, :remember_me) }
+      devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:name, :email, :password, :password_confirmation, :current_password, :avatar) }
+    end
 end

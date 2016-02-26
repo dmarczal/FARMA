@@ -9,10 +9,6 @@ RSpec.describe Lo, type: :model do
     @lo.destroy
   end
 
-  it "should be saved in the table" do
-    expect(Lo.all.size).to eq 1
-  end
-
   it "should not be stored in the table with null name" do
     @lo.name = nil
     expect(@lo.save).to eq false

@@ -1,0 +1,8 @@
+<% provide(:title, "Los") %>
+
+<ul class="collection">
+  <li class="collection-header"><h4>Objetos de Aprendizagem</h4></li>
+  <% @los.each do |lo| %>
+    <%= content_tag :li, lo.name, class: "collection-item" %>
+  <% end %>
+</ul>
