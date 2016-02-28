@@ -1,0 +1,9 @@
+<% provide(:title, "Create-Los") %>
+<div class="col s9">
+  <%= simple_form_for(@los) do |f| %>
+    <%= f.input :name, autofocus: true %>
+    <%= f.input :description, as: :textarea %>
+
+    <%= f.button :submit_materialize, "Confirmar" %>
+  <% end %>
+</div>

@@ -1,14 +1,3 @@
-activePainel = ->
-  $('#button-user').click ->
-    if $(this).hasClass 'active_painel'
-      $(this).removeClass 'active_painel'
-      $('#slide-out').removeClass 'hide'
-      $('#icon_button').removeClass 'active_painel'
-    else
-      $(this).addClass 'active_painel'
-      $('#icon_button').addClass 'active_painel'
-      $('#slide-out').addClass 'hide'
-
 $(document).ready ->
   window.FARMA.displayFlashMessages()
 
@@ -17,6 +6,7 @@ $(document).ready ->
 $(document).on 'page:change', ->
   window.FARMA.reloadMaterilizeEffects()
   window.FARMA.toggleVerticalMenu()
+  window.FARMA.hideList()
 
 window.FARMA = {}
 
@@ -28,6 +18,7 @@ window.FARMA.reloadMaterilizeEffects = ->
   $('input[autofocus]').siblings('label, i').addClass('active')
   $('.button-collapse').sideNav() #reinitialize nav-mobile
   $('.parallax').parallax() #reinitialize parallax
+
 
 window.FARMA.displayFlashMessages = ->
   toastr.options =

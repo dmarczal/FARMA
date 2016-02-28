@@ -4,12 +4,10 @@
 
 
 /*
- * Vertical menu 
+ * Vertical menu
  * ______________________________*/
 #button-user {
-  position: absolute;
-  left: 275px;
-  top: 35px;
+  margin-left: 20px;
   i { // Rotate icon
     -ms-transform: rotate(180deg);     /* IE 9 */
     -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */

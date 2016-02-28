@@ -1,8 +1,43 @@
 <% provide(:title, "Los") %>
+<%= link_to(new_lo_path, class:'btn-floating btn-large right') do %>
+  <i class="mdi-action-input"></i>
+<% end %>
+<div class="col s8">
+  <ul id='nav-oas' class="tabs">
+    <li class="tab col s3 " onclick="Materialize.showStaggeredList('#all-oas')" data-ul="#all-oas"><a href="#Todos os OAS">Todos os OAs</a></li>
+    <li class="tab col s3" onclick="Materialize.showStaggeredList('#my-oas')"  data-ul="#my-oas"><a href="#Meus OAs">Meus OAs</a></li>
+  </ul>
 
-<ul class="collection">
-  <li class="collection-header"><h4>Objetos de Aprendizagem</h4></li>
-  <% @los.each do |lo| %>
-    <%= content_tag :li, lo.name, class: "collection-item" %>
-  <% end %>
-</ul>
+  <article id="OAs">
+    <ul id="all-oas" class="collection list-active">
+      <li class="collection-header"><h4>Objetos de Aprendizagem</h4></li>
+      <% @los.each do |lo| %>
+        <li class="collection-item">
+          <%= content_tag(:p, lo.name)%>
+          <%if current_user.id === lo.user_id %>
+            <%= link_to 'Delete', lo_path(lo),
+                    method: :delete,
+                    data: { confirm: 'tem certeza?' },
+                    class: 'right'%>
+          <%end%>
+        </li>
+      <% end %>
+    </ul>
+
+    <ul id='my-oas' class="collection">
+      <li class="collection-header"><h4>Meus Objetos de Aprendizagem</h4></li>
+      <% @los.each do |lo| %>
+        <li class="collection-item">
+          <%if current_user.id === lo.user_id %>
+            <%= content_tag(:p, lo.name)%>
+            <%= link_to 'Destroy', lo_path(lo),
+                    method: :delete,
+                    data: { confirm: 'tem certeza?' },
+                    class: 'right'%>
+          <%end%>
+        </li>
+      <% end %>
+    </ul>
+  </article>
+
+</div>

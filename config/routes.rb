@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :registrations => :registrations }
   get 'dashboard' => 'dashboard#index'
 
-  get 'los' => 'los#index'
+  resources :los, only: [:index, :create, :upate, :new, :destroy]
 
   root to: "home#index"
   resources :contacts, only: [:create]

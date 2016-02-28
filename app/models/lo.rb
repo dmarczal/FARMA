@@ -3,6 +3,6 @@ class Lo < ActiveRecord::Base
 
   validates :name, presence: true
   validates :description, presence: true
-  validates_associated :user_id, presence: true
+
 
 end
