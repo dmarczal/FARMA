@@ -1,8 +1,6 @@
 class Lo < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :user 
 
-  validates :name, presence: true
-  validates :description, presence: true
-
+  validates :name, :description, presence: true
 
 end

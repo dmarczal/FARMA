@@ -1,11 +1,11 @@
-<% provide(:title, "Novo OA") %>
+<% provide(:title, "Edite OA") %>
 
 <div id="box-new-lo" class="col s9 container">
 
-  <h3>Novo objeto de aprendizagem</h3>
+  <h3>Objeto de Aprendizagem <%= @lo.name %></h3>
 
   <%= simple_form_for(@lo , html: {class: 'col s12'}) do |f| %>
-  
+
     <%= f.input :name, autofocus: true %>
     <%= f.input :description, as: :textarea %>
 

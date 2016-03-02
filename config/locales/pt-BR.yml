@@ -23,3 +23,6 @@
         contact:
           message: "Mensagem"
           <<: *commons
+        lo:
+          description: "Descrição"
+          <<: *commons

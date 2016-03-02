@@ -2,14 +2,80 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#new_lo{
-  margin-top: 20px;
+
+/*
+ * Box list all-los style
+ * ______________________________*/
+#all-los li{
+  position: relative;
+
+  #left-los-box{
+      position: absolute;
+      left: 0;
+      width: 20%;
+
+      span, p{ //the image space
+        position: relative;
+        margin-left: 50%;
+      }
+  }
+
+  #mdi-los-box{
+    width: 50%;
+    position: absolute;
+    right: 20%;
+  }
+
+  #right-los-box{
+    position: absolute;
+    right: 5%;
+  }
 }
 
-#OAs ul{
-  display: none;
+/*
+ * Box list my-los style
+ * ______________________________*/
+
+#my-los li{
+  position: relative;
+
+  #left-my-los-box{
+      position: absolute;
+      left: 0;
+      width: 10%;
+
+      span, p{//the image space
+        position: relative;
+        margin-left: 20%;
+      }
+  }
+
+  #mdi-my-los-box{
+    width: 70%;
+    position: absolute;
+    right: 15%;
+  }
+
+  #right-my-los-box{
+    position: absolute;
+    right: 5%;
+  }
 }
 
-.list-active{
-  display: block !important;
+#box-new-lo{
+  padding: 5%;
+}
+/*
+ * form new lo style
+ * ______________________________*/
+#new-lo{
+  position: fixed;
+}
+
+/*
+ * collections los style
+ * ______________________________*/
+
+#los{
+  margin-top: 5%;
 }
