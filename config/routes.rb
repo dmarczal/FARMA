@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :registrations => :registrations }
   get 'dashboard' => 'dashboard#index'
 
-  get 'los/my' => 'los#my'
   resources :los, only: [:index, :create, :destroy, :new, :show, :edit, :update]
 
   root to: "home#index"

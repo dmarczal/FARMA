@@ -15,10 +15,6 @@
   }
 }
 
-#button-user.active_painel { // slide button
-  left: 0;
-}
-
 #icon_button.active_painel {    // Rotate Icon
   -ms-transform: rotate(0);     /* IE 9 */
   -webkit-transform: rotate(0); /* Chrome, Safari, Opera */
@@ -29,6 +25,7 @@
   width: 300px;
   height: 100%;
   float: left;
+  padding: 0;
 }
 
 #painel {//_____ Card_Painel
@@ -46,6 +43,8 @@
   left: 5%;
 }
 
+
+ //_____ links user(perfil and get out)
 #button_links_user {
   margin: 20% 2% 0 0;
   position: absolute;

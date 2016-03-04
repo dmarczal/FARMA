@@ -4,7 +4,7 @@ FactoryGirl.define do
     name                  { Faker::Internet.name }
     description           { Faker::Internet.email }
 
-    user_id               {create(:user)}
+    user             
   end
 
   factory :invalid_lo, parent: :lo do
