@@ -1,6 +1,8 @@
 class Lo < ActiveRecord::Base
-  belongs_to :user 
+  belongs_to :user
+  has_many :introduction , dependent: :destroy
 
-  validates :name, :description, presence: true
+  validates :name, :description, :user, presence: true
+
 
 end

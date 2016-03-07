@@ -1,32 +1,6 @@
 // Place all the styles related to the los controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-
-/*
- * Box list all-los style
- * ______________________________*/
-#all-los li{
-  position: relative;
-
-  #left-los-box{
-      position: absolute;
-      left: 0;
-      width: 20%;
-
-      span, p{ //the image space
-        position: relative;
-        margin-left: 50%;
-      }
-  }
-
-  #mdi-los-box{
-    width: 50%;
-    position: absolute;
-    right: 20%;
-  }
-}
-
 /*
  * Box list my-los style
  * ______________________________*/

@@ -1,21 +1,31 @@
 require 'rails_helper'
 
 RSpec.describe Lo, type: :model do
-  before :each do
-    @lo = Lo.create!(name: Faker::Name.name, description: Faker::Name.title)
+  before do
+    @user = FactoryGirl.create(:user_actived)
+    @lo = FactoryGirl.create(:lo, user: @user)
   end
 
-  after do
-    @lo.destroy
+  context "relationship" do
+
+    it "auto increment in introduction_count when create one new introduction" do
+      intro = FactoryGirl.create(:introduction, lo: @lo)
+      expect(@lo.introductions_count).to eq 1
+    end
+
   end
 
-  it "should not be stored in the table with null name" do
-    @lo.name = nil
-    expect(@lo.save).to eq false
-  end
+  context " invalid attributes" do
 
-  it "should not be stored in the table with null description" do
-    @lo.description = nil
-    expect(@lo.save).to eq false
+    it "should not be stored in the table with null name" do
+      @lo.name = nil
+      expect(@lo.save).to eq false
+    end
+
+    it "should not be stored in the table with null description" do
+      @lo.description = nil
+      expect(@lo.save).to eq false
+    end
+
   end
 end
