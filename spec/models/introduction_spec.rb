@@ -4,13 +4,10 @@ RSpec.describe Introduction, type: :model do
   before do
     @user = FactoryGirl.create(:user_actived)
     @lo = FactoryGirl.create(:lo, user: @user)
+    @intro = FactoryGirl.create(:introduction, lo: @lo)
   end
 
   context "invalid attributes" do
-    before :each do
-      @intro = FactoryGirl.create(:introduction, lo: @lo)
-    end
-
     it "should not be save in the table with null title"do
       @intro.title = ''
       expect(@intro.save).to eq false
@@ -20,6 +17,10 @@ RSpec.describe Introduction, type: :model do
       @intro.content = ''
       expect(@intro.save).to eq false
     end
-
   end
+
+  it "auto position" do
+    expect(@lo.introductions_count + @lo.exercises_count).to eq @intro.position
+  end
+
 end
