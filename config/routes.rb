@@ -8,8 +8,9 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :registrations => :registrations }
   get 'dashboard' => 'dashboard#index'
 
-  
-  resources :los
+  scope :dashboard do
+    resources :los
+  end
 
   root to: "home#index"
   resources :contacts, only: [:create]
