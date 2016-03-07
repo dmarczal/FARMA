@@ -1,7 +1,8 @@
 require 'rails_helper'
 
+
 RSpec.describe LosController, type: :controller do
-  
+
   before :each do
     @user = FactoryGirl.create(:user_actived)
     sign_in @user

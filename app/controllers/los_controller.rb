@@ -1,6 +1,6 @@
 class LosController < DashboardController
   before_action :find_lo , only: [:show, :edit, :update, :destroy]
-  # demonstration of lo
+  # get of lo
   def index
     @los = current_user.los.order :name
   end
@@ -8,6 +8,16 @@ class LosController < DashboardController
   # edition of lo
   def new # new lo
     @lo = current_user.los.new
+  end
+
+  def create #create new lo (post)
+    @lo = current_user.los.new(lo_params)
+    if @lo.save
+      redirect_to los_path
+    else
+      flash.now[:error] = "Existem dados incorretos."
+      render 'new'
+    end
   end
 
   def update #edit lo (put)
@@ -23,16 +33,6 @@ class LosController < DashboardController
   def destroy #delete lo
     @lo.destroy
     redirect_to los_path
-  end
-
-  def create #create new lo (post)
-    @lo = current_user.los.new(lo_params)
-    if @lo.save
-      redirect_to los_path
-    else
-      flash.now[:error] = "Existem dados incorretos."
-      render 'new'
-    end
   end
 
   private

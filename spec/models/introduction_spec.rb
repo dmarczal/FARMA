@@ -20,7 +20,11 @@ RSpec.describe Introduction, type: :model do
   end
 
   it "auto position" do
-    expect(@lo.introductions_count + @lo.exercises_count).to eq @intro.position
+
+    intro2 = FactoryGirl.create(:introduction, lo: @lo)
+    expect(1).to eq @intro.position
+    expect(2).to eq intro2.position
+    
   end
 
 end
