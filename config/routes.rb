@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   get 'dashboard' => 'dashboard#index'
 
   scope :dashboard do
-    resources :los
+    resources :los do
+      resources :introductions , only: [:create, :new, :destroy]
+    end
   end
 
 

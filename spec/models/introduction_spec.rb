@@ -19,12 +19,4 @@ RSpec.describe Introduction, type: :model do
     end
   end
 
-  it "auto position" do
-
-    intro2 = FactoryGirl.create(:introduction, lo: @lo)
-    expect(1).to eq @intro.position
-    expect(2).to eq intro2.position
-    
-  end
-
 end
