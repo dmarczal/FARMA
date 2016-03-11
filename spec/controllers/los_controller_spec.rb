@@ -66,7 +66,7 @@ RSpec.describe LosController, type: :controller do
     it 'redirects to los_path' do
       delete :destroy, id: @lo
       expect(response).to redirect_to los_path
-      
+
     end
 
   end

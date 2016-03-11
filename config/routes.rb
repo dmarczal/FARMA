@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  mount Ckeditor::Engine => '/ckeditor'
+
   devise_for :admins, controllers: { sessions: "admin/admins/sessions" }
   namespace :admin do
     get '/' => 'dashboard#index'
@@ -10,7 +12,7 @@ Rails.application.routes.draw do
 
   scope :dashboard do
     resources :los do
-      resources :introductions , only: [:create, :new, :destroy]
+      resources :introductions , only: [:new, :create, :destroy]
     end
   end
 

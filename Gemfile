@@ -18,6 +18,7 @@ gem 'toastr-rails'     # http://www.benkirane.ch/rails-4-toastrjs-notifications/
 gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master' # For 4.x
 
 gem "paperclip", "~> 4.3"
+gem 'ckeditor', '~> 4.1' #https://github.com/galetahub/ckeditor
 
 group :development do
   gem 'thin'

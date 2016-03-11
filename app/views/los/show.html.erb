@@ -1,1 +1,5 @@
+<% provide(:title, "#{@lo.name}") %>
 
+<%= link_to(new_lo_introduction_path(@lo), class: 'btn-floating btn-large waves-effect waves-light red') do%>
+  <i class="material-icons">add</i>
+<% end %>

@@ -13,7 +13,6 @@ class IntroductionsController < LosController
     else
       flash.now[:error] = "Existem dados incorretos."
       render :new
-
     end
   end
 
