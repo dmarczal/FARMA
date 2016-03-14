@@ -1,0 +1,2 @@
+module Workspace::LosHelper
+end

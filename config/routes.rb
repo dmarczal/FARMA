@@ -8,16 +8,15 @@ Rails.application.routes.draw do
   end
 
   devise_for :users, :controllers => { :registrations => :registrations }
-  get 'dashboard' => 'dashboard#index'
-
-  scope :dashboard do
-    resources :los do
-      resources :introductions , only: [:new, :create, :destroy]
-    end
-  end
-
 
   root to: "home#index"
   resources :contacts, only: [:create]
+
+  namespace :workspace do
+    get '/' => 'dashboard#index'
+    resources :los do
+      resources :introductions , except: [:index]
+    end
+  end
 
 end

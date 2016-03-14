@@ -5,9 +5,8 @@ class ApplicationController < ActionController::Base
   layout :layout_by_resource
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-
   def after_sign_in_path_for(resource)
-    resource.is_a?(Admin) ? admin_path : dashboard_path
+    resource.is_a?(Admin) ? admin_path : workspace_path
   end
 
   protected
@@ -17,8 +16,6 @@ class ApplicationController < ActionController::Base
         "devise/users_options"
       elsif self.is_a?(HomeController)
         "home/application"
-      elsif self.is_a?(DashboardController)
-        "dashboard/application"
       else
         "application"
       end

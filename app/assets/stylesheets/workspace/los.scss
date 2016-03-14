@@ -5,10 +5,10 @@
  * Box list my-los style
  * ______________________________*/
 
-#my-los li{
+#dashboard-collection li{
   position: relative;
 
-  #left-my-los-box{
+  #left-box{
       position: absolute;
       left: 0;
       width: 10%;
@@ -19,25 +19,25 @@
       }
   }
 
-  #mdi-my-los-box{
+  #mdi-box{
     width: 70%;
     position: absolute;
     right: 15%;
   }
 
-  #right-my-los-box{
+  #right-box{
     position: absolute;
     right: 5%;
   }
 }
 
-#box-new-lo{
+#box-new{
   padding: 5%;
 }
 /*
  * form new lo style
  * ______________________________*/
-#new-lo{
+#botton-new{
   position: fixed;
 }
 
@@ -45,6 +45,6 @@
  * collections los style
  * ______________________________*/
 
-#los{
+#collection{
   margin-top: 5%;
 }

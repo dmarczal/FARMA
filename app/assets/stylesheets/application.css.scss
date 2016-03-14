@@ -49,6 +49,6 @@ $secondary-color: color("green", "darken-1") !default;
 
 @import "custom.css.scss";
 @import "toastr";
-@import "dashboard.scss";
+@import "workspace/dashboard.scss";
 @import "home.scss";
-@import "los.scss";
+@import "workspace/los.scss";

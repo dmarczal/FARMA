@@ -1,4 +1,4 @@
-class LosController < DashboardController
+class Workspace::LosController < Workspace::DashboardController
   before_action :find_lo , only: [:show, :edit, :update, :destroy]
   # get of lo
   def index
@@ -6,7 +6,7 @@ class LosController < DashboardController
   end
 
   def show
-    @introductions = @lo.introduction.order :title
+    @introductions = @lo.introduction.order :position
   end
 
   # edition of lo
@@ -17,26 +17,25 @@ class LosController < DashboardController
   def create #create new lo (post)
     @lo = current_user.los.new(lo_params)
     if @lo.save
-      redirect_to los_path
+      redirect_to workspace_los_path
     else
       flash.now[:error] = "Existem dados incorretos."
-      render 'new'
+      render :new
     end
   end
 
   def update #edit lo (put)
-
     if @lo.update(lo_params)
-      redirect_to los_path
+      redirect_to workspace_los_path
     else
       flash.now[:error] = "Existem dados incorretos."
-      render 'edit'
+      render :edit
     end
   end
 
   def destroy #delete lo
     @lo.destroy
-    redirect_to los_path
+    redirect_to workspace_los_path
   end
 
   private

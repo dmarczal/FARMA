@@ -1,0 +1,46 @@
+<% provide(:title, "#{@lo.name}") %>
+
+<%= link_to(new_workspace_lo_introduction_path(@lo), class: 'btn-floating btn-large waves-effect waves-light red', id: "botton-new") do%>
+  <i class="material-icons">add</i>
+<% end %>
+<div class="col s9">
+  <article id="collection">
+
+    <ul id="dashboard-collection" class="collection list-active container z-depth-1">
+
+      <li class="collection-header"><h4 class="center-align">Objeto <%=@lo.name%></h4></li>
+
+      <% @introductions.each do |introduction| %>
+        <li class="collection-item avatar hoverable">
+
+          <div id="left-box">
+            <%= content_tag(:span, introduction.title, class: "title truncate")%>
+          </div>
+
+          <div id="mdi-box">
+            <%= content_tag(:p, introduction.content) %>
+          </div>
+
+          <div id="right-box">
+
+              <%= link_to(workspace_lo_introduction_path(@lo,introduction), method: :get) do %>
+                <i class="material-icons">send</i>
+              <% end %>
+
+              <%= link_to(edit_workspace_lo_introduction_path(@lo,introduction)) do %>
+                <i class="material-icons">build</i>
+              <% end %>
+
+              <%= link_to(workspace_lo_introduction_path(@lo,introduction), method: :delete, data: { confirm: 'tem certeza disso?' }) do%>
+                <i class="material-icons">delete_forever</i>
+              <% end %>
+
+          </div>
+
+        </li>
+      <% end %>
+
+    </ul>
+
+  </article>
+</div>
