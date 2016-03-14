@@ -1,4 +1,4 @@
-class Workspace::IntroductionsController < Workspace::LosController
+class Workspace::IntroductionsController < Workspace::DashboardController
   before_action :find_lo , only: [:new, :create]
   before_action :find_introduction, only: [:destroy, :update, :show, :edit]
 
