@@ -65,11 +65,6 @@ RSpec.describe Workspace::IntroductionsController, type: :controller do
 
     context 'valid attributes' do
 
-      it 'located the requested @introduction' do
-        put :update, lo_id: @lo, id: @introduction, introduction: FactoryGirl.attributes_for(:introduction)
-        assigns(:introduction).should eq @introduction
-      end
-
       it "should be redirect to #{@lo}" do
         put :update, lo_id: @lo, id: @introduction, introduction: FactoryGirl.attributes_for(:introduction)
         expect(response).to redirect_to [:workspace, @lo]
@@ -78,8 +73,8 @@ RSpec.describe Workspace::IntroductionsController, type: :controller do
       it "should be updated the #{@introduction} attributes" do
         put :update, lo_id: @lo, id: @introduction, introduction: FactoryGirl.attributes_for(:introduction, title: "test", content: "test")
         @introduction.reload
-        @introduction.title.should eq "test"
-        @introduction.content.should eq "test"
+        expect(@introduction.title).to eq "test"
+        expect(@introduction.content).to eq "test"
       end
 
     end
@@ -94,8 +89,8 @@ RSpec.describe Workspace::IntroductionsController, type: :controller do
       it "should not updated the #{@introduction} attributes" do
         put :update, lo_id: @lo, id: @introduction, introduction: FactoryGirl.attributes_for(:introduction, title: "test", content: nil)
         @introduction.reload
-        @introduction.title.should eq "title"
-        @introduction.content.should eq "content"
+        expect(@introduction.title).to eq "title"
+        expect(@introduction.content).to eq "content"
       end
 
     end
