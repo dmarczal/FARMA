@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     get '/' => 'dashboard#index'
     resources :los do
       resources :introductions , except: [:index]
+
+      resources :exercises , except: [:index]
     end
   end
 

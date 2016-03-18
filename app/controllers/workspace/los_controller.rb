@@ -5,10 +5,6 @@ class Workspace::LosController < Workspace::DashboardController
     @los = current_user.los.order :name
   end
 
-  def show
-    @introductions = @lo.introduction.order :position
-  end
-
   # edition of lo
   def new # new lo
     @lo = current_user.los.new

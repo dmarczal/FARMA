@@ -19,5 +19,4 @@ RSpec.describe Exercise, type: :model do
       expect(@exercise.save).to eq false
     end
   end
-
 end
