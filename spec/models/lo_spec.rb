@@ -13,6 +13,11 @@ RSpec.describe Lo, type: :model do
       expect(@lo.introductions_count).to eq 1
     end
 
+    it "auto increment in introduction_count when create one new introduction" do
+      exercise = FactoryGirl.create(:exercise, lo: @lo)
+      expect(@lo.exercises_count).to eq 1
+    end
+
   end
 
   context " invalid attributes" do
