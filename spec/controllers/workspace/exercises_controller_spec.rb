@@ -16,7 +16,7 @@ RSpec.describe Workspace::ExercisesController, type: :controller do
         expect(response).to redirect_to [:workspace, @lo]
       end
 
-      it "create a new introduction" do
+      it "create a new exercise" do
         expect{
           post :create, lo_id: @lo, exercise: FactoryGirl.attributes_for(:exercise)
         }.to change(Exercise,:count).by(1)
@@ -31,7 +31,7 @@ RSpec.describe Workspace::ExercisesController, type: :controller do
         expect(response).to render_template :new
       end
 
-      it "don't shoud create a new introduction" do
+      it "don't shoud create a new exercise" do
         expect{
           post :create, lo_id: @lo, exercise: FactoryGirl.attributes_for(:invalid_exercise)
         }.to_not change(Exercise,:count)
@@ -45,7 +45,7 @@ RSpec.describe Workspace::ExercisesController, type: :controller do
       @exercise = FactoryGirl.create(:exercise, lo: @lo)
     end
 
-    it "should be delete informed introduction" do
+    it "should be delete informed exercise" do
       expect{
         delete :destroy, lo_id: @lo, id: @exercise
       }.to change(Exercise,:count).by(-1)
@@ -69,8 +69,8 @@ RSpec.describe Workspace::ExercisesController, type: :controller do
         expect(response).to redirect_to [:workspace, @lo]
       end
 
-      it "should be updated the  attributes" do
-        put :update, lo_id: @lo, id: @exercise, introduction: FactoryGirl.attributes_for(:exercise, title: "test", content: "test")
+      it "should be updated the exercise attributes" do
+        put :update, lo_id: @lo, id: @exercise, exercise: FactoryGirl.attributes_for(:exercise, title: "test", content: "test")
         @exercise.reload
         expect(@exercise.title).to eq "test"
         expect(@exercise.content).to eq "test"
@@ -85,7 +85,7 @@ RSpec.describe Workspace::ExercisesController, type: :controller do
           expect(response).to render_template :edit
       end
 
-      it "should not updated the #{@exercise} attributes" do
+      it "should not updated the exercise attributes" do
         put :update, lo_id: @lo, id: @exercise, exercise: FactoryGirl.attributes_for(:exercise, title: "test", content: nil)
         @exercise.reload
         expect(@exercise.title).to eq "title"
