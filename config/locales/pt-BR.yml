@@ -26,3 +26,8 @@
         lo:
           description: "Descrição"
           <<: *commons
+        introduction: &title_content
+          title: "titulo"
+          content: "conteúdo"
+        exercise:
+          <<: *title_content
