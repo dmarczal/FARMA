@@ -15,27 +15,27 @@
 
       <li class="collection-header"><h4 class="center-align">Objeto <%=@lo.name%></h4></li>
 
-      <% position_of_items(@lo).each do |item| %>
+      <% @contents.each do |content| %>
         <li class="collection-item avatar hoverable">
 
           <div id="left-box">
-            <%= content_tag(:span, item.title, class: "title truncate")%>
+            <%= content_tag(:span, content.title, class: "title truncate")%>
           </div>
 
           <div id="mdi-box">
-            <%= content_tag(:p, item.content) %>
+            <%= content_tag(:p, content.content) %>
           </div>
 
           <div id="right-box">
-            <%= link_to([:workspace, @lo,item], action: :show) do %>
+            <%= link_to([:workspace, @lo,content], action: :show) do %>
               <i class="material-icons">send</i>
             <% end %>
 
-            <%= link_to([:workspace, @lo,item], action: :edit) do %>
+            <%= link_to([:workspace, @lo,content], action: :edit) do %>
               <i class="material-icons">build</i>
             <% end %>
 
-            <%= link_to([:workspace, @lo,item], method: :delete, data: { confirm: 'tem certeza disso?' }) do%>
+            <%= link_to([:workspace, @lo,content], method: :delete, data: { confirm: 'tem certeza disso?' }) do%>
               <i class="material-icons">delete_forever</i>
             <% end %>
           </div>

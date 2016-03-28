@@ -1,6 +1,8 @@
 class Workspace::ExercisesController < Workspace::DashboardController
-  before_action :find_lo , only: [:new, :create]
-  before_action :find_exercise, only: [:destroy, :update, :show, :edit]
+  include FindModels
+
+  before_action -> { find_lo(params[:lo_id]) }, only: [:new, :create]
+  before_action -> { find_exercise(params[:id],params[:lo_id]) } , only: [:destroy, :update, :show, :edit]
 
   def new
     @exercise = @lo.exercise.new
@@ -33,14 +35,5 @@ class Workspace::ExercisesController < Workspace::DashboardController
   private
     def exercise_params
       params.require(:exercise).permit(:title, :content)
-    end
-
-    def find_lo
-      @lo = current_user.los.find(params[:lo_id])
-    end
-
-    def find_exercise
-      find_lo
-      @exercise = @lo.exercise.find(params[:id])
     end
 end

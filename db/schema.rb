@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160318172534) do
+ActiveRecord::Schema.define(version: 20160323175953) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,6 +87,18 @@ ActiveRecord::Schema.define(version: 20160318172534) do
     t.datetime "updated_at",                       null: false
   end
 
+  create_table "questions", force: :cascade do |t|
+    t.string   "title",          null: false
+    t.integer  "position"
+    t.text     "content",        null: false
+    t.text     "correct_answer", null: false
+    t.integer  "precision"
+    t.boolean  "cmas_order"
+    t.integer  "exercise_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "name",                   default: "", null: false
     t.string   "email",                  default: "", null: false
@@ -105,7 +117,6 @@ ActiveRecord::Schema.define(version: 20160318172534) do
     t.string   "unconfirmed_email"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "avatar",                 default: ""
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"

@@ -1,5 +1,7 @@
 class Workspace::IntroductionsController < Workspace::DashboardController
-  before_action :find_lo , only: [:new, :create]
+  include FindModels
+
+  before_action -> { find_lo(params[:lo_id]) } , only: [:new, :create]
   before_action :find_introduction, only: [:destroy, :update, :show, :edit]
 
   def new
@@ -35,12 +37,8 @@ class Workspace::IntroductionsController < Workspace::DashboardController
       params.require(:introduction).permit(:title, :content)
     end
 
-    def find_lo
-      @lo = current_user.los.find(params[:lo_id])
-    end
-
     def find_introduction
-      find_lo
+      find_lo(params[:lo_id])
       @introduction = @lo.introduction.find(params[:id])
     end
 end

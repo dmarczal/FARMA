@@ -17,7 +17,9 @@ Rails.application.routes.draw do
     resources :los do
       resources :introductions , except: [:index]
 
-      resources :exercises , except: [:index]
+      resources :exercises , except: [:index] do
+        resources :questions, except: [:index]
+      end
     end
   end
 

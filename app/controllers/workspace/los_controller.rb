@@ -1,8 +1,14 @@
 class Workspace::LosController < Workspace::DashboardController
-  before_action :find_lo , only: [:show, :edit, :update, :destroy]
+  include FindModels
+
+  before_action -> { find_lo(params[:id]) } , only: [:show, :edit, :update, :destroy]
   # get of lo
   def index
     @los = current_user.los.order :name
+  end
+
+  def show
+    @contents = @lo.order_contents
   end
 
   # edition of lo
@@ -37,9 +43,5 @@ class Workspace::LosController < Workspace::DashboardController
   private
     def lo_params
       params.require(:lo).permit(:name, :description)
-    end
-
-    def find_lo
-      @lo = current_user.los.find(params[:id])
     end
 end

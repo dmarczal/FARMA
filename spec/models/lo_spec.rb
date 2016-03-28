@@ -31,6 +31,22 @@ RSpec.describe Lo, type: :model do
       @lo.description = nil
       expect(@lo.save).to eq false
     end
+  end
 
+  it "contents lo position" do
+    exercise1 = FactoryGirl.create(:exercise, lo: @lo)
+    sleep 2
+    introduction1 = FactoryGirl.create(:introduction, lo: @lo)
+    sleep 2
+    exercise2 = FactoryGirl.create(:exercise, lo: @lo)
+    sleep 2
+    introduction2 = FactoryGirl.create(:introduction, lo: @lo)
+
+    contents = @lo.order_contents
+
+    expect(contents[0]).to eq exercise1
+    expect(contents[1]).to eq introduction1
+    expect(contents[2]).to eq exercise2
+    expect(contents[3]).to eq introduction2
   end
 end
