@@ -4,6 +4,10 @@ class Workspace::ExercisesController < Workspace::DashboardController
   before_action -> { find_lo(params[:lo_id]) }, only: [:new, :create]
   before_action -> { find_exercise(params[:id],params[:lo_id]) } , only: [:destroy, :update, :show, :edit]
 
+  def show
+    @questions = @exercise.question.all
+  end
+
   def new
     @exercise = @lo.exercise.new
   end

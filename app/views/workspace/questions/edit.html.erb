@@ -2,7 +2,7 @@
 
 <div id="box-new-lo" class="col s9 container">
 
-  <h3>Nova Questão</h3>
+  <h3>Editar Questão <%= @question.title %></h3>
 
   <%= simple_form_for([:workspace, @lo, @exercise, @question], html: {class: 'col s12'}) do |f| %>
 

@@ -1,5 +1,5 @@
 module FindModels extend ActiveSupport::Concern
-  protected
+  private
     def find_lo id
       @lo = current_user.los.find(id)
     end

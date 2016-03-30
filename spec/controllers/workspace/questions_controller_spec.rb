@@ -62,10 +62,33 @@ RSpec.describe Workspace::QuestionsController, type: :controller do
 
     context 'valid attributes' do
 
+      it "atributos atualizados" do
+        put :update, lo_id: @lo, exercise_id: @exercise, id: @question, question: FactoryGirl.attributes_for(:question, title: "test", content: "test")
+        @question.reload
+        expect(@question.title).to eq "test"
+        expect(@question.content).to eq "test"
+      end
+
+      it "deve redirencionar para o exercicio" do
+        put :update, lo_id: @lo, exercise_id: @exercise, id: @question, question: FactoryGirl.attributes_for(:question, title: "test", content: "test")
+        expect(response).to redirect_to [:workspace, @lo, @exercise]
+      end
+
     end
 
     context 'invalid attributes' do
 
+      it "os atributos não devem ser atualizados" do
+        put :update, lo_id: @lo, exercise_id: @exercise, id: @question, question: FactoryGirl.attributes_for(:invalid_question)
+        @question.reload
+        expect(@question.title).to eq "title"
+        expect(@question.content).to eq "content"
+      end
+
+      it "deve renderizar o edit" do
+        put :update, lo_id: @lo, exercise_id: @exercise, id: @question, question: FactoryGirl.attributes_for(:invalid_question)
+        expect(response).to render_template :edit
+      end
     end
 
   end

@@ -27,11 +27,11 @@
           </div>
 
           <div id="right-box">
-            <%= link_to([:workspace, @lo,content], action: :show) do %>
+            <%= link_to([:workspace, @lo,content]) do %>
               <i class="material-icons">send</i>
             <% end %>
 
-            <%= link_to([:workspace, @lo,content], action: :edit) do %>
+            <%= link_to(edit_workspace_lo_exercise_path(@lo,content)) do %>
               <i class="material-icons">build</i>
             <% end %>
 
