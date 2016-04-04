@@ -20,7 +20,7 @@ RSpec.describe Lo, type: :model do
 
   end
 
-  context " invalid attributes" do
+  context "invalid attributes" do
 
     it "should not be stored in the table with null name" do
       @lo.name = nil
@@ -34,19 +34,37 @@ RSpec.describe Lo, type: :model do
   end
 
   it "contents lo position" do
-    exercise1 = FactoryGirl.create(:exercise, lo: @lo)
-    sleep 2
-    introduction1 = FactoryGirl.create(:introduction, lo: @lo)
-    sleep 2
-    exercise2 = FactoryGirl.create(:exercise, lo: @lo)
-    sleep 2
-    introduction2 = FactoryGirl.create(:introduction, lo: @lo)
+    allow_any_instance_of(Exercise).to receive(:default_position)
+    allow_any_instance_of(Introduction).to receive(:default_position)
 
-    contents = @lo.order_contents
+
+    exercise1 = FactoryGirl.create(:exercise, lo: @lo,
+                                   position: 1.second.from_now.to_i)
+
+    introduction1 = FactoryGirl.create(:introduction, lo: @lo,
+                                       position: 2.second.from_now.to_i)
+
+    exercise2 = FactoryGirl.create(:exercise, lo: @lo,
+                                   position: 3.second.from_now.to_i)
+
+    introduction2 = FactoryGirl.create(:introduction, lo: @lo,
+                                       position: 4.second.from_now.to_i)
+
+    contents = @lo.contents
 
     expect(contents[0]).to eq exercise1
     expect(contents[1]).to eq introduction1
     expect(contents[2]).to eq exercise2
     expect(contents[3]).to eq introduction2
+  end
+
+  it "should destroy intructions and exercises related" do
+      FactoryGirl.create(:exercise, lo: @lo)
+      FactoryGirl.create(:introduction, lo: @lo)
+
+      @lo.destroy
+
+      expect(Introduction.count).to eq 0
+      expect(Exercise.count).to eq 0
   end
 end

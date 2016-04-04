@@ -12,7 +12,7 @@ RSpec.describe Workspace::ExercisesController, type: :controller do
 
     context "with valid attributes" do
 
-      it "redirects to the #{@lo} upon save" do
+      it "redirects to the los show upon save exercise" do
         post :create, lo_id: @lo, exercise: FactoryGirl.attributes_for(:exercise)
         expect(response).to redirect_to [:workspace, @lo]
       end
