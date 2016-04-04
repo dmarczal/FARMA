@@ -3,7 +3,6 @@ FactoryGirl.define do
   factory :lo do
     name                  { Faker::Internet.name }
     description           { Faker::Internet.email }
-    
 
     user
   end

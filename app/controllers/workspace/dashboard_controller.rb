@@ -1,5 +1,6 @@
 class Workspace::DashboardController < Workspace::ApplicationController
-  def index
 
+  def index
   end
+
 end

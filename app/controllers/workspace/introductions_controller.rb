@@ -1,8 +1,8 @@
 class Workspace::IntroductionsController < Workspace::DashboardController
   include FindModels
 
-  before_action -> { find_lo(params[:lo_id]) } , only: [:new, :create]
-  before_action :find_introduction, only: [:destroy, :update, :show, :edit]
+  before_action :find_lo, only: [:new, :create]
+  before_action :find_introduction, except: [:new, :create]
 
   def new
     @introduction = @lo.introductions.new
@@ -10,7 +10,7 @@ class Workspace::IntroductionsController < Workspace::DashboardController
 
   def update
     if @introduction.update(introduction_params)
-      redirect_to [:workspace, @lo]
+      redirect_to workspace_lo_path(@lo)
     else
       flash.now[:error] = "Existem dados incorretos."
       render :edit
@@ -20,7 +20,7 @@ class Workspace::IntroductionsController < Workspace::DashboardController
   def create
     @introduction = @lo.introductions.new(introduction_params)
     if @introduction.save
-      redirect_to [:workspace, @lo]
+      redirect_to workspace_lo_path(@lo)
     else
       flash.now[:error] = "Existem dados incorretos."
       render :new
@@ -29,7 +29,7 @@ class Workspace::IntroductionsController < Workspace::DashboardController
 
   def destroy
     @introduction.destroy
-    redirect_to [:workspace, @lo]
+    redirect_to workspace_lo_path(@lo)
   end
 
   private
@@ -38,7 +38,7 @@ class Workspace::IntroductionsController < Workspace::DashboardController
     end
 
     def find_introduction
-      find_lo(params[:lo_id])
+      find_lo
       @introduction = @lo.introductions.find(params[:id])
     end
 end

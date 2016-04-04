@@ -1,18 +1,17 @@
 class Workspace::LosController < Workspace::DashboardController
   include FindModels
 
-  before_action -> { find_lo(params[:id]) } , only: [:show, :edit, :update, :destroy]
-  # get of lo
+  before_action :find_lo, only: [:show, :edit, :update, :destroy]
+
   def index
     @los = current_user.los.order :name
   end
 
   def show
-    @contents = @lo.order_contents
+    @contents = @lo.contents
   end
 
-  # edition of lo
-  def new # new lo
+  def new 
     @lo = current_user.los.new
   end
 
@@ -26,7 +25,7 @@ class Workspace::LosController < Workspace::DashboardController
     end
   end
 
-  def update #edit lo (put)
+  def update # (put)
     if @lo.update(lo_params)
       redirect_to workspace_los_path
     else
@@ -35,7 +34,7 @@ class Workspace::LosController < Workspace::DashboardController
     end
   end
 
-  def destroy #delete lo
+  def destroy # delete lo
     @lo.destroy
     redirect_to workspace_los_path
   end

@@ -17,7 +17,7 @@ gem 'materialize-sass' # https://github.com/mkhairi/materialize-sass
 gem 'toastr-rails'     # http://www.benkirane.ch/rails-4-toastrjs-notifications/
 gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master' # For 4.x
 
-gem "paperclip", "~> 4.3"
+gem 'paperclip', '~> 4.3'
 gem 'ckeditor', '~> 4.1' #https://github.com/galetahub/ckeditor
 
 group :development do
@@ -35,7 +35,6 @@ group :development do
   gem 'capistrano-passenger', require: false
 end
 
-
 group :development, :test do
   gem 'spring',       '1.1.3'
   gem 'faker',        '1.3.0'
@@ -46,8 +45,8 @@ group :development, :test do
   gem 'capybara'               # https://github.com/jnicklas/capybara
 end
 
-
 group :test do
+  gem 'database_cleaner'
 end
 
 group :production do
