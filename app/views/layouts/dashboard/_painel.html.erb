@@ -1,4 +1,4 @@
-<div id="slide-out" class="wight z-depth-4">
+<div id="slide-out" class="wight z-depth-4 col s3">
 
   <div id="painel" class="">
 
@@ -31,8 +31,11 @@
   </div>
 
   <div class="collection">
-    <%= link_to(dashboard_path, class:'collection-item') do %>
+    <%= link_to(workspace_path, class: 'collection-item') do %>
       <i class="mdi-action-dashboard left"></i> Dashboard
+    <% end %>
+    <%= link_to(workspace_los_path, class: 'collection-item') do %>
+      <i class="mdi-action-list left"></i> Meus OAs
     <% end %>
   </div>
 </div>

@@ -28,7 +28,7 @@ $secondary-color: color("green", "darken-1") !default;
 @import "materialize/components/typography";
 @import "materialize/components/cards";
 @import "materialize/components/toast";
-@import "materialize/components/tabs";
+// @import "materialize/components/tabs";
 @import "materialize/components/tooltip";
 @import "materialize/components/buttons";
 @import "materialize/components/dropdown";
@@ -49,5 +49,6 @@ $secondary-color: color("green", "darken-1") !default;
 
 @import "custom.css.scss";
 @import "toastr";
-@import "dashboard.scss";
+@import "workspace/dashboard.scss";
 @import "home.scss";
+@import "workspace/los.scss";
