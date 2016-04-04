@@ -5,7 +5,7 @@ class Workspace::IntroductionsController < Workspace::DashboardController
   before_action :find_introduction, only: [:destroy, :update, :show, :edit]
 
   def new
-    @introduction = @lo.introduction.new
+    @introduction = @lo.introductions.new
   end
 
   def update
@@ -18,7 +18,7 @@ class Workspace::IntroductionsController < Workspace::DashboardController
   end
 
   def create
-    @introduction = @lo.introduction.new(introduction_params)
+    @introduction = @lo.introductions.new(introduction_params)
     if @introduction.save
       redirect_to [:workspace, @lo]
     else
@@ -39,6 +39,6 @@ class Workspace::IntroductionsController < Workspace::DashboardController
 
     def find_introduction
       find_lo(params[:lo_id])
-      @introduction = @lo.introduction.find(params[:id])
+      @introduction = @lo.introductions.find(params[:id])
     end
 end

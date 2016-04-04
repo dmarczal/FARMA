@@ -1,15 +1,15 @@
 class Lo < ActiveRecord::Base
   belongs_to :user
-  has_many :introduction
+  has_many :introductions
 
-  has_many :exercise
+  has_many :exercises
 
   validates :name, :description, :user, presence: true
 
 
   def order_contents
-    exercises = self.exercise.order :position
-    introductions = self.introduction.order :position
+    exercises = self.exercises.order :position
+    introductions = self.introductions.order :position
 
     contents = exercises + introductions
 

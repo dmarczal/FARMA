@@ -5,11 +5,11 @@ class Workspace::ExercisesController < Workspace::DashboardController
   before_action -> { find_exercise(params[:id],params[:lo_id]) } , only: [:destroy, :update, :show, :edit]
 
   def show
-    @questions = @exercise.question.all
+    @questions = @exercise.questions.all
   end
 
   def new
-    @exercise = @lo.exercise.new
+    @exercise = @lo.exercises.new
   end
 
   def update
@@ -22,7 +22,7 @@ class Workspace::ExercisesController < Workspace::DashboardController
   end
 
   def create
-    @exercise = @lo.exercise.new(exercise_params)
+    @exercise = @lo.exercises.new(exercise_params)
     if @exercise.save
       redirect_to [:workspace, @lo]
     else

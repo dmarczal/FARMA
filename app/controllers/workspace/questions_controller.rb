@@ -5,11 +5,11 @@ class Workspace::QuestionsController < Workspace::DashboardController
   before_action -> { find_exercise(params[:exercise_id], params[:lo_id]) }, only: [:new, :create, :destroy, :update, :edit]
 
   def new
-    @question = @exercise.question.new
+    @question = @exercise.questions.new
   end
 
   def create
-    @question = @exercise.question.new(question_params)
+    @question = @exercise.questions.new(question_params)
     if @question.save
       redirect_to [:workspace, @lo, @exercise]
     else
@@ -42,6 +42,6 @@ class Workspace::QuestionsController < Workspace::DashboardController
     def find_question
       find_exercise(params[:exercise_id], params[:lo_id])
 
-      @question = @exercise.question.find(params[:id])
+      @question = @exercise.questions.find(params[:id])
     end
 end

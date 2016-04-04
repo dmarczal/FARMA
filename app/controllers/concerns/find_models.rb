@@ -6,6 +6,6 @@ module FindModels extend ActiveSupport::Concern
 
     def find_exercise(id, lo_id)
       find_lo lo_id
-      @exercise = @lo.exercise.find(id)
+      @exercise = @lo.exercises.find(id)
     end
 end

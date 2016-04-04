@@ -1,2 +1,2 @@
-class Workspace::TipsController < ApplicationController
+class Workspace::TipsController < Workspace::QuestionsController
 end
