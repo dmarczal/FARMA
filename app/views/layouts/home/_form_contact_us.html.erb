@@ -1,11 +1,11 @@
-<div class="col m6 offset-m1 s12 container">
+<div class="section container">
 
-  <h5>Entre em contato conosco</h5>
+  <h5 class="center">Entre em contato conosco</h5>
 
-  <div class="divider"></div>
+
 
   <%= simple_form_for(@contact, :remote => true) do |f| %>
-    <%= f.input :name, autofocus: true %>
+    <%= f.input :name %>
     <%= f.input :email %>
     <%= f.input :message, as: :textarea %>
 

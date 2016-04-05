@@ -18,6 +18,7 @@ $(document).on 'page:change', ->
   window.FARMA.reloadMaterilizeEffects()
   window.FARMA.toggleVerticalMenu()
 
+
 window.FARMA = {}
 
 window.FARMA.reloadMaterilizeEffects = ->
@@ -28,6 +29,7 @@ window.FARMA.reloadMaterilizeEffects = ->
   $('input[autofocus]').siblings('label, i').addClass('active')
   $('.button-collapse').sideNav() #reinitialize nav-mobile
   $('.parallax').parallax() #reinitialize parallax
+  $('.slider').slider({height: 400})
 
 window.FARMA.displayFlashMessages = ->
   toastr.options =

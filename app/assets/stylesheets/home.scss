@@ -2,23 +2,66 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$palleteblue: #2F373F;
+$palletegreen: #00d055;
+$palletegrey: #313131;
+$palletegrey2: #7D7B7A;
+$palletewhite: #edeeef;
+$palletered: #FF3A3A;
 
 /*
- * parallax configuration
- * ______________________________*/
+* parallax configuration
+* ______________________________*/
+
+body{
+  background-color: $palletewhite;
+}
+.white-text{
+  color: $palletewhite;
+}
+.gray-text{
+  color: $palletegrey;
+}
+.gray-text2{
+  color: $palletegrey2;
+}
+.text-green{
+  color: $palletegreen;
+}
+a{
+  @extend .text-green;
+}
 
 .parallax-container {
   min-height: 380px;
   line-height: 0;
   height: auto;
-  color: rgba(255,255,255,.9);
+  color: rgba($palletewhite,.9);
+  .section {
+    width: 100%;
+  }
 }
-.parallax-container .section {
-  width: 100%;
+
+.top-container{
+  min-height: 600px;
 }
+.gradient-white{
+  background: rgba($palletewhite,1);
+  background: -moz-linear-gradient(top, rgba($palletewhite,1) 0%, rgba($palletewhite,1) 8%, rgba($palletewhite,0.69) 28%, rgba($palletewhite,0) 51%, rgba($palletewhite,0.69) 74%, rgba($palletewhite,1) 88%, rgba($palletewhite,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba($palletewhite,1)), color-stop(8%, rgba($palletewhite,1)), color-stop(28%, rgba($palletewhite,0.69)), color-stop(51%, rgba($palletewhite,0)), color-stop(74%, rgba($palletewhite,0.69)));
+  background: -webkit-linear-gradient(top, rgba($palletewhite,1) 0%, rgba($palletewhite,1) 8%, rgba($palletewhite,0.69) 28%, rgba($palletewhite,0) 51%, rgba($palletewhite,0.69) 74%, rgba($palletewhite,1) 88%, rgba($palletewhite,1) 100%);
+  background: -o-linear-gradient(top, rgba($palletewhite,1) 0%, rgba($palletewhite,1) 8%, rgba($palletewhite,0.69) 28%, rgba($palletewhite,0) 51%, rgba($palletewhite,0.69) 74%, rgba($palletewhite,1) 88%, rgba($palletewhite,1) 100%);
+  background: -ms-linear-gradient(top, rgba($palletewhite,1) 0%, rgba($palletewhite,1) 8%, rgba($palletewhite,0.69) 28%, rgba($palletewhite,0) 51%, rgba($palletewhite,0.69) 74%, rgba($palletewhite,1) 88%, rgba($palletewhite,1) 100%);
+  background: linear-gradient(to bottom, rgba($palletewhite,1) 0%, rgba($palletewhite,1) 8%, rgba($palletewhite,0.69) 28%, rgba($palletewhite,0) 51%, rgba($palletewhite,0.69) 74%, rgba($palletewhite,1) 88%, rgba($palletewhite,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#edeeef', endColorstr='#edeeef', GradientType=0 );
+  opacity: 1.5;
+}
+
 
 #home-page {
   #index-banner {
+
+    @extend .gradient-white;
 
     position: relative;
 
@@ -32,43 +75,37 @@
     }
   }
 
-  h1, h4 {
+  h1, h4{
     // text-shadow: 0.5px 0.5px #FFF;
     margin-bottom: 0.2em;
-    font-size: 2.2rem;
+    font-size: 1.54rem;
+  }
+  p{
+    margin-bottom: 0.2em;
+    line-height: 20px;
+    text-align: center;
   }
 
-  .box-5 {
-    min-height: 150px;
-    margin-bottom: 1em;
-  }
-
-   .box-1 h1, .box-3 h4, .box-5 h4, .box-6 h4  {
-    padding: 5px;
-    background-color: rgba(67, 160, 71, 0.74);//rgba(0,13,0,0.74);
-    border-radius: 15px;
-  }
 }
+.box-5 {
+  min-height: 150px;
+  margin-bottom: 1em;
+}
+
 
 #home-page-footer {
   color: #FFF;
+}
 
-  ul {
-     margin-left: 15px;
-     li { 
-       list-style: circle;
-     }
-  }
-  
   form {
     margin-top: 15px;
 
     .input-field label {
-      color: #FFF;
+      color: $palletegrey2;
     }
 
     input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea {
-      border-bottom: 1px solid #FFF;
+      border-bottom: 1px solid $palletegrey2;
     }
 
     .has-error {
@@ -79,7 +116,6 @@
     }
 
   }
-}
 
 @media only screen and (max-width : 992px) {
   .parallax-container .section {
@@ -95,4 +131,103 @@
   #index-banner .section {
     top: 0;
   }
+}
+nav{
+  background-color: transparent;
+  box-shadow: none;
+  ul a{
+    color: $palleteblue;
+}
+}
+.btn-large{
+  background-color: $palletegreen;
+  border-radius: 32px;
+  color: #067533;
+}
+.content-container{
+  top: 283px;
+}
+.move-btn{
+  line-height: 125px;
+}
+#home-page-footer{
+  background-color: $palleteblue;
+}
+.btn{
+  background-color: $palletegreen;
+  border-radius: 32px;
+  color: #067533;
+}
+.btn:hover{
+  background-color: #00D060;
+}
+.slider .slides{
+  background-color: $palletewhite;
+}
+.slider .slides li .caption p{
+  color: $palletegrey;
+}
+.slider .indicators .indicator-item.active{
+  background-color: $palletegreen;
+}
+.top-container {
+  min-height: 655px;
+}
+.logo{
+  width: 183px;
+  margin-left: 360px;
+  position: relative;
+}
+.organize{
+  margin-top: -178px;
+}
+.box-3{
+  @extend .gradient-white;
+}
+.item-size{
+  width: 150px;
+}
+@mixin transform ($scale) {
+  -moz-transform: $scale;
+  -webkit-transform: $scale;
+  -o-transform: $scale;
+  transform:$scale;
+
+  -webkit-transition: 2s all ease;
+  -moz-transition: 2s all ease;
+  -o-transition: 2s all ease;
+}
+
+.item-size:hover{@include scale(1.1); }
+
+.login-panel{
+  background-image: url('farma-03.jpg');
+  background-color: $palletegreen;
+  background-blend-mode: darken;
+}
+.section.no-pad-bot {
+  padding-top: 422px;
+  padding-bottom: 422px;
+
+}
+.divider{
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.box-5{
+  @extend .gradient-white;
+}
+.toast{
+  background-color: $palletered;
+}
+.card .card-reveal{
+  background-color: $palletegreen;
+  opacity: 0.9;
+  p{
+    color: $palletewhite;
+  }
+}
+
+input[type=email]:focus:not([readonly]), input[type=password]:focus:not([readonly]){
+  border-bottom: 1px solid $palletegreen;
 }
