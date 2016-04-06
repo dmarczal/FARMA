@@ -10,13 +10,15 @@
 </head>
 <body>
 
+   <%= render 'shared/flash_messages'  %>
+
   <header>
     <%= render 'layouts/dashboard/navbar' %>
   </header>
 
-  <main>
+  <main id="main-dashboard" class="row">
     <%= render 'layouts/dashboard/painel' %>
-     <%= yield %>
+    <%= yield %>
   </main>
 
 </body>

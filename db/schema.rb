@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160222214341) do
+ActiveRecord::Schema.define(version: 20160330194441) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,12 +34,77 @@ ActiveRecord::Schema.define(version: 20160222214341) do
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
 
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string   "data_file_name",               null: false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    limit: 30
+    t.string   "type",              limit: 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
+
   create_table "contacts", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
     t.text     "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "exercises", force: :cascade do |t|
+    t.string   "title",           null: false
+    t.text     "content",         null: false
+    t.integer  "position"
+    t.integer  "questions_count"
+    t.integer  "lo_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "introductions", force: :cascade do |t|
+    t.string   "title",      null: false
+    t.text     "content",    null: false
+    t.integer  "position"
+    t.integer  "lo_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "los", force: :cascade do |t|
+    t.string   "name",                default: "", null: false
+    t.text     "description",         default: "", null: false
+    t.integer  "introductions_count", default: 0
+    t.integer  "exercises_count",     default: 0
+    t.integer  "user_id"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.string   "title",          null: false
+    t.integer  "position"
+    t.text     "content",        null: false
+    t.text     "correct_answer", null: false
+    t.integer  "precision"
+    t.boolean  "cmas_order"
+    t.integer  "exercise_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "tips", force: :cascade do |t|
+    t.text     "content",                     null: false
+    t.integer  "number_of_tries", default: 0
+    t.integer  "question_id"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "users", force: :cascade do |t|

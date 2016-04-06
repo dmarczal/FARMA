@@ -1,0 +1,17 @@
+<%= link_to(new_workspace_lo_exercise_question_path(@lo,@exercise), class: 'btn-floating btn-large waves-effect waves-light red right') do%>
+  <i class="material-icons">add</i>
+<% end %>
+
+<ul>
+  <% @questions.each do |question| %>
+    <li>
+      <%= question.title %>
+      <%= link_to(edit_workspace_lo_exercise_question_path(@lo, @exercise, question), action: :edit) do %>
+        <i class="material-icons">build</i>
+      <% end %>
+      <%= link_to([:workspace, @lo, @exercise, question], method: :delete, data: { confirm: 'tem certeza disso?' }) do%>
+        <i class="material-icons">delete_forever</i>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

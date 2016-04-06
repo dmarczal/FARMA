@@ -1,0 +1,50 @@
+// Place all the styles related to the los controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+/*
+ * Box list my-los style
+ * ______________________________*/
+
+#dashboard-collection li{
+  position: relative;
+
+  #left-box{
+      position: absolute;
+      left: 0;
+      width: 10%;
+
+      span, p{//the image space
+        position: relative;
+        margin-left: 20%;
+      }
+  }
+
+  #mdi-box{
+    width: 70%;
+    position: absolute;
+    right: 15%;
+  }
+
+  #right-box{
+    position: absolute;
+    right: 5%;
+  }
+}
+
+#box-new{
+  padding: 5%;
+}
+/*
+ * form new lo style
+ * ______________________________*/
+#botton-new{
+  position: fixed;
+}
+
+/*
+ * collections los style
+ * ______________________________*/
+
+#collection{
+  margin-top: 5%;
+}

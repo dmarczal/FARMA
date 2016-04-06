@@ -1,0 +1,49 @@
+<% provide(:title, "#{@lo.name}") %>
+
+<%= link_to(new_workspace_lo_introduction_path(@lo), class: 'btn-floating btn-large waves-effect waves-light red right') do%>
+  <i class="material-icons">add</i>
+<% end %>
+
+<%= link_to(new_workspace_lo_exercise_path(@lo), class: 'btn-floating btn-large waves-effect waves-light red left') do%>
+  <i class="material-icons">add</i>
+<% end %>
+
+<div class="col s9">
+  <article id="collection">
+
+    <ul id="dashboard-collection" class="collection list-active container z-depth-1">
+
+      <li class="collection-header"><h4 class="center-align">Objeto <%=@lo.name%></h4></li>
+
+      <% @contents.each do |content| %>
+        <li class="collection-item avatar hoverable">
+
+          <div id="left-box">
+            <%= content_tag(:span, content.title, class: "title truncate")%>
+          </div>
+
+          <div id="mdi-box">
+            <%= content_tag(:p, content.content) %>
+          </div>
+
+          <div id="right-box">
+            <%= link_to([:workspace, @lo,content]) do %>
+              <i class="material-icons">send</i>
+            <% end %>
+
+            <%= link_to(edit_workspace_lo_exercise_path(@lo,content)) do %>
+              <i class="material-icons">build</i>
+            <% end %>
+
+            <%= link_to([:workspace, @lo,content], method: :delete, data: { confirm: 'tem certeza disso?' })do%>
+              <i class="material-icons">delete_forever</i>
+            <% end %>
+          </div>
+
+        </li>
+      <% end %>
+
+    </ul>
+
+  </article>
+</div>
