@@ -19,3 +19,4 @@
 //= require loads
 //= require workspace/dashboard
 //= require ckeditor/init
+//= require workspace/exercises

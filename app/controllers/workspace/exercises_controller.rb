@@ -6,6 +6,7 @@ class Workspace::ExercisesController < Workspace::DashboardController
 
   def show
     @questions = @exercise.questions.all
+    @question = @exercise.questions.new
   end
 
   def new
@@ -40,5 +41,4 @@ class Workspace::ExercisesController < Workspace::DashboardController
     def exercise_params
       params.require(:exercise).permit(:title, :content)
     end
-
 end

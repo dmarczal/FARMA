@@ -1,21 +1,18 @@
 class Workspace::QuestionsController < Workspace::DashboardController
   include FindModels
 
-  before_action :find_question, only: [:edit, :update, :destroy]
-  before_action :find_exercise, only: [:new, :create, :destroy, :update, :edit]
-
-  def new
-    @question = @exercise.questions.new
-  end
+  before_action :find_question, only: [:update, :destroy]
+  before_action :find_exercise, only: [:create, :destroy, :update]
 
   def create
     @question = @exercise.questions.new(question_params)
     if @question.save
-      redirect_to workspace_lo_exercise_path(@lo, @exercise)
+      render workspace_lo_exercise_path(@lo, @exercise)
     else
       flash.now[:error] = "Existem dados incorretos."
       render :new
     end
+    @question = nil;
   end
 
   def update

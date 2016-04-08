@@ -11,12 +11,12 @@ RSpec.describe Workspace::QuestionsController, type: :controller do
 
   describe "POST create" do
     context "with valid attributes" do
-      it "redireciona para exercicio" do
+      it "should the redirect to exercise path" do
         post :create, lo_id: @lo, exercise_id: @exercise, question: FactoryGirl.attributes_for(:question)
         expect(response).to redirect_to [:workspace, @lo, @exercise]
       end
 
-      it "cria uma nova questão " do
+      it "should create a new Question" do
         expect{
           post :create, lo_id: @lo, exercise_id: @exercise, question: FactoryGirl.attributes_for(:question)
         }.to change(Question,:count).by 1
@@ -24,12 +24,12 @@ RSpec.describe Workspace::QuestionsController, type: :controller do
     end
 
     context "with invalid attributes" do
-      it "renderiza o new da questão" do
+      it "should render the new question" do
         post :create, lo_id: @lo, exercise_id: @exercise, question: FactoryGirl.attributes_for(:invalid_question)
         expect(response).to render_template :new
       end
 
-      it "não cria a nova questão" do
+      it "should not create the new Question" do
         expect{
             post :create, lo_id: @lo, exercise_id: @exercise, question: FactoryGirl.attributes_for(:invalid_question)
         }.to_not change(Question,:count)
@@ -42,13 +42,13 @@ RSpec.describe Workspace::QuestionsController, type: :controller do
       @question = FactoryGirl.create(:question, exercise: @exercise)
     end
 
-    it "deve deletar a questão" do
+    it "should delete the question" do
       expect{
         delete :destroy, lo_id: @lo, exercise_id: @exercise, id: @question
       }.to change(Question,:count).by -1
     end
 
-    it "deve redirecionar para o exercise" do
+    it "should redirect to the exercise path" do
       delete :destroy, lo_id: @lo, exercise_id: @exercise, id: @question
       expect(response).to redirect_to [:workspace, @lo, @exercise]
     end
@@ -62,14 +62,14 @@ RSpec.describe Workspace::QuestionsController, type: :controller do
 
     context 'valid attributes' do
 
-      it "atributos atualizados" do
+      it "should update the attributes" do
         put :update, lo_id: @lo, exercise_id: @exercise, id: @question, question: FactoryGirl.attributes_for(:question, title: "test", content: "test")
         @question.reload
         expect(@question.title).to eq "test"
         expect(@question.content).to eq "test"
       end
 
-      it "deve redirencionar para o exercicio" do
+      it "should redirect to the exercise path" do
         put :update, lo_id: @lo, exercise_id: @exercise, id: @question, question: FactoryGirl.attributes_for(:question, title: "test", content: "test")
         expect(response).to redirect_to [:workspace, @lo, @exercise]
       end
@@ -78,19 +78,17 @@ RSpec.describe Workspace::QuestionsController, type: :controller do
 
     context 'invalid attributes' do
 
-      it "os atributos não devem ser atualizados" do
+      it "should not update the attributes" do
         put :update, lo_id: @lo, exercise_id: @exercise, id: @question, question: FactoryGirl.attributes_for(:invalid_question)
         @question.reload
         expect(@question.title).to eq "title"
         expect(@question.content).to eq "content"
       end
 
-      it "deve renderizar o edit" do
+      it "should render the edit of question" do
         put :update, lo_id: @lo, exercise_id: @exercise, id: @question, question: FactoryGirl.attributes_for(:invalid_question)
         expect(response).to render_template :edit
       end
     end
-
   end
-
 end
