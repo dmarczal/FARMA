@@ -1,0 +1,263 @@
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-14 17:59:34 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (126.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+DEPRECATION WARNING: Extra .css in SCSS file is unnecessary. Rename /home/darlan/teste/farma/app/assets/stylesheets/custom.css.scss to /home/darlan/teste/farma/app/assets/stylesheets/custom.scss. (called from _app_views_home_index_html_erb__3455951859472787009_49097700 at /home/darlan/teste/farma/app/views/home/index.html.erb:10)
+DEPRECATION WARNING: Extra .css in SCSS file is unnecessary. Rename /home/darlan/teste/farma/app/assets/stylesheets/custom.css.scss to /home/darlan/teste/farma/app/assets/stylesheets/custom.scss. (called from _app_views_home_index_html_erb__3455951859472787009_49097700 at /home/darlan/teste/farma/app/views/home/index.html.erb:10)
+  Rendered home/index.html.erb within layouts/home/application (9311.3ms)
+  [1m[35mUser Load (35.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered layouts/home/_navbar_top.html.erb (111.2ms)
+  Rendered shared/_flash_messages.html.erb (0.5ms)
+  Rendered layouts/home/_form_contact_us.html.erb (473.5ms)
+  Rendered layouts/home/_main_footer.html.erb (474.6ms)
+Completed 200 OK in 10527ms (Views: 10389.1ms | ActiveRecord: 104.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-14 17:59:46 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/home/application (5.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/home/_navbar_top.html.erb (2.9ms)
+  Rendered shared/_flash_messages.html.erb (0.1ms)
+  Rendered layouts/home/_form_contact_us.html.erb (4.7ms)
+  Rendered layouts/home/_main_footer.html.erb (5.1ms)
+Completed 200 OK in 105ms (Views: 103.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.self-09a6747d96338a735540fac6336c0e6cb7d6b22f2adf5bf3592fcff354600c9f.css?body=1" for 127.0.0.1 at 2016-04-14 17:59:46 -0300
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-04-14 17:59:49 -0300
+Processing by Devise::SessionsController#new as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/workspace
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/workspace" for 127.0.0.1 at 2016-04-14 17:59:49 -0300
+Processing by Workspace::DashboardController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered workspace/dashboard/index.html.erb within layouts/dashboard/application (0.3ms)
+  Rendered shared/_flash_messages.html.erb (0.6ms)
+  Rendered layouts/dashboard/_navbar.html.erb (0.6ms)
+  Rendered layouts/dashboard/_painel.html.erb (3.0ms)
+Completed 200 OK in 115ms (Views: 113.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-14 17:59:57 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/home/application (10.4ms)
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered layouts/home/_navbar_top.html.erb (4.4ms)
+  Rendered shared/_flash_messages.html.erb (0.1ms)
+  Rendered layouts/home/_form_contact_us.html.erb (6.4ms)
+  Rendered layouts/home/_main_footer.html.erb (7.3ms)
+Completed 200 OK in 164ms (Views: 162.0ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2016-04-14 18:00:00 -0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"27PrgMuMPRJ8fcu51lGQqWikCJhOYYS7yIZTe3ZjyIa4XwEu32VBwiX7jIdIMj0W0TBErYaiJOSFTAfI16UP0w=="}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 11ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-14 18:00:00 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/home/application (5.8ms)
+  Rendered layouts/home/_navbar_top.html.erb (5.1ms)
+  Rendered shared/_flash_messages.html.erb (0.1ms)
+  Rendered layouts/home/_form_contact_us.html.erb (5.4ms)
+  Rendered layouts/home/_main_footer.html.erb (5.9ms)
+Completed 200 OK in 129ms (Views: 128.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-04-14 18:00:01 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/devise/users_options (38.8ms)
+  Rendered shared/_flash_messages.html.erb (0.1ms)
+  Rendered devise/shared/_links.html.erb (14.5ms)
+  Rendered devise/shared/_links.html.erb (6.3ms)
+Completed 200 OK in 159ms (Views: 157.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/farma-03.jpg" for 127.0.0.1 at 2016-04-14 18:00:02 -0300
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-04-14 18:01:29 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/devise/users_options (16.2ms)
+  Rendered shared/_flash_messages.html.erb (0.1ms)
+  Rendered devise/shared/_links.html.erb (7.4ms)
+Completed 200 OK in 129ms (Views: 127.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-09a6747d96338a735540fac6336c0e6cb7d6b22f2adf5bf3592fcff354600c9f.css?body=1" for 127.0.0.1 at 2016-04-14 18:01:29 -0300
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2016-04-14 18:01:29 -0300
+
+
+Started GET "/assets/toastr.self-cd4d0b085c13a2d904a1272152dc0645a9261e6ca5cfc429a786b3e6465406df.js?body=1" for 127.0.0.1 at 2016-04-14 18:01:29 -0300
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for 127.0.0.1 at 2016-04-14 18:01:29 -0300
+
+
+Started GET "/assets/turbolinks.self-c846e670826600e8c91b1a5ada3e6547110d996cd6ff24cde55024f7a135a1b4.js?body=1" for 127.0.0.1 at 2016-04-14 18:01:29 -0300
+
+
+Started GET "/assets/materialize/jquery.easing.1.3.self-0170bc905fbddc075a56bdccce1be6a58f3713a14137b607ba9bd9f96fd7835f.js?body=1" for 127.0.0.1 at 2016-04-14 18:01:29 -0300
+
+
+Started GET "/assets/materialize/animation.self-a1028b0bcf2e26331bedf7b90e81103f0707e69fdec488aa951de94b51987767.js?body=1" for 127.0.0.1 at 2016-04-14 18:01:29 -0300
+
+
+Started GET "/assets/materialize/velocity.min.self-5adbb81af5c205a959e06198156b4b31fcd57f02c592e3fb096d7b74e8f401a6.js?body=1" for 127.0.0.1 at 2016-04-14 18:01:29 -0300
+
+
+Started GET "/assets/materialize/hammer.min.self-bf8bdb0953b1a135f96716e362e1f7a8e64168c914fa77ca31973bb70e57a731.js?body=1" for 127.0.0.1 at 2016-04-14 18:01:29 -0300
+
+
+Started GET "/assets/materialize/jquery.hammer.self-73fd69102f356b9abfc9ee242b19895f62454f42cfcfa1f066be71d2c8f41c7a.js?body=1" for 127.0.0.1 at 2016-04-14 18:01:29 -0300
+
+
+Started GET "/assets/materialize/global.self-3dc204118ca81d086207bfb523a26e7ac85dad24528718e137d3478ab4b1f144.js?body=1" for 127.0.0.1 at 2016-04-14 18:01:29 -0300
+
+
+Started GET "/assets/materialize/collapsible.self-ea24ecbc91d581daf878f51baeb84df317ecb018d6b2908775246efa57a5d672.js?body=1" for 127.0.0.1 at 2016-04-14 18:01:29 -0300
+
+
+Started GET "/assets/materialize/dropdown.self-8e3cebfde3088a4ae6d8d7f20ec94a836e2bf031c7af583707853e243a7bd501.js?body=1" for 127.0.0.1 at 2016-04-14 18:01:29 -0300
+
+
+Started GET "/assets/materialize/leanModal.self-4db1374f875e0a1a2ba3389d23cae8f6f0c2672e7e69aeab7645ed51d26e6915.js?body=1" for 127.0.0.1 at 2016-04-14 18:01:29 -0300
+
+
+Started GET "/assets/materialize/materialbox.self-6c6b2ba48598681c90551b540338699c75cf2f9ada34cc4b22570c217b9292d8.js?body=1" for 127.0.0.1 at 2016-04-14 18:01:29 -0300
+
+
+Started GET "/assets/materialize/parallax.self-7ac34f0f3dcef83deee116ea473a2770cec13e07c8e0dcce08cc2372bbe295d3.js?body=1" for 127.0.0.1 at 2016-04-14 18:01:29 -0300
+
+
+Started GET "/assets/materialize/tabs.self-922f8a5ef8f7381c945259a9f1dcaf6d628630cda8fcbbfe182ea653091b165c.js?body=1" for 127.0.0.1 at 2016-04-14 18:01:29 -0300
+
+
+Started GET "/assets/materialize/tooltip.self-beb7ffd88508e9cc34121291e39051362f8f530fa94b9bf0c01cc0002d472293.js?body=1" for 127.0.0.1 at 2016-04-14 18:01:29 -0300
+
+
+Started GET "/assets/materialize/waves.self-26e9b9cfaa9ccbc292ed510f654bd279d69695f5337a14c9800b36e92f96735b.js?body=1" for 127.0.0.1 at 2016-04-14 18:01:29 -0300
+
+
+Started GET "/assets/materialize/toasts.self-1eaa9f33c4c3b83f381997876ba6ac53899a5ca72a6b401708c32625fc553adc.js?body=1" for 127.0.0.1 at 2016-04-14 18:01:29 -0300
+
+
+Started GET "/assets/materialize/sideNav.self-d1aa0f50b6f5d0d9a7086344d806fc133274dd021e58f837cbe39e309012045b.js?body=1" for 127.0.0.1 at 2016-04-14 18:01:29 -0300
+
+
+Started GET "/assets/materialize/scrollspy.self-9bd8d701ac90c813a0d051ab4943150bdb536d863646d8b349c42a88edb31cf8.js?body=1" for 127.0.0.1 at 2016-04-14 18:01:29 -0300
+
+
+Started GET "/assets/materialize/forms.self-64b20631760debacfca1650e3c493a6d5aa600b0bb33ee430139971c61d4b82f.js?body=1" for 127.0.0.1 at 2016-04-14 18:01:29 -0300
+
+
+Started GET "/assets/materialize/slider.self-8052f7188f9e8ab3d03b246d4942a4824edb9614d0d130051d11ba1354c9c798.js?body=1" for 127.0.0.1 at 2016-04-14 18:01:29 -0300
+
+
+Started GET "/assets/materialize/cards.self-b1de04b6f5f525d63199f556bb55d5b8bdae7170b91bfcb503958bc8ed10945b.js?body=1" for 127.0.0.1 at 2016-04-14 18:01:29 -0300
+
+
+Started GET "/assets/materialize/chips.self-9b19ca899ba360746581059852bf2a40b3338402eef9df9a7806efd8578056dd.js?body=1" for 127.0.0.1 at 2016-04-14 18:01:29 -0300
+
+
+Started GET "/assets/materialize/pushpin.self-3e487290a48f23142c992c158b45cbd0be9c83de7c23abbb33b195954d1883cd.js?body=1" for 127.0.0.1 at 2016-04-14 18:01:29 -0300
+
+
+Started GET "/assets/materialize/buttons.self-ae3e49edd629c976a770c1f3b68759b65ef50796b1feabf7d0dfdf6688d97a63.js?body=1" for 127.0.0.1 at 2016-04-14 18:01:29 -0300
+
+
+Started GET "/assets/materialize/transitions.self-c527b205edfdd1f961487c4c7beaf83c335262accb4dff964341a86eb60fd2f2.js?body=1" for 127.0.0.1 at 2016-04-14 18:01:29 -0300
+
+
+Started GET "/assets/materialize/scrollFire.self-d38b34eac05d33baa79181ef5ba72c67b7f73714ff11cda22495d30f4469298f.js?body=1" for 127.0.0.1 at 2016-04-14 18:01:29 -0300
+
+
+Started GET "/assets/materialize/date_picker/picker.self-f7869dc9881d3874917e009ea6e30d68817b1bd1247665fb653e0f87393fb60f.js?body=1" for 127.0.0.1 at 2016-04-14 18:01:29 -0300
+
+
+Started GET "/assets/materialize/date_picker/picker.date.self-5924b278beda2df8570f137f72b37e2d0f516acbc11a0994d1abb74380f078ef.js?body=1" for 127.0.0.1 at 2016-04-14 18:01:29 -0300
+
+
+Started GET "/assets/materialize/character_counter.self-f3a78940ad5b851c1b7b79d86a5d5d9bdf0dc15e0e58e2a58b3eb57d845fbd37.js?body=1" for 127.0.0.1 at 2016-04-14 18:01:29 -0300
+
+
+Started GET "/assets/materialize/carousel.self-6f3b9002af3ab4d871a03a44d2e174370720ab31f19a4ee543c1904c32e2befa.js?body=1" for 127.0.0.1 at 2016-04-14 18:01:29 -0300
+
+
+Started GET "/assets/materialize-sprockets.self-b9b07dd4e7718454476f04edeb935022ae4f4d90934ab7ce913ff20c8baeb399.js?body=1" for 127.0.0.1 at 2016-04-14 18:01:29 -0300
+
+
+Started GET "/assets/application.self-a1a74291c4c48f2f663a025ffa678498d6448b849a2d74c0ca25e39ee192c0a7.js?body=1" for 127.0.0.1 at 2016-04-14 18:01:29 -0300
+
+
+Started GET "/assets/loads.self-f23be1f73c9d20aaf3a2cda92bae1f348523c03fcc2e4d082baeece1e244bf4a.js?body=1" for 127.0.0.1 at 2016-04-14 18:01:29 -0300
+
+
+Started GET "/assets/workspace/dashboard.self-929b6738576cabfa610876387d679af6c2eeb404cf4639d6ecc78264798b839b.js?body=1" for 127.0.0.1 at 2016-04-14 18:01:29 -0300
+
+
+Started GET "/assets/ckeditor/init.self-2f3e80b764bc18c9362e6f3326e1f32d4a8bdceff67345a3453a93b111626ff3.js?body=1" for 127.0.0.1 at 2016-04-14 18:01:29 -0300
+
+
+Started GET "/assets/ckeditor/ckeditor.self-d44511d44b2c01b6466fda92764336001e42a860f53ed63541c0f871afed5d7a.js?body=1" for 127.0.0.1 at 2016-04-14 18:01:29 -0300
+
+
+Started GET "/assets/farma-03.jpg" for 127.0.0.1 at 2016-04-14 18:01:29 -0300
+
+
+Started GET "/assets/roboto/Roboto-Regular-b5c9c23bd12593523a46d79dd0aee80e3226bbde4c9ac05fc30a95e2c1510de0.woff2" for 127.0.0.1 at 2016-04-14 18:01:29 -0300
+
+
+Started GET "/assets/material-design-icons/Material-Design-Icons-4efd86423405eefbcbe28d543fc5db242d747b47f8b201f6d8bfdd091ff3bbdd.woff2" for 127.0.0.1 at 2016-04-14 18:01:29 -0300
+
+
+Started GET "/assets/favicon-6458c0c17bcbda59a7da97cb96598e37d2523347d92730a21afa5f01aef701dd.ico" for 127.0.0.1 at 2016-04-14 18:01:29 -0300
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-04-14 18:01:41 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kHhJ2ZbeYa43gHmk+gQ7XDKFzrzsygzpPFNXXZXJSHFBK/Q0RyXNwQqO20dxxHiNbpdUbH01yxcahwDzn7dtYQ==", "user"=>{"email"=>"laradla140@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["email", "laradla140@gmail.com"]]
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "users" SET "current_sign_in_at" = $1, "sign_in_count" = $2, "updated_at" = $3 WHERE "users"."id" = $4  [["current_sign_in_at", "2016-04-14 21:01:41.703372"], ["sign_in_count", 2], ["updated_at", "2016-04-14 21:01:41.705860"], ["id", 1]]
+  [1m[36m (24.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/workspace
+Completed 302 Found in 226ms (ActiveRecord: 25.3ms)
+
+
+Started GET "/workspace" for 127.0.0.1 at 2016-04-14 18:01:41 -0300
+Processing by Workspace::DashboardController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered workspace/dashboard/index.html.erb within layouts/dashboard/application (0.4ms)
+  Rendered shared/_flash_messages.html.erb (0.1ms)
+  Rendered layouts/dashboard/_navbar.html.erb (0.6ms)
+  Rendered layouts/dashboard/_painel.html.erb (4.5ms)
+Completed 200 OK in 117ms (Views: 113.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-14 18:06:31 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/home/application (8.9ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/home/_navbar_top.html.erb (2.9ms)
+  Rendered shared/_flash_messages.html.erb (0.1ms)
+  Rendered layouts/home/_team.html.erb (1.2ms)
+  Rendered layouts/home/_goal.html.erb (0.3ms)
+  Rendered layouts/home/_form_contact_us.html.erb (5.5ms)
+  Rendered layouts/home/_main_footer.html.erb (6.0ms)
+Completed 200 OK in 144ms (Views: 142.4ms | ActiveRecord: 0.4ms)
