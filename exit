@@ -1,0 +1,514 @@
+[33mcommit a46c678a506c209c7cb7a4972d2f2352461a0026[m
+Merge: 92e0806 c3cd6e4
+Author: Darlan <dla14@live.com>
+Date:   Wed Apr 6 16:36:47 2016 -0300
+
+    merge to respository farma-reborned
+
+[33mcommit 92e08060dc765192bbf94b6eb5629027e2d7327b[m
+Author: Darlan <dla14@live.com>
+Date:   Wed Apr 6 16:23:37 2016 -0300
+
+    Repair the slider home page and grid of page sing-in
+
+[33mcommit eeefd48cc8ba063bcec24da9de1e60a7150d6e9d[m
+Author: Darlan <dla14@live.com>
+Date:   Tue Apr 5 15:00:38 2016 -0300
+
+    Designer Home Page
+
+[33mcommit c3cd6e479db5f1b10440fe209eeae3c7ef0403a2[m
+Merge: 509dca1 575cf4a
+Author: Diego Marczal <dmarczal@gmail.com>
+Date:   Mon Apr 4 17:49:34 2016 -0300
+
+    Merge branch 'jefferson-new-features'
+    
+    * jefferson-new-features: (26 commits)
+      Refactored pull request
+      questions and tips
+      create tips, validate content
+      question update, find_models in concens controllers,
+      questions add, new  concerns find_models
+      locales and label.ckeditor
+      refactoring the exercise tests
+      exercise controller, los helper, show los , tests
+      create exercise, test exercise and lo
+      repar tests
+      refactoring the workspace
+      name space worspace
+      ckeditor and new introduction
+      spec introduction, destroy, create
+      repar file routes
+      intro model , spec
+      introduction position
+      refactoring
+      intro
+      view index lo, controller lo and tests
+      ...
+
+[33mcommit 575cf4a5545b3b1c8ad829400d57632307f23501[m
+Author: Diego Marczal <dmarczal@gmail.com>
+Date:   Mon Apr 4 17:47:17 2016 -0300
+
+    Refactored pull request
+
+[33mcommit 822f6ff14a7259d0e0b7a2bdb6aab39b1a860948[m
+Author: Jefferson Henrique Ramos <jramos@alunos.utfpr.edu.br>
+Date:   Mon Apr 4 14:47:30 2016 -0300
+
+    questions and tips
+
+[33mcommit 9de0e55d12ba113e66993e0ce2f73469520e0c86[m
+Author: Jefferson Henrique Ramos <jramos@alunos.utfpr.edu.br>
+Date:   Wed Mar 30 17:28:27 2016 -0300
+
+    create tips, validate content
+
+[33mcommit 7c08e1c3957d4819fe9501d7de7959f8e16f384c[m
+Author: Jefferson Henrique Ramos <jramos@alunos.utfpr.edu.br>
+Date:   Wed Mar 30 16:35:45 2016 -0300
+
+    question update, find_models in concens controllers,
+
+[33mcommit 2d482f39824cf52a01e71a68ec8042c094786b5a[m
+Author: Jefferson Henrique Ramos <jramos@alunos.utfpr.edu.br>
+Date:   Mon Mar 28 14:35:45 2016 -0300
+
+    questions add, new  concerns find_models
+
+[33mcommit f2d3de70ceb0168454be160654db4043e44ebef7[m
+Author: Jefferson Henrique Ramos <jramos@alunos.utfpr.edu.br>
+Date:   Mon Mar 21 15:23:50 2016 -0300
+
+    locales and label.ckeditor
+
+[33mcommit e4c075f0a5ec1d85a5a6f7658e6dd4acc23dedb2[m
+Author: Jefferson Henrique Ramos <jramos@alunos.utfpr.edu.br>
+Date:   Mon Mar 21 14:38:03 2016 -0300
+
+    refactoring the exercise tests
+
+[33mcommit 35e1b0179a7a0c837afdde7dcdcab71d8764a9d7[m
+Author: Jefferson Henrique Ramos <jramos@alunos.utfpr.edu.br>
+Date:   Fri Mar 18 17:36:39 2016 -0300
+
+    exercise controller, los helper, show los , tests
+
+[33mcommit 6fd063e0405994a98756cf6fa092e5f3ef1936a2[m
+Author: Jefferson Henrique Ramos <jramos@alunos.utfpr.edu.br>
+Date:   Fri Mar 18 14:38:24 2016 -0300
+
+    create exercise, test exercise and lo
+
+[33mcommit 7a8d4ea33213bb5d4c58098ad6b424a5b3d284b9[m
+Author: Jefferson Henrique Ramos <jramos@alunos.utfpr.edu.br>
+Date:   Thu Mar 17 15:42:59 2016 -0300
+
+    repar tests
+
+[33mcommit 0921a062139576bf310ddfb709ecd21b056ec32f[m
+Author: Jefferson Henrique Ramos <jramos@alunos.utfpr.edu.br>
+Date:   Mon Mar 14 17:01:47 2016 -0300
+
+    refactoring the workspace
+
+[33mcommit 452c60ebc6daac2e08b043da48757f39e043ef02[m
+Author: Jefferson Henrique Ramos <jramos@alunos.utfpr.edu.br>
+Date:   Mon Mar 14 16:03:52 2016 -0300
+
+    name space worspace
+
+[33mcommit 1b5e43597b2417559615da137e450db92e87292b[m
+Author: Jefferson Henrique Ramos <jramos@alunos.utfpr.edu.br>
+Date:   Fri Mar 11 14:50:28 2016 -0300
+
+    ckeditor and new introduction
+
+[33mcommit 1e90f336d4c699047a0f9e95fa9f096336e36e45[m
+Author: Jefferson Henrique Ramos <jramos@alunos.utfpr.edu.br>
+Date:   Tue Mar 8 14:38:30 2016 -0300
+
+    spec introduction, destroy, create
+
+[33mcommit 335e429dfce8b132d13c7cd3832eb561db02053e[m
+Author: Jefferson Henrique Ramos <jramos@alunos.utfpr.edu.br>
+Date:   Mon Mar 7 16:17:14 2016 -0300
+
+    repar file routes
+
+[33mcommit 5c3bacfd1d6f4e6d071ecc522094e294fed6dd49[m
+Author: Jefferson Henrique Ramos <jramos@alunos.utfpr.edu.br>
+Date:   Mon Mar 7 16:15:24 2016 -0300
+
+    intro model , spec
+
+[33mcommit d29e6e008e44b0d7fac7f1267a1b112fda2b10d5[m
+Author: Jefferson Henrique Ramos <jramos@alunos.utfpr.edu.br>
+Date:   Mon Mar 7 14:35:52 2016 -0300
+
+    introduction position
+
+[33mcommit df2eecef243a15a48835eb697380e87f494c84b3[m
+Merge: 175b3c3 c2e52f8
+Author: Jefferson Henrique Ramos <jramos@alunos.utfpr.edu.br>
+Date:   Mon Mar 7 11:34:05 2016 -0300
+
+    merge master
+
+[33mcommit c2e52f83f0b8a0b68de40012e4b97dcbb0b7b939[m
+Author: Jefferson Henrique Ramos <jramos@alunos.utfpr.edu.br>
+Date:   Mon Mar 7 11:31:45 2016 -0300
+
+    refactoring
+
+[33mcommit 175b3c302cb72f7ac3166a69e06da060d3159a11[m
+Author: Jefferson Henrique Ramos <jramos@alunos.utfpr.edu.br>
+Date:   Mon Mar 7 11:12:05 2016 -0300
+
+    intro
+
+[33mcommit 2ad0cd5dcb09614cba6d84623bb5e7b2e2b41a8a[m
+Merge: 1941f0a ae5e112
+Author: Jefferson Henrique Ramos <jramos@alunos.utfpr.edu.br>
+Date:   Fri Mar 4 15:24:02 2016 -0300
+
+    Merge branch 'master' of bitbucket.org:henroca/farma
+
+[33mcommit 509dca1c7038bfae3d5634fcab12dc46ae073825[m
+Merge: b458c65 ae5e112
+Author: Jefferson Ramos <jeff.hen0811@gmail.com>
+Date:   Fri Mar 4 15:23:42 2016 -0300
+
+    Merged henroca/farma into master
+
+[33mcommit 1941f0a48a939af63f4471b7fa0560536681099f[m
+Author: Jefferson Henrique Ramos <jramos@alunos.utfpr.edu.br>
+Date:   Fri Mar 4 15:00:09 2016 -0300
+
+    view index lo, controller lo and tests
+
+[33mcommit 92131a565c7366d563dbdab7a140220786885997[m
+Author: Jefferson Henrique Ramos <jramos@alunos.utfpr.edu.br>
+Date:   Wed Mar 2 16:07:36 2016 -0300
+
+    los actions, view and specs
+
+[33mcommit d54123bda7b0776e5e9748b1e5107269d2943f3b[m
+Author: Jefferson Henrique Ramos <jramos@alunos.utfpr.edu.br>
+Date:   Sun Feb 28 18:33:49 2016 -0300
+
+    create the Los , show the los
+
+[33mcommit 0f7eb8c1c1c68ed2a2168284009a6f7a49f8434a[m
+Author: Jefferson Henrique Ramos <jramos@alunos.utfpr.edu.br>
+Date:   Fri Feb 26 13:17:43 2016 -0300
+
+    los controller, view and tests
+
+[33mcommit 075117abc55f81858f5ea9ba466223683a854f4a[m
+Author: Jefferson Henrique Ramos <jramos@alunos.utfpr.edu.br>
+Date:   Wed Feb 24 17:22:56 2016 -0300
+
+    repar the lo_spec and lo model
+
+[33mcommit 9f801fd5db5c69f9c76d6fedd88bb88eebad2419[m
+Author: Jefferson Henrique Ramos <jramos@alunos.utfpr.edu.br>
+Date:   Wed Feb 24 15:02:31 2016 -0300
+
+    crate table Los and model lo.rb
+
+[33mcommit 2320dd9456c00ca6e185156fbb16098d226ca95d[m
+Author: Jefferson Henrique Ramos <jramos@alunos.utfpr.edu.br>
+Date:   Wed Feb 24 14:04:12 2016 -0300
+
+    spec setup
+
+[33mcommit ae5e11219c8ce29dd1084a0dea6ccb2c080e81f8[m
+Merge: 958bab4 b458c65
+Author: Jefferson Ramos <jeff.hen0811@gmail.com>
+Date:   Wed Feb 24 13:59:58 2016 -0300
+
+    Merged farma-reborned/farma into master
+
+[33mcommit e62d3b3225ca7f1f388ffef941e2e4eb64102672[m
+Merge: 958bab4 b458c65
+Author: Jefferson Henrique Ramos <jramos@alunos.utfpr.edu.br>
+Date:   Tue Feb 23 17:14:01 2016 -0300
+
+    Merge branch 'master' of bitbucket.org:farma-reborned/farma
+
+[33mcommit b458c656d31fd84f18f7d879419d9188be4af078[m
+Author: Diego Marczal <dmarczal@gmail.com>
+Date:   Tue Feb 23 17:07:56 2016 -0300
+
+    Setup spec files
+
+[33mcommit 958bab43d79b5a121f72f3d2c3eb99f5b81223ec[m
+Merge: 5b5345b 210c7c2
+Author: Jefferson Ramos <jeff.hen0811@gmail.com>
+Date:   Tue Feb 23 09:19:27 2016 -0300
+
+    Merged farma-reborned/farma into master
+
+[33mcommit 210c7c2a6f3d6a999bbe944922c0c47e43d37096[m
+Merge: 0dc23d7 5b5345b
+Author: Diego Marczal <dmarczal@gmail.com>
+Date:   Mon Feb 22 23:43:42 2016 -0300
+
+    Merge branch 'master' of https://bitbucket.org/henroca/farma into jefferson
+    
+    * 'master' of https://bitbucket.org/henroca/farma:
+      button painel
+
+[33mcommit 0dc23d7322fe4d012a809262dbdb3abd5664a6ad[m
+Author: Diego Marczal <dmarczal@gmail.com>
+Date:   Mon Feb 22 23:33:09 2016 -0300
+
+    Fixed dashboard menu
+
+[33mcommit 0560c935541478a94e6186964bd16e6cb50dbd3b[m
+Author: Diego Marczal <dmarczal@gmail.com>
+Date:   Mon Feb 22 19:45:44 2016 -0300
+
+    Create contact form on home page
+
+[33mcommit dc32a43d3ce2a1b93099124bdc38e0455ecfa1ea[m
+Author: Diego Marczal <dmarczal@gmail.com>
+Date:   Mon Feb 22 16:56:27 2016 -0300
+
+    Adjust home page style and structure
+
+[33mcommit 5b5345b7623880b229a5da9044feb69dfe8e3790[m
+Merge: a6845ea b7519ff
+Author: Jefferson Henrique Ramos <jramos@alunos.utfpr.edu.br>
+Date:   Mon Feb 22 15:17:40 2016 -0300
+
+    Updating with FARMA Reborned
+
+[33mcommit a6845eaa70afbaee87d362b5f18a9f03cc65bae2[m
+Author: Jefferson Henrique Ramos <jramos@alunos.utfpr.edu.br>
+Date:   Mon Feb 22 10:12:44 2016 -0300
+
+    button painel
+
+[33mcommit 40ff2c0b4c59d6167d04a948b01ca9eb83e6ba90[m
+Author: Diego Marczal <dmarczal@gmail.com>
+Date:   Mon Feb 22 09:51:48 2016 -0300
+
+    Redirect to dashboard after update user perfil
+
+[33mcommit 6cf023832b60553e163b0f3b590e20f44ed138d2[m
+Merge: 8c0c24d b41eb4b
+Author: Diego Marczal <dmarczal@gmail.com>
+Date:   Mon Feb 22 09:35:18 2016 -0300
+
+    Merge branch 'master' of https://bitbucket.org/henroca/farma into jefferson
+    
+    * 'master' of https://bitbucket.org/henroca/farma:
+      hide the painel
+      Stylizing the homepage and dashboard, Stylizing the User panel
+      paperclip
+      dashboard user/ admin index / home
+      page home and footer
+
+[33mcommit 8c0c24dce2b7ba457aa694dc1ba1cf4963797fef[m
+Author: Diego Marczal <dmarczal@gmail.com>
+Date:   Mon Feb 22 09:03:01 2016 -0300
+
+    Setups to deploy
+
+[33mcommit b41eb4b37e4e0882b7d9b322cbda2cff63ebe120[m
+Author: Jefferson Henrique Ramos <jramos@alunos.utfpr.edu.br>
+Date:   Mon Feb 8 20:49:17 2016 -0200
+
+    hide the painel
+
+[33mcommit fd16d82dc87e4ad4b09b47497730ed3c59bd63a7[m
+Author: Jefferson Henrique Ramos <jramos@alunos.utfpr.edu.br>
+Date:   Mon Feb 8 16:16:01 2016 -0200
+
+    Stylizing the homepage and dashboard, Stylizing the User panel
+
+[33mcommit b7519ff8c72ac46c97500057f7062ce6b14b46be[m
+Author: Diego Marczal <dmarczal@gmail.com>
+Date:   Fri Feb 5 11:48:02 2016 -0200
+
+    Added title in all pages
+
+[33mcommit 967fbc7898cbe97df6dbe8dd104a849bdd9ef7b1[m
+Merge: 974486f dd53b66
+Author: Diego Marczal <dmarczal@gmail.com>
+Date:   Fri Feb 5 11:08:55 2016 -0200
+
+    Merge branch 'staging' of bitbucket.org:farma-reborned/farma into staging
+    
+    * 'staging' of bitbucket.org:farma-reborned/farma:
+      Setup devise secret key
+      Change deploy configs
+      Setup staging deploy
+
+[33mcommit 974486f3ef4ea43764f5af187fede9c7136cbed1[m
+Author: Diego Marczal <dmarczal@gmail.com>
+Date:   Fri Feb 5 11:06:39 2016 -0200
+
+    Fixed materialize label bug on load turbolinks
+    
+    - Remove unnecessary link from resent confirmation form
+
+[33mcommit 84f57a235edcd815dbeaf18c5567c9d16fb8089c[m
+Author: Diego Marczal <dmarczal@gmail.com>
+Date:   Thu Feb 4 09:51:40 2016 -0200
+
+    Setup devise secret key
+
+[33mcommit 37d4dcbd39d602f4c8d435c1b169fc111582367a[m
+Author: Diego Marczal <dmarczal@gmail.com>
+Date:   Thu Feb 4 09:17:17 2016 -0200
+
+    Change deploy configs
+
+[33mcommit 66b588fe5a8e75e5893e996e57671f368c152c15[m
+Author: Diego Marczal <dmarczal@gmail.com>
+Date:   Tue Feb 2 19:27:47 2016 -0200
+
+    Setup staging deploy
+
+[33mcommit 8fb1554a5b538d377080da699e2bfc294cccb68f[m
+Author: Diego Marczal <dmarczal@gmail.com>
+Date:   Thu Feb 4 10:55:11 2016 -0200
+
+    Fixed domain name
+
+[33mcommit dd53b66aa842fb2c4fa9b3e0a2201bf4a789c739[m
+Author: Diego Marczal <dmarczal@gmail.com>
+Date:   Thu Feb 4 09:51:40 2016 -0200
+
+    Setup devise secret key
+
+[33mcommit 106d814252721e950dcec46dbf761b50842d6be4[m
+Author: Diego Marczal <dmarczal@gmail.com>
+Date:   Thu Feb 4 09:17:17 2016 -0200
+
+    Change deploy configs
+
+[33mcommit e88279aedde7729b1fa06bbec1bd5f6f4c0cc6f6[m
+Author: Diego Marczal <dmarczal@gmail.com>
+Date:   Tue Feb 2 19:27:47 2016 -0200
+
+    Setup staging deploy
+
+[33mcommit 8998efe0ca090158a1b6d05f09b4a8f2ccb90a87[m
+Author: Diego Marczal <dmarczal@gmail.com>
+Date:   Tue Feb 2 12:31:22 2016 -0200
+
+    Setup materialize style for file input
+
+[33mcommit 1425008e8c9a99daafa2e6a36fd828e37c49f016[m
+Merge: 8a32fcd 54bcf71
+Author: Jefferson Ramos <jeff.hen0811@gmail.com>
+Date:   Fri Jan 22 17:20:24 2016 -0200
+
+    Merged farma-reborned/farma into master
+
+[33mcommit 54bcf71d2f5a63ca6d459979ac9cd931c0f9808d[m
+Author: Diego Marczal <diego@Diegos-MacBook.local>
+Date:   Fri Jan 1 10:46:58 2016 -0800
+
+    Change wrong token confirmation notification text
+
+[33mcommit 9876320433f21d91ea2a660be3a8afdb84ecbd68[m
+Author: Diego Marczal <dmarczal@gmail.com>
+Date:   Fri Jan 1 18:21:56 2016 +0000
+
+    .gitignore edited online with Bitbucket
+
+[33mcommit 8a32fcd8bf0fbbd06793b8bb057bfa094eba4712[m
+Author: Jefferson Henrique Ramos <jramos@alunos.utfpr.edu.br>
+Date:   Thu Dec 31 18:01:36 2015 -0200
+
+    paperclip
+
+[33mcommit 5821db16eea1dfced62a0be4fbe1bd549a265c71[m
+Author: Jefferson Henrique Ramos <jramos@alunos.utfpr.edu.br>
+Date:   Sat Dec 26 16:48:17 2015 -0200
+
+    dashboard user/ admin index / home
+
+[33mcommit 754e64dd15a314d3b1d1c166dcabe3928b78dcf1[m
+Author: Jefferson Henrique Ramos <jramos@alunos.utfpr.edu.br>
+Date:   Wed Dec 23 17:23:34 2015 -0200
+
+    page home and footer
+
+[33mcommit 0773c53279f9be51236f3bcd582ece0794ebce0e[m
+Author: Diego Marczal <dmarczal@gmail.com>
+Date:   Mon Dec 21 16:37:00 2015 -0200
+
+    Added a capybara test example
+
+[33mcommit 813235747ec06a32651ab09832ef07f2970952ff[m
+Author: Diego Marczal <dmarczal@gmail.com>
+Date:   Mon Dec 21 16:28:01 2015 -0200
+
+    Create a admin and user dashboard areas
+
+[33mcommit e6cf17ec596ac5c845909054bb531efb6c15a6c6[m
+Author: Diego Marczal <dmarczal@gmail.com>
+Date:   Mon Dec 21 15:57:15 2015 -0200
+
+    Setup user dashboard
+
+[33mcommit a7001de7cde6b0dd7de9b5e7f4158dda31289b3c[m
+Author: Diego Marczal <dmarczal@gmail.com>
+Date:   Mon Dec 21 15:28:43 2015 -0200
+
+    Setup devise for authentication
+
+[33mcommit 71b3aec560c7b6a594e1d3ada32877e7674225b8[m
+Author: Diego Marczal <dmarczal@gmail.com>
+Date:   Sun Dec 20 12:45:50 2015 -0200
+
+    Setup materialize
+
+[33mcommit 21475ed468e1c4514205cc0592e0d4f8a3ecbf15[m
+Author: Diego Marczal <dmarczal@gmail.com>
+Date:   Sun Dec 20 12:41:35 2015 -0200
+
+    Setup simple form with materilze options
+
+[33mcommit 11028caa714f84198c3e079a6e1c4bbd90329e87[m
+Author: Diego Marczal <dmarczal@gmail.com>
+Date:   Sun Dec 20 12:30:08 2015 -0200
+
+    Setup I18n
+
+[33mcommit 62923eae909bc341665303ae773bfcb8d1004af9[m
+Author: Diego Marczal <dmarczal@gmail.com>
+Date:   Sun Dec 20 12:33:02 2015 +0000
+
+    README.md edited online with Bitbucket
+
+[33mcommit a6ac5c39eb77d9b1cf1e6c7960c488ba4ed4aa78[m
+Author: Diego Marczal <dmarczal@gmail.com>
+Date:   Sun Dec 20 10:30:06 2015 -0200
+
+    Write some README informations
+
+[33mcommit 43579e9748f74e0223162001a7831569e319f357[m
+Author: Diego Marczal <dmarczal@gmail.com>
+Date:   Sun Dec 20 10:12:40 2015 -0200
+
+    Configured database access
+
+[33mcommit 2753cd8d5f9203862135b8225f5e0239c484e933[m
+Author: Diego Marczal <dmarczal@gmail.com>
+Date:   Sun Dec 20 09:59:59 2015 -0200
+
+    setup rspec and factorygirl
+
+[33mcommit 0928e09198a3bf2b341d550c50f9d1592f5d600f[m
+Author: Diego Marczal <dmarczal@gmail.com>
+Date:   Sun Dec 20 09:56:24 2015 -0200
+
+    First commit
