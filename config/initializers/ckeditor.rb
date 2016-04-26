@@ -45,5 +45,5 @@ Ckeditor.setup do |config|
   # JS config url
   # Used when CKEditor CDN enabled
   # By default: "/assets/ckeditor/config.js"
-  # config.js_config_url = "/assets/ckeditor/config.js"
+  config.js_config_url = "/assets/javascripts/ckeditor/config.js.coffee"
 end

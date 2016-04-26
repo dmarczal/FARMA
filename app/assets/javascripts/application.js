@@ -17,6 +17,6 @@
 //= require materialize-sprockets
 //= require_self
 //= require loads
-//= require workspace/dashboard
+//= require teacher/dashboard
 //= require ckeditor/init
-//= require workspace/exercises
+//= require teacher/questions

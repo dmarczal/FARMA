@@ -1,0 +1,44 @@
+class Teacher::IntroductionsController < Teacher::DashboardController
+  include FindModels
+
+  before_action :find_lo, only: [:new, :create]
+  before_action :find_introduction, except: [:new, :create]
+
+  def new
+    @introduction = @lo.introductions.new
+  end
+
+  def update
+    if @introduction.update(introduction_params)
+      redirect_to teacher_lo_path(@lo)
+    else
+      flash.now[:error] = "Existem dados incorretos."
+      render :edit
+    end
+  end
+
+  def create
+    @introduction = @lo.introductions.new(introduction_params)
+    if @introduction.save
+      redirect_to teacher_lo_path(@lo)
+    else
+      flash.now[:error] = "Existem dados incorretos."
+      render :new
+    end
+  end
+
+  def destroy
+    @introduction.destroy
+    redirect_to teacher_lo_path(@lo)
+  end
+
+  private
+    def introduction_params
+      params.require(:introduction).permit(:title, :content)
+    end
+
+    def find_introduction
+      find_lo
+      @introduction = @lo.introductions.find(params[:id])
+    end
+end

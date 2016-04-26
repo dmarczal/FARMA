@@ -1,0 +1,9 @@
+<%= render 'shared/flash_messages'  %>
+<%= simple_form_for([:teacher, @lo, @exercise, @question, @tip],
+                    html: {class: 'col s12'}) do |f| %>
+
+  <%= f.input :content, autofocus: true,:as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'Full'} }%>
+
+  <%= f.button :submit_materialize, "Confirmar" %>
+
+<% end %>

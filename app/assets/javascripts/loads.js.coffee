@@ -6,7 +6,7 @@ $(document).ready ->
 $(document).on 'page:change', ->
   window.FARMA.reloadMaterilizeEffects()
   window.FARMA.toggleVerticalMenu()
-  window.FARMA.showTheNewQuestion()
+  window.FARMA.modalOpen()
 
 window.FARMA = {}
 

@@ -1,0 +1,8 @@
+<%unless @question.errors.any? %>
+  $("#questions_list").append('<%= j render partial: "teacher/questions/question_li" %>');
+<% end %>
+Materialize.updateTextFields();
+<% flash.each do |f| %>
+  <% type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'info') %>
+  toastr['<%= type %>']('<%= f[1] %>');
+<% end %>

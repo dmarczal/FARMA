@@ -33,7 +33,7 @@ $secondary-color: color("green", "darken-1") !default;
 @import "materialize/components/buttons";
 @import "materialize/components/dropdown";
 @import "materialize/components/waves";
-//@import "materialize/components/modal";
+// @import "materialize/components/modal";
 //@import "materialize/components/collapsible";
 //@import "materialize/components/chips";
 //@import "materialize/components/materialbox";
@@ -49,6 +49,7 @@ $secondary-color: color("green", "darken-1") !default;
 
 @import "custom.css.scss";
 @import "toastr";
-@import "workspace/dashboard.scss";
+@import "teacher/dashboard.scss";
 @import "home.scss";
-@import "workspace/los.scss";
+@import "teacher/los.scss";
+@import "teacher/exercises.scss";
