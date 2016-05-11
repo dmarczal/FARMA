@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
   devise_for :admins, controllers: { sessions: "admin/admins/sessions" }
-  
+
   namespace :admin do
     get '/' => 'dashboard#index'
   end

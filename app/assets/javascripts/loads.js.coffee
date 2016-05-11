@@ -15,8 +15,9 @@ window.FARMA.reloadMaterilizeEffects = ->
   # reinitialize form label
   Materialize.updateTextFields()
   $('input[autofocus]').siblings('label, i').addClass('active')
-  $('.button-collapse').sideNav() #reinitialize nav-mobile
-  $('.parallax').parallax() #reinitialize parallax
+  $('.button-collapse').sideNav() # reinitialize nav-mobile
+  $('.parallax').parallax() # reinitialize parallax
+  $('.slider').slider()
 
 window.FARMA.displayFlashMessages = ->
   toastr.options =
