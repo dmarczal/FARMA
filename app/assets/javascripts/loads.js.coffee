@@ -7,6 +7,8 @@ $(document).on 'page:change', ->
   window.FARMA.reloadMaterilizeEffects()
   window.FARMA.toggleVerticalMenu()
   window.FARMA.modalOpen()
+  window.FARMA.toggleBoxNewTips()
+  window.FARMA.menuBtn()
 
 window.FARMA = {}
 
@@ -18,6 +20,7 @@ window.FARMA.reloadMaterilizeEffects = ->
   $('input[autofocus]').siblings('label, i').addClass('active')
   $('.button-collapse').sideNav() #reinitialize nav-mobile
   $('.parallax').parallax() #reinitialize parallax
+  $('.tooltipped').tooltip({delay: 200})
 
 window.FARMA.displayFlashMessages = ->
   toastr.options =

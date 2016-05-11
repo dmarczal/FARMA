@@ -1,4 +1,4 @@
-class Teacher::IntroductionsController < Teacher::DashboardController
+class Teacher::IntroductionsController < Teacher::ApplicationController
   include FindModels
 
   before_action :find_lo, only: [:new, :create]

@@ -1,48 +1,70 @@
 <% provide(:title, "Meus OAs") %>
-  <!-- <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a> -->
-  <%= link_to(new_teacher_lo_path, class: 'btn-floating btn-large waves-effect waves-light red', id: 'botton-new') do%>
+<div class="fixed-action-btn" >
+  <%= link_to(new_teacher_lo_path, class: 'btn-floating btn-large red tooltipped',
+          'data-position' => 'left', 'data-tooltip' => 'Criar um novo OA') do%>
     <i class="material-icons">add</i>
   <% end %>
-<div class="col s9">
-
-  <article id="collection">
-
-    <ul id="dashboard-collection" class="collection list-active container z-depth-1">
-
-      <li class="collection-header"><h4 class="center-align">Meus Objetos de Aprendizagem</h4></li>
-
-      <% @los.each do |lo| %>
-        <li class="collection-item avatar hoverable">
-
-          <div id="left-box">
-            <%= content_tag(:span, lo.name, class: "title truncate")%>
-            <%= content_tag(:p, lo.user.name) %>
-          </div>
-
-          <div id="mdi-box">
-            <%= content_tag(:p, lo.description) %>
-          </div>
-
-          <div id="right-box">
-
-              <%= link_to(teacher_lo_path(lo), method: :get) do %>
-                <i class="material-icons">send</i>
-              <% end %>
-
-              <%= link_to(edit_teacher_lo_path(lo)) do %>
-                <i class="material-icons">build</i>
-              <% end %>
-
-              <%= link_to(teacher_lo_path(lo.id), method: :delete, data: { confirm: 'tem certeza disso?' }) do%>
-                <i class="material-icons">delete_forever</i>
-              <% end %>
-
-          </div>
-
-        </li>
-      <% end %>
-
-    </ul>
-
-  </article>
 </div>
+
+<article>
+  <h3 class="center">Meus Objetos de Aprendizagem</h3>
+
+  <ul class="row container">
+    <% @los.each do |lo| %>
+      <li class="col s12 row z-depth-1">
+        <div class="row lo-box">
+          <div class="col s9">
+            <h5 class="center"><%=lo.name %></h5>
+          </div>
+
+          <div class="col s3">
+            <%= link_to(edit_teacher_lo_path(lo), class: 'left') do %>
+              <i class="material-icons tiny">build</i>
+              <span>Editar</span>
+            <%end%>
+
+            <%= link_to(teacher_lo_path(lo), method: :delete, class: 'right',
+                        data: { confirm: 'tem certeza disso?' }) do %>
+              <i class="material-icons tiny">delete</i>
+              <span>Excluir</span>
+            <%end%>
+          </div>
+
+          <div class="col s12 divider"></div>
+
+          <div class="col s12 row">
+            <div class="col s7">
+              <p>
+                <%= lo.description %>
+              </p>
+            </div>
+
+            <div class="col s5">
+              <span class="span-created-at right">
+                criado por <%= lo.user.name %> em <%= lo.created_at.strftime("%d/%m/%Y %H:%M") %>
+              </span>
+              <% if lo.updated_at != lo.created_at %>
+                <span class="span-created-at right">
+                  Ultima atualização em <%= lo.updated_at.strftime("%d/%m/%Y %H:%M") %>
+                </span>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="col s12">
+            <%= link_to teacher_lo_path(lo), class: 'btn tooltipped',
+                        'data-position' => 'top', 'data-tooltip' => "Criar/editar Conteúdos do OA #{lo.name}" do %>
+              <i class="material-icons left">create</i> Conteúdos do OA
+            <% end %>
+
+            <%= link_to '#', class: 'btn disabled' do %>
+              <i class="material-icons left">visibility</i> Visualizar o OA
+            <% end %>
+          </div>
+        </div>
+
+      </li>
+    <% end %>
+
+  </ul>
+</article>

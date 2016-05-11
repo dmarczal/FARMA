@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe Workspace::ExercisesController, type: :controller do
-  
+RSpec.describe Teacher::ExercisesController, type: :controller do
+
   before :each do
     @user = FactoryGirl.create(:user_actived)
     sign_in @user

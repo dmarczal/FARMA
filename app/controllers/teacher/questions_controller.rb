@@ -1,4 +1,4 @@
-class Teacher::QuestionsController < Teacher::DashboardController
+class Teacher::QuestionsController < Teacher::ApplicationController
   include FindModels
 
   before_action :find_question, except: [:new, :create]

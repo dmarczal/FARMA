@@ -18,5 +18,7 @@
 //= require_self
 //= require loads
 //= require teacher/dashboard
+//= require teacher/los
 //= require ckeditor/init
 //= require teacher/questions
+//= require teacher/tips

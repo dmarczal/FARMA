@@ -1,8 +1,12 @@
-class Teacher::TipsController < Teacher::DashboardController
+class Teacher::TipsController < Teacher::ApplicationController
   include FindModels
 
-  before_action :find_tip, except: [:new, :create]
-  before_action :find_question, only: [:new, :create]
+  before_action :find_tip, except: [:new, :create, :index]
+  before_action :find_question, only: [:new, :create, :index]
+
+  def index
+    @tips = @question.tips.all
+  end
 
   def new
     @tip = @question.tips.new

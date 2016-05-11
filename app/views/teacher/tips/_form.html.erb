@@ -1,9 +1,17 @@
 <%= render 'shared/flash_messages'  %>
 <%= simple_form_for([:teacher, @lo, @exercise, @question, @tip],
                     html: {class: 'col s12'}) do |f| %>
-
+  <h3 class="center">Nova dica</h3>
+  <div class="divider"></div>
   <%= f.input :content, autofocus: true,:as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'Full'} }%>
 
-  <%= f.button :submit_materialize, "Confirmar" %>
+  <div class="col s6 offset-s6 row">
+    <div class="col s6 row">
+      <a id="cancel" class="btn col s12">Cancelar</a>
+    </div>
 
+    <div class="col s6 row">
+      <%= f.button :submit_materialize, "Confirmar"%>
+    </div>
+  </div>
 <% end %>

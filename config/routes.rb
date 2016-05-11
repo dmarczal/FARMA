@@ -19,8 +19,7 @@ Rails.application.routes.draw do
 
       resources :exercises , except: [:index] do
         resources :questions, except: [:index] do
-
-          resources :tips, except: [:index]
+          resources :tips
         end
       end
     end

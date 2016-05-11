@@ -1,36 +1,52 @@
 // Place all the styles related to the workspace/exercises controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.btn-floating{
-  position: fixed;
-  left: 94%;
-  top: 13%;
+p {
+  margin: 0;
 }
 
-.modal {
-  display: none;
+.fixed-modal-btn {
   position: fixed;
+  top: 100px;
+  right: 2%;
   z-index: 2;
-  top: 12%;
-  background: rgba(0, 0, 0, 0);
 
-  .modal-box {
-    z-index: 3;
-    margin-left: 20%;
-    margin-top: 5%;
-    background: white;
-    width: 60%;
-    height: 80%;
-    overflow: auto;
-
-    .modal-content {
-      z-index: 3;
-      width: 100%;
-      height: 100%;
-    }
+  .modal {
+    display: none;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
   }
 }
 
-.modal-open{
-  background: rgba(0, 0, 0, 0.6) !important;
+.btn-clicked .btn-floating {
+  display: none;
+}
+
+.btn-clicked .modal {
+  display: block;
+}
+
+#box-form-question {
+  display: none;
+}
+.collection {
+  position: static;
+}
+
+.show-question {
+  cursor:pointer;
+}
+
+.to-move {
+  height: 36px;
+  cursor: image-url("cursor_move.png"), default;
+}
+
+#box-links-question {
+  margin-bottom: 0;
+}
+
+.ajax-question-box {
+  display: none;
 }

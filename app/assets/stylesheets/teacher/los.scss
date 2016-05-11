@@ -1,50 +1,73 @@
 // Place all the styles related to the los controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-/*
- * Box list my-los style
- * ______________________________*/
+span {
+  font-size: 16px;
+}
 
-#dashboard-collection li{
-  position: relative;
-
-  #left-box{
-      position: absolute;
-      left: 0;
-      width: 10%;
-
-      span, p{//the image space
-        position: relative;
-        margin-left: 20%;
-      }
+.lo-box {
+  
+  .divider  {
+    margin: 0;
   }
 
-  #mdi-box{
-    width: 70%;
-    position: absolute;
-    right: 15%;
-  }
-
-  #right-box{
-    position: absolute;
-    right: 5%;
+  div a{
+    margin-top: 10px;
   }
 }
 
-#box-new{
-  padding: 5%;
+.span-created-at {
+  font-size: 14px;
+  color: #bdbdbd;
 }
-/*
- * form new lo style
- * ______________________________*/
-#botton-new{
+
+.collection-item .title {
+  font-size: 20px;
+}
+
+
+
+
+/*_______________________*/
+.fixed-action-btn {
+  bottom: 80%;
+  right: 2%;
+}
+
+.fixed-action-btn.vertical {
+  bottom: 68%;
+}
+
+.btn-rotate.button-clicked {
+  -webkit-transform: rotate(-360deg);
+  transform: rotate(-360deg);
+}
+
+#menuBtn {
   position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background: rgba(255, 255, 255, 0.6);
+  z-index: 1;
 }
 
-/*
- * collections los style
- * ______________________________*/
+#p-exercicio {
+  position: fixed;
+  background: #FFF;
+  bottom: 80%;
+  right: 8%;
+  padding: 5px;
+  border-radius: 20px;
+}
 
-#collection{
-  margin-top: 5%;
+#p-introducao {
+  position: fixed;
+  background: #FFF;
+  bottom: 68%;
+  right: 8%;
+  padding: 5px;
+  border-radius: 20px;
 }

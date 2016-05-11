@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Workspace::QuestionsController, type: :controller do
+RSpec.describe Teacher::QuestionsController, type: :controller do
 
   before :each do
     @user = FactoryGirl.create(:user_actived)

@@ -2,44 +2,99 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 window.FARMA.modalOpen = ->
-  $(document).on 'click', '.btn-open-modal', ->
-    modal_tag = $('.modal')
-    modal_tag.attr("data-target", $(this).attr('id'))
-    positions = $(this).offset()
+  $('.fixed-modal-btn').click ->
+    unless $(this).hasClass 'btn-clicked'
+      $(this).openForm()
 
-    modal_tag.css({
-      'left' : (positions.left + $(this).width()/2) + 'px',
-      'top': (positions.top + ($(this).height()/2) - $(window).scrollTop()) + 'px'
-    })
+  $(document).on 'click', '#cancel', ()->
+    $('.fixed-modal-btn').closeForm()
 
-    modal_tag.css("display","block")
-    modal_tag.animate({
-        'left' : '0',
-        'top' : '0',
-        'width' : '100%',
-        'height' : '100%'
-      }, 800, null, ()->
-        modal_tag.addClass('modal-open')
+
+$.fn.extend({
+  openForm : ()->
+    defaults = {
+      millisecond : 100,
+      type : "linear"
+    }
+
+    $('.fixed-modal-btn .modal').css({
+                                    'overflow' : 'scroll',
+                                    'margin' : '0',
+                                    'padding' : '0'
+                                    }).empty()
+
+    $(this).animate({
+        'top' : '50%',
+        'right' : '1%'
+      }, defaults.millisecond, defaults.type, null)
+    $(this).animate({
+        'top' : '60%',
+        'right' : '3%'
+      }, defaults.millisecond, defaults.type, null)
+    $(this).animate({
+        'top' : '70%',
+        'right' : '6.5%'
+      }, defaults.millisecond, defaults.type, null)
+    $(this).animate({
+        'top' : '66%',
+        'right' : '10%'
+      }, defaults.millisecond, defaults.type, ()->
+         $(this).addClass('btn-clicked')
+         $('.fixed-modal-btn .modal').animate({
+                'width' : '900px',
+                'height' : '450px'
+                'border-radius' : '30px';
+           }, defaults.millisecond, defaults.type,
+            $(this).animate({
+                'top' : '25%'
+              }, defaults.millisecond, defaults.type, ()->
+                $('#box-form-question').fadeIn(1000)
+              )
+           )
       )
 
-  $('.modal').on 'click', (event) ->
-    button = $('#'+$(this).attr("data-target"))
-    positions = button.offset()
-    width = $('.modal-box').width()
-    height = $('.modal-box').height()
-    margin_left = parseInt($('.modal-box').css('margin-left').replace("px", ""));
-    margin_top = parseInt($('.modal-box').css('margin-top').replace("px", ""));
-    mouse_in_modal_box = (event.pageX - margin_left) > 0 && (event.pageX - margin_left) < width
-    mouse_in_modal_box &= (event.pageY - margin_top) > 0 && (event.pageY - margin_top) < height
+  closeForm : ()->
+    defaults = {
+      millisecond : 100,
+      type : "linear"
+    }
 
-    if(!mouse_in_modal_box)
-      $('.modal').removeClass('modal-open'  )
+    $('.fixed-modal-btn .modal').css({
+                                    'overflow' : 'hidden',
+                                    'margin' : '0',
+                                    'padding' : '0'
+                                    }).empty()
 
-      $('.modal').animate({
-          'left' : (positions.left + $(button).width()/2) + 'px',
-          'top' : (positions.top + ($(button).height()/2) - $(window).scrollTop()) + 'px',
-          'width' : '5px',
-          'height' : '5px'
-        }, 500, null, ()->
-          $('.modal').css("display","none")
+    $('.fixed-modal-btn .modal').animate({
+           'width' : '55.5px',
+           'height' : '55.5px',
+           'border-radius' : '50%'
+      }, defaults.millisecond , defaults.type, null)
+
+    $(this).animate({
+        'top' : '66%',
+        'right' : '10%'
+      }, defaults.millisecond, defaults.type, null)
+
+    $(this).animate({
+        'top' : '70%',
+        'right' : '6.5%'
+      }, defaults.millisecond, defaults.type, null)
+
+    $(this).animate({
+        'top' : '60%',
+        'right' : '3%'
+      }, defaults.millisecond, defaults.type, null)
+
+    $(this).animate({
+        'top' : '50%',
+        'right' : '1%'
+      }, defaults.millisecond, defaults.type, ->
+          $(this).removeClass('btn-clicked')
         )
+
+    $(this).animate({
+        'top': '100px',
+        'right': '2%'
+      }, defaults.millisecond, defaults.type, null)
+})
