@@ -4,7 +4,11 @@ class Teacher::ExercisesController < Teacher::ApplicationController
   before_action :find_lo, only: [:new, :create]
   before_action :find_exercise, except: [:new, :create]
 
+  add_breadcrumb "Meus OAs", :teacher_los_path
+
   def show
+    add_breadcrumb "Questões do exercicio #{@exercise.title}", :teacher_lo_exercise_path
+
     @questions = @exercise.questions.all
   end
 

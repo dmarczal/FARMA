@@ -1,0 +1,39 @@
+<section id="parallax-banner" class="parallax-container top-container box-1 ">
+
+  <div class="section no-pad-bot">
+    <div class="container content-container pull-down ">
+      <div class="col s12 l6 offset-s3">
+
+         <article>
+
+           <header class="center-align">
+             <%= link_to(image_tag("logos/logo-farma-black.png", class: "logo"), root_path,
+                         class: "brand-logo logo") %>
+             <!-- <%= image_tag("logos/logo-farma-black.png", class: "logo") %> -->
+
+             <h1 class="gray-text">
+               FARMA: Ferramenta de Autoria para a Remediação de Erros com
+               Mobilidade na Aprendizagem.
+             </h1>
+           </header>
+
+           <p class="gray-text description">
+             Crie os mais diversos tipos de Objetos de Aprendizagem para o ensino de matemática.
+             Com a FARMA é fácil criar e aplicar objetos de aprendizagem matemáticos. Além disso,
+             permite que o professor monitore o desempenho e dificuldades de seus alunos.
+           </p>
+
+           <div class="center move-btn">
+               <%= link_to "começe já", new_user_session_path, class: "waves-effect waves-light btn-large tooltipped",
+                           "data-position" => "top", "data-delay" => "50",
+                           "data-tooltip" => "Clique aqui para acessar o sistema" %>
+           </div>
+
+         </article>
+
+      </div>
+    </div>
+    <div class="parallax"><%= image_tag("home/farma-01.jpg") %></div>
+  </div>
+
+</section>

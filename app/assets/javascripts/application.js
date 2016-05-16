@@ -17,8 +17,7 @@
 //= require materialize-sprockets
 //= require_self
 //= require loads
-//= require teacher/dashboard
-//= require teacher/los
+//= require home
 //= require ckeditor/init
-//= require teacher/questions
-//= require teacher/tips
+//= require_tree ./ckeditor/
+//= require_tree ./lib/

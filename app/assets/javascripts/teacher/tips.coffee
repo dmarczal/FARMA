@@ -2,14 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-window.FARMA.toggleBoxNewTips = ->
-  $(document).on 'click', '.btn-new-tip', ->
-    new_tip = $('#' + $(this).attr('data-target'))
-    new_tip.addClass 'open-box-tip'
-
-  $(document).on 'click', '.cancel-tip', ->
-    new_tip = $('#' + $(this).attr('data-target'))
-    new_tip.addClass('close-box-tip').delay(3000).queue(->
-      $(this).removeClass('open-box-tip').dequeue()
-      ).delay().queue ->
-        $(this).removeClass('close-box-tip').dequeue()
+window.FARMA.toggleBoxRequestQuestions = ->
+  $(document).on 'click', '.ajax-question-box .btn-cancel', ->
+    div_id = '#' + $(this).attr('data-target')
+    $(div_id).slideUp()

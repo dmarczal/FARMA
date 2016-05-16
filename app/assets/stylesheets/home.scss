@@ -4,95 +4,195 @@
 
 
 /*
- * parallax configuration
+ * Home page styles
  * ______________________________*/
-
-.parallax-container {
-  min-height: 380px;
-  line-height: 0;
-  height: auto;
-  color: rgba(255,255,255,.9);
-}
-.parallax-container .section {
-  width: 100%;
-}
-
 #home-page {
-  #index-banner {
+  h1, h4 {
+    margin-bottom: 0.2em;
+    font-size: 1.54rem;
+  }
 
-    position: relative;
+  p {
+    margin-bottom: 0.2em;
+    line-height: 20px;
+    text-align: center;
+  }
 
-    .pull-down {
-      position: absolute;
-      bottom: 50px;
-      left:0;
-      right:0;
-      margin-left:auto;
-      margin-right:auto;
+  .parallax-container {
+    min-height: 380px;
+    line-height: 0;
+    height: auto;
+    color: rgba($palletewhite,.9);
+    .section {
+      width: 100%;
     }
   }
 
-  h1, h4 {
-    // text-shadow: 0.5px 0.5px #FFF;
-    margin-bottom: 0.2em;
-    font-size: 2.2rem;
+  .top-container {
+    min-height: 655px;
   }
 
-  .box-5 {
-    min-height: 150px;
-    margin-bottom: 1em;
+  .content-container {
+    top: 283px;
   }
 
-   .box-1 h1, .box-3 h4, .box-5 h4, .box-6 h4  {
-    padding: 5px;
-    background-color: rgba(67, 160, 71, 0.74);//rgba(0,13,0,0.74);
-    border-radius: 15px;
+  .section.no-pad-bot {
+    padding-top: 422px;
+    padding-bottom: 422px;
+  }
+
+  .btn-large {
+    background-color: $palletegreen;
+    border-radius: 32px;
+    color: #067533;
+  }
+
+  .move-btn {
+    line-height: 125px;
+  }
+
+  .btn {
+    background-color: $palletegreen;
+    border-radius: 32px;
+    color: #067533;
+  }
+
+  .btn:hover {
+    background-color: #00D060;
+  }
+}
+
+nav#home-page-navbar {
+  background-color: transparent;
+  box-shadow: none;
+  ul a{
+    color: $palleteblue;
+  }
+}
+
+#parallax-banner {
+
+  @extend .gradient-white;
+  position: relative;
+
+  .container {
+    margin-top: -178px;
+  }
+
+  .logo {
+    width: 183px;
+    top: 20%;
+    left: 30%;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+  }
+
+  .logo.nav-bar-fixed {
+    width: 4em;
+    position: fixed;
+    z-index: 300;
+    top: 0;
+    left: 15%;
+  }
+
+  .pull-down {
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  p.description {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+#home-page-slider {
+  .slider .slides {
+    background-color: $palletewhite;
+  }
+
+  .slider .slides li .caption p {
+    color: $palletegrey;
+  }
+
+  .slider .indicators .indicator-item.active {
+    background-color: $palletegreen;
+  }
+}
+
+#home-page-subjects {
+  @extend .gradient-white;
+
+  .item-size {
+    width: 150px;
+  }
+
+  item-size:hover { @include scale(1.1); }
+}
+
+#home-page-goal {
+  @extend .gradient-white;
+  min-height: 150px;
+  margin-bottom: 1em;
+
+  .divider {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+}
+
+#home-page-team {
+  .card .card-reveal{
+    background-color: $palletegreen;
+    opacity: 0.9;
+    p{
+      color: $palletewhite;
+    }
   }
 }
 
 #home-page-footer {
+  background-color: $palleteblue;
   color: #FFF;
-
-  ul {
-     margin-left: 15px;
-     li { 
-       list-style: circle;
-     }
-  }
-  
-  form {
-    margin-top: 15px;
-
-    .input-field label {
-      color: #FFF;
-    }
-
-    input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea {
-      border-bottom: 1px solid #FFF;
-    }
-
-    .has-error {
-      input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea {
-        border-bottom: inherit;
-      }
-
-    }
-
-  }
 }
 
+#home-page-navbar {
+    z-index: 200;
+    position: fixed;
+}
+
+
+/*
+ * Responsive design for home page
+ * _______________________________________________*/
 @media only screen and (max-width : 992px) {
-  .parallax-container .section {
-    position: absolute;
-    top: 40%;
+  #home-page {
+    .parallax-container .section {
+      position: absolute;
+      top: 40%;
+    }
   }
-  #index-banner .section {
+  #parallax-banner .section {
     top: 10%;
   }
 }
 
 @media only screen and (max-width : 600px) {
-  #index-banner .section {
+  #parallax-banner .section {
     top: 0;
   }
+}
+
+
+
+.login-panel {
+  background-image: url('shared/farma-03.jpg');
+  background-color: $palletegreen;
+  background-blend-mode: darken;
 }

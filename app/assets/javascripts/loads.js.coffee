@@ -5,10 +5,8 @@ $(document).ready ->
 # Fixed materialize because turbolinks
 $(document).on 'page:change', ->
   window.FARMA.reloadMaterilizeEffects()
-  window.FARMA.toggleVerticalMenu()
-  window.FARMA.modalOpen()
-  window.FARMA.toggleBoxNewTips()
-  window.FARMA.menuBtn()
+  window.FARMA.navBarFixed()
+
 
 window.FARMA = {}
 
@@ -18,9 +16,10 @@ window.FARMA.reloadMaterilizeEffects = ->
   # reinitialize form label
   Materialize.updateTextFields()
   $('input[autofocus]').siblings('label, i').addClass('active')
-  $('.button-collapse').sideNav() #reinitialize nav-mobile
-  $('.parallax').parallax() #reinitialize parallax
-  $('.tooltipped').tooltip({delay: 200})
+  $('.button-collapse').sideNav() # reinitialize nav-mobile
+  $('.parallax').parallax() # reinitialize parallax
+  $('.slider').slider()
+
 
 window.FARMA.displayFlashMessages = ->
   toastr.options =

@@ -2,12 +2,14 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 window.FARMA.toggleVerticalMenu = ->
-  $('#button-user').click ->
-    if $(this).hasClass 'active_painel'
-      $(this).removeClass 'active_painel'
-      $('#slide-out').removeClass 'hide'
-      $('#icon_button').removeClass 'active_painel'
+  $('#button-painel').click ->
+    if $('#painel').hasClass 'active'
+      $('#painel').removeClass 'active'
+      $('#content-teacher').removeClass()
+      $('#content-teacher').addClass 'col s12 row'
+      # $('#main-teacher').addClass 'container'
     else
-      $(this).addClass 'active_painel'
-      $('#icon_button').addClass 'active_painel'
-      $('#slide-out').addClass 'hide'
+      $('#painel').addClass 'active'
+      $('#content-teacher').removeClass()
+      $('#content-teacher').addClass 'col s9 row'
+      # $('#main-teacher').removeClass 'container'

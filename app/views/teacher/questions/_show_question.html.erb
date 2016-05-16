@@ -1,7 +1,10 @@
-<div class="divider col s12"></div>
+<span class="col s12">Conteúdo:</span>
 
-<span class="left">Descrição:</span>
-<%= @question.content.to_s.html_safe %>
+<div class="box-question-content col s11">
+  <%= @question.content.to_s.html_safe %>
+</div>
 
-<span class="left">Resposta Correta:</span>
-<p><%= @question.correct_answer %></p>
+<div class="col s12">
+  <span class="left">Resposta Correta:</span>
+  <p><%= @question.correct_answer %></p>
+</div>

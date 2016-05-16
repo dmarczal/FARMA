@@ -1,26 +1,19 @@
-<div id="box-form-question">
-  <header>
-    <h3>Nova Questão</h3>
-  </header>
-  <div class="divider"></div>
+<%= simple_form_for([:teacher, @lo, @exercise, @question],
+                    html: {class: 'col s12'}, remote: true) do |f| %>
 
-  <%= simple_form_for([:teacher, @lo, @exercise, @question],
-                      html: {class: 'col s12'}, remote: true) do |f| %>
+  <%= f.input :title, autofocus: true %>
+  <%= f.input :content, :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'Full'} }%>
+  <%= f.input :correct_answer, as: :textarea%>
+  <%= f.input :cmas_order, as: :checkbox_materialize %>
 
-    <%= f.input :title, autofocus: true %>
-    <%= f.input :content, :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'Full'} }%>
-    <%= f.input :correct_answer, as: :textarea%>
-    <%= f.input :cmas_order, as: :checkbox_materialize %>
-
-    <div class="col s6 offset-s6 row">
-      <div class="col s6 row">
-        <a id="cancel" class="btn col s12">Cancelar</a>
-      </div>
-
-      <div class="col s6 row">
-        <%= f.button :submit_materialize, "Confirmar"%>
-      </div>
+  <div id="box-button-form" class="col s6 offset-s6 row">
+    <div class="col s6 row">
+      <a class="btn col s12 btn-cancel" data-target="question-<%= @question.id %>">Cancelar</a>
     </div>
-    
-  <% end %>
-</div>
+
+    <div class="col s6 row">
+      <%= f.button :submit_materialize, "Confirmar"%>
+    </div>
+  </div>
+
+<% end %>

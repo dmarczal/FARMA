@@ -1,10 +1,5 @@
 <% provide(:title, "Novo OA") %>
 
-<%= simple_form_for([:teacher, @lo], html: {class: 'col s12'}) do |f| %>
-  <h3>Novo OA</h3>
+<h3>Novo OA</h3>
 
-  <%= f.input :name, autofocus: true %>
-  <%= f.input :description, as: :textarea %>
-
-  <%= f.button :submit_materialize, "Confirmar" %>
-<% end %>
+<%= render 'form' %>

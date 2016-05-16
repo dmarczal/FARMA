@@ -1,0 +1,46 @@
+<% @contents.each_with_index do |content, index| %>
+
+  <li class="collection-item col s12 row z-depth-1">
+    <div class="col s9 title">
+      <span><%= "#{index + 1} " + (content.is_a?(Introduction) ? "Introdução" : "Exercicio") %></span>
+      <p><%= content.title %></p>
+    </div>
+
+    <div class="col s3">
+      <%= link_to(current_link(@lo, content), class: 'left') do%>
+        <i class="material-icons tiny">build</i>
+        <span>editar</span>
+      <% end %>
+
+      <%= link_to([:teacher, @lo, content], method: :delete, class: 'right',
+                  data: { confirm: 'tem certeza disso?' }) do%>
+          <i class="material-icons tiny">delete</i>
+          <span>Excluir</span>
+      <% end %>
+    </div>
+
+    <% if content.is_a?(Exercise) %>
+      <div id="show-questions" class="col s6">
+        <%= link_to([:teacher, @lo, content], class: 'btn tooltipped',
+                    'data-position' => 'top',
+                    'data-tooltip' => "Criar/editar Questões do Exercício #{content.title}" ) do%>
+            <i class="material-icons">storage</i>
+            <span class="right">Questões</span>
+        <% end %>
+      </div>
+    <% end %>
+
+    <div class="col s6 <%= content.is_a?(Exercise) ? '' : 'offset-s6'%>">
+      <span class="span-created-at right">
+        Criado em <%= content.created_at.strftime("%d/%m/%Y %H:%M") %>
+      </span>
+
+      <% if content.updated_at != content.created_at %>
+        <span class="span-created-at right">
+          Ultima atualização em <%= content.updated_at.strftime("%d/%m/%Y %H:%M") %>
+        </span>
+      <% end %>
+    </div>
+  </li>
+
+<% end %>

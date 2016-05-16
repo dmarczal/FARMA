@@ -10,10 +10,5 @@ Rails.application.config.assets.version = '1.0'
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
 
-Rails.application.config.assets.precompile += %w( admin/login.css )
-Rails.application.config.assets.precompile += %w( farma-01.jpg )
-Rails.application.config.assets.precompile += %w( farma-02.png )
-Rails.application.config.assets.precompile += %w( farma-03.jpg )
-Rails.application.config.assets.precompile += %w( missing.png )
-Rails.application.config.assets.precompile += %w( favicon.ico )
+Rails.application.config.assets.precompile += %w( admin/login.css.scss )
 Rails.application.config.assets.precompile += %w( ckeditor/*)

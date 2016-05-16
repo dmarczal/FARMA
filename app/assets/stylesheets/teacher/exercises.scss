@@ -7,8 +7,8 @@ p {
 
 .fixed-modal-btn {
   position: fixed;
-  top: 100px;
-  right: 2%;
+  bottom: 25px;
+  right: 1.7%;
   z-index: 2;
 
   .modal {
@@ -30,12 +30,40 @@ p {
 #box-form-question {
   display: none;
 }
-.collection {
-  position: static;
-}
 
-.show-question {
-  cursor:pointer;
+.collection-item {
+  padding: 20px 0 0 0 !important;
+  position: relative;
+
+  header {
+    height: 57px;
+  }
+
+  .ajax-question-box {
+    display: none;
+    background-color: $palletewhite;
+    margin: 0;
+    padding: 30px 20px;
+  }
+
+  .show-question {
+    position: absolute;
+    left: 0;
+    top: 12px;
+  }
+
+  .show-question.active {
+    -ms-transform: rotate(90deg);     /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+    transform: rotate(90deg);
+  }
+
+  .title-question {
+    position: absolute;
+    left: 8%;
+    top: 20px;
+  }
+
 }
 
 .to-move {
@@ -47,6 +75,7 @@ p {
   margin-bottom: 0;
 }
 
-.ajax-question-box {
-  display: none;
+#questions_list {
+  border: 1px solid #d1d1d1;
+  padding: 0;
 }

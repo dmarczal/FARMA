@@ -1,12 +1,15 @@
 // Place all the styles related to the los controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#los_list li{
+  background: white;
+}
+
 span {
   font-size: 16px;
 }
 
 .lo-box {
-  
   .divider  {
     margin: 0;
   }
@@ -25,23 +28,7 @@ span {
   font-size: 20px;
 }
 
-
-
-
 /*_______________________*/
-.fixed-action-btn {
-  bottom: 80%;
-  right: 2%;
-}
-
-.fixed-action-btn.vertical {
-  bottom: 68%;
-}
-
-.btn-rotate.button-clicked {
-  -webkit-transform: rotate(-360deg);
-  transform: rotate(-360deg);
-}
 
 #menuBtn {
   position: fixed;
@@ -70,4 +57,16 @@ span {
   right: 8%;
   padding: 5px;
   border-radius: 20px;
+}
+
+#list-content-los {
+  padding: 0;
+}
+
+#list-content-los li {
+  padding: 10px 10px;
+}
+
+#show-questions {
+  margin: 10px 0;
 }

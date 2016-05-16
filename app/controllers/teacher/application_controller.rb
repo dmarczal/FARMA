@@ -1,5 +1,7 @@
 class Teacher::ApplicationController < ::ActionController::Base
-  layout "dashboard/application"
+  layout "teacher/application"
   before_action :authenticate_user!
 
+  add_breadcrumb "Home", :teacher_path
+  
 end

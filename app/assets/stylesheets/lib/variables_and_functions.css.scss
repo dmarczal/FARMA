@@ -1,0 +1,17 @@
+$palleteblue: #2F373F;
+$palletegreen: #00d055;
+$palletegrey: #313131;
+$palletegrey2: #7D7B7A;
+$palletewhite: #edeeef;
+$palletered: #FF3A3A;
+
+@mixin transform ($scale) {
+  -moz-transform: $scale;
+  -webkit-transform: $scale;
+  -o-transform: $scale;
+  transform:$scale;
+
+  -webkit-transition: 2s all ease;
+  -moz-transition: 2s all ease;
+  -o-transition: 2s all ease;
+}

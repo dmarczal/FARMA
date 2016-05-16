@@ -4,12 +4,6 @@
 
   <h3>Nova introdução</h3>
 
-  <%= simple_form_for([:teacher, @lo, @exercise], html: {class: 'col s12'}) do |f| %>
-
-    <%= f.input :title, autofocus: true %>
-    <%= f.input :content, :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'Full'} }%>
-
-    <%= f.button :submit_materialize, "Confirmar" %>
-  <% end %>
+  <%= render 'form' %>
 
 </div>

@@ -4,12 +4,6 @@
 
   <h3>Objeto de Aprendizagem <%= @lo.name %></h3>
 
-  <%= simple_form_for([:teacher ,@lo], html: {class: 'col s12'}) do |f| %>
-
-    <%= f.input :name, autofocus: true %>
-    <%= f.input :description, as: :textarea %>
-
-    <%= f.button :submit_materialize, "Confirmar" %>
-  <% end %>
+<%= render 'form' %>
 
 </div>

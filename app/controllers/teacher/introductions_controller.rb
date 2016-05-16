@@ -5,7 +5,13 @@ class Teacher::IntroductionsController < Teacher::ApplicationController
   before_action :find_introduction, except: [:new, :create]
 
   def new
+    add_breadcrumb "Nova Introdução", new_teacher_lo_introduction_path(@lo)
+
     @introduction = @lo.introductions.new
+  end
+
+  def edit
+    add_breadcrumb "Editar #{@introduction.title}", new_teacher_lo_introduction_path(@lo, @title)
   end
 
   def update

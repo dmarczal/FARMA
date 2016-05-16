@@ -1,76 +1,19 @@
 <% provide(:title, "OA #{@lo.name}") %>
 
-<div id="menuBtn">
-  <p id="p-exercicio" class="z-depth-1">
-    Adicionar um novo Exercicio
-  </p>
-  <p id="p-introducao" class="z-depth-1">
-    Adicionar uma nova Introdução
-  </p>
-</div>
-<div class="fixed-action-btn vertical click-to-toggle">
-
- <a class="btn-floating btn-large btn-rotate red" data-link='<%= new_teacher_lo_introduction_path(@lo) %>'>
-   <i class="mdi-action-list icon-rotate"></i>
- </a>
-
- <ul>
-   <li>
-      <%= link_to(new_teacher_lo_exercise_path(@lo), class: 'btn-floating btn-large red') do%>
-       <i class="mdi-content-add-circle"></i>
-      <% end %>
-   </li>
- </ul>
+<div class="fixed-action-btn" >
+  <%= link_to(new_teacher_lo_path, class: 'btn-floating btn-large red tooltipped',
+          'data-position' => 'left', 'data-tooltip' => 'Criar um novo OA') do%>
+    <i class="material-icons">add</i>
+  <% end %>
 </div>
 
-<article>
+<article class="col s12 row">
   <h3 class="center"><%= @lo.name %></h3>
-  <ul class="collection container">
 
-    <% @contents.each_with_index do |content, index| %>
-      <li class="collection-item row">
-        <div class="col s9 title">
-          <span><%= "#{index + 1} " + (content.is_a?(Introduction) ? "Introdução" : "Exercicio") %></span>
-          <p><%= content.title %></p>
-        </div>
+  <ul id='list-content-los' class="collection col s10 offset-s1 row">
 
-        <div class="col s3">
-          <%= link_to(correct_link(@lo, content), class: 'left') do%>
-            <i class="material-icons tiny">build</i>
-            <span>editar</span>
-          <% end %>
-
-          <%= link_to([:teacher, @lo, content], method: :delete, class: 'right',
-                      data: { confirm: 'tem certeza disso?' }) do%>
-              <i class="material-icons tiny">delete</i>
-              <span>Excluir</span>
-          <% end %>
-        </div>
-
-        <% if content.is_a?(Exercise) %>
-          <div class="col s6">
-            <%= link_to([:teacher, @lo, content], class: 'btn tooltipped',
-                        'data-position' => 'top',
-                        'data-tooltip' => "Criar/editar Questões do Exercício #{content.title}" ) do%>
-                <i class="material-icons">storage</i>
-                <span class="right">Questões</span>
-            <% end %>
-          </div>
-        <% end %>
-
-        <div class="col s6 <%= content.is_a?(Exercise) ? '' : 'offset-s6'%>">
-          <span class="span-created-at right">
-            Criado em <%= content.created_at.strftime("%d/%m/%Y %H:%M") %>
-          </span>
-
-          <% if content.updated_at != content.created_at %>
-            <span class="span-created-at right">
-              Ultima atualização em <%= content.updated_at.strftime("%d/%m/%Y %H:%M") %>
-            </span>
-          <% end %>
-        </div>
-      </li>
-    <% end %>
+    <%= render 'contents' %>
 
   </ul>
+
 </article>
