@@ -1,6 +1,15 @@
 // Place all the styles related to the los controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*
+ * Los pages styles
+ * ______________________________*/
+
+ /*
+  * los index styles - list los
+  * ______________________________*/
+
 #los_list li{
   background: white;
 }
@@ -28,36 +37,11 @@ span {
   font-size: 20px;
 }
 
-/*_______________________*/
+/*
+ * lo show styles - list content los
+ * ______________________________*/
 
-#menuBtn {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: none;
-  background: rgba(255, 255, 255, 0.6);
-  z-index: 1;
-}
 
-#p-exercicio {
-  position: fixed;
-  background: #FFF;
-  bottom: 80%;
-  right: 8%;
-  padding: 5px;
-  border-radius: 20px;
-}
-
-#p-introducao {
-  position: fixed;
-  background: #FFF;
-  bottom: 68%;
-  right: 8%;
-  padding: 5px;
-  border-radius: 20px;
-}
 
 #list-content-los {
   padding: 0;

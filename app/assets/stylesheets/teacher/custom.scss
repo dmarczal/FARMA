@@ -5,6 +5,7 @@
 /*
  * Vertical menu
  * ______________________________*/
+ 
 #painel {//_____ Card_Painel
 
   #painel-list {//_____ list
@@ -52,7 +53,10 @@
   margin: 15px 0;
 }
 
- //_____ links user(perfil and get out)
+/*
+ * links user(perfil and get out)
+ * ______________________________*/
+
 #button_links_user {
   color: white;
   margin-right: 10%;
@@ -63,11 +67,20 @@
 
 }
 
-.fixed-action-btn {
+/*
+ * teacher Style
+ * ______________________________*/
+
+
+.fixed-action-btn {//____ fixed btn
   bottom: 25px;
 }
 
-.btn-rotate.button-clicked {
-  -webkit-transform: rotate(-360deg);
-  transform: rotate(-360deg);
+/*
+ * box button on the form
+ * ______________________________*/
+
+#box-button-form {
+  margin-bottom: 0;
+  padding-top: 20px;
 }

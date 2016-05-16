@@ -1,9 +1,18 @@
 // Place all the styles related to the workspace/exercises controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*
+ * Exercise pages styles
+ * ______________________________*/
+
 p {
   margin: 0;
 }
+
+/*
+ * fixed button style --- new Questions
+ * ______________________________*/
 
 .fixed-modal-btn {
   position: fixed;
@@ -30,6 +39,10 @@ p {
 #box-form-question {
   display: none;
 }
+
+/*
+ * list question style
+ * ______________________________*/
 
 .collection-item {
   padding: 20px 0 0 0 !important;
