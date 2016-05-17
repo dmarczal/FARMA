@@ -15,8 +15,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require materialize-sprockets
-//= require_self
+//= require devise/loads
 //= require ckeditor/init
 //= require ckeditor/config
 //= require_tree ../lib/
-//= require devise/loads

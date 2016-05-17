@@ -1,5 +1,5 @@
 <%unless @question.errors.any? %>
-  $("#questions_list").append('<%= j render partial: "teacher/questions/question" %>');
+  $("#questions_list").append('<%= j render(partial: "teacher/questions/question", locals:  {question: @question}) %>');
   $('.fixed-modal-btn').closeForm();
 <% end %>
 
