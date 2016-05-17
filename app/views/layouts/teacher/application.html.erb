@@ -25,10 +25,11 @@
     <div id="content-teacher" class="col m12 l9 row">
 
       <header>
-        <%= render_breadcrumbs :builder => ::MaterializeBreadcrumbs %>
-      </header>
+        <h2 class="center"><%= page_title_the_teacher(yield(:page_teacher)) %></h2>
 
-      <div class="divider grey col s12"></div>
+        <%= render_breadcrumbs :builder => ::MaterializeBreadcrumbs %>
+
+      </header>
 
       <%= yield %>
 

@@ -3,7 +3,7 @@
 class MaterializeBreadcrumbs < BreadcrumbsOnRails::Breadcrumbs::Builder
 
   def render
-    @context.content_tag :nav do
+    @context.content_tag :nav , class: @options[:class] do
       @context.content_tag :div, class: 'nav-wrapper' do
         @context.content_tag :div, class: 'col s12' do
           @elements.collect do |element|

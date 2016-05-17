@@ -12,20 +12,20 @@ $.fn.extend({
                                     }).empty()
 
     $(this).animate({
-        'top' : '50%',
-        'right' : '1%'
+        'bottom' : '100px',
+        'right' : '1.7%'
       }, defaults.millisecond, defaults.type, null)
     $(this).animate({
-        'top' : '60%',
+        'bottom' : '200px',
         'right' : '3%'
       }, defaults.millisecond, defaults.type, null)
     $(this).animate({
-        'top' : '70%',
-        'right' : '6.5%'
+        'bottom' : '400px',
+        'right' : '5%'
       }, defaults.millisecond, defaults.type, null)
     $(this).animate({
-        'top' : '66%',
-        'right' : '10%'
+        'botton' : '300px',
+        'right' : '13%'
       }, defaults.millisecond, defaults.type, ()->
          $(this).addClass('btn-clicked')
          $('.fixed-modal-btn .modal').animate({
@@ -34,7 +34,7 @@ $.fn.extend({
                 'border-radius' : '30px';
            }, defaults.millisecond, defaults.type,
             $(this).animate({
-                'top' : '25%'
+                'bottom' : '50px'
               }, defaults.millisecond, defaults.type, ()->
                 $('#box-form-question').fadeIn(1000)
               )
@@ -60,29 +60,24 @@ $.fn.extend({
       }, defaults.millisecond , defaults.type, null)
 
     $(this).animate({
-        'top' : '66%',
-        'right' : '10%'
+        'bottom' : '400px',
+        'right' : '5%'
       }, defaults.millisecond, defaults.type, null)
 
     $(this).animate({
-        'top' : '70%',
-        'right' : '6.5%'
-      }, defaults.millisecond, defaults.type, null)
-
-    $(this).animate({
-        'top' : '60%',
+        'bottom' : '200px',
         'right' : '3%'
       }, defaults.millisecond, defaults.type, null)
 
     $(this).animate({
-        'top' : '50%',
-        'right' : '1%'
+        'bottom' : '100px',
+        'right' : '1.7%'
       }, defaults.millisecond, defaults.type, ->
           $(this).removeClass('btn-clicked')
         )
 
     $(this).animate({
-        'top': '100px',
-        'right': '2%'
+        'bottom' : '25px',
+        'right' : '1.7%'
       }, defaults.millisecond, defaults.type, null)
 })

@@ -10,8 +10,8 @@
 </div>
 
 <article>
-  <header class="center">
-    <h2><%= @exercise.title %></h2>
+  <header>
+    <h2><%= @exercise.title %> - Questões</h2>
   </header>
 
   <div class="divider"></div>
@@ -20,7 +20,7 @@
 
   <div class="divider"></div>
 
-  <ul id="questions_list" class="collection z-depth-2 col m10 l12">
+  <ul id="questions_list" class="collection z-depth-2 col s12">
     <%= render @questions %>
   </ul>
 

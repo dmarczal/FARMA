@@ -1,9 +1,5 @@
 <% provide(:title, "Editar o OA #{@lo.name}") %>
 
-<div id="box-new-lo" class="col s9 container">
+<h3>Objeto de Aprendizagem <%= @lo.name %></h3>
 
-  <h3>Objeto de Aprendizagem <%= @lo.name %></h3>
-
-  <%= render 'form' %>
-
-</div>
+<%= render 'form' %>

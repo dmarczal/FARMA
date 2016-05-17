@@ -9,9 +9,14 @@ $palletered: #FF3A3A;
   -moz-transform: $scale;
   -webkit-transform: $scale;
   -o-transform: $scale;
-  transform:$scale;
+  -ms-transform: $scale;
+  transform: $scale;
+}
 
-  -webkit-transition: 2s all ease;
-  -moz-transition: 2s all ease;
-  -o-transition: 2s all ease;
+@mixin logo-transform() {
+  -moz-transition: top 0.5s, left 0.5s, width 0.5s, -moz-transform 0.5s;
+  -webkit-transition: 0.5s, left 0.5s, width 0.5s, -webkit-transform 0.5s;
+  -o-transition: 0.5s, left 0.5s, width 0.5s, -o-transform 0.5s;
+  -ms-transition: 0.5s, left 0.5s, width 0.5s, -ms-transform 0.5s;
+  transition: 0.5s, left 0.5s, width 0.5s, transform 0.5s;
 }

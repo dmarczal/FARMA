@@ -1,9 +1,6 @@
-<% provide(:title, "Nova Introdução") %>
+<% provide(:title, @introduction.title) %>
 
-<div id="box-new-lo" class="col s9 container">
+<h3>Editar a Introdução <%=  @introduction.title %></h3>
+<div class="divider"></div>
 
-  <h3>Nova introdução</h3>
-
-  <%= render 'form' %>
-
-</div>
+<%= render 'form' %>

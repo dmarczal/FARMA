@@ -3,19 +3,23 @@ class Teacher::LosController < Teacher::ApplicationController
 
   before_action :find_lo, only: [:show, :edit, :update, :destroy]
 
-  add_breadcrumb 'Meus Oas', :teacher_path
-
   def index
     @los = current_user.los.order :name
   end
 
   def show
-    add_breadcrumb "Oa #{@lo.name}", :teacher_path
+    add_breadcrumb "OA #{@lo.name}", teacher_lo_path(@lo)
     @contents = @lo.contents
   end
 
   def new
+    add_breadcrumb "Novo OA", new_teacher_lo_path
+
     @lo = current_user.los.new
+  end
+
+  def edit
+    add_breadcrumb "Editar #{@lo.name}", edit_teacher_lo_path(@lo)
   end
 
   def create #create new lo (post)

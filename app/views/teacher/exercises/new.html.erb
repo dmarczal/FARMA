@@ -1,9 +1,6 @@
-<% provide(:title, "Nova Exercicio") %>
+<% provide(:title, "Novo Exercicio") %>
 
-<div id="box-new-lo" class="col s9 container">
+<h3>Novo Exercicio para o OA <%= @lo.name %></h3>
+<div class="divider"></div>
 
-  <h3>Novo Exercicio</h3>
-
-  <%= render 'form' %>
-
-</div>
+<%= render 'form' %>

@@ -106,3 +106,13 @@ label.ckeditor{
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#edeeef', endColorstr='#edeeef', GradientType=0 );
   opacity: 1.5;
 }
+
+/*
+ * removing the active effect of the materialize
+ * ______________________________*/
+
+label.ckeditor.active {
+  @include transform(none);
+
+  font-size: 14px;
+}
