@@ -3,11 +3,9 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 window.FARMA.toggleVerticalMenu = ->
   $('#button-painel').click ->
+    $('#painel').toggleClass 'active'
+
     if $('#painel').hasClass 'active'
-      $('#painel').removeClass 'active'
-      $('#content-teacher').removeClass()
-      $('#content-teacher').addClass 'col s12 row'
+      $('#content-teacher').removeClass('l12').addClass('l9')
     else
-      $('#painel').addClass 'active'
-      $('#content-teacher').removeClass()
-      $('#content-teacher').addClass 'col s9 row'
+      $('#content-teacher').removeClass('l9').addClass('l12')

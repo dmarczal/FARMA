@@ -2,7 +2,7 @@
 
   <li class="collection-item col s12 row z-depth-1">
     <div class="col s9 title">
-      <span><%= "#{index + 1} " + (content.is_a?(Introduction) ? "Introdução" : "Exercicio") %></span>
+      <span><%= content.index.to_s + (content.is_a?(Introduction) ? "Introdução" : "Exercicio") %></span>
       <p><%= content.title %></p>
     </div>
 
@@ -32,12 +32,12 @@
 
     <div class="col s6 <%= content.is_a?(Exercise) ? '' : 'offset-s6'%>">
       <span class="span-created-at right">
-        Criado em <%= content.created_at.strftime("%d/%m/%Y %H:%M") %>
+        Criado em <%= l(content.created_at, format: :small) %>
       </span>
 
       <% if content.updated_at != content.created_at %>
         <span class="span-created-at right">
-          Ultima atualização em <%= content.updated_at.strftime("%d/%m/%Y %H:%M") %>
+          Ultima atualização em <%= l(content.updated_at, format: :small) %>
         </span>
       <% end %>
     </div>

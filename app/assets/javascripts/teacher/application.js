@@ -15,13 +15,12 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require materialize-sprockets
-//= require_self
+//  require_self
+//= require teacher/loads
 //= require ckeditor/init
 //= require ckeditor/config
 //= require_tree ../lib/
-//= require teacher/loads
-//= require teacher/dashboard
+//= require teacher/utils
 //= require teacher/exercises
-//= require teacher/los
 //= require teacher/questions
 //= require teacher/tips

@@ -1,4 +1,4 @@
-Carrie.CKEDITOR =
+FARMA.CKEDITOR =
   clear: ->
     $.each CKEDITOR.instances, (i, editor) ->
       try
@@ -19,7 +19,7 @@ Carrie.CKEDITOR =
     unless config
       config =
         language: 'pt-br',
-        toolbar: Carrie.CKEDITOR.toolbar.full
+        toolbar: FARMA.CKEDITOR.toolbar.full
         extraPlugins: 'tliyoutube,lineutils,widget,mathjax'
         scayt_autoStartup: true
         allowedContent: true
