@@ -106,25 +106,3 @@ label.ckeditor{
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#edeeef', endColorstr='#edeeef', GradientType=0 );
   opacity: 1.5;
 }
-
-/*
- * breadcrumbs
- * ______________________________*/
-
- #breadcrumbs {
-   border: 1px solid black;
-   padding-top: 10px;
-   background-color: $palletegreen;
- }
-
- #breadcrumbs li {
-   padding: 0 10px;
-   display: inline-block;
-   text-decoration: underline;
-
-   a {
-     color: $palleteblue;
-   }
- }
-
- 

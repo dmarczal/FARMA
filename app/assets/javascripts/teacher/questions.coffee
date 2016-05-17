@@ -7,5 +7,5 @@ window.FARMA.modalOpen = ->
     unless $(this).hasClass 'btn-clicked'
       $(this).openForm()
 
-  $(document).on 'click', '.fixed-modal-btn .btn-cancel', ()->
+  $("#content-teacher").on 'click', '.fixed-modal-btn .btn-cancel', ()->
     $('.fixed-modal-btn').closeForm()

@@ -24,12 +24,8 @@
 
     <div id="content-teacher" class="col m12 l9 row">
 
-      <header class="col s8 offset-s2 center">
-
-        <ul id="breadcrumbs">
-          <%= render_breadcrumbs tag: :li, :separator => "/" %>
-        </ul>
-
+      <header>
+        <%= render_breadcrumbs :builder => ::MaterializeBreadcrumbs %>
       </header>
 
       <div class="divider grey col s12"></div>

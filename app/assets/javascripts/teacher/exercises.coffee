@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 window.FARMA.showQuestion = ->
-  $(document).on 'click', '.show-question', ->
+  $("#questions_list").on 'click', '.show-question', ->
     div_id = '#' + $(this).attr('data-target')
     if $(this).hasClass 'active'
       $(div_id).slideUp()
