@@ -2,18 +2,18 @@
 
 <div class="fixed-action-btn" >
   <%= link_to(new_teacher_lo_path, class: 'btn-floating btn-large red tooltipped',
-          'data-position' => 'left', 'data-tooltip' => 'Criar um novo OA') do%>
+          'data-position' => 'left', 'data-tooltip' => 'Criar um novo OA') do %>
     <i class="material-icons">add</i>
   <% end %>
 </div>
 
 <article class="col s12 row">
-  <h3 class="center">Meus Objetos de Aprendizagem</h3>
+  <header class="center">
+    <h3>Meus Objetos de Aprendizagem</h3>
+  </header>
 
   <ul id="los_list" class="col s10 offset-s1 row">
-
-    <%= render 'los' %>
-
+    <%= render @los %>
   </ul>
 
 </article>
