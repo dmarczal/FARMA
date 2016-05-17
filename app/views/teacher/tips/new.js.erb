@@ -1,0 +1,3 @@
+$('#question-<%= @question.id %>').empty();
+$('#question-<%= @question.id %>').append('<%= j render partial: "teacher/tips/form" %>');
+$('#question-<%= @question.id %>').slideDown();

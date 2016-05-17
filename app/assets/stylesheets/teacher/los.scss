@@ -1,0 +1,56 @@
+// Place all the styles related to the los controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*
+ * Los pages styles
+ * ______________________________*/
+
+ /*
+  * los index styles - list los
+  * ______________________________*/
+
+#los_list li{
+  background: white;
+}
+
+span {
+  font-size: 16px;
+}
+
+.lo-box {
+  .divider  {
+    margin: 0;
+  }
+
+  div a{
+    margin-top: 10px;
+  }
+}
+
+.span-created-at {
+  font-size: 14px;
+  color: #bdbdbd;
+}
+
+.collection-item .title {
+  font-size: 20px;
+}
+
+/*
+ * lo show styles - list content los
+ * ______________________________*/
+
+
+
+#list-content-los {
+  padding: 0;
+}
+
+#list-content-los li {
+  padding: 10px 10px;
+}
+
+#show-questions {
+  margin: 10px 0;
+}

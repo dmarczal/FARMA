@@ -1,0 +1,55 @@
+  <li class="collection-item row col s12">
+    <div class="col s12 row">
+      <header class="col s3">
+        <%= link_to teacher_lo_exercise_question_path(@lo, @exercise, question), remote: true do %>
+          <i class="show-question material-icons medium" data-target="question-<%= question.id %>">
+            keyboard_arrow_right
+          </i>
+        <% end %>
+        <span class="title-question"><%= "#{question.title}" %></span>
+      </header>
+
+      <div class="col s4 to-move"></div>
+
+      <div id="box-links-question" class="col s4 push-s1 row">
+
+        <%= link_to new_teacher_lo_exercise_question_tip_path(@lo, @exercise, question),
+                    class: 'btn col s6 tooltipped', 'data-position' => 'left',
+                    remote: true, 'data-tooltip' => 'Criar uma nova Dica' do %>
+            <i class="material-icons left">lightbulb_outline</i>
+            <span>nova dica</span>
+        <% end %>
+
+        <div class="col s5 push-s1">
+          <div class="col s4">
+            <%= link_to teacher_lo_exercise_question_tips_path(@lo, @exercise, question),
+                        class: 'tooltipped', 'data-position' => 'left', remote: true,
+                        'data-tooltip' => "Mostrar todas as dicas da Questão #{question.title}" do %>
+                <i class="material-icons">visibility</i>
+            <% end %>
+          </div>
+
+          <div class="col s4">
+            <%= link_to edit_teacher_lo_exercise_question_path(@lo, @exercise, question),
+                        class: 'tooltipped', 'data-position' => 'left', remote: true,
+                        'data-tooltip' => "Editar a Questão #{question.title}" do %>
+                <i class="material-icons">settings</i>
+            <% end %>
+          </div>
+
+          <div class="col s4">
+            <%= link_to [:teacher, @lo, @exercise, question], method: :delete,
+                        data: { confirm: 'tem certeza disso?' }, class: 'tooltipped',
+                        'data-position' => 'left', 'data-tooltip' => "Deletar a Questão #{question.title}" do %>
+                <i class="material-icons">delete</i>
+            <% end %>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="divider col s12"></div>
+
+    <div id="question-<%= question.id %>" class="col s12 row ajax-question-box"></div>
+  </li>

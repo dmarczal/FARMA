@@ -1,0 +1,19 @@
+<% provide(:title, "OA #{@lo.name}") %>
+
+<div class="fixed-action-btn" >
+  <%= link_to(new_teacher_lo_path, class: 'btn-floating btn-large red tooltipped',
+          'data-position' => 'left', 'data-tooltip' => 'Criar um novo OA') do%>
+    <i class="material-icons">add</i>
+  <% end %>
+</div>
+
+<article class="col s12 row">
+  <h3 class="center"><%= @lo.name %></h3>
+
+  <ul id='list-content-los' class="collection col s10 offset-s1 row">
+
+    <%= render 'contents' %>
+
+  </ul>
+
+</article>

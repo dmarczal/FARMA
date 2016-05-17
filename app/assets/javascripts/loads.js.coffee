@@ -5,7 +5,8 @@ $(document).ready ->
 # Fixed materialize because turbolinks
 $(document).on 'page:change', ->
   window.FARMA.reloadMaterilizeEffects()
-  window.FARMA.toggleVerticalMenu()
+  window.FARMA.navBarFixed()
+
 
 window.FARMA = {}
 
@@ -18,6 +19,7 @@ window.FARMA.reloadMaterilizeEffects = ->
   $('.button-collapse').sideNav() # reinitialize nav-mobile
   $('.parallax').parallax() # reinitialize parallax
   $('.slider').slider()
+
 
 window.FARMA.displayFlashMessages = ->
   toastr.options =

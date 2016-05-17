@@ -1,0 +1,52 @@
+<ul id='links_user' class='dropdown-content'>
+  <li>
+    <%= link_to(edit_user_registration_path) do %>
+      <i class="mdi-action-face-unlock left"></i> Perfil
+  <% end %>
+  </li>
+  <li>
+    <%= link_to(destroy_user_session_path, method: :delete) do %>
+      <i class="mdi-hardware-keyboard-tab left"></i> Sair
+  <% end %>
+  </li>
+</ul>
+
+<nav>
+  <div id="button-painel" class="left center hide-on-med-and-down">
+    <i class="material-icons">menu</i>
+  </div>
+
+  <%= link_to("FARMA", root_path, class: "brand-logo center", id: "logo-container") %>
+
+  <ul id="button_links_user" class="hide-on-med-and-down right">
+    <!-- Dropdown Trigger -->
+    <li>
+      <a class="dropdown-button waves-effect waves-light" href="#!" data-activates="links_user">
+        <%= current_user.name %><i class="small material-icons right">arrow_drop_down</i>
+      </a>
+    </li>
+  </ul>
+
+  <ul id="nav-mobile" class="side-nav">
+    <li>
+      <%= image_tag current_user.avatar.url, class: "circle", id: "img-user" %>
+      <h3 class="black-text center"><%= current_user.name %></h3>
+    </li>
+
+    <li>
+      <%= link_to(teacher_path) do %>
+        <i class="mdi-action-dashboard left"></i> Dashboard
+      <% end %>
+    </li>
+
+    <li>
+      <%= link_to(teacher_los_path) do %>
+        <i class="mdi-action-list left"></i> Meus OAs
+      <% end %>
+    </li>
+  </ul>
+
+  <a href="#" data-activates="nav-mobile" class="button-collapse">
+    <i class="material-icons">menu</i>
+  </a>
+</nav>

@@ -1,0 +1,86 @@
+// Place all the styles related to the dashboard controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*
+ * Vertical menu
+ * ______________________________*/
+ 
+#painel {//_____ Card_Painel
+
+  #painel-list {//_____ list
+    padding: 0;
+  }
+
+  #painel-list li {//_____ content-list
+    width: 100%;
+    padding: 10px;
+    i {
+      margin-left: 10px;
+    }
+  }
+
+  #painel-list li.active {//_____ active content-list
+    background-color: #E0E4E9;
+  }
+
+  #painel-list li:hover {//_____ focus in content-list
+    background-color: #E6E9EC
+  }
+}
+
+#painel { //____ default painel display
+  display: none;
+}
+
+#painel.active {//____ active painel display
+  display: block;
+}
+
+#button-painel {//____ button ative painel
+  margin-left: 2%;
+  height: 100%;
+  width: 4.5%;
+
+  cursor: pointer;
+}
+
+#button-painel i {//____ icon the button ative painel
+  margin-top: 20px;
+}
+
+.painel-list-divider {
+  margin: 15px 0;
+}
+
+/*
+ * links user(perfil and get out)
+ * ______________________________*/
+
+#button_links_user {
+  color: white;
+  margin-right: 10%;
+
+  .material-icons {
+    margin-top: 16px;
+  }
+
+}
+
+/*
+ * teacher Style
+ * ______________________________*/
+
+
+.fixed-action-btn {//____ fixed btn
+  bottom: 25px;
+}
+
+/*
+ * box button on the form
+ * ______________________________*/
+
+#box-button-form {
+  margin-bottom: 0;
+  padding-top: 20px;
+}

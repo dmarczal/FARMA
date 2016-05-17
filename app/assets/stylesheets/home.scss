@@ -4,7 +4,7 @@
 
 
 /*
- * Home page styles 
+ * Home page styles
  * ______________________________*/
 #home-page {
   h1, h4 {
@@ -62,10 +62,6 @@
   }
 }
 
-#home-page-navbar .logo img {
-  width: 2em;
-}
-
 nav#home-page-navbar {
   background-color: transparent;
   box-shadow: none;
@@ -85,6 +81,23 @@ nav#home-page-navbar {
 
   .logo {
     width: 183px;
+    top: 20%;
+    left: 30%;
+
+    /** TODO: not working on chrome **/
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+  }
+
+  .logo.nav-bar-fixed {
+    width: 4em;
+    position: fixed;
+    z-index: 300;
+    top: 0;
+    left: 15%;
   }
 
   .pull-down {
@@ -130,7 +143,7 @@ nav#home-page-navbar {
   @extend .gradient-white;
   min-height: 150px;
   margin-bottom: 1em;
-  
+
   .divider {
     margin-top: 40px;
     margin-bottom: 40px;
@@ -150,6 +163,11 @@ nav#home-page-navbar {
 #home-page-footer {
   background-color: $palleteblue;
   color: #FFF;
+}
+
+#home-page-navbar {
+    z-index: 200;
+    position: fixed;
 }
 
 
