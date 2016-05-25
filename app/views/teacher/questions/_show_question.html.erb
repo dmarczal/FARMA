@@ -8,3 +8,25 @@
   <span class="left">Resposta Correta:</span>
   <p><%= @question.correct_answer %></p>
 </div>
+
+<article id="article-tips">
+  <header class="center col s12">
+    <h4>Dicas</h4>
+  </header>
+
+  <div class="divider col s12"></div>
+
+  <div class="col s3 offset-s9">
+    <%= link_to 'Nova Dica',
+                new_teacher_lo_exercise_question_tip_path(@lo, @exercise, @question),
+                class: 'btn',
+                remote: true %>
+  </div>
+
+  <div id="box-new-tips-for-<%= @question.id %>"></div>
+
+  <ul id="list-tips" class="col s12 row">
+    <%= render @tips %>
+  </ul>
+
+</article>

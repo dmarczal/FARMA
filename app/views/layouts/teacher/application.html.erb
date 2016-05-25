@@ -4,6 +4,8 @@
   <title><%= full_title(yield(:title)) %></title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+
+
   <%= stylesheet_link_tag    'teacher/application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'teacher/application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -18,21 +20,23 @@
 
   <main id="main-teacher" class="row">
 
-    <div id="painel" class="col l2 row active hide-on-med-and-down">
-      <%= render 'layouts/teacher/painel' %>
+    <div id="panel" class="col l2 row active hide-on-med-and-down">
+      <%= render 'layouts/teacher/panel' %>
     </div>
 
-    <div id="content-teacher" class="col m12 l9 row">
+    <div id="container">
+      <div id="content-teacher" class="col m12 l9 offset-l2 row">
 
-      <header>
-        <h2 class="center"><%= page_title_the_teacher(yield(:page_teacher)) %></h2>
+        <header id="header-teacher">
+          <%= render_breadcrumbs :builder => ::MaterializeBreadcrumbs, class: 'nav-breadcrumbs z-depth-0' %>
+          <div class="divider col s12"></div>
+        </header>
 
-        <%= render_breadcrumbs :builder => ::MaterializeBreadcrumbs %>
+        <div class="content">
+          <%= yield %>
+        </div>
 
-      </header>
-
-      <%= yield %>
-
+      </div>
     </div>
 
   </main>

@@ -4,6 +4,10 @@ class Teacher::QuestionsController < Teacher::ApplicationController
   before_action :find_question, except: [:new, :create]
   before_action :find_exercise, only: [:new, :create]
 
+  def show
+    @tips = @question.tips.order :number_of_tries
+  end
+
   def new
     @question = @exercise.questions.new
   end
@@ -15,12 +19,13 @@ class Teacher::QuestionsController < Teacher::ApplicationController
       flash.now[:notice] = "Questão #{@question.title} criada."
     else
       flash.now[:error] = "Existem dados incorretos."
+      render :new
     end
   end
 
   def update
     if @question.update(question_params)
-      redirect_to teacher_lo_exercise_path(@lo, @exercise)
+      flash.now[:notice] = "Questão #{@question.title} editada."
     else
       flash.now[:error] = "Existem dados incorretos."
       render :edit

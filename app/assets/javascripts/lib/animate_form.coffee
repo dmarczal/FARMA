@@ -1,12 +1,11 @@
 $.fn.extend({
   openForm : ()->
     defaults = {
-      millisecond : 100,
+      millisecond : 1000,
       type : "linear"
     }
 
     $('.fixed-modal-btn .modal').css({
-                                    'overflow' : 'scroll',
                                     'margin' : '0',
                                     'padding' : '0'
                                     }).empty()
@@ -43,12 +42,11 @@ $.fn.extend({
 
   closeForm : ()->
     defaults = {
-      millisecond : 100,
+      millisecond : 1000,
       type : "linear"
     }
 
     $('.fixed-modal-btn .modal').css({
-                                    'overflow' : 'hidden',
                                     'margin' : '0',
                                     'padding' : '0'
                                     }).empty()

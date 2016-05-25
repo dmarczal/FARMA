@@ -12,17 +12,18 @@
 </ul>
 
 <nav>
-  <div id="button-painel" class="left center hide-on-med-and-down">
+  <div id="button-panel" class="left center hide-on-med-and-down">
     <i class="material-icons">menu</i>
   </div>
 
-  <%= link_to("FARMA", root_path, class: "brand-logo center", id: "logo-container") %>
+  <%= link_to("FARMA", root_path, class: "brand-logo", id: "logo-container") %>
 
   <ul id="button_links_user" class="hide-on-med-and-down right">
     <!-- Dropdown Trigger -->
     <li>
       <a class="dropdown-button waves-effect waves-light" href="#!" data-activates="links_user">
-        <%= current_user.name %><i class="material-icons right small">arrow_drop_down</i>
+      <span class="right"><%= current_user.name %></span><%= image_tag current_user.avatar.url,
+                                                          class: "circle img-user left" %>
       </a>
     </li>
   </ul>

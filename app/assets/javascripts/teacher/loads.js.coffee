@@ -9,6 +9,8 @@ $(document).on 'page:change', ->
   window.FARMA.modalOpen()
   window.FARMA.toggleBoxRequestQuestions()
   window.FARMA.showQuestion()
+  window.FARMA.fixTooltip()
+  window.FARMA.imagePreview()
 
 window.FARMA = {}
 

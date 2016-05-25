@@ -1,54 +1,36 @@
-<li class="col s12 row z-depth-1">
-
-  <div class="row lo-box">
-    <div class="col s9">
-      <h5 class="center"><%=lo.name %></h5>
-    </div>
-
-    <div class="col s3">
-      <%= link_to(edit_teacher_lo_path(lo), class: 'left') do %>
-        <i class="material-icons tiny">build</i>
-        <span>Editar</span>
-      <%end%>
-
-      <%= link_to(teacher_lo_path(lo), method: :delete, class: 'right',
-                  data: { confirm: 'tem certeza disso?' }) do %>
-        <i class="material-icons tiny">delete</i>
-        <span>Excluir</span>
-      <%end%>
-    </div>
-
-    <div class="col s12 divider"></div>
-
-    <div class="col s12 row">
-      <div class="col s7">
-        <p>
-          <%= lo.description %>
-        </p>
-      </div>
-
-      <div class="col s5">
-        <span class="span-created-at right">
-          criado por <%= lo.user.name %> em <%= lo.created_at.strftime("%d/%m/%Y %H:%M") %>
-        </span>
-        <% if lo.updated_at != lo.created_at %>
-          <span class="span-created-at right">
-            Ultima atualização em <%= lo.updated_at.strftime("%d/%m/%Y %H:%M") %>
-          </span>
-        <% end %>
-      </div>
-    </div>
-
-    <div class="col s12">
-      <%= link_to teacher_lo_path(lo), class: 'btn tooltipped',
-                  'data-position' => 'top', 'data-tooltip' => "Criar/editar Conteúdos do OA #{lo.name}" do %>
-        <i class="material-icons left">create</i> Conteúdos do OA
-      <% end %>
-
-      <%= link_to '#', class: 'btn disabled' do %>
-        <i class="material-icons left">visibility</i> Visualizar o OA
-      <% end %>
-    </div>
+<div class="card col s3">
+  <div class="card-image waves-effect waves-block waves-light">
+    <!-- <img class="activator" src="images/office.jpg"> -->
+      <%= image_tag lo.image.url, class: "activator image-lo"%>
   </div>
-
-</li>
+  <div class="card-content">
+    <span class="card-title activator grey-text text-darken-4">
+      <%= lo.name %><i class="material-icons">more_vert</i>
+    </span>
+    <p><%=  %></p>
+  </div>
+  <div class="card-reveal">
+    <span class="card-title grey-text text-darken-4">
+      <%= lo.name %><i class="material-icons">close</i>
+    </span>
+    <p><%= lo.description %></p>
+    <%= link_to teacher_lo_path(lo), method: :delete, data: { confirm: 'tem certeza disso?' } do %>
+      <i class="material-icons link_card delete small tooltipped"
+          data-position="left" data-tooltip="Deletar o OA <%= lo.name %>">
+        delete
+      </i>
+    <% end %>
+    <%= link_to edit_teacher_lo_path(lo) do %>
+      <i class="material-icons link_card update small tooltipped"
+        data-position="left" data-tooltip="Editar o OA <%= lo.name %>">
+        mode_edit
+      </i>
+    <% end %>
+    <%= link_to teacher_lo_path(lo) do %>
+      <i class="material-icons link_card show small tooltipped"
+        data-position="left" data-tooltip="Criar/Editar os conteúdos do OA <%= lo.name %>">
+        note_add
+      </i>
+    <% end %>
+  </div>
+</div>

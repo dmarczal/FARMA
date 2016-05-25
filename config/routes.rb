@@ -15,11 +15,11 @@ Rails.application.routes.draw do
   namespace :teacher do
     get '/' => 'dashboard#index'
     resources :los do
-      resources :introductions , except: [:index]
+      resources :introductions , except: :index
 
-      resources :exercises , except: [:index] do
-        resources :questions, except: [:index] do
-          resources :tips
+      resources :exercises , except: :index do
+        resources :questions, except: :index do
+          resources :tips, except: :index
         end
       end
     end

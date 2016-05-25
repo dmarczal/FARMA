@@ -1,8 +1,8 @@
-  <li class="collection-item row col s12">
+  <li id='question-<%= question.id %>' class="collection-item row col s12">
     <div class="col s12 row">
       <header class="col s6 m3">
         <%= link_to teacher_lo_exercise_question_path(@lo, @exercise, question), remote: true do %>
-          <i class="show-question material-icons medium" data-target="question-<%= question.id %>">
+          <i class="show-question material-icons medium" data-target="question-<%= question.id %>-show">
             keyboard_arrow_right
           </i>
         <% end %>
@@ -38,5 +38,5 @@
 
     <div class="divider col s12"></div>
 
-    <div id="question-<%= question.id %>" class="col s12 row ajax-question-box"></div>
+    <div id="question-<%= question.id %>-show" class="col s12 row ajax-question-box"></div>
   </li>

@@ -48,6 +48,6 @@ class Teacher::LosController < Teacher::ApplicationController
 
   private
     def lo_params
-      params.require(:lo).permit(:name, :description)
+      params.require(:lo).permit(:name, :description, :image)
     end
 end

@@ -24,3 +24,4 @@
 //= require teacher/exercises
 //= require teacher/questions
 //= require teacher/tips
+//= require teacher/los

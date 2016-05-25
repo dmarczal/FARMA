@@ -1,15 +1,15 @@
-<%= simple_form_for([:teacher ,@lo], html: {class: 'col s12'}) do |f| %>
+<%= simple_form_for([:teacher ,@lo], html: {class: 'col s12 row', multipart: true}) do |f| %>
 
   <%= f.input :name, autofocus: true %>
-  <%= f.input :description, as: :textarea %>
 
-  <div id="box-button-form" class="col s6 offset-s6 row">
-    <div class="col s6 row">
-      <%= link_to 'Cancelar', teacher_los_path, class: 'waves-effect waves-light btn' %>
-    </div>
-
-    <div class="col s6 row">
-      <%= f.button :submit_materialize, "Confirmar"%>
-    </div>
+  <div id="box-textarea" class="col s9">
+    <%= f.input :description, as: :textarea %>
   </div>
+
+  <div id="box-image-preview" class="col s3">
+    <%= f.input :image, as: :image_preview %>
+  </div>
+
+  <%= f.button :submit_materialize, "Confirmar", cancel: teacher_los_path %>
+
 <% end %>

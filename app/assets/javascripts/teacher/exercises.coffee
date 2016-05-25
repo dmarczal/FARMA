@@ -5,9 +5,5 @@
 window.FARMA.showQuestion = ->
   $('#questions_list').on 'click', '.show-question', ->
     div_id = '#' + $(this).attr('data-target')
-    if $(this).hasClass 'active'
-      $(div_id).slideUp()
-      $(this).removeClass 'active'
-    else
-      $(div_id).slideDown()
-      $(this).addClass 'active'
+    $(this).toggleClass 'active'
+    $(div_id).slideToggle()

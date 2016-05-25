@@ -1,12 +1,8 @@
 class Teacher::TipsController < Teacher::ApplicationController
   include FindModels
 
-  before_action :find_tip, except: [:new, :create, :index]
-  before_action :find_question, only: [:new, :create, :index]
-
-  def index
-    @tips = @question.tips.all
-  end
+  before_action :find_tip, except: [:new, :create, :cancel]
+  before_action :find_question, only: [:new, :create, :cancel]
 
   def new
     @tip = @question.tips.new
@@ -15,7 +11,7 @@ class Teacher::TipsController < Teacher::ApplicationController
   def create
     @tip = @question.tips.new(tips_params)
     if @tip.save
-      redirect_to teacher_lo_exercise_path(@lo, @exercise)
+      flash.now[:notice] = "Dica criada."
     else
       flash.now[:error] = "Existem dados incorretos."
       render :new
@@ -24,7 +20,7 @@ class Teacher::TipsController < Teacher::ApplicationController
 
   def update
     if @tip.update(tips_params)
-      redirect_to teacher_lo_exercise_path(@lo, @exercise)
+      flash.now[:notice] = "Dica editada."
     else
       flash.now[:error] = "Existem dados incorretos."
       render :edit
@@ -39,7 +35,7 @@ class Teacher::TipsController < Teacher::ApplicationController
 
   private
     def tips_params
-      params.require(:tip).permit(:content)
+      params.require(:tip).permit(:content, :number_of_tries)
     end
 
     def find_tip

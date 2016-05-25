@@ -1,6 +1,8 @@
 <% provide(:title, "#{@exercise.title}") %>
 
-<h3>Editar o exercicio <%= @exercise.title %></h3>
-<div class="divider"></div>
+<div class="z-depth-1 box-form">
+  <h3>Editar o exercicio <%= @exercise.title %></h3>
+  <div class="divider"></div>
 
-<%= render 'form' %>
+  <%= render 'form' %>
+</div>

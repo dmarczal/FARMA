@@ -1,4 +1,5 @@
 #http://materializecss.com/breadcrumbs.html
+#https://docs.omniref.com/ruby/gems/breadcrumbs_on_rails/0.1.1/symbols/BreadcrumbsOnRails::Breadcrumbs::SimpleBuilder
 
 class MaterializeBreadcrumbs < BreadcrumbsOnRails::Breadcrumbs::Builder
 

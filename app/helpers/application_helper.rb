@@ -9,8 +9,4 @@ module ApplicationHelper
     end
   end
 
-  def page_title_the_teacher page_title = '', base_title = 'Meus Objetos de Aprendizagem'
-    page_title.empty? ? base_title : page_title 
-  end
-
 end

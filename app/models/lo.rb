@@ -2,8 +2,10 @@ class Lo < ActiveRecord::Base
   belongs_to :user
   has_many :introductions, dependent: :destroy
   has_many :exercises, dependent: :destroy
+  has_attached_file :image, default_url: "home/farma-matematica.png"
 
   validates :name, :description, :user, presence: true
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   # Mescla de introduções e exercícios
   def contents

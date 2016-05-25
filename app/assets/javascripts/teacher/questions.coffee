@@ -7,5 +7,10 @@ window.FARMA.modalOpen = ->
     unless $(this).hasClass 'btn-clicked'
       $(this).openForm()
 
-  $("#content-teacher").on 'click', '.fixed-modal-btn .btn-cancel', () ->
-    $('.fixed-modal-btn').closeForm()
+  # $("#content-teacher").on 'click', '.fixed-modal-btn .btn-cancel', () ->
+  #   $('.fixed-modal-btn').closeForm()
+
+window.FARMA.toggleBoxRequestQuestions = ->
+  # $('#content-teacher').on 'click', '.ajax-question-box .btn-cancel', ->
+  #   div_id = '#' + $(this).attr('data-target')
+  #   $(div_id).slideUp()

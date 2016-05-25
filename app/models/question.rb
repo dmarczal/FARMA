@@ -1,6 +1,6 @@
 class Question < ActiveRecord::Base
   belongs_to :exercise, counter_cache: true
-  has_many :tips, dependent: :destroy
+  has_many :tips
 
   validates :correct_answer, presence: true
 

@@ -6,6 +6,11 @@
  * Los pages styles
  * ______________________________*/
 
+
+ .container .row {
+   margin-left: 0;
+ }
+
  /*
   * los index styles - list los
   * ______________________________*/
@@ -40,9 +45,6 @@ span {
 /*
  * lo show styles - list content los
  * ______________________________*/
-
-
-
 #list-content-los {
   padding: 0;
 }
@@ -53,4 +55,40 @@ span {
 
 #show-questions {
   margin: 10px 0;
+}
+
+/*
+ * Card content los
+ * ______________________________*/
+.card {
+  margin-left: 58px;
+
+  .image-lo {
+    width: 100%;
+    height: 200px;
+  }
+
+}
+
+
+.card-reveal {
+  position: relative;
+
+  .link_card {
+    position: absolute;
+    bottom: 10px;
+    color: #BFC0C1;
+  }
+
+  .delete {
+    right: 20px;
+  }
+
+  .update {
+    right: 60px;
+  }
+
+  .show {
+    right: 100px;
+  }
 }

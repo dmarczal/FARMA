@@ -7,7 +7,7 @@ class Teacher::ExercisesController < Teacher::ApplicationController
   def show
     add_breadcrumb "Questões do exercicio #{@exercise.title}", teacher_lo_exercise_path(@lo, @exercise)
 
-    @questions = @exercise.questions.all
+    @questions = @exercise.questions.order :position
   end
 
   def new

@@ -1,3 +1,4 @@
-$('#question-<%= @question.id %>').empty();
-$('#question-<%= @question.id %>').append('<%= j render partial: "teacher/tips/form" %>');
-$('#question-<%= @question.id %>').slideDown();
+window.FARMA.CKEDITOR.clear();
+$('#box-new-tips-for-<%= @question.id %>').empty();
+$('#box-new-tips-for-<%= @question.id %>').append('<%= j render partial: "teacher/tips/form" %>');
+$('#box-new-tips-for-<%= @question.id %>').slideDown();
