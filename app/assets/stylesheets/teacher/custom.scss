@@ -13,9 +13,11 @@
    left: 46.484085862%; //(628 * 100) / 1351
  }
 
- .switch {
-   position: absolute;
-   right: 220px;
+ #switch-page {
+    padding: 0 5px;
+    label {
+       color: white;
+    }
  }
 
  /*

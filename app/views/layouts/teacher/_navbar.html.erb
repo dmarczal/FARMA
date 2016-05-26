@@ -18,19 +18,20 @@
 
   <%= link_to("FARMA", root_path, class: "brand-logo", id: "logo-container") %>
 
-  <div id="switch-page" class="switch">
-   <label>
-     Professor
-     <input type="checkbox">
-     <span class="lever"></span>
-     Aluno
-   </label>
- </div>
-
   <ul id="button_links_user" class="hide-on-med-and-down right">
+    <li>
+      <div id="switch-page" class="switch">
+        <label>
+          Professor
+          <input type="checkbox">
+          <span class="lever"></span>
+          Aprendiz 
+        </label>
+      </div>
+    </li>
     <!-- Dropdown Trigger -->
     <li class="">
-      <a class="dropdown-button waves-effect waves-light" href="#!" data-activates="links_user">
+      <a class="dropdown-button waves-effect waves-light clearfix" href="#!" data-activates="links_user">
         <%= current_user.name %><i id="drop-down" class="material-icons right">arrow_drop_down</i>
         <%= image_tag current_user.avatar.url, class: "circle img-user left" %>
       </a>
@@ -47,7 +48,7 @@
       <%= link_to(teacher_path) do %>
         <i class="mdi-action-dashboard left"></i> Dashboard
       <% end %>
-    </li class="clearfix">
+    </li>
 
     <li class="clearfix">
       <%= link_to(teacher_los_path) do %>
