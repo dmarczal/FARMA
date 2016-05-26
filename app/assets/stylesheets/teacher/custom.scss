@@ -4,20 +4,43 @@
 /*
  *  NavBar
  *________________________________*/
- header nav {
-   height: 50px;
-
-   #logo-container {
-     top: -5px;
-   }
- }
 
  #logo-container {
-   left: 50.481125093%; //(682 * 100) / 1351
+   left: 50.333086603%; //(680 * 100) / 1351
  }
 
  #logo-container.center-logo{
-   left: 44.781643227%; //(605 * 100) / 1351
+   left: 46.484085862%; //(628 * 100) / 1351
+ }
+
+ .switch {
+   position: absolute;
+   right: 220px;
+ }
+
+ /*
+  * links user(perfil and get out)
+  * ______________________________*/
+
+ #button_links_user {
+   color: white;
+  //  position: absolute;
+   margin-right: 2.22057735%; //(30 * 100) / 1351
+
+   .img-user {
+     height: 50px;
+     width: 50px;
+     margin-top: 7px;
+     margin-right: 10px;
+   }
+
+    #drop-down {
+     margin-top: 19px;
+   }
+ }
+
+ #links_user {
+   top: 64px !important;
  }
 
 /*
@@ -56,38 +79,11 @@
 }
 
 #button-panel i {//____ icon the button ative painel
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .panel-list-divider {
   margin: 15px 0;
-}
-
-/*
- * links user(perfil and get out)
- * ______________________________*/
-
-#button_links_user {
-  color: white;
-  position: absolute;
-  right: 0.6755%; // 1351 / 100 * 20
-  top: -5px;
-
-  .material-icons {
-    margin-top: 16px;
-  }
-
-  .img-user {
-    height: 40px;
-    width: 40px;
-    margin-top: 10px;
-    margin-right: 10px;
-  }
-
-}
-
-#links_user {
-  top: 55px !important;
 }
 
 /*

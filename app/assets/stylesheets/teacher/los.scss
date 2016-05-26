@@ -5,8 +5,6 @@
 /*
  * Los pages styles
  * ______________________________*/
-
-
  .container .row {
    margin-left: 0;
  }
@@ -61,15 +59,20 @@ span {
  * Card content los
  * ______________________________*/
 .card {
-  margin-left: 58px;
-
-  .image-lo {
-    width: 100%;
-    height: 200px;
-  }
-
+  margin-left: 6.132698916%; // (58 * 100) /945.750
+  padding: 0 !important;
 }
 
+.card-content {
+  max-height: 90px;
+}
+
+.activator i.material-icons {
+  position: absolute;
+  bottom: 30px;
+  right: 2px;
+  cursor: pointer;
+}
 
 .card-reveal {
   position: relative;

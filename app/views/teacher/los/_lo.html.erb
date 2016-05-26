@@ -1,19 +1,23 @@
 <div class="card col s3">
   <div class="card-image waves-effect waves-block waves-light">
     <!-- <img class="activator" src="images/office.jpg"> -->
-      <%= image_tag lo.image.url, class: "activator image-lo"%>
+      <%= image_tag lo.image.url(:thumb), class: "activator image-lo responsive-img"%>
   </div>
   <div class="card-content">
-    <span class="card-title activator grey-text text-darken-4">
-      <%= lo.name %><i class="material-icons">more_vert</i>
+    <span class="activator grey-text text-darken-4">
+      <i class="material-icons">more_vert</i>
     </span>
-    <p><%=  %></p>
+    <p class="card-title hide-on-med-and-down <%= lo.name.length >= 15 ? 'tooltipped' : '' %> "
+      data-position="bottom" data-tooltip="<%= lo.name %>">
+      <%= truncate(lo.name, length: 10) %>
+    </p>
   </div>
   <div class="card-reveal">
-    <span class="card-title grey-text text-darken-4">
-      <%= lo.name %><i class="material-icons">close</i>
+    <span class="card-title grey-text text-darken-4 clearfix">
+      <%= truncate(lo.name, length: 10) %>
+      <i class="material-icons right">close</i>
     </span>
-    <p><%= lo.description %></p>
+    <p><%= truncate(lo.description, length: 200, separator: ' ') %></p>
     <%= link_to teacher_lo_path(lo), method: :delete, data: { confirm: 'tem certeza disso?' } do %>
       <i class="material-icons link_card delete small tooltipped"
           data-position="left" data-tooltip="Deletar o OA <%= lo.name %>">
