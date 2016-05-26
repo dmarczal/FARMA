@@ -11,6 +11,7 @@ $(document).on 'page:change', ->
   window.FARMA.showQuestion()
   window.FARMA.fixTooltip()
   window.FARMA.imagePreview()
+  $('.modal-trigger').leanModal()
 
 window.FARMA = {}
 
