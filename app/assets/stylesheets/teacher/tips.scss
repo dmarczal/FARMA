@@ -1,0 +1,14 @@
+// Place all the styles related to the los controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+li.box-tip {
+  margin: 10px 0;
+  background-color: white;
+  border: 1px solid #d1d1d1;
+
+  .box-tip-content {
+    border: 1px solid #d1d1d1;
+    padding: 10px;
+  }
+}

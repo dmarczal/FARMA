@@ -1,0 +1,14 @@
+<%unless @tip.errors.any? %>
+  $("#list-tips").append('<%= j render(partial: "teacher/tips/tip", locals:  {tip: @tip}) %>');
+  $('#box-new-tips-for-<%= @question.id %>').slideUp();
+  $('#box-new-tips-for-<%= @question.id %>').empty();
+<% end %>
+
+Materialize.updateTextFields();
+
+<% unless flash.empty? %>
+  <% flash.each do |f| %>
+    <% type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'info') %>
+    toastr['<%= type %>']('<%= f[1] %>');
+  <% end %>
+<% end %>

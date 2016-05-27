@@ -1,0 +1,95 @@
+// Place all the styles related to the workspace/exercises controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*
+ * Exercise pages styles
+ * ______________________________*/
+
+p {
+  margin: 0;
+}
+
+/*
+ * fixed button style --- new Questions
+ * ______________________________*/
+
+.fixed-modal-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 1.7%;
+  z-index: 2;
+
+  .modal {
+    display: none;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    overflow: auto
+  }
+}
+
+.btn-clicked .btn-floating {
+  display: none;
+}
+
+.btn-clicked .modal {
+  display: block;
+}
+
+#box-form-question {
+  display: none;
+}
+
+/*
+ * list question style
+ * ______________________________*/
+
+.collection-item {
+  padding: 20px 0 0 0 !important;
+  position: relative;
+
+  header {
+    height: 57px;
+  }
+
+  .ajax-question-box {
+    display: none;
+    background-color: $palletewhite;
+    margin: 0;
+    padding: 30px 20px;
+  }
+
+  .show-question {
+    position: absolute;
+    left: 0;
+    top: 12px;
+  }
+
+  .show-question.active {
+    -ms-transform: rotate(90deg);     /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+    transform: rotate(90deg);
+  }
+
+  .title-question {
+    position: absolute;
+    left: 8%;
+    top: 20px;
+  }
+
+}
+
+.to-move {
+  height: 36px;
+  cursor: image-url("cursor_move.png"), default;
+}
+
+#box-links-question {
+  margin-bottom: 0;
+}
+
+#questions_list {
+  border: 1px solid #d1d1d1;
+  padding: 0;
+}

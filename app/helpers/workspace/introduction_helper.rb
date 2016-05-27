@@ -1,2 +1,0 @@
-module Workspace::IntroductionHelper
-end

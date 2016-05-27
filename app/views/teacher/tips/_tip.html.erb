@@ -1,0 +1,25 @@
+<li id='tip-<%= tip.id %>' class="box-tip s12 row">
+
+  <span class="col s11">Conteúdo:</span>
+
+  <div class="col s1">
+    <%= link_to edit_teacher_lo_exercise_question_tip_path(@lo, @exercise, @question, tip),
+                class: 'left', remote: true do %>
+      <i class="material-icons">settings</i>
+    <% end %>
+
+    <%= link_to teacher_lo_exercise_question_tip_path(@lo, @exercise, @question, tip),
+                method: :delete,
+                data: { confirm: 'tem certeza disso?' },
+                class: 'right' do %>
+      <i class="material-icons">clear</i>
+    <% end %>
+  </div>
+
+  <div class="col s10 offset-s1 box-tip-content">
+    <%= tip.content.html_safe %>
+  </div>
+
+  <span class="col s12">Mostrar após a <%= tip.number_of_tries %>ª tentativa sem sucesso</span>
+
+</li>

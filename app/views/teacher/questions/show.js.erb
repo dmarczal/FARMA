@@ -1,0 +1,2 @@
+$('#question-<%= @question.id %>-show').empty();
+$('#question-<%= @question.id %>-show').append('<%= j render partial: "teacher/questions/show_question" %>');

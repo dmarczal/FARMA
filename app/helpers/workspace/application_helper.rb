@@ -1,2 +1,0 @@
-module Workspace::ApplicationHelper
-end

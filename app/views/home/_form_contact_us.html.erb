@@ -1,0 +1,13 @@
+<div class="section container">
+
+  <h5 class="center">Entre em contato conosco</h5>
+
+  <%= simple_form_for(@contact, :remote => true) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :email %>
+    <%= f.input :message, as: :textarea %>
+
+    <%= f.button :submit_materialize, "Enviar" %>
+  <% end %>
+
+</div>

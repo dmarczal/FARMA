@@ -1,0 +1,21 @@
+<% provide(:title, "Meus OAs") %>
+
+<div class="fixed-action-btn" >
+  <%= link_to(new_teacher_lo_path, class: 'btn-floating btn-large red tooltipped',
+          'data-position' => 'left', 'data-tooltip' => 'Criar um novo OA') do %>
+    <i class="material-icons">add</i>
+  <% end %>
+</div>
+
+<article class="col s12 row">
+  <header>
+    <h3>OAs</h3>
+  </header>
+
+  <div class="divider"></div>
+
+  <div id="los_list" class="col s12 row">
+    <%= render @los %>
+  </div>
+
+</article>
