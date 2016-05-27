@@ -22,6 +22,7 @@ window.FARMA.reloadMaterilizeEffects = ->
   $('input[autofocus]').siblings('label, i').addClass('active')
   $('.tooltipped').tooltip({delay: 200})
   $('.button-collapse').sideNav() # reinitialize nav-mobile
+  $('.modal-trigger').leanModal()
 
 window.FARMA.displayFlashMessages = ->
   toastr.options =

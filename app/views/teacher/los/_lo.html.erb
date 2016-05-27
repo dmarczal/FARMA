@@ -3,36 +3,40 @@
     <!-- <img class="activator" src="images/office.jpg"> -->
       <%= image_tag lo.image.url(:thumb), class: "activator image-lo responsive-img"%>
   </div>
+
   <div class="card-content">
     <span class="activator grey-text text-darken-4">
       <i class="material-icons">more_vert</i>
     </span>
-    <p class="card-title hide-on-med-and-down <%= lo.name.length >= 15 ? 'tooltipped' : '' %> "
-      data-position="bottom" data-tooltip="<%= lo.name %>">
-      <%= truncate(lo.name, length: 10) %>
+    <p class="card-title hide-on-med-and-down" >
+      <%= truncate_and_set_tooltip(lo.name, length: 10) %>
     </p>
   </div>
+
   <div class="card-reveal">
+
     <span class="card-title grey-text text-darken-4 clearfix">
-      <%= truncate(lo.name, length: 10) %>
+      <%= truncate_and_set_tooltip(lo.name, length: 10) %>
       <i class="material-icons right">close</i>
     </span>
-    <p><%= truncate(lo.description, length: 200, separator: ' ') %></p>
+
+    <%= truncate_and_set_popup(lo.name, lo.description, length: 180, separator: ' ') %>
+    
     <%= link_to teacher_lo_path(lo), method: :delete, data: { confirm: 'tem certeza disso?' } do %>
       <i class="material-icons link_card delete small tooltipped"
-          data-position="left" data-tooltip="Deletar o OA <%= lo.name %>">
+          data-position="left" data-tooltip="Remover OA">
         delete
       </i>
     <% end %>
     <%= link_to edit_teacher_lo_path(lo) do %>
       <i class="material-icons link_card update small tooltipped"
-        data-position="left" data-tooltip="Editar o OA <%= lo.name %>">
+        data-position="left" data-tooltip="Editar OA">
         mode_edit
       </i>
     <% end %>
     <%= link_to teacher_lo_path(lo) do %>
       <i class="material-icons link_card show small tooltipped"
-        data-position="left" data-tooltip="Criar/Editar os conteúdos do OA <%= lo.name %>">
+        data-position="left" data-tooltip="Criar/Editar os conteúdos do OA">
         note_add
       </i>
     <% end %>
