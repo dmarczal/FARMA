@@ -1,7 +1,7 @@
 $.fn.extend({
   openForm : ()->
     defaults = {
-      millisecond : 1000,
+      millisecond : 100,
       type : "linear"
     }
 
@@ -31,6 +31,7 @@ $.fn.extend({
                 'width' : '900px',
                 'height' : '450px'
                 'border-radius' : '30px';
+                'bottom' : '50px';
            }, defaults.millisecond, defaults.type,
             $(this).animate({
                 'bottom' : '50px'

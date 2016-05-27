@@ -6,7 +6,7 @@
   <%= f.input :correct_answer, as: :textarea%>
   <%= f.input :cmas_order, as: :checkbox_materialize %>
 
-  <%= f.button :submit_materialize, "Confirmar", cancel: teacher_lo_exercise_path(@lo, @exercise),
+  <%= f.button :submit_materialize, cancel: teacher_lo_exercise_path(@lo, @exercise),
                 remote: true %>
 
 <% end %>
