@@ -2,14 +2,14 @@
 
 <div id="box-new-lo" class="col s9 container">
 
-  <h3>Nova introdução</h3>
+  <h3>Nova Introdução</h3>
 
   <%= simple_form_for([:workspace, @lo, @introduction], html: {class: 'col s12'}) do |f| %>
 
     <%= f.input :title, autofocus: true %>
     <%= f.input :content, :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'Full'} }%>
 
-    <%= f.button :submit_materialize, "Confirmar" %>
+    <%= f.button :submit_materialize, "Salvar" %>
   <% end %>
 
 </div>

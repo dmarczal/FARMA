@@ -34,12 +34,18 @@
 #box-new{
   padding: 5%;
 }
+@media only screen and (min-width: 993px){
+.collection-menu-oa {
+    width: 97%;
+}
+}
+
 /*
  * form new lo style
  * ______________________________*/
-#botton-new{
-  position: fixed;
-}
+// #botton-new{
+//   position: fixed;
+// }
 
 /*
  * collections los style

@@ -4,11 +4,9 @@
 
     <li>
       <%= link_to(workspace_path) do %>
-        <i class="mdi-action-dashboard left"></i> Dashboard
+        <i class="mdi-action-dashboard left menu-icon"></i> Dashboard
       <% end %>
     </li>
-
-    <li class="divider"></li>
 
     <li>
       <%= link_to(edit_user_registration_path) do %>
@@ -25,7 +23,7 @@
 
 <nav role="navigation">
   <div class="nav-wrapper container">
-    <%= link_to(image_tag("logo-farma-white.png"), root_path, class: "brand-logo", id: "logo-container") %>
+    
 
     <% if user_signed_in? %>
     <ul class="right hide-on-med-and-down">
