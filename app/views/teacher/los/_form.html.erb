@@ -1,0 +1,15 @@
+<%= simple_form_for([:teacher ,@lo], html: {class: 'col s12 row', multipart: true}) do |f| %>
+
+  <%= f.input :name, autofocus: true %>
+
+  <div id="box-textarea" class="col s9">
+    <%= f.input :description, as: :textarea %>
+  </div>
+
+  <div id="box-image-preview" class="col s3">
+    <%= f.input :image, as: :image_preview %>
+  </div>
+
+  <%= f.button :submit_materialize, cancel: teacher_los_path %>
+
+<% end %>

@@ -1,0 +1,44 @@
+<div class="card col s3">
+  <div class="card-image waves-effect waves-block waves-light">
+    <!-- <img class="activator" src="images/office.jpg"> -->
+      <%= image_tag lo.image.url(:thumb), class: "activator image-lo responsive-img"%>
+  </div>
+
+  <div class="card-content">
+    <span class="activator grey-text text-darken-4">
+      <i class="material-icons">more_vert</i>
+    </span>
+    <p class="card-title hide-on-med-and-down" >
+      <%= truncate_and_set_tooltip(lo.name, length: 10) %>
+    </p>
+  </div>
+
+  <div class="card-reveal">
+
+    <span class="card-title grey-text text-darken-4 clearfix">
+      <%= truncate_and_set_tooltip(lo.name, length: 10) %>
+      <i class="material-icons right">close</i>
+    </span>
+
+    <%= truncate_and_set_popup(lo.name, lo.description, length: 180, separator: ' ') %>
+    
+    <%= link_to teacher_lo_path(lo), method: :delete, data: { confirm: 'tem certeza disso?' } do %>
+      <i class="material-icons link_card delete small tooltipped"
+          data-position="left" data-tooltip="Remover OA">
+        delete
+      </i>
+    <% end %>
+    <%= link_to edit_teacher_lo_path(lo) do %>
+      <i class="material-icons link_card update small tooltipped"
+        data-position="left" data-tooltip="Editar OA">
+        mode_edit
+      </i>
+    <% end %>
+    <%= link_to teacher_lo_path(lo) do %>
+      <i class="material-icons link_card show small tooltipped"
+        data-position="left" data-tooltip="Criar/Editar os conteúdos do OA">
+        note_add
+      </i>
+    <% end %>
+  </div>
+</div>

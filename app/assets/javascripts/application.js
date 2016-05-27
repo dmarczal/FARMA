@@ -17,5 +17,7 @@
 //= require materialize-sprockets
 //= require_self
 //= require loads
-//= require workspace/dashboard
+//= require home
 //= require ckeditor/init
+//= require_tree ./ckeditor/
+//= require_tree ./lib/

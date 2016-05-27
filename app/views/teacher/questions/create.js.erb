@@ -1,0 +1,13 @@
+<%unless @question.errors.any? %>
+  $("#questions_list").append('<%= j render(partial: "teacher/questions/question", locals:  {question: @question}) %>');
+  $('.fixed-modal-btn').closeForm();
+<% end %>
+
+Materialize.updateTextFields();
+
+<% unless flash.empty? %>
+  <% flash.each do |f| %>
+    <% type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'info') %>
+    toastr['<%= type %>']('<%= f[1] %>');
+  <% end %>
+<% end %>

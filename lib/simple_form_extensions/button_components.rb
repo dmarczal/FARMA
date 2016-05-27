@@ -4,7 +4,7 @@ module ButtonComponents
 
     def submit_materialize(*args, &block)
 
-      template.content_tag :div, class: "input-submit col s12" do
+      template.content_tag :div, class: "input-submit col s12 m8 offset-m4 right-align" do
         options = args.extract_options!
 
         value = args[0] unless args[0].is_a?(Hash)
@@ -12,12 +12,12 @@ module ButtonComponents
 
         button = template.content_tag(:button, class: options[:class], type: 'submit') do
           template.concat value
-          template.concat icon
+          template.concat icon 'send'
         end
 
         # with cancel link
         if cancel = options.delete(:cancel)
-          button = cancel_link(cancel) +  button
+          button = cancel_link(cancel) + button
         end
 
         button
@@ -25,12 +25,14 @@ module ButtonComponents
 
     end
 
-    def cancel_link(path)
-     template.link_to(I18n.t('simple_form.buttons.cancel'), path, class: 'waves-effect waves-light btn right btn-cancel')
+    def cancel_link path
+     template.link_to path, class: 'btn-cancel' do
+       template.concat icon 'clear'
+     end
     end
 
-    def icon
-      "<i class='mdi-content-send right'></i>".html_safe
+    def icon icon_name
+      "<i class='material-icons right'>#{icon_name}</i>".html_safe
     end
 end
 

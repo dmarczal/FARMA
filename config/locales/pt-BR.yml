@@ -1,5 +1,13 @@
 'pt-BR':
   hello: 'Olá'
+  time:
+    am: ''
+    formats:
+      default: "%a, %d de %B de %Y, %H:%M:%S %z"
+      long: "%d de %B de %Y, %H:%M"
+      short: "%d de %B de %Y, %H:%M"
+      small: "%d/%m/%Y, %H:%M"
+    pm: ''
   activerecord:
       models:
         user:
@@ -8,10 +16,24 @@
         contact:
           one: "Contato"
           other: "Contatos"
+        lo:
+          one: OA
+          other: OAs
+        introduction:
+          one: Introdução
+          other: Introduções
+        exercise:
+          one: Exercício
+          other: Exercícios
+        question:
+          one: Questão
+          other: Questões
       attributes:
         attribute_commons: &commons
           name: "Nome"
           email: "Email"
+          title: 'Título'
+          content: 'Conteúdo'
         user:
           password: "Senha"
           password_confirmation: "Confirmação da senha"
@@ -26,8 +48,11 @@
         lo:
           description: "Descrição"
           <<: *commons
-        introduction: &title_content
-          title: "titulo"
-          content: "conteúdo"
+        introduction:
+          <<: *commons
         exercise:
-          <<: *title_content
+          <<: *commons
+        question:
+          correct_answer: 'Resposta correta'
+          cmas_order: 'Considerar ordem das respsotas'
+          <<: *commons

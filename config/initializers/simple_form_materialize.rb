@@ -4,7 +4,7 @@ require 'button_components'
 # Based on simple form bootstrap
 SimpleForm.setup do |config|
   config.error_notification_class = 'alert alert-danger'
-  config.button_class = 'waves-effect waves-light btn right'
+  config.button_class = 'waves-effect waves-light btn'
   config.boolean_label_class = nil
 
   config.wrappers :vertical_form, tag: 'div', class: 'input-field col s12', error_class: 'has-error' do |b|

@@ -1,0 +1,12 @@
+<%= simple_form_for([:teacher, @lo, @exercise, @question],
+                    html: {class: 'col s12 row'}, remote: true) do |f| %>
+
+  <%= f.input :title, autofocus: true %>
+  <%= f.input :content, :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'full'} }%>
+  <%= f.input :correct_answer, as: :textarea%>
+  <%= f.input :cmas_order, as: :checkbox_materialize %>
+
+  <%= f.button :submit_materialize, cancel: teacher_lo_exercise_path(@lo, @exercise),
+                remote: true %>
+
+<% end %>

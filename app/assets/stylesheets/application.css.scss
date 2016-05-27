@@ -1,5 +1,6 @@
-@charset "UTF-8";
+@import "lib/materialize";
 
+<<<<<<< HEAD
 /*
  * Added material components as necessary
  * https://github.com/mkhairi/materialize-sass/blob/739d5bc640debf116c2934437c9928f858c11c01/app/assets/stylesheets/materialize.scss
@@ -54,3 +55,6 @@ $secondary-color: color("green", "darken-1") !default;
 @import "workspace/dashboard.scss";
 @import "home.scss";
 @import "workspace/los.scss";
+=======
+@import "home";
+>>>>>>> 1ca46bbd0012223a54285cd2106e65db66875060

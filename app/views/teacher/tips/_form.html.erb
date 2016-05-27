@@ -1,0 +1,21 @@
+<%= render 'shared/flash_messages'  %>
+
+<div class="divider"></div>
+
+<h3 class="center">Nova dica</h3>
+<div class="divider"></div>
+
+<%= simple_form_for([:teacher, @lo, @exercise, @question, @tip],
+                    html: {class: 'col s12'}, remote: true) do |f| %>
+
+  <%= f.input :content, autofocus: true,:as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'Full'} }%>
+
+  <div class="col s2">
+    <%= f.input :number_of_tries %>
+  </div>
+
+  <%= f.button :submit_materialize, "Confirmar" %>
+
+<% end %>
+
+<div class="divider"></div>
