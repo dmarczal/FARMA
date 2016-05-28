@@ -1,20 +1,20 @@
 <% provide(:title, "OA #{@lo.name}") %>
 
 <div class="fixed-action-btn vertical" >
-  <a class="btn-floating btn-large red">
+  <a class="btn-floating btn-large pink-red">
     <i class="large material-icons">mode_edit</i>
   </a>
 
   <ul>
       <li>
-        <%= link_to(new_teacher_lo_exercise_path(@lo), class: 'btn-floating blue tooltipped',
+        <%= link_to(new_teacher_lo_exercise_path(@lo), class: 'btn-floating purple-color tooltipped',
                 'data-position' => 'left', 'data-tooltip' => 'Criar um novo exercicio') do%>
           <i class="material-icons">add</i>
         <% end %>
       </li>
 
       <li>
-        <%= link_to(new_teacher_lo_introduction_path(@lo), class: 'btn-floating green tooltipped',
+        <%= link_to(new_teacher_lo_introduction_path(@lo), class: 'btn-floating yellow-color tooltipped',
                 'data-position' => 'left', 'data-tooltip' => 'Criar uma nova introdução') do%>
           <i class="material-icons">add</i>
         <% end %>
@@ -23,7 +23,7 @@
 </div>
 
 <article class="col s12 row">
-  <h3 class="center"><%= @lo.name %></h3>
+  <h4 class="center"><%= @lo.name %></h4>
 
   <ul id='list-content-los' class="collection col s10 offset-s1 row">
 

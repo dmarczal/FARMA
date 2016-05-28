@@ -2,13 +2,10 @@
 <ul id="dropdown-user" class="dropdown-content">
   <% if user_signed_in? %>
     <li>
-<<<<<<< HEAD
-      <%= link_to(workspace_path) do %>
-        <i class="mdi-action-dashboard left menu-icon"></i> Dashboard
-=======
+
       <%= link_to(teacher_path) do %>
         <i class="mdi-action-dashboard left"></i> Dashboard
->>>>>>> 1ca46bbd0012223a54285cd2106e65db66875060
+
       <% end %>
     </li>
 
@@ -27,11 +24,7 @@
 
 <nav id="home-page-navbar" role="navigation">
   <div class="nav-wrapper container">
-<<<<<<< HEAD
-    
 
-=======
->>>>>>> 1ca46bbd0012223a54285cd2106e65db66875060
     <% if user_signed_in? %>
       <ul class="right">
         <!-- Dropdown Trigger -->
@@ -49,12 +42,5 @@
       </ul>
     <% end %>
 
-    <!-- <ul id="nav-mobile" class="side-nav">
-      <li><%= link_to("FARMA", root_path ) %></li>
-    </ul>
-
-    <a href="#" data-activates="nav-mobile" class="button-collapse">
-      <i class="material-icons">menu</i>
-    </a> -->
   </div>
 </nav>

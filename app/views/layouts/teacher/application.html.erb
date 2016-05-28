@@ -15,7 +15,9 @@
    <%= render 'shared/flash_messages'  %>
 
   <header>
+    <div class="nav-dashboard">
     <%= render 'layouts/teacher/navbar' %>
+  </div>
   </header>
 
   <main id="main-teacher" class="row">
@@ -32,7 +34,7 @@
           <div class="divider col s12"></div>
         </header>
 
-        <div class="content">
+        <div class="content white">
           <%= yield %>
         </div>
 

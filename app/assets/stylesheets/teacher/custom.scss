@@ -193,3 +193,22 @@
 #box-image-preview {
   padding: 0;
 }
+.pink-red{
+  background-color: #ff0018;
+  color: #21008a;
+}
+.pink-red:hover{
+  background-color: #ff0018;
+}
+.purple-color{
+  background-color: #3d00ff;
+}
+.yellow-color{
+  background-color: #00B8D4;
+}
+nav{
+  background-color: #243038;
+}
+.switch label input[type=checkbox]:checked + .lever:after {
+    background-color: #00d055;
+}
