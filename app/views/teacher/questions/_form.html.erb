@@ -6,7 +6,9 @@
   <%= f.input :correct_answer, as: :textarea%>
   <%= f.input :cmas_order, as: :checkbox_materialize %>
 
-  <%= f.button :submit_materialize, cancel: teacher_lo_exercise_path(@lo, @exercise),
-                remote: true %>
+  <%= f.button :submit_materialize %>
 
+  <a class='btn-cancel btn-cancel-question' data-id='<%= @question.id %>'>
+    <i class="material-icons">clear</i>
+  </a>
 <% end %>

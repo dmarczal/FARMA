@@ -5,8 +5,6 @@
               remote: true) do %>
       <i class="large material-icons">add</i>
   <% end %>
-
-  <div class="modal red z-depth-1 center"></div>
 </div>
 
 <article>
@@ -19,9 +17,11 @@
   <%= @exercise.content.to_s.html_safe %>
 
   <div class="divider"></div>
+  <div id="box-new-question"></div>
 
-  <ul id="questions_list" class="collection z-depth-2 col s12">
-    <%= render @questions %>
-  </ul>
-
+  <% if @questions %>
+    <ul id="questions_list" class="collection col s12">
+      <%= render @questions %>
+    </ul>
+  <% end %>
 </article>

@@ -2,34 +2,33 @@
     <div class="col s12 row">
       <header class="col s6 m3">
         <%= link_to teacher_lo_exercise_question_path(@lo, @exercise, question), remote: true do %>
-          <i class="show-question material-icons medium" data-target="question-<%= question.id %>-show">
+          <i id="show-question-<%= question.id %>"
+              class="show-question material-icons medium" data-target="question-<%= question.id %>-show">
             keyboard_arrow_right
           </i>
         <% end %>
-        <span class="title-question"><%= "#{question.title}" %></span>
+        <span class="title-question"><%= question.title %></span>
       </header>
 
-      <div class="col m6 to-move hide-on-small-only"></div>
+      <div class="col m7 to-move hide-on-small-only"></div>
 
       <div class="col s1 hide-on-med-and-up "><i class="material-icons">settings</i></div>
 
-      <div id="box-links-question" class="col s5 m2 push-s1 row">
+      <div id="box-links-question" class="col s1 push-s1 row">
 
-        <div class="col s6">
+        <div class="col s12">
           <%= link_to edit_teacher_lo_exercise_question_path(@lo, @exercise, question),
                       class: 'tooltipped', 'data-position' => 'left', remote: true,
                       'data-tooltip' => "Editar a Questão #{question.title}" do %>
-              <i class="material-icons">settings</i>
-              <span>Editar</span>
+              <i class="material-icons edit-question" data-id="<%= question.id %>">settings</i>
           <% end %>
         </div>
 
-        <div class="col s6">
+        <div class="col s12">
           <%= link_to [:teacher, @lo, @exercise, question], method: :delete,
                       data: { confirm: 'tem certeza disso?' }, class: 'tooltipped',
                       'data-position' => 'left', 'data-tooltip' => "Deletar a Questão #{question.title}" do %>
               <i class="material-icons">delete</i>
-              <span>Excluir</span>
           <% end %>
         </div>
 
@@ -39,4 +38,5 @@
     <div class="divider col s12"></div>
 
     <div id="question-<%= question.id %>-show" class="col s12 row ajax-question-box"></div>
+    
   </li>

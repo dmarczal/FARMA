@@ -9,11 +9,15 @@
 .box-question-content {
   padding: 2% 2% !important;
   margin: 1% 0 1% 4%;
-  border: 1px solid #d1d1d1;
 }
 
 #article-tips {
   .divider {
     margin-bottom: 20px;
   }
+}
+
+#questions_list li.collection-item {
+  border-left: 12px solid green;
+  border-bottom: 5px solid green;
 }

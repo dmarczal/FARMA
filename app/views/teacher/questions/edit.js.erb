@@ -1,4 +1,3 @@
 window.FARMA.CKEDITOR.clear();
 $('#question-<%= @question.id %>-show').empty();
 $('#question-<%= @question.id %>-show').append('<%= j render partial: "teacher/questions/edit_form" %>');
-$('#question-<%= @question.id %>-show').slideDown();

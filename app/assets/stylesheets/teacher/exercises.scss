@@ -19,26 +19,6 @@ p {
   bottom: 25px;
   right: 1.7%;
   z-index: 2;
-
-  .modal {
-    display: none;
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    overflow: auto
-  }
-}
-
-.btn-clicked .btn-floating {
-  display: none;
-}
-
-.btn-clicked .modal {
-  display: block;
-}
-
-#box-form-question {
-  display: none;
 }
 
 /*
@@ -92,4 +72,18 @@ p {
 #questions_list {
   border: 1px solid #d1d1d1;
   padding: 0;
+}
+
+#box-form-question {
+  display: none;
+}
+
+#box-new-question {
+  display: none;
+  height: 0;
+  border: 1px solid #d1d1d1;
+}
+
+.btn-cancel-question {
+  cursor: pointer;
 }
