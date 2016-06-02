@@ -6,6 +6,7 @@ class Teacher::TipsController < Teacher::ApplicationController
 
   def new
     @tip = @question.tips.new
+    @title_form = "Nova Dica"
   end
 
   def create
@@ -16,6 +17,10 @@ class Teacher::TipsController < Teacher::ApplicationController
       flash.now[:error] = "Existem dados incorretos."
       render :new
     end
+  end
+
+  def edit
+    @title_form = "Editar Dica"
   end
 
   def update

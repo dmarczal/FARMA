@@ -80,10 +80,15 @@ p {
 
 #box-new-question {
   display: none;
-  height: 0;
+  height: 850px;
   border: 1px solid #d1d1d1;
 }
 
-.btn-cancel-question {
+.btn-cancel {
   cursor: pointer;
+}
+
+.box-new-tip {
+  display: none;
+  height: 800px;
 }

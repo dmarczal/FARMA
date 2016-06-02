@@ -9,6 +9,11 @@
   <p><%= @question.correct_answer %></p>
 </div>
 
+<div class="col s12">
+  <span class="left">Considerar Ordem:</span>
+  <p><%= @question.cmas_order ? "Sim" : "Não" %></p>
+</div>
+
 <article id="article-tips">
   <header class="center col s12">
     <h4>Dicas</h4>
@@ -19,11 +24,11 @@
   <div class="col s3 offset-s9">
     <%= link_to 'Nova Dica',
                 new_teacher_lo_exercise_question_tip_path(@lo, @exercise, @question),
-                class: 'btn',
+                class: 'btn new-tip-btn', 'data-id' => @question.id,
                 remote: true %>
   </div>
 
-  <div id="box-new-tips-for-<%= @question.id %>"></div>
+  <div id="box-new-tips-for-<%= @question.id %>" class="box-new-tip"></div>
 
   <ul id="list-tips" class="col s12 row">
     <%= render @tips %>

@@ -1,7 +1,6 @@
 <%unless @question.errors.any? %>
-  $("#question-<%= @question.id %>").html('<%= j render(partial: "teacher/questions/question", locals:  {question: @question}) %>');
+  $("#question-<%= @question.id %>").load('<%= j render(partial: "teacher/questions/question", locals:  {question: @question}) %>');
 <% end %>
-
 Materialize.updateTextFields();
 
 <% unless flash.empty? %>

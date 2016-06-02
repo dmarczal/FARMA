@@ -9,6 +9,8 @@ class Teacher::QuestionsController < Teacher::ApplicationController
   end
 
   def new
+    @class = "cancel-new-question"
+    @remote = true;
     @question = @exercise.questions.new
   end
 
@@ -23,9 +25,15 @@ class Teacher::QuestionsController < Teacher::ApplicationController
     end
   end
 
+  def edit
+    @class = "btn-cancel-question"
+    @remote = false
+  end
+
   def update
     if @question.update(question_params)
       flash.now[:notice] = "Questão #{@question.title} editada."
+      redirect_to teacher_lo_exercise_path @lo, @exercise
     else
       flash.now[:error] = "Existem dados incorretos."
       render :edit
