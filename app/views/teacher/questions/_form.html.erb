@@ -2,7 +2,7 @@
                     html: {class: 'col s12 row'}, remote: @remote) do |f| %>
 
   <%= f.input :title, autofocus: true %>
-  <%= f.input :content, :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'full'} }%>
+  <%= f.input :content, :as => :ckeditor %>
   <%= f.input :correct_answer, as: :textarea%>
   <%= f.input :cmas_order, as: :checkbox_materialize %>
 

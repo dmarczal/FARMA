@@ -15,7 +15,7 @@ module ApplicationHelper
       return content_tag :p do text end
     else
       return content_tag :p, class: 'tooltipped',
-                            'data-positin' => 'bottom',
+                            'data-position' => 'bottom',
                             'data-tooltip' => text do
               text_truncated
              end
