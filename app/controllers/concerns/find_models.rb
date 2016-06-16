@@ -16,14 +16,14 @@ module FindModels extend ActiveSupport::Concern
     end
 
     def lo_id_param
-      self.is_a?(Teacher::LosController) ? params[:id] : params[:lo_id]
+      params[:lo_id] ? params[:lo_id] : params[:id]
     end
 
     def exercise_id_param
-      self.is_a?(Teacher::ExercisesController) ? params[:id] : params[:exercise_id]
+      params[:exercise_id] ? params[:exercise_id] : params[:id]
     end
 
     def question_id_param
-      self.is_a?(Teacher::QuestionsController) ? params[:id] : params[:question_id]
+       params[:question_id] ?  params[:question_id] : params[:id]
     end
 end

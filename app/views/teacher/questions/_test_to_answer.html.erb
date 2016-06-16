@@ -1,0 +1,10 @@
+<form class="col s12" action="<%= @action %>" method="POST" data-remote="true">
+  <div class="row">
+    <div class="input-field col s6">
+      <input id="question_<%= @question.id %>_response" type="text" value="" name="response">
+      <label for="question_response">Testar Resposta</label>
+    </div>
+
+    <button type="submit" class="btn">Testar</button>
+  </div>
+</form>

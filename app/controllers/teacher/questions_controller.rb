@@ -6,6 +6,8 @@ class Teacher::QuestionsController < Teacher::ApplicationController
 
   def show
     @tips = @question.tips.order :number_of_tries
+    @action = "/teacher/los/#{@lo.id}/exercises/#{@exercise.id}/questions/#{@question.id}/test-to-answer"
+    @is_correct ||= true
   end
 
   def new
@@ -44,6 +46,10 @@ class Teacher::QuestionsController < Teacher::ApplicationController
     @question.destroy
 
     redirect_to teacher_lo_exercise_path(@lo, @exercise)
+  end
+
+  def test_to_answer
+    @is_correct = @question.correct_answer? params[:response]
   end
 
   private

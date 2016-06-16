@@ -19,6 +19,8 @@ Rails.application.routes.draw do
 
       resources :exercises , except: :index do
         resources :questions, except: :index do
+          post '/test-to-answer' => 'questions#test_to_answer'
+
           resources :tips, except: :index
         end
       end

@@ -1,0 +1,7 @@
+$("#question_<%= @question.id %>_response").removeClass();
+
+<% if @is_correct %>
+  $("#question_<%= @question.id %>_response").addClass("valid");
+<% else %>
+  $("#question_<%= @question.id %>_response").addClass("invalid");
+<% end %>
