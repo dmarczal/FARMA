@@ -20,6 +20,7 @@ window.FARMA.reloadMaterilizeEffects = ->
   $('.button-collapse').sideNav() # reinitialize nav-mobile
   $('.parallax').parallax() # reinitialize parallax
   $('.slider').slider()
+  $('ul.tabs').tabs('select_tab', 'tab_id')
 
 
 window.FARMA.displayFlashMessages = ->

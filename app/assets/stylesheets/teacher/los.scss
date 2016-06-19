@@ -3,15 +3,15 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 /*
- * Los pages styles
- * ______________________________*/
- .container .row {
-   margin-left: 0;
- }
+* Los pages styles
+* ______________________________*/
+.container .row {
+  margin-left: 0;
+}
 
- /*
-  * los index styles - list los
-  * ______________________________*/
+/*
+* los index styles - list los
+* ______________________________*/
 
 #los_list li{
   background: white;
@@ -41,8 +41,8 @@ span {
 }
 
 /*
- * lo show styles - list content los
- * ______________________________*/
+* lo show styles - list content los
+* ______________________________*/
 #list-content-los {
   padding: 0;
 }
@@ -56,8 +56,8 @@ span {
 }
 
 /*
- * Card content los
- * ______________________________*/
+* Card content los
+* ______________________________*/
 .card {
   margin-left: 6.132698916%; // (58 * 100) /945.750
   padding: 0 !important;
@@ -65,6 +65,11 @@ span {
 
 .card-content {
   max-height: 90px;
+  i{
+    color: $palletegrey2;
+    font-size: 29px;
+    margin: -10px;
+  }
 }
 
 .activator i.material-icons {
@@ -76,6 +81,9 @@ span {
 
 .card-reveal {
   position: relative;
+  p{
+    text-align: justify;
+  }
 
   .link_card {
     position: absolute;
@@ -94,4 +102,26 @@ span {
   .show {
     right: 100px;
   }
+}
+#card-form{
+  h5{
+    color: #9E9E9E;
+  }
+  .image_preview {
+    background-color: #00D055;
+    color: white;
+  }
+  .file_preview.active{
+    border: none;
+  }
+  textarea.materialize-textarea{
+    font-size: 14pt;
+  }
+  input[type=text]{
+    font-size: 14pt;
+  }
+}
+.modal{
+  width: 837px;
+  height: 520px;
 }

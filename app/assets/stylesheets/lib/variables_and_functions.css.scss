@@ -1,9 +1,14 @@
 $palleteblue: #2F373F;
+$palleteblue2: #243038;
 $palletegreen: #00d055;
 $palletegrey: #313131;
 $palletegrey2: #7D7B7A;
-$palletewhite: #edeeef;
+$palletewhite: #EDEEEF;
 $palletered: #FF3A3A;
+$palletepink: #FF0018;
+$palletepink2: #FF003D;
+$palletelightpink:#E91E63;
+$palletepurple: #3D00FF;
 
 @mixin transform ($scale) {
   -moz-transform: $scale;

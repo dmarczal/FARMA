@@ -1,46 +1,49 @@
 <!-- Dropdown Structure -->
 <ul id="dropdown-user" class="dropdown-content">
-  <% if user_signed_in? %>
-    <li>
+ <% if user_signed_in? %>
+  <li>
 
-      <%= link_to(teacher_path) do %>
-        <i class="mdi-action-dashboard left"></i> Dashboard
+   <%= link_to(teacher_path) do %>
+    <i class="mdi-action-dashboard left"></i> Dashboard
+   <% end %>
 
-      <% end %>
-    </li>
+  </li>
 
-    <li>
-      <%= link_to(edit_user_registration_path) do %>
-        <i class="mdi-action-face-unlock left"></i> Perfil
-      <% end %>
-    </li>
-    <li>
-      <%= link_to(destroy_user_session_path, method: :delete) do %>
-        <i class="mdi-hardware-keyboard-tab left"></i> Sair
-      <% end %>
-    </li>
-  <% end %>
+  <li>
+
+   <%= link_to(edit_user_registration_path) do %>
+    <i class="mdi-social-person left"></i> Perfil
+   <% end %>
+
+  </li>
+  <li>
+
+   <%= link_to(destroy_user_session_path, method: :delete) do %>
+    <i class="mdi-action-exit-to-app left"></i> Sair
+   <% end %>
+
+  </li>
+ <% end %>
 </ul>
 
 <nav id="home-page-navbar" role="navigation">
-  <div class="nav-wrapper container">
+ <div class="nav-wrapper container">
 
-    <% if user_signed_in? %>
-      <ul class="right">
-        <!-- Dropdown Trigger -->
-        <li>
-          <a class="dropdown-button" href="#!" data-activates="dropdown-user">
-            <%= current_user.name %><i class="material-icons right">arrow_drop_down</i>
-          </a>
-        </li>
-      </ul>
-    <% else %>
-      <ul class="right">
-        <%= link_to(new_user_session_path) do %>
-          <i class="mdi-action-account-circle left"></i> Entrar
-        <% end %>
-      </ul>
+  <% if user_signed_in? %>
+   <ul class="right"> <!-- Dropdown Trigger -->
+    <li>
+     <a class="dropdown-button" href="#!" data-activates="dropdown-user">
+      <%= current_user.name %><i class="material-icons right">arrow_drop_down</i>
+     </a>
+    </li>
+   </ul>
+  <% else %>
+   <ul class="right">
+    <%= link_to(new_user_session_path) do %>
+     <i class="mdi-action-account-circle left"></i> Entrar
     <% end %>
+   </ul>
+  <% end %>
 
-  </div>
+ </div>
 </nav>
