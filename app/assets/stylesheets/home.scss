@@ -198,7 +198,6 @@ nav#home-page-navbar {
 }
 
 
-
 .login-panel {
  background-image: url('shared/farma-03.jpg');
  background-color: $palletegreen;
@@ -209,67 +208,69 @@ nav#home-page-navbar {
 /*
 * Area for research the home page
 * _______________________________________________*/
-#home-page-researchs{
- padding-top: 200px;
- padding-bottom: 200px;
+#home-page-researchs {
+  padding-top: 200px;
+  padding-bottom: 200px;
 
- .collapsible-header {
-  padding-left: 10%;
-  border-bottom: #fff;
-   small{
-    @extend .gray-text2;
-    padding: 35px;
-   }
- }
- .collapsible-body{
-  .tabs{
-   .tab{
-    a:hover{
-     color: $palletegreen;
-     transition-property: color;
-     transition-duration: 0.40s;
-     transition-timing-function: ease;
-     transition-delay: initial;
+  .research_abstract {
+
+    text-align: justify;
+    padding: 50px;
+    background-color: #fff;
+
+    b {
+      color: #00D055;
+      text-transform: uppercase; 
     }
-    a:active{
-     color:$palletegreen;
+
+    p {
+      color: $palletegrey;
+      line-height: 28px;
+      text-align: justify;
     }
-   }
-  }
- }
 
- .collapsible-body.research_text{
-  text-align: justify;
-  padding: 50px;
-  background-color: #fff;
-  p{
-   color: $palletegrey;
-   line-height: 28px;
-   text-align: justify;
+    a { color: $palletegreen; }
+    ul {
+      a {
+        color: $palletegrey2;
+      }
+    }
   }
-  a{
-   color: $palletegreen;
-  }
-  ul{
-   a{
-    color: $palletegrey2;
-   }
-  }
- }
 
- b{
-  color: $palletegreen;
- }
 
- ul.collapsible.popout.collapsible-accordion {
-  margin: 3px;
- }
-
- td {
-  line-height: 22px;
-  color: $palletegreen;
-  b{
-   color: $palletegrey;
+  ul.collapsible.popout.collapsible-accordion li {
+    margin: 8px;
   }
- }
+
+  .collapsible-header {
+      padding-top: 2%;
+      padding-bottom: 2%;
+      border-bottom: #FFF;
+      position: relative;
+  }
+
+  .title {
+      color: $palletegrey;
+      font-weight: bold;
+      padding: 0 10px;
+  }
+
+  .authorship {
+    span.author {
+      color: $palletegreen; 
+      margin-right: 50px;
+    }
+    span.institution {
+      color: $palletegrey2;
+      font-size: small;
+    }
+  }
+
+  .icon-arrow {
+    position: absolute;
+    right: 0px;
+    top: 20%;
+    color: #00D055;
+  }
+
 }

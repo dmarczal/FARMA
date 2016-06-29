@@ -1,6 +1,7 @@
 $(document).ready ->
   window.FARMA.displayFlashMessages()
   window.FARMA.loadMouseOverOnCard()
+  window.FARMA.researchIcon()
 
 # https://github.com/mkhairi/materialize-sass/issues/63
 # Fixed materialize because turbolinks
@@ -20,8 +21,6 @@ window.FARMA.reloadMaterilizeEffects = ->
   $('.button-collapse').sideNav() # reinitialize nav-mobile
   $('.parallax').parallax() # reinitialize parallax
   $('.slider').slider()
-  $('ul.tabs').tabs('select_tab', 'tab_id')
-
 
 window.FARMA.displayFlashMessages = ->
   toastr.options =

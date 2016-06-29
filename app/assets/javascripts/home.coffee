@@ -8,3 +8,11 @@ window.FARMA.navBarFixed = ->
       $('img.logo').addClass 'nav-bar-fixed'
     else
       $('img.logo').removeClass 'nav-bar-fixed'
+
+
+window.FARMA.researchIcon = ->
+  $('#home-page-researchs .collapsible-header').click (e)->
+    $('#home-page-researchs .icon-arrow i').html('keyboard_arrow_down')
+
+    unless ($(@).hasClass('active'))
+      $(@).find('i').html('keyboard_arrow_up')

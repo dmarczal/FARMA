@@ -8,7 +8,7 @@
 
   <%= f.input :name, autofocus: true %>
   <%= f.input :email %>
-  <%= f.input :password, placeholder: ("#{@minimum_password_length} caracteres no mínimo" if @minimum_password_length) %>
+  <%= f.input :password, placeholder: minimum_placeholder %>
   <%= f.input :password_confirmation %>
   <%= f.input :avatar, as: :file_materialize %>
 
