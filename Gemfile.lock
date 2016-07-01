@@ -7,12 +7,6 @@ GIT
       i18n (~> 0.7)
       railties (~> 4.0)
 
-GIT
-  remote: git@bitbucket.org:henroca/math-comparison.git
-  revision: 113fce37cc766845730be7001d247f6879442016
-  specs:
-    math_comparison (0.1.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -330,7 +324,6 @@ DEPENDENCIES
   jbuilder (= 2.2.3)
   jquery-rails (= 4.0.3)
   materialize-sass
-  math_comparison!
   math_engine
   paperclip (~> 4.3)
   pg (= 0.17.1)

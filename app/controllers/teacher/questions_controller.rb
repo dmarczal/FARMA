@@ -7,7 +7,6 @@ class Teacher::QuestionsController < Teacher::ApplicationController
   def show
     @tips = @question.tips.order :number_of_tries
     @action = "/teacher/los/#{@lo.id}/exercises/#{@exercise.id}/questions/#{@question.id}/test-to-answer"
-    @is_correct ||= true
   end
 
   def new
@@ -49,7 +48,9 @@ class Teacher::QuestionsController < Teacher::ApplicationController
   end
 
   def test_to_answer
-    @is_correct = @question.correct_answer? params[:response]
+    @question.math_comparison.response = params[:response]
+    @question.clear.right_response?
+    @action = "/teacher/los/#{@lo.id}/exercises/#{@exercise.id}/questions/#{@question.id}/test-to-answer"
   end
 
   private

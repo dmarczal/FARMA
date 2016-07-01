@@ -22,7 +22,6 @@ gem 'ckeditor', '~> 4.1' #https://github.com/galetahub/ckeditor
 gem 'breadcrumbs_on_rails' #https://github.com/weppos/breadcrumbs_on_rails
 gem 'active_link_to', '~> 1.0', '>= 1.0.3'
 gem 'math_engine'
-gem 'math_comparison', git: 'git@bitbucket.org:henroca/math-comparison.git'
 
 group :development do
   gem 'thin'

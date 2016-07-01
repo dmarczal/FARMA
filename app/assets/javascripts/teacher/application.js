@@ -18,6 +18,7 @@
 //  require_self
 //= require teacher/loads
 //= require ckeditor/init
+//= require ckeditor/functions_ck
 //= require ckeditor/config
 //= require_tree ../lib/
 //= require teacher/utils

@@ -21,3 +21,23 @@
   border-left: 12px solid green;
   border-bottom: 5px solid green;
 }
+
+/*
+ *  test Response
+ * ______________________________*/
+ .box-response {
+   cursor: pointer;
+   position: relative;
+   border: 5px solid #757575;
+   padding: 20px;
+   margin: 20px 0;
+   width: 200px;
+ }
+
+ .box-response.valid {
+   border: 5px solid #43a047;
+ }
+
+ .box-response.invalid {
+   border: 5px solid #e53935;
+ }

@@ -6,6 +6,6 @@ class Answer < ActiveRecord::Base
 
   private
   def set_correct
-    self.correct = question.correct_answer? response
+    self.correct = question.math_comparison.correct_response
   end
 end

@@ -1,7 +1,2 @@
-$("#question_<%= @question.id %>_response").removeClass();
-
-<% if @is_correct %>
-  $("#question_<%= @question.id %>_response").addClass("valid");
-<% else %>
-  $("#question_<%= @question.id %>_response").addClass("invalid");
-<% end %>
+$("#test-response-<%= @question.id %>").empty();
+$("#test-response-<%= @question.id %>").append('<%= @question.math_comparison.render(action: @action, id: "question_#{@question.id}_response") %>');

@@ -1,4 +1,4 @@
-<form class="col s12" action="<%= @action %>" method="POST" data-remote="true">
+<!-- <form class="col s12" action="<%= @action %>" method="POST" data-remote="true">
   <div class="row">
     <div class="input-field col s6">
       <input id="question_<%= @question.id %>_response" type="text" value="" name="response">
@@ -7,4 +7,14 @@
 
     <button type="submit" class="btn">Testar</button>
   </div>
-</form>
+</form> -->
+<!-- <div class="col s12 row">
+  <div class="border">
+    <div class="box-response center">
+      <span>Testar Resposta</span>
+    </div>
+  </div>
+</div> -->
+<div id="test-response-<%= @question.id %>">
+  <%= @question.math_comparison.render(action: @action, id: "question_#{@question.id}_response") %>
+</div>
