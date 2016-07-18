@@ -1,7 +1,5 @@
 <% provide(:title, "Registre-se") %>
-<% content_for :sub_title do %>
-   <p> Preencha as informações abaixo para acessar a FARMA</p>
-<% end %>
+<% provide(:sub_title, "Preencha as informações abaixo para acessar a FARMA") %>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name),
                     html: {class: 'col s12', :multipart => true} ) do |f| %>

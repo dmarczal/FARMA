@@ -1,7 +1,5 @@
-<% provide(:title, "Reenviar instruções de confirmação de email") %>
-<% content_for :sub_title do %>
-   <p>Preencha o campo abaixo com seu email que enviaremos um novo link para confirmação de seu email</p>
-<% end %>
+<% provide(:title, "Reenviar confirmação") %>
+<% provide(:sub_title, "Preencha o campo abaixo com seu email que enviaremos um novo link para confirmação de seu email") %>
 
 <%= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
   <div class="col s12 has-error">
@@ -9,6 +7,6 @@
   </div>
 
   <%= f.input :email, required: true, autofocus: true %>
-  <%= f.button :submit_materialize, "Reenviar instruções de confirmação de senha" %>
+  <%= f.button :submit_materialize, "Reenviar confirmação" %>
 
 <% end %>

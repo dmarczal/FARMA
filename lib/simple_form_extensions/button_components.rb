@@ -25,13 +25,13 @@ module ButtonComponents
 
     end
 
-    def cancel_link path
-     template.link_to path, class: "btn-cancel " do
+    def cancel_link(path)
+     template.link_to path, class: "btn-cancel" do
        template.concat icon 'clear'
      end
     end
 
-    def icon icon_name
+    def icon(icon_name)
       "<i class='material-icons right'>#{icon_name}</i>".html_safe
     end
 end

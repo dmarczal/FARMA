@@ -5,13 +5,14 @@ class Teacher::QuestionsController < Teacher::ApplicationController
   before_action :find_exercise, only: [:new, :create]
 
   def show
+    cookies.delete("count_responses_#{@question.id}")
     @tips = @question.tips.order :number_of_tries
-    @action = "/teacher/los/#{@lo.id}/exercises/#{@exercise.id}/questions/#{@question.id}/test-to-answer"
+    @action = teacher_lo_exercise_question_test_to_answer_path(@lo, @exercise, @question)
   end
 
   def new
     @class = "cancel-new-question"
-    @remote = true;
+    @remote = true
     @question = @exercise.questions.new
   end
 
@@ -48,9 +49,20 @@ class Teacher::QuestionsController < Teacher::ApplicationController
   end
 
   def test_to_answer
-    @question.math_comparison.response = params[:response]
-    @question.clear.right_response?
-    @action = "/teacher/los/#{@lo.id}/exercises/#{@exercise.id}/questions/#{@question.id}/test-to-answer"
+    math_comparison = MathComparison::Comparison.new(correct_answer: @question.correct_answer,
+                                                     precision: @question.precision,
+                                                     cmas_order: @question.cmas_order)
+    @response = params[:response]
+
+    if math_comparison.right_response?(@response)
+      @class_correct = 'valid'
+    else
+      cookies["count_responses_#{@question.id}"] =  cookies["count_responses_#{@question.id}"] ?  cookies["count_responses_#{@question.id}"].to_i + 1 : 1
+
+      @tips = @question.tips.where("number_of_tries <= #{cookies["count_responses_#{@question.id}"]}")
+      @tip = @tips.last
+      @class_correct = 'invalid'
+    end
   end
 
   private

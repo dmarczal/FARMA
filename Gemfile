@@ -15,13 +15,13 @@ gem 'devise',       '3.5.1'
 gem 'simple_form'
 gem 'materialize-sass' # https://github.com/mkhairi/materialize-sass
 gem 'toastr-rails'     # http://www.benkirane.ch/rails-4-toastrjs-notifications/
-gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master' # For 4.x
+gem 'rails-i18n', '~> 4.0.0' # For 4.x
+gem 'math_engine'
 
 gem 'paperclip', '~> 4.3'
 gem 'ckeditor', '~> 4.1' #https://github.com/galetahub/ckeditor
 gem 'breadcrumbs_on_rails' #https://github.com/weppos/breadcrumbs_on_rails
 gem 'active_link_to', '~> 1.0', '>= 1.0.3'
-gem 'math_engine'
 
 group :development do
   gem 'thin'

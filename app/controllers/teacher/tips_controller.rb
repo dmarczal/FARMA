@@ -1,8 +1,12 @@
 class Teacher::TipsController < Teacher::ApplicationController
   include FindModels
 
-  before_action :find_tip, except: [:new, :create, :cancel]
-  before_action :find_question, only: [:new, :create, :cancel]
+  before_action :find_tip, except: [:new, :create]
+  before_action :find_question, only: [:new, :create]
+
+  def show
+    @tips = @question.tips.where("number_of_tries <= #{cookies["count_responses_#{@question.id}"]}")
+  end
 
   def new
     @tip = @question.tips.new

@@ -1,4 +1,5 @@
-module FindModels extend ActiveSupport::Concern
+module FindModels
+  extend ActiveSupport::Concern
 
   private
     def find_lo

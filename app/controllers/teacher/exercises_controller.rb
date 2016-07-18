@@ -11,7 +11,7 @@ class Teacher::ExercisesController < Teacher::ApplicationController
   end
 
   def new
-    add_breadcrumb "Novo exercicio para o OA #{@lo.name}", new_teacher_lo_exercise_path(@lo)
+    add_breadcrumb "Novo exercicio", new_teacher_lo_exercise_path(@lo)
 
     @exercise = @lo.exercises.new
   end

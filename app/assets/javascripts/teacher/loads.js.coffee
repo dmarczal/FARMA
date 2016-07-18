@@ -13,6 +13,9 @@ $(document).on 'page:change', ->
   window.FARMA.imagePreview()
   window.FARMA.requestFormTip()
 
+$(document).on 'page:update', ->
+  MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+
 window.FARMA = {}
 
 window.FARMA.reloadMaterilizeEffects = ->

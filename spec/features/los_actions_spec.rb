@@ -85,4 +85,25 @@ describe "lo methods" do
       end
     end
   end
+
+  describe 'manipulate lo' do
+    before :each do
+      @lo = FactoryGirl.create(:lo, user: @user)
+    end
+
+    it 'show contents' do
+      introduction = FactoryGirl.create(:introduction, lo: @lo)
+      exercise = FactoryGirl.create(:exercise, lo: @lo)
+
+      visit teacher_lo_path(@lo)
+      expect(page).to have_content introduction.title
+      expect(page).to have_content exercise.title
+    end
+
+    it 'delete lo' do
+      page.driver.submit :delete, teacher_lo_path(@lo), {}
+
+      expect(Lo.exists?(@lo.id)).to eq false
+    end
+  end
 end

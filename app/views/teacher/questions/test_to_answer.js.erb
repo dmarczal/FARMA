@@ -1,2 +1,8 @@
-$("#test-response-<%= @question.id %>").empty();
-$("#test-response-<%= @question.id %>").append('<%= @question.math_comparison.render(action: @action, id: "question_#{@question.id}_response") %>');
+$('#response').html('<%= @response %>');
+
+<% if @tip %>
+  $('#test-response-<%= @question.id %> .tips').html('<%= j render partial:  "teacher/tips/show_tips" %>');
+<% end %>
+
+$('.box-response').removeClass('invalid').removeClass('valid');
+$('.box-response').addClass('<%= @class_correct %>');
