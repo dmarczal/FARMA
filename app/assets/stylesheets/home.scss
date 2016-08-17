@@ -212,6 +212,14 @@ nav#home-page-navbar {
   padding-top: 200px;
   padding-bottom: 200px;
 
+  img{
+    width: 14%;
+    position: relative;
+    margin-top: -118px;
+    margin-bottom: -83px;
+    padding: 20px;
+  }
+
   .research_abstract {
 
     text-align: justify;
@@ -273,6 +281,12 @@ nav#home-page-navbar {
     color: #00D055;
   }
 
+  @media screen and (max-width: 480px){
+    img{
+      width: 150px;
+    }
+  }
+
 }
 
 /*
@@ -281,22 +295,26 @@ nav#home-page-navbar {
 
 #home-page-awards{
   padding-top: 200px;
-  padding-bottom: 200px;
-  .awards-chip{
+  padding-bottom: 400px;
 
-    margin-top: 20px;
-    margin-bottom: 20px;
-    background-color: $palletegreen;
+  .img-icon{
+    width: 60px;
+  }
 
-    span{
-      color: $palletegrey2;
-      opacity: 0.90;
-      mix-blend-mode: multiply;
-      line-height: -5px;
+  .card{
+    border-radius: 8px;
+    height: 484px;
+
+    img{
+      width: 180px;
+      margin: 20px;
+    }
+    span.card-title{
+      color: #75FCCC;
+      font-size: 40px;
+    }
+    p{
+      color: #2F705A;
     }
   }
-  p{
-    color: $palletegreen;
-  }
-
 }

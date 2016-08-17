@@ -5,10 +5,16 @@
 li.box-tip {
   margin: 10px 0;
   background-color: white;
-  border: 1px solid #d1d1d1;
+  border-bottom: 1px solid #d1d1d1;
 
   .box-tip-content {
-    border: 1px solid #d1d1d1;
     padding: 10px;
+  }
+  span{
+    .col{
+      .s12{
+        margin-right: -590px;
+      }
+    }
   }
 }
