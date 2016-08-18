@@ -1,0 +1,105 @@
+// Place all the styles related to the dashboard controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$palleteblue: #2F373F;
+$palletegreen: #00d055;
+$palletegrey: #313131;
+$palletegrey2: #7D7B7A;
+$palletewhite: #edeeef;
+$palletered: #FF3A3A;
+
+/*
+ * Vertical menu
+ * ______________________________*/
+#button-user {
+  margin-left: 20px;
+  i { // Rotate icon
+    -ms-transform: rotate(180deg);     /* IE 9 */
+    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+    transform: rotate(180deg);
+  }
+}
+
+#icon_button.active_painel {    // Rotate Icon
+  -ms-transform: rotate(0);     /* IE 9 */
+  -webkit-transform: rotate(0); /* Chrome, Safari, Opera */
+  transform: rotate(0);
+}
+
+#slide-out { //_____ Painel
+  width: 232px;
+  height: 100%;
+  float: left;
+  padding: 0;
+  box-shadow: none;
+  background-color: $palletewhite;
+  margin-top: 7px;
+
+}
+
+#painel {//_____ Card_Painel
+  width: 100%;
+  height: 149px;
+  position: relative;
+  background-color: $palletewhite ;
+}
+
+#img-user { //_____ User Image
+  width: 32%;
+  height: 50%;
+  position: absolute;
+  top: 25%;
+  left: 5%;
+}
+
+
+ //_____ links user(perfil and get out)
+#button_links_user {
+  margin: 20% 2% 0 0;
+  position: absolute;
+  width: 50%;
+  right: 5%;
+  #box_name_user{
+    width: 80%;
+  }
+
+  i{
+    float: right;
+    font-size: 2rem;
+  }
+}
+
+#links_user {
+  top: 65% !important;
+}
+.nav-dashboard{
+  background-color: #243038;
+  box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
+}
+.nav-size-icon{
+    font-size: 24px;
+    opacity: 0.75;
+}
+a.collection-item.collection-menu {
+    color: $palletegrey2;
+    background-color: transparent;
+    border: none;
+}
+.style-menu{
+    border: none;
+}
+.dropdown-content li > a, .dropdown-content li > span{
+  color: $palletewhite;
+  background-color: #243038;
+}
+i.material-icons.nav-size-icon {
+    color: white;
+    margin-top: 18px;
+}
+.color-background{
+  background-color: $palletegreen;
+}
+.size-brand {
+      height: 56px;
+      margin: 4px;
+  }

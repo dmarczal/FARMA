@@ -11,13 +11,13 @@ class Teacher::ExercisesController < Teacher::ApplicationController
   end
 
   def new
-    add_breadcrumb "Novo exercicio", new_teacher_lo_exercise_path(@lo)
+    add_breadcrumb "Novo Exercício", new_teacher_lo_exercise_path(@lo)
 
     @exercise = @lo.exercises.new
   end
 
   def edit
-    add_breadcrumb "Editar o #{@exercise.title}", edit_teacher_lo_exercise_path(@lo, @exercise)
+    add_breadcrumb "Editar Exercício", edit_teacher_lo_exercise_path(@lo, @exercise)
   end
 
   def update

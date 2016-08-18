@@ -1,5 +1,15 @@
 #devise-page {
   background-image: image_url('shared/farma-03.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
   background-color: $palletegreen;
   background-blend-mode: darken;
+
+  nav{
+    background-color: transparent;
+    box-shadow: none;
+  }
+  .brand-logo{
+      width: 7%;
+  }
 }

@@ -11,7 +11,7 @@ class Teacher::IntroductionsController < Teacher::ApplicationController
   end
 
   def edit
-    add_breadcrumb "Editar #{@introduction.title}", new_teacher_lo_introduction_path(@lo, @title)
+    add_breadcrumb "Editar Introdução", new_teacher_lo_introduction_path(@lo, @title)
   end
 
   def update

@@ -2,9 +2,9 @@
 <% provide(:sub_title, "Preencha o campo abaixo com seu email que enviaremos um novo link para confirmação de seu email") %>
 
 <%= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <div class="col s12 has-error">
+   <div class="col s12 has-error">
     <%= f.full_error :confirmation_token %>
-  </div>
+   </div>
 
   <%= f.input :email, required: true, autofocus: true %>
   <%= f.button :submit_materialize, "Reenviar confirmação" %>

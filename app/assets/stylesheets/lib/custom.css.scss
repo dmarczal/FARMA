@@ -117,8 +117,86 @@ label.ckeditor{
 
 label.ckeditor.active {
   @include transform(none);
-
   font-size: 14px;
+}
+
+/*
+ * ______________________________*/
+.line-input {
+  border-bottom: 1px solid $palletegreen;
+  box-shadow: 0 1px 0 0 $palletegreen;
+}
+
+input[type=email]:focus:not([readonly]){
+  @extend .line-input;
+}
+input[type=email]:focus:not([readonly]){
+  @extend .line-input;
+}
+
+input[type=password]:focus:not([readonly]){
+  @extend .line-input;
+}
+
+input[type=text]:focus:not([readonly]){
+  @extend .line-input;
+}
+input[type=text]:focus:not([readonly]) + label{
+  color: $palletegreen;
+}
+input[type=textarea]:focus:not([readonly]){
+  @extend .line-input;
+}
+input[type="checkbox"].filled-in:checked + label:after{
+  border: 2px solid $palletegreen;
+  background-color: $palletegreen;
+}
+
+textarea.materialize-textarea:focus:not([readonly]) {
+  @extend .line-input;
+}
+
+/*
+ * Changed all btn style
+ * ______________________________*/
+.btn {
+  background-color: $palletegreen;
+  border-radius: 32px;
+  color: #067533;
+}
+
+.btn:hover {
+  background-color: #00D060;
+}
+
+/*
+ * Navbar search
+ * ______________________________*/
+#nav-search {
+  background-color: #E2E2E2;
+  box-shadow: none;
+  border-bottom: none;
+  border-radius: 5px;
+  height: 38px;
+
+  .input-field label i {
+    color: #B9B9B9;
+    line-height: 41px;
+  }
+
+  input[type=search] {
+    border-bottom: none;
+    border-radius: 5px;
+  }
+
+  input[type=search]:focus,
+  input[type=search]:hover,
+  .input-field,
+  .input-field:focus,
+  .input-field:hover  {
+    height: 38px;
+  }
+
 }
 
 // /*

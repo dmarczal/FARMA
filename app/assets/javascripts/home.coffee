@@ -32,3 +32,10 @@ window.FARMA.loadMouseOverOnCard = ->
        easing: 'easeInOutQuad',
        complete: ->
           $(this).css({ display: 'none'})
+
+window.FARMA.researchIcon = ->
+  $('#home-page-researchs .collapsible-header').click (e)->
+    $('#home-page-researchs .icon-arrow i').html('keyboard_arrow_down')
+
+    unless ($(@).hasClass('active'))
+      $(@).find('i').html('keyboard_arrow_up')

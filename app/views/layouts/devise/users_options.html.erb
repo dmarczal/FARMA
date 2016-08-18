@@ -1,50 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <%= favicon_link_tag %>
-  <title><%= full_title(yield(:title)) %></title>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<%= favicon_link_tag %>
+<title><%= full_title(yield(:title)) %></title>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-  <%= stylesheet_link_tag    'devise/application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'devise/application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+<%= stylesheet_link_tag    'devise/application', media: 'all', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'devise/application', 'data-turbolinks-track' => true %>
+<%= csrf_meta_tags %>
 </head>
 
 <body id="devise-page">
-  <header>
+<header>
+ <nav class="gren" role="navigation">
+   <div class="nav-wrapper container">
+     <%= link_to image_tag("logos/logo-farma-white.png",
+                            class: "brand-logo center size-brand"), root_path %>
+   <!-- <%= link_to "FARMA", root_path, class: "brand-logo ", id: "logo-container" %> -->
+  </div>
+ </nav>
+</header>
 
-    <nav class="gren" role="navigation">
-      <div class="nav-wrapper container">
-        <%= link_to "FARMA", root_path, class: "brand-logo ", id: "logo-container" %>
-      </div>
-    </nav>
+<%= render 'shared/flash_messages'  %>
 
-  </header>
-  <%= render 'shared/flash_messages'  %>
-
-  <main class="container">
-    <div class="row">
-       <div class="col l6 s12 offset-l3">
-        <div class="card-panel hoverable">
-          <div class="row">
-            <div class="col s12 center">
-              <h2 class="header gray-text2"><%= yield :title %></h2>
-              <p class="gray-text2"><%= yield :sub_title %></p>
-            </div>
+<main class="container">
+  <div class="row">
+     <div class="col l6 s12 offset-l3">
+      <div class="card-panel hoverable">
+        <div class="row">
+          <div class="col s12 center">
+            <h2 class="header gray-text2"><%= yield :title %></h2>
+            <p class="gray-text2"><%= yield :sub_title %></p>
           </div>
-
-          <div class="row">
-            <%= yield %>
-          </div>
-
-          <div class="row">
-            <%= render "devise/shared/links" %>
-          </div>
-
         </div>
-      </div>
+
+        <div class="row">
+          <%= yield %>
+        </div>
+
+    <div class="row">
+     <%= yield %>
     </div>
-  </main>
+
+    <div class="row">
+     <%= render "devise/shared/links" %>
+    </div>
+   </div>
+  </div>
+ </div>
+</main>
 
 </body>
 </html>
