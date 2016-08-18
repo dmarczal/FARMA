@@ -1,4 +1,6 @@
 class Answer < ActiveRecord::Base
+  include MathComparison
+
   belongs_to :user
   belongs_to :question
 

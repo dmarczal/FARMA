@@ -4,7 +4,7 @@
   <li>
 
    <%= link_to(teacher_path) do %>
-    <i class="mdi-action-dashboard left"></i> Dashboard
+    <i class="material-icons left">dashboard</i> Dashboard
    <% end %>
 
   </li>
@@ -12,14 +12,14 @@
   <li>
 
    <%= link_to(edit_user_registration_path) do %>
-    <i class="mdi-social-person left"></i> Perfil
+    <i class="material-icons left">person</i> Perfil
    <% end %>
 
   </li>
   <li>
 
    <%= link_to(destroy_user_session_path, method: :delete) do %>
-    <i class="mdi-action-exit-to-app left"></i> Sair
+    <i class="material-icons left">exit_to_app</i> Sair
    <% end %>
 
   </li>
@@ -47,7 +47,7 @@
     <% else %>
       <ul class="right">
         <%= link_to(new_user_session_path) do %>
-          <i class="mdi-action-account-circle left"></i> Entrar
+          <i class="material-icons left">account_circle</i> Entrar
         <% end %>
       </ul>
     <% end %>
