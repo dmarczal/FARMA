@@ -1,4 +1,4 @@
-$('#response').html('<%= @response %>');
+$('#response').html('<%= @answer.response %>');
 
 <% if @tip %>
   $('#test-response-<%= @question.id %> .tips').html('<%= j render partial:  "teacher/tips/show_tips" %>');

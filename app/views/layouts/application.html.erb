@@ -3,29 +3,24 @@
 <head>
   <%= favicon_link_tag %>
   <title><%= full_title(yield(:title)) %></title>
-
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-
+<body id="home-page">
   <header>
+    <%= render 'layouts/home/navbar_top' %>
 
-     <%= render 'shared/flash_messages'  %>
-
-     <%= render 'layouts/home/navbar_top' %>
-
+    <%= render 'shared/flash_messages'  %>
   </header>
 
-
-   <main>
-
+  <main>
      <%= yield %>
+  </main>
 
-   </main>
+  <%= render 'layouts/home/footer' %>
 
-   <%= render 'layouts/home/main_footer' %>
 </body>
 </html>

@@ -49,12 +49,9 @@ class Teacher::QuestionsController < Teacher::ApplicationController
   end
 
   def test_to_answer
-    math_comparison = MathComparison::Comparison.new(correct_answer: @question.correct_answer,
-                                                     precision: @question.precision,
-                                                     cmas_order: @question.cmas_order)
-    @response = params[:response]
+    @answer = @question.answers.new answer_params
 
-    if math_comparison.right_response?(@response)
+    if @answer.correct
       @class_correct = 'valid'
     else
       cookies["count_responses_#{@question.id}"] =  cookies["count_responses_#{@question.id}"] ?  cookies["count_responses_#{@question.id}"].to_i + 1 : 1
@@ -68,5 +65,9 @@ class Teacher::QuestionsController < Teacher::ApplicationController
   private
     def question_params
       params.require(:question).permit(:title, :content, :correct_answer, :precision, :cmas_order)
+    end
+
+    def answer_params
+      params.require(:answer).permit(:response)
     end
 end

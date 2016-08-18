@@ -24,6 +24,14 @@
 
 <nav id="home-page-navbar" role="navigation">
   <div class="nav-wrapper container">
+    <% if current_page?(los_path) %>
+      <%= link_to(image_tag("logos/logo-farma-black.png", id: "los-path-logo"), root_path, class: 'left') %>
+
+      <%= link_to "começe já", new_user_session_path, class: "waves-effect waves-light btn-large tooltipped", id: 'start-now',
+                  "data-position" => "bottom", "data-delay" => "50",
+                  "data-tooltip" => "Clique aqui para acessar o sistema" %>
+    <% end %>
+
     <% if user_signed_in? %>
       <ul class="right">
         <!-- Dropdown Trigger -->
@@ -40,13 +48,5 @@
         <% end %>
       </ul>
     <% end %>
-
-    <!-- <ul id="nav-mobile" class="side-nav">
-      <li><%= link_to("FARMA", root_path ) %></li>
-    </ul>
-
-    <a href="#" data-activates="nav-mobile" class="button-collapse">
-      <i class="material-icons">menu</i>
-    </a> -->
   </div>
 </nav>
