@@ -2,7 +2,7 @@
     <div class="col s12 row">
       <header class="col s6 m3">
         <%= link_to teacher_lo_exercise_question_path(@lo, @exercise, question), remote: true do %>
-          <i class="show-question material-icons medium" data-target="question-<%= question.id %>-show">
+          <i class="show-question material-icons" data-target="question-<%= question.id %>-show">
             keyboard_arrow_right
           </i>
         <% end %>
@@ -18,15 +18,15 @@
         <div class="col s6">
           <%= link_to edit_teacher_lo_exercise_question_path(@lo, @exercise, question),
                       class: 'tooltipped', 'data-position' => 'left', remote: true,
-                      'data-tooltip' => "Editar a Questão #{question.title}" do %>
+                      'data-tooltip' => "Editar questão" do %>
               <i class="material-icons">mode_edit</i>
           <% end %>
         </div>
 
         <div class="col s6">
           <%= link_to [:teacher, @lo, @exercise, question], method: :delete,
-                      data: { confirm: 'tem certeza disso?' }, class: 'tooltipped',
-                      'data-position' => 'left', 'data-tooltip' => "Deletar a Questão #{question.title}" do %>
+                      data: { confirm: 'tem certeza disso?' }, class: 'tooltipped White',
+                      'data-position' => 'left', 'data-tooltip' => "Deletar questão" do %>
               <i class="material-icons">delete</i>
           <% end %>
         </div>

@@ -44,7 +44,12 @@ p {
 /*
  * list question style
  * ______________________________*/
-
+ .collection .collection-item{
+   background-color: $palleteblue2;
+   i{
+     color: white;
+   }
+}
 .collection-item {
 
   padding: 20px 0 0 0 !important;
@@ -59,6 +64,7 @@ p {
     background-color: white;
     margin: 0;
     padding: 30px 20px;
+    color: $palleteblack;
   }
   .box-question-content {
     border-color: transparent;
@@ -81,12 +87,17 @@ p {
     position: absolute;
     left: 8%;
     top: 20px;
+    color: white;
   }
 
   .questions-2-show{
       span{
         color: red;
       }
+  }
+  .tooltipped .White{
+    background-color: red;
+
   }
 
 }
@@ -101,6 +112,6 @@ p {
 }
 
 #questions_list {
-  border: 1px solid #d1d1d1;
+  border: 1px solid transparent;
   padding: 0;
 }
