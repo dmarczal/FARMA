@@ -216,11 +216,8 @@ nav#home-page-navbar {
   padding-bottom: 200px;
 
   img{
-    width: 14%;
-    position: relative;
-    margin-top: -118px;
-    margin-bottom: -83px;
-    padding: 20px;
+    width: 150px;
+    float: left;
   }
 
   .research_abstract {
@@ -254,9 +251,8 @@ nav#home-page-navbar {
   }
 
   .collapsible-header {
-    padding-top: 2%;
-    padding-bottom: 2%;
     border-bottom: #FFF;
+    min-height: 150px;
     position: relative;
   }
 
@@ -264,6 +260,12 @@ nav#home-page-navbar {
     color: $palletegrey;
     font-weight: bold;
     padding: 0 10px;
+    padding-top: 40px;
+    padding-bottom: 20px;
+  
+    b {
+      color: $palletegreen;
+    }
   }
 
   .authorship {
@@ -274,13 +276,19 @@ nav#home-page-navbar {
     span.institution {
       color: $palletegrey2;
       font-size: small;
+      margin-right: 50px;
+    }
+
+    span.year {
+      color: $palletegrey2;
+      font-size: small;
     }
   }
 
   .icon-arrow {
     position: absolute;
-    right: 0px;
-    top: 20%;
+    right: -5px;
+    top: 5%;
     color: #00D055;
   }
 
