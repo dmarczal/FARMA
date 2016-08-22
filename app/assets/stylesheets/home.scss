@@ -7,147 +7,147 @@
 * Home page styles
 * ______________________________*/
 #home-page {
- h1, h4 {
-  margin-bottom: 0.2em;
-  font-size: 1.54rem;
- }
-
- p {
-  margin-bottom: 0.2em;
-  line-height: 20px;
-  text-align: center;
- }
-
- .parallax-container {
-  min-height: 380px;
-  line-height: 0;
-  height: auto;
-  color: rgba($palletewhite,.9);
-  .section {
-    width: 100%;
+  h1, h4 {
+    margin-bottom: 0.2em;
+    font-size: 1.54rem;
   }
- }
+
+  p {
+    margin-bottom: 0.2em;
+    line-height: 20px;
+    text-align: center;
+  }
+
+  .parallax-container {
+    min-height: 380px;
+    line-height: 0;
+    height: auto;
+    color: rgba($palletewhite,.9);
+    .section {
+      width: 100%;
+    }
+  }
 
 
- .top-container {
-  min-height: 655px;
- }
+  .top-container {
+    min-height: 655px;
+  }
 
- .content-container {
-  top: 283px;
- }
+  .content-container {
+    top: 283px;
+  }
 
- .section.no-pad-bot {
-  padding-top: 422px;
-  padding-bottom: 422px;
- }
+  .section.no-pad-bot {
+    padding-top: 422px;
+    padding-bottom: 422px;
+  }
 
- .btn-large {
-  background-color: $palletegreen;
-  border-radius: 32px;
-  color: #067533;
- }
+  .btn-large {
+    background-color: $palletegreen;
+    border-radius: 32px;
+    color: #067533;
+  }
 
- .move-btn {
-  line-height: 125px;
- }
+  .move-btn {
+    line-height: 125px;
+  }
 
- .btn {
-  background-color: $palletegreen;
-  border-radius: 32px;
-  color: #067533;
- }
+  .btn {
+    background-color: $palletegreen;
+    border-radius: 32px;
+    color: #067533;
+  }
 
- .btn:hover {
-  background-color: #00D060;
- }
+  .btn:hover {
+    background-color: #00D060;
+  }
 }
 
 nav#home-page-navbar {
- background-color: transparent;
- box-shadow: none;
- ul a{
-  width: 160px;
-  color: $palleteblue;
-   i{
-    font-size: 20px;
-   }
- }
+  background-color: transparent;
+  box-shadow: none;
+  ul a{
+    width: 160px;
+    color: $palleteblue;
+    i{
+      font-size: 20px;
+    }
+  }
 }
 
 #parallax-banner {
 
- @extend .gradient-white;
- position: relative;
+  @extend .gradient-white;
+  position: relative;
 
- .container {
-  margin-top: -178px;
- }
+  .container {
+    margin-top: -178px;
+  }
 
- .logo {
-  width: 183px;
-  top: 20%;
-  left: 30%;
+  .logo {
+    width: 183px;
+    top: 20%;
+    left: 30%;
 
-  @include logo-transform()
- }
+    @include logo-transform()
+  }
 
- .logo.nav-bar-fixed {
-  width: 4em;
-  position: fixed;
-  z-index: 300;
-  top: 0;
-  left: 15%;
- }
+  .logo.nav-bar-fixed {
+    width: 4em;
+    position: fixed;
+    z-index: 300;
+    top: 0;
+    left: 15%;
+  }
 
- .pull-down {
-  position: absolute;
-  bottom: 50px;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
- }
+  .pull-down {
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
- p.description {
-  width: 80%;
-  margin: 0 auto;
- }
+  p.description {
+    width: 80%;
+    margin: 0 auto;
+  }
 }
 
 #home-page-slider {
- .slider .slides {
-  background-color: $palletewhite;
- }
+  .slider .slides {
+    background-color: $palletewhite;
+  }
 
- .slider .slides li .caption p {
-  color: $palletegrey;
- }
+  .slider .slides li .caption p {
+    color: $palletegrey;
+  }
 
- .slider .indicators .indicator-item.active {
-  background-color: $palletegreen;
- }
+  .slider .indicators .indicator-item.active {
+    background-color: $palletegreen;
+  }
 }
 
 #home-page-subjects {
- @extend .gradient-white;
+  @extend .gradient-white;
 
- .item-size {
-  width: 150px;
- }
+  .item-size {
+    width: 150px;
+  }
 
- item-size:hover { @include scale(1.1); }
+  item-size:hover { @include scale(1.1); }
 }
 
 #home-page-goal {
- @extend .gradient-white;
- min-height: 150px;
- margin-bottom: 1em;
+  @extend .gradient-white;
+  min-height: 150px;
+  margin-bottom: 1em;
 
- .divider {
-  margin-top: 40px;
-  margin-bottom: 40px;
- }
+  .divider {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
 }
 
 #home-page-team {
@@ -164,19 +164,19 @@ nav#home-page-navbar {
     }
   }
   .card-title h5 {
-    font-size: 1.44rem; 
+    font-size: 1.44rem;
   }
 }
 
 #home-page-footer {
- background-color: $palleteblue;
- color: #FFF;
- margin-top: -4px;
+  background-color: $palleteblue;
+  color: #FFF;
+  margin-top: -4px;
 }
 
 #home-page-navbar {
- z-index: 200;
- position: fixed;
+  z-index: 200;
+  position: fixed;
 }
 
 
@@ -184,27 +184,27 @@ nav#home-page-navbar {
 * Responsive design for home page
 * _______________________________________________*/
 @media only screen and (max-width : 992px) {
- #home-page {
-  .parallax-container .section {
-    top: 72%;
+  #home-page {
+    .parallax-container .section {
+      top: 72%;
+    }
   }
- }
- #parallax-banner .section {
-  top: 10%;
- }
+  #parallax-banner .section {
+    top: 10%;
+  }
 }
 
 @media only screen and (max-width : 600px) {
- #parallax-banner .section {
-  top: 0;
- }
+  #parallax-banner .section {
+    top: 0;
+  }
 }
 
 
 .login-panel {
- background-image: url('shared/farma-03.jpg');
- background-color: $palletegreen;
- background-blend-mode: darken;
+  background-image: url('shared/farma-03.jpg');
+  background-color: $palletegreen;
+  background-blend-mode: darken;
 }
 
 
@@ -215,6 +215,14 @@ nav#home-page-navbar {
   padding-top: 200px;
   padding-bottom: 200px;
 
+  img{
+    width: 14%;
+    position: relative;
+    margin-top: -118px;
+    margin-bottom: -83px;
+    padding: 20px;
+  }
+
   .research_abstract {
 
     text-align: justify;
@@ -223,7 +231,7 @@ nav#home-page-navbar {
 
     b {
       color: #00D055;
-      text-transform: uppercase; 
+      text-transform: uppercase;
     }
 
     p {
@@ -246,21 +254,21 @@ nav#home-page-navbar {
   }
 
   .collapsible-header {
-      padding-top: 2%;
-      padding-bottom: 2%;
-      border-bottom: #FFF;
-      position: relative;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border-bottom: #FFF;
+    position: relative;
   }
 
   .title {
-      color: $palletegrey;
-      font-weight: bold;
-      padding: 0 10px;
+    color: $palletegrey;
+    font-weight: bold;
+    padding: 0 10px;
   }
 
   .authorship {
     span.author {
-      color: $palletegreen; 
+      color: $palletegreen;
       margin-right: 50px;
     }
     span.institution {
@@ -276,4 +284,40 @@ nav#home-page-navbar {
     color: #00D055;
   }
 
+  @media screen and (max-width: 480px){
+    img{
+      width: 150px;
+    }
+  }
+
+}
+
+/*
+* Area for awards the home page
+* _______________________________________________*/
+
+#home-page-awards{
+  padding-top: 200px;
+  padding-bottom: 400px;
+
+  .img-icon{
+    width: 60px;
+  }
+
+  .card{
+    border-radius: 8px;
+    height: 484px;
+
+    img{
+      width: 180px;
+      margin: 20px;
+    }
+    span.card-title{
+      color: #75FCCC;
+      font-size: 40px;
+    }
+    p{
+      color: #2F705A;
+    }
+  }
 }

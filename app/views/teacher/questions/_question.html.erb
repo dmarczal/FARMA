@@ -19,8 +19,7 @@
           <%= link_to edit_teacher_lo_exercise_question_path(@lo, @exercise, question),
                       class: 'tooltipped', 'data-position' => 'left', remote: true,
                       'data-tooltip' => "Editar a Questão #{question.title}" do %>
-              <i class="material-icons">settings</i>
-              <span>Editar</span>
+              <i class="material-icons">mode_edit</i>
           <% end %>
         </div>
 
@@ -29,7 +28,6 @@
                       data: { confirm: 'tem certeza disso?' }, class: 'tooltipped',
                       'data-position' => 'left', 'data-tooltip' => "Deletar a Questão #{question.title}" do %>
               <i class="material-icons">delete</i>
-              <span>Excluir</span>
           <% end %>
         </div>
 

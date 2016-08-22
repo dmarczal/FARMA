@@ -46,6 +46,7 @@ p {
  * ______________________________*/
 
 .collection-item {
+
   padding: 20px 0 0 0 !important;
   position: relative;
 
@@ -55,10 +56,14 @@ p {
 
   .ajax-question-box {
     display: none;
-    background-color: #ff0018;
+    background-color: white;
     margin: 0;
     padding: 30px 20px;
   }
+  .box-question-content {
+    border-color: transparent;
+  }
+
 
   .show-question {
     position: absolute;
@@ -76,6 +81,12 @@ p {
     position: absolute;
     left: 8%;
     top: 20px;
+  }
+
+  .questions-2-show{
+      span{
+        color: red;
+      }
   }
 
 }

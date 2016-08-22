@@ -1,6 +1,6 @@
 <div class='fixed-modal-btn'>
   <%= link_to(new_teacher_lo_exercise_question_path(@lo, @exercise),
-              class: 'btn-floating btn-large red tooltipped',
+              class: 'btn-floating btn-large pink-red tooltipped',
               'data-position' => 'left', 'data-tooltip' => 'Criar uma nova Questão',
               remote: true) do %>
       <i class="large material-icons">add</i>
@@ -10,17 +10,13 @@
 </div>
 
 <article>
-  <header>
+  <header class="center">
     <h2><%= @exercise.title %> - Questões</h2>
   </header>
 
-  <div class="divider"></div>
-
   <%= @exercise.content.to_s.html_safe %>
 
-  <div class="divider"></div>
-
-  <ul id="questions_list" class="collection z-depth-2 col s12">
+  <ul id="questions_list" class="collection hoverable col s12">
     <%= render @questions %>
   </ul>
 
