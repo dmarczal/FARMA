@@ -151,18 +151,21 @@ nav#home-page-navbar {
 }
 
 #home-page-team {
- padding-bottom: 400px;
- .card .card-reveal{
-  background-color: $palletegreen;
-  opacity: 0.9;
-  p{
-   color: #000;
+  padding-bottom: 400px;
+  .card .card-reveal{
+    background-color: $palletegreen;
+    opacity: 0.9;
+    p{
+      color: #000;
+    }
+    a{
+      color: $palletewhite;
+      padding-top: 30px;
+    }
   }
-  a{
-   color: $palletewhite;
-   padding-top: 30px;
+  .card-title h5 {
+    font-size: 1.44rem; 
   }
- }
 }
 
 #home-page-footer {
