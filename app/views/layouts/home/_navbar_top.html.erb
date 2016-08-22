@@ -28,7 +28,7 @@
 
 <nav id="home-page-navbar" role="navigation">
   <div class="nav-wrapper container">
-    <% if current_page?(los_path) %>
+    <% if controller.controller_name != 'home' %>
       <%= link_to(image_tag("logos/logo-farma-black.png", id: "los-path-logo"), root_path, class: 'left') %>
 
       <%= link_to "começe já", new_user_session_path, class: "waves-effect waves-light btn-large tooltipped", id: 'start-now',

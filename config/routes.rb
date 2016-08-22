@@ -20,7 +20,9 @@ Rails.application.routes.draw do
   resources :contacts, only: :create
 
   # Routes for los
-  resources :los, only: :index
+  resources :los, only: [:index] do
+    get '/pages/:page' => 'los#page', as: 'page'
+  end
 
   #################################### Teacher Layout ##########################################
 

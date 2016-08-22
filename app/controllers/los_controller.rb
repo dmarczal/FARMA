@@ -1,6 +1,10 @@
 class LosController < ApplicationController
   def index
-    @contact = Contact.new
     @los = Lo.all
+  end
+
+  def page
+    lo = Lo.find params[:id]
+    @contents = @lo.contents
   end
 end

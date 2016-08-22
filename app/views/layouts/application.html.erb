@@ -20,7 +20,9 @@
      <%= yield %>
   </main>
 
-  <%= render 'layouts/home/footer' %>
+  <% if controller.controller_name == 'home' %>
+    <%= render 'layouts/home/footer' %>
+  <% end %>
 
 </body>
 </html>
