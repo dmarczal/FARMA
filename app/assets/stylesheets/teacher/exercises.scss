@@ -3,16 +3,16 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 /*
- * Exercise pages styles
- * ______________________________*/
+* Exercise pages styles
+* ______________________________*/
 
 p {
   margin: 0;
 }
 
 /*
- * fixed button style --- new Questions
- * ______________________________*/
+* fixed button style --- new Questions
+* ______________________________*/
 
 .fixed-modal-btn {
   position: fixed;
@@ -42,18 +42,20 @@ p {
 }
 
 /*
- * list question style
- * ______________________________*/
- .collection .collection-item{
-   background-color: $palleteblue2;
-   i{
-     color: white;
-   }
+* list question style
+* ______________________________*/
+
+.collection .collection-item{
+  background-color: $palleteblue2;
+  i{
+    color: $palletegreen;
+  }
 }
 .collection-item {
 
   padding: 20px 0 0 0 !important;
   position: relative;
+
 
   header {
     height: 57px;
@@ -72,9 +74,9 @@ p {
 
 
   .show-question {
-    position: absolute;
-    left: 0;
-    top: 12px;
+    position: absolute;;
+    left: 20px;
+    top: 20px;
   }
 
   .show-question.active {
@@ -91,15 +93,14 @@ p {
   }
 
   .questions-2-show{
-      span{
-        color: red;
-      }
-  }
-  .tooltipped .White{
-    background-color: red;
-
+    span{
+      color: red;
+    }
   }
 
+  .questions_list{
+    height: 22px;
+  }
 }
 
 .to-move {
