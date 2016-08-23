@@ -1,0 +1,35 @@
+<li>
+
+  <div class="collapsible-header">
+
+    <div class="clearfix">
+      <%= image_tag("home/#{research[:type]}.png") %>
+      <p class="title">
+        <%= raw research[:ref] %>
+      </p>
+    </div>
+
+    <!-- <p class="authorship"> -->
+    <!--   <span class="author">Diego Marczal</span> -->
+    <!--   <span class="institution">UFPR &#45; Universidade Federal do Paraná</span> -->
+    <!--   <span class="year">2010</span> -->
+    <!-- </p> -->
+
+    <span class="icon-arrow">
+      <i class="material-icons">keyboard_arrow_down</i>
+    </span>
+
+  </div>
+
+  <article class="collapsible-body research_abstract">
+
+    <p><b>Resumo: </b>
+      <%= research[:abstract] %>
+    </p>
+
+    <span class="right">
+      <a href="<%= research[:link] %>" class="right ">Ler o trabalho completo<i class="mdi-hardware-keyboard-tab left"></i></a>
+    </span>
+  </article>
+
+</li>

@@ -1,0 +1,27 @@
+$palleteblue: #2F373F;
+$palleteblue2: #243038;
+$palletegreen: #00d055;
+$palletegrey: #313131;
+$palletegrey2: #7D7B7A;
+$palletewhite: #EDEEEF;
+$palletered: #FF3A3A;
+$palletepink: #FF0018;
+$palletepink2: #FF003D;
+$palletelightpink:#E91E63;
+$palletepurple: #3D00FF;
+
+@mixin transform ($scale) {
+  -moz-transform: $scale;
+  -webkit-transform: $scale;
+  -o-transform: $scale;
+  -ms-transform: $scale;
+  transform: $scale;
+}
+
+@mixin logo-transform() {
+  -moz-transition: top 0.5s, left 0.5s, width 0.5s, -moz-transform 0.5s;
+  -webkit-transition: 0.5s, left 0.5s, width 0.5s, -webkit-transform 0.5s;
+  -o-transition: 0.5s, left 0.5s, width 0.5s, -o-transform 0.5s;
+  -ms-transition: 0.5s, left 0.5s, width 0.5s, -ms-transform 0.5s;
+  transition: 0.5s, left 0.5s, width 0.5s, transform 0.5s;
+}

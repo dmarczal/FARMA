@@ -12,13 +12,9 @@ class ApplicationController < ActionController::Base
   protected
 
     def layout_by_resource
-      if devise_controller?
-        "devise/users_options"
-      elsif self.is_a?(HomeController)
-        "home/application"
-      else
-        "application"
-      end
+      return "devise/users_options" if devise_controller?
+
+      "application"
     end
 
    def configure_permitted_parameters

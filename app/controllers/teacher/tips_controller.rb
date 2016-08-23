@@ -1,11 +1,16 @@
 class Teacher::TipsController < Teacher::ApplicationController
   include FindModels
 
-  before_action :find_tip, except: [:new, :create, :cancel]
-  before_action :find_question, only: [:new, :create, :cancel]
+  before_action :find_tip, except: [:new, :create]
+  before_action :find_question, only: [:new, :create]
+
+  def show
+    @tips = @question.tips.where("number_of_tries <= #{cookies["count_responses_#{@question.id}"]}")
+  end
 
   def new
     @tip = @question.tips.new
+    @title_form = "Nova Dica"
   end
 
   def create
@@ -16,6 +21,10 @@ class Teacher::TipsController < Teacher::ApplicationController
       flash.now[:error] = "Existem dados incorretos."
       render :new
     end
+  end
+
+  def edit
+    @title_form = "Editar Dica"
   end
 
   def update

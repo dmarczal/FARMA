@@ -2,7 +2,7 @@
 
 class ImagePreviewInput < SimpleForm::Inputs::FileInput
 
-  def input(wrapper_options = nil)
+  def input(wrapper_options)
 
     template.content_tag :div, class: 'box-image center' do
       if object.send("#{attribute_name}?")
@@ -16,7 +16,7 @@ class ImagePreviewInput < SimpleForm::Inputs::FileInput
 
   end
 
-  def label
+  def label(wrapper_options)
     ''
   end
 

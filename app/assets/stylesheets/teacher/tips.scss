@@ -5,10 +5,43 @@
 li.box-tip {
   margin: 10px 0;
   background-color: white;
-  border: 1px solid #d1d1d1;
+  border-bottom: 1px solid #d1d1d1;
 
   .box-tip-content {
-    border: 1px solid #d1d1d1;
     padding: 10px;
+  }
+  span{
+    .col{
+      .s12{
+        margin-right: -590px;
+      }
+    }
+  }
+}
+
+.box-show-tips {
+  position: relative;
+  padding-top: 15px;
+  border: 1px solid #d1d1d1;
+  height: 250px;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+
+  .col {
+    padding-left: 0 ;
+    padding-right: 0 ;
+  }
+
+  i {
+    margin-top: 70px;
+  }
+
+  p {
+    margin-bottom: 20px;
+  }
+
+  .box-bottom {
+    position: absolute;
+    bottom: 0;
   }
 }

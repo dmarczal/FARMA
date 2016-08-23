@@ -4,7 +4,7 @@ module ButtonComponents
 
     def submit_materialize(*args, &block)
 
-      template.content_tag :div, class: "input-submit col s12 m8 offset-m4 right-align" do
+      template.content_tag :div, class: "input col s12 m8 offset-m4 right-align" do
         options = args.extract_options!
 
         value = args[0] unless args[0].is_a?(Hash)
@@ -25,13 +25,13 @@ module ButtonComponents
 
     end
 
-    def cancel_link path
-     template.link_to path, class: 'btn-cancel' do
+    def cancel_link(path)
+     template.link_to path, class: "btn-cancel" do
        template.concat icon 'clear'
      end
     end
 
-    def icon icon_name
+    def icon(icon_name)
       "<i class='material-icons right'>#{icon_name}</i>".html_safe
     end
 end

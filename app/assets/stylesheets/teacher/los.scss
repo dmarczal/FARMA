@@ -3,15 +3,15 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 /*
- * Los pages styles
- * ______________________________*/
- .container .row {
-   margin-left: 0;
- }
+* Los pages styles
+* ______________________________*/
+.container .row {
+  margin-left: 0;
+}
 
- /*
-  * los index styles - list los
-  * ______________________________*/
+/*
+* los index styles - list los
+* ______________________________*/
 
 #los_list li{
   background: white;
@@ -41,8 +41,8 @@ span {
 }
 
 /*
- * lo show styles - list content los
- * ______________________________*/
+* lo show styles - list content los
+* ______________________________*/
 #list-content-los {
   padding: 0;
 }
@@ -55,43 +55,21 @@ span {
   margin: 10px 0;
 }
 
-/*
- * Card content los
- * ______________________________*/
-.card {
-  margin-left: 6.132698916%; // (58 * 100) /945.750
-  padding: 0 !important;
-}
-
-.card-content {
-  max-height: 90px;
-}
-
-.activator i.material-icons {
-  position: absolute;
-  bottom: 30px;
-  right: 2px;
-  cursor: pointer;
-}
-
-.card-reveal {
-  position: relative;
-
-  .link_card {
-    position: absolute;
-    bottom: 10px;
-    color: #BFC0C1;
+#card-form{
+  h5{
+    color: #9E9E9E;
   }
-
-  .delete {
-    right: 20px;
+  .image_preview {
+    background-color: #00D055;
+    color: white;
   }
-
-  .update {
-    right: 60px;
+  .file_preview.active{
+    border: none;
   }
-
-  .show {
-    right: 100px;
+  textarea.materialize-textarea{
+    font-size: 14pt;
+  }
+  input[type=text]{
+    font-size: 14pt;
   }
 }

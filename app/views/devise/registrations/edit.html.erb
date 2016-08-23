@@ -1,9 +1,5 @@
 <% provide(:title, "Editar perfil") %>
-
-<% content_for :sub_title do %>
-   <p> Atualize seus dados preenchendo os campos abaixo</p>
-<% end %>
-
+<% provide(:sub_title, "Atualize seus dados preenchendo os campos abaixo") %>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, :multipart => true }) do |f| %>
 

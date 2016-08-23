@@ -1,52 +1,55 @@
 <!-- Dropdown Structure -->
 <ul id="dropdown-user" class="dropdown-content">
-  <% if user_signed_in? %>
-    <li>
-      <%= link_to(teacher_path) do %>
-        <i class="mdi-action-dashboard left"></i> Dashboard
-      <% end %>
-    </li>
+ <% if user_signed_in? %>
+  <li>
 
-    <li class="divider"></li>
+   <%= link_to(teacher_path) do %>
+    <i class="material-icons left">dashboard</i> Dashboard
+   <% end %>
 
-    <li>
-      <%= link_to(edit_user_registration_path) do %>
-        <i class="mdi-action-face-unlock left"></i> Perfil
-      <% end %>
-    </li>
-    <li>
-      <%= link_to(destroy_user_session_path, method: :delete) do %>
-        <i class="mdi-hardware-keyboard-tab left"></i> Sair
-      <% end %>
-    </li>
-  <% end %>
+  </li>
+
+  <li>
+
+   <%= link_to(edit_user_registration_path) do %>
+    <i class="material-icons left">person</i> Perfil
+   <% end %>
+
+  </li>
+  <li>
+
+   <%= link_to(destroy_user_session_path, method: :delete) do %>
+    <i class="material-icons left">exit_to_app</i> Sair
+   <% end %>
+
+  </li>
+ <% end %>
 </ul>
 
 <nav id="home-page-navbar" role="navigation">
   <div class="nav-wrapper container">
+    <% if controller.controller_name != 'home' %>
+      <%= link_to(image_tag("logos/logo-farma-black.png", id: "los-path-logo"), root_path, class: 'left') %>
+
+      <%= link_to "começe já", new_user_session_path, class: "waves-effect waves-light btn-large tooltipped", id: 'start-now',
+                  "data-position" => "bottom", "data-delay" => "50",
+                  "data-tooltip" => "Clique aqui para acessar o sistema" %>
+    <% end %>
+
     <% if user_signed_in? %>
-      <ul class="right">
-        <!-- Dropdown Trigger -->
+       <ul class="right hide-on-med-and-down"> <!-- Dropdown Trigger -->
         <li>
-          <a class="dropdown-button" href="#!" data-activates="dropdown-user">
-            <%= current_user.name %><i class="material-icons right">arrow_drop_down</i>
-          </a>
+         <a class="dropdown-button" href="#!" data-activates="dropdown-user">
+          <%= current_user.name %><i class="material-icons right">arrow_drop_down</i>
+         </a>
         </li>
-      </ul>
+       </ul>
     <% else %>
-      <ul class="right">
+      <ul class="right hide-on-med-and-down">
         <%= link_to(new_user_session_path) do %>
-          <i class="mdi-action-account-circle left"></i> Entrar
+          <i class="material-icons left">account_circle</i> Entrar
         <% end %>
       </ul>
     <% end %>
-
-    <!-- <ul id="nav-mobile" class="side-nav">
-      <li><%= link_to("FARMA", root_path ) %></li>
-    </ul>
-
-    <a href="#" data-activates="nav-mobile" class="button-collapse">
-      <i class="material-icons">menu</i>
-    </a> -->
   </div>
 </nav>

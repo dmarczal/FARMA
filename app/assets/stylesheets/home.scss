@@ -4,8 +4,8 @@
 
 
 /*
- * Home page styles
- * ______________________________*/
+* Home page styles
+* ______________________________*/
 #home-page {
   h1, h4 {
     margin-bottom: 0.2em;
@@ -27,6 +27,7 @@
       width: 100%;
     }
   }
+
 
   .top-container {
     min-height: 655px;
@@ -63,11 +64,25 @@
 }
 
 nav#home-page-navbar {
-  background-color: transparent;
+  background-color: $palletewhite;
+  transition: box-shadow 0.4s;
+
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
   box-shadow: none;
+
   ul a{
     color: $palleteblue;
+     i{
+      font-size: 20px;
+     }
   }
+}
+
+nav#home-page-navbar.active {
+  -webkit-box-shadow: 3px 3px 5px 7px rgba(0,0,0,0.19);
+  -moz-box-shadow: 3px 3px 5px 7px rgba(0,0,0,0.19);
+  box-shadow: 3px 3px 5px 7px rgba(0,0,0,0.19);
 }
 
 #parallax-banner {
@@ -134,6 +149,7 @@ nav#home-page-navbar {
   item-size:hover { @include scale(1.1); }
 }
 
+
 #home-page-goal {
   @extend .gradient-white;
   min-height: 150px;
@@ -146,34 +162,42 @@ nav#home-page-navbar {
 }
 
 #home-page-team {
+  padding-bottom: 400px;
   .card .card-reveal{
     background-color: $palletegreen;
     opacity: 0.9;
     p{
-      color: $palletewhite;
+      color: #000;
     }
+    a{
+      color: $palletewhite;
+      padding-top: 30px;
+    }
+  }
+  .card-title h5 {
+    font-size: 1.44rem;
   }
 }
 
 #home-page-footer {
   background-color: $palleteblue;
   color: #FFF;
+  margin-top: -4px;
 }
 
 #home-page-navbar {
-    z-index: 200;
-    position: fixed;
+  z-index: 200;
+  position: fixed;
 }
 
 
 /*
- * Responsive design for home page
- * _______________________________________________*/
+* Responsive design for home page
+* _______________________________________________*/
 @media only screen and (max-width : 992px) {
   #home-page {
     .parallax-container .section {
-      position: absolute;
-      top: 40%;
+      top: 72%;
     }
   }
   #parallax-banner .section {
@@ -188,9 +212,143 @@ nav#home-page-navbar {
 }
 
 
-
 .login-panel {
   background-image: url('shared/farma-03.jpg');
   background-color: $palletegreen;
   background-blend-mode: darken;
+}
+
+
+/*
+* Area for research the home page
+* _______________________________________________*/
+#home-page-researchs {
+  padding-top: 200px;
+  padding-bottom: 200px;
+
+  img{
+    width: 150px;
+    float: left;
+  }
+
+  .research_abstract {
+
+    text-align: justify;
+    padding: 50px;
+    background-color: #fff;
+
+    b {
+      color: #00D055;
+      text-transform: uppercase;
+    }
+
+    p {
+      color: $palletegrey;
+      line-height: 28px;
+      text-align: justify;
+    }
+
+    a { color: $palletegreen; }
+    ul {
+      a {
+        color: $palletegrey2;
+      }
+    }
+  }
+
+
+  ul.collapsible.popout.collapsible-accordion li {
+    margin: 8px;
+  }
+
+  .collapsible-header {
+    border-bottom: #FFF;
+    min-height: 150px;
+    position: relative;
+  }
+
+  .title {
+    color: $palletegrey;
+    font-weight: bold;
+    padding: 0 10px;
+    padding-top: 40px;
+    padding-bottom: 20px;
+
+    b {
+      color: $palletegreen;
+    }
+  }
+
+  .authorship {
+    span.author {
+      color: $palletegreen;
+      margin-right: 50px;
+    }
+    span.institution {
+      color: $palletegrey2;
+      font-size: small;
+      margin-right: 50px;
+    }
+
+    span.year {
+      color: $palletegrey2;
+      font-size: small;
+    }
+  }
+
+  .icon-arrow {
+    position: absolute;
+    right: -5px;
+    top: 5%;
+    color: #00D055;
+  }
+
+  @media screen and (max-width: 480px){
+    img{
+      width: 150px;
+    }
+  }
+
+}
+
+/*
+* Area for awards the home page
+* _______________________________________________*/
+
+#home-page-awards{
+  padding-top: 200px;
+  padding-bottom: 400px;
+
+  .img-icon{
+    width: 60px;
+  }
+
+  .card{
+    border-radius: 8px;
+    height: 484px;
+
+    img{
+      width: 180px;
+      margin: 20px;
+    }
+    span.card-title{
+      color: #75FCCC;
+      font-size: 40px;
+    }
+    p{
+      color: #2F705A;
+    }
+  }
+}
+
+.gradient-white {
+  background: rgba($palletewhite,1);
+  background: -moz-linear-gradient(top, rgba($palletewhite,1) 0%, rgba($palletewhite,1) 8%, rgba($palletewhite,0.69) 28%, rgba($palletewhite,0) 51%, rgba($palletewhite,0.69) 74%, rgba($palletewhite,1) 88%, rgba($palletewhite,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba($palletewhite,1)), color-stop(8%, rgba($palletewhite,1)), color-stop(28%, rgba($palletewhite,0.69)), color-stop(51%, rgba($palletewhite,0)), color-stop(74%, rgba($palletewhite,0.69)));
+  background: -webkit-linear-gradient(top, rgba($palletewhite,1) 0%, rgba($palletewhite,1) 8%, rgba($palletewhite,0.69) 28%, rgba($palletewhite,0) 51%, rgba($palletewhite,0.69) 74%, rgba($palletewhite,1) 88%, rgba($palletewhite,1) 100%);
+  background: -o-linear-gradient(top, rgba($palletewhite,1) 0%, rgba($palletewhite,1) 8%, rgba($palletewhite,0.69) 28%, rgba($palletewhite,0) 51%, rgba($palletewhite,0.69) 74%, rgba($palletewhite,1) 88%, rgba($palletewhite,1) 100%);
+  background: -ms-linear-gradient(top, rgba($palletewhite,1) 0%, rgba($palletewhite,1) 8%, rgba($palletewhite,0.69) 28%, rgba($palletewhite,0) 51%, rgba($palletewhite,0.69) 74%, rgba($palletewhite,1) 88%, rgba($palletewhite,1) 100%);
+  background: linear-gradient(to bottom, rgba($palletewhite,1) 0%, rgba($palletewhite,1) 8%, rgba($palletewhite,0.69) 28%, rgba($palletewhite,0) 51%, rgba($palletewhite,0.69) 74%, rgba($palletewhite,1) 88%, rgba($palletewhite,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#edeeef', endColorstr='#edeeef', GradientType=0 );
+  opacity: 1.5;
 }

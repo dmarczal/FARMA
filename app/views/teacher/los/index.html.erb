@@ -1,21 +1,32 @@
 <% provide(:title, "Meus OAs") %>
 
 <div class="fixed-action-btn" >
-  <%= link_to(new_teacher_lo_path, class: 'btn-floating btn-large red tooltipped',
-          'data-position' => 'left', 'data-tooltip' => 'Criar um novo OA') do %>
-    <i class="material-icons">add</i>
-  <% end %>
+ <%= link_to(new_teacher_lo_path, class: 'btn-floating btn-large pink-red tooltipped',
+  'data-position' => 'left', 'data-tooltip' => 'Criar um novo OA') do %>
+  <i class="material-icons">add</i>
+ <% end %>
 </div>
 
 <article class="col s12 row">
+  
   <header>
-    <h3>OAs</h3>
+    <h5 class="col s12 m6 l6">OAs</h5>
+    <div class="col s12 m6 l6">
+      <nav id="nav-search">
+        <div class="nav-wrapper">
+          <form>
+            <div class="input-field">
+              <input id="search" type="search" required>
+              <label for="search"><i class="material-icons">search</i></label>
+            </div>
+          </form>
+        </div>
+      </nav>
+    </div>
   </header>
 
-  <div class="divider"></div>
-
-  <div id="los_list" class="col s12 row">
-    <%= render @los %>
-  </div>
+ <div id="los_list" class="col s12 row">
+  <%= render @los %>
+ </div>
 
 </article>

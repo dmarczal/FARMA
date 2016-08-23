@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160520164315) do
+ActiveRecord::Schema.define(version: 20160613152247) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,19 @@ ActiveRecord::Schema.define(version: 20160520164315) do
 
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
+
+  create_table "answers", force: :cascade do |t|
+    t.text     "response"
+    t.boolean  "correct"
+    t.integer  "attempt_number"
+    t.integer  "user_id"
+    t.integer  "question_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
+  add_index "answers", ["user_id"], name: "index_answers_on_user_id", using: :btree
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
@@ -105,10 +118,10 @@ ActiveRecord::Schema.define(version: 20160520164315) do
 
   create_table "tips", force: :cascade do |t|
     t.text     "content",                     null: false
-    t.integer  "number_of_tries", default: 0
     t.integer  "question_id"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.integer  "number_of_tries", default: 1
   end
 
   create_table "users", force: :cascade do |t|
@@ -138,4 +151,6 @@ ActiveRecord::Schema.define(version: 20160520164315) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "answers", "questions"
+  add_foreign_key "answers", "users"
 end

@@ -8,15 +8,16 @@
 
   <%= stylesheet_link_tag    'teacher/application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'teacher/application', 'data-turbolinks-track' => true %>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.2-latest/MathJax.js?config=TeX-AMS_HTML"></script>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
    <%= render 'shared/flash_messages'  %>
 
-  <header>
+  <div class="navbar-fixed nav-dashboard">
     <%= render 'layouts/teacher/navbar' %>
-  </header>
+  </div>
 
   <main id="main-teacher" class="row">
 
@@ -32,7 +33,7 @@
           <div class="divider col s12"></div>
         </header>
 
-        <div class="content">
+        <div id="card-form" class="content white">
           <%= yield %>
         </div>
 

@@ -1,31 +1,31 @@
 <li class="collection-item col s12 row z-depth-1">
-  <div class="col s9 title">
-    <span><%= "Introdução " + introduction.index.to_s %></span>
-    <p><%= introduction.title %></p>
-  </div>
+ <div class="col s9 title">
+  <span><%= "Introdução " + introduction.index.to_s %></span>
+  <p><%= introduction.title %></p>
+ </div>
 
-  <div class="col s3">
-    <%= link_to(edit_teacher_lo_introduction_path(@lo, introduction), class: 'left') do%>
-      <i class="material-icons tiny">build</i>
-      <span>editar</span>
-    <% end %>
+ <div class="col s3">
+  <%= link_to(edit_teacher_lo_introduction_path(@lo, introduction), class: 'left') do%>
+   <i class="material-icons tiny">mode_edit</i>
+   <span>Editar</span>
+  <% end %>
 
-    <%= link_to([:teacher, @lo, introduction], method: :delete, class: 'right',
-                data: { confirm: 'tem certeza disso?' }) do%>
-        <i class="material-icons tiny">delete</i>
-        <span>Excluir</span>
-    <% end %>
-  </div>
+  <%= link_to([:teacher, @lo, introduction], method: :delete, class: 'right',
+   data: { confirm: 'tem certeza disso?' }) do%>
+   <i class="material-icons tiny">delete</i>
+   <span>Excluir</span>
+  <% end %>
+ </div>
 
-  <div class="col s6 offset-s6">
-    <span class="span-created-at right">
-      Criado em <%= l(introduction.created_at, format: :small) %>
-    </span>
+ <div class="col s6 offset-s6">
+  <span class="span-created-at right">
+   Criado em <%= l(introduction.created_at, format: :small) %>
+  </span>
 
-    <% if introduction.updated_at != introduction.created_at %>
-      <span class="span-created-at right">
-        Ultima atualização em <%= l(introduction.updated_at, format: :small) %>
-      </span>
-    <% end %>
-  </div>
+  <% if introduction.updated_at != introduction.created_at %>
+   <span class="span-created-at right">
+    Última atualização em <%= l(introduction.updated_at, format: :small) %>
+   </span>
+  <% end %>
+ </div>
 </li>

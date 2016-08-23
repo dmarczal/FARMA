@@ -1,6 +1,6 @@
 <%unless @question.errors.any? %>
   $("#questions_list").append('<%= j render(partial: "teacher/questions/question", locals:  {question: @question}) %>');
-  $('.fixed-modal-btn').closeForm();
+  window.FARMA.toggleNewQuestion();
 <% end %>
 
 Materialize.updateTextFields();

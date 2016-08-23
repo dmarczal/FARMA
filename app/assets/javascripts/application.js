@@ -18,6 +18,4 @@
 //= require_self
 //= require loads
 //= require home
-//= require ckeditor/init
-//= require_tree ./ckeditor/
 //= require_tree ./lib/

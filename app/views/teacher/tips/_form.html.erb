@@ -2,20 +2,27 @@
 
 <div class="divider"></div>
 
-<h3 class="center">Nova dica</h3>
+<h3 class="center"><%= @title_form %></h3>
+
 <div class="divider"></div>
+<div class="box-form">
 
-<%= simple_form_for([:teacher, @lo, @exercise, @question, @tip],
-                    html: {class: 'col s12'}, remote: true) do |f| %>
+  <%= simple_form_for([:teacher, @lo, @exercise, @question, @tip],
+                      html: {class: 'col s12'}, remote: true) do |f| %>
 
-  <%= f.input :content, autofocus: true,:as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'Full'} }%>
+    <%= f.input :content, autofocus: true,:as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'Full'} }%>
 
-  <div class="col s2">
-    <%= f.input :number_of_tries %>
-  </div>
+    <div class="col s3">
+      <%= f.input :number_of_tries %>
+    </div>
 
-  <%= f.button :submit_materialize, "Confirmar" %>
+    <%= f.button :submit_materialize, "Confirmar" %>
 
-<% end %>
+    <a class='btn-cancel close-tip' data-id='<%= @question.id %>'>
+      <i class="material-icons">clear</i>
+    </a>
 
+  <% end %>
+
+</div>
 <div class="divider"></div>

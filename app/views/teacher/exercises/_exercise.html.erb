@@ -1,40 +1,38 @@
-<li class="collection-item col s12 row z-depth-1">
-  <div class="col s9 title">
-    <span><%= "Exercicio " + exercise.index.to_s %></span>
-    <p><%= exercise.title %></p>
-  </div>
+<li class="collection-item col s12 row hoverable">
+ <div class="col s9 title">
+  <span><%= "Exercicio " + exercise.index.to_s %></span>
+  <p><%= exercise.title %></p>
+ </div>
 
-  <div class="col s3">
-    <%= link_to(edit_teacher_lo_exercise_path(@lo, exercise), class: 'left') do%>
-      <i class="material-icons tiny">build</i>
-      <span>editar</span>
-    <% end %>
-
-    <%= link_to([:teacher, @lo, exercise], method: :delete, class: 'right',
-                data: { confirm: 'tem certeza disso?' }) do%>
-        <i class="material-icons tiny">delete</i>
-        <span>Excluir</span>
-    <% end %>
-  </div>
-
-  <div id="show-questions" class="col s6">
-  <%= link_to([:teacher, @lo, exercise], class: 'btn tooltipped',
-              'data-position' => 'top',
-              'data-tooltip' => "Criar/editar Questões do Exercício #{exercise.title}" ) do%>
-      <i class="material-icons">storage</i>
-      <span class="right">Questões</span>
+ <div class="col s3">
+  <%= link_to(edit_teacher_lo_exercise_path(@lo, exercise), class: 'left') do%>
+   <i class="material-icons tiny">mode_edit</i>
+   <span>Editar</span>
   <% end %>
-  </div>
 
-  <div class="col s6">
-    <span class="span-created-at right">
-      Criado em <%= l(exercise.created_at, format: :small) %>
-    </span>
+  <%= link_to([:teacher, @lo, exercise], method: :delete, class: 'right', data: { confirm: 'tem certeza disso?' }) do%>
+   <i class="material-icons tiny">delete</i>
+   <span>Excluir</span>
+  <% end %>
+ </div>
 
-    <% if exercise.updated_at != exercise.created_at %>
-      <span class="span-created-at right">
-        Ultima atualização em <%= l(exercise.updated_at, format: :small) %>
-      </span>
-    <% end %>
-  </div>
+ <div id="show-questions" class="col s6">
+  <%= link_to([:teacher, @lo, exercise], class: 'btn tooltipped',
+   'data-position' => 'top', 'data-tooltip' => "Criar/editar Questões do Exercício #{exercise.title}" ) do%>
+   <i class="material-icons left">list</i>
+   <span class="right">Questões</span>
+  <% end %>
+ </div>
+
+ <div class="col s6">
+  <span class="span-created-at right">
+   Criado em <%= l(exercise.created_at, format: :small) %>
+  </span>
+
+  <% if exercise.updated_at != exercise.created_at %>
+   <span class="span-created-at right">
+    Última atualização em <%= l(exercise.updated_at, format: :small) %>
+   </span>
+  <% end %>
+ </div>
 </li>
