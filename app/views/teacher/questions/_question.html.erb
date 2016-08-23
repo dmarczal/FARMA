@@ -20,7 +20,8 @@
           <%= link_to edit_teacher_lo_exercise_question_path(@lo, @exercise, question),
                       class: 'tooltipped', 'data-position' => 'left', remote: true,
                       'data-tooltip' => "Editar a Questão #{question.title}" do %>
-              <i class="material-icons edit-question" data-id="<%= question.id %>">settings</i>
+                      
+              <i class="material-icons edit-question" data-id="<%= question.id %>">mode_edit</i>
           <% end %>
         </div>
 

@@ -173,5 +173,58 @@ textarea.materialize-textarea:focus:not([readonly]) {
   .input-field:hover  {
     height: 38px;
   }
+}
 
+/*
+* Card content los
+* ______________________________*/
+#los_list {
+  .card {
+    margin-left: 6.132698916%; // (58 * 100) /945.750
+    padding: 0 !important;
+
+    p {
+      margin: 0;
+      text-align:left;
+    }
+  }
+
+  .card-content {
+    max-height: 90px;
+    i{
+      color: $palletegrey2;
+      font-size: 29px;
+      margin: -10px;
+    }
+  }
+
+  .activator i.material-icons {
+    position: absolute;
+    bottom: 30px;
+    right: 2px;
+    cursor: pointer;
+  }
+  .card-reveal {
+    p {
+      text-align: justify;
+    }
+
+    .link_card {
+      position: absolute;
+      bottom: 10px;
+      color: #BFC0C1;
+    }
+
+    .delete {
+      right: 20px;
+    }
+
+    .update {
+      right: 60px;
+    }
+
+    .show {
+      right: 100px;
+    }
+  }
 }

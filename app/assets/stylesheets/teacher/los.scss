@@ -55,54 +55,6 @@ span {
   margin: 10px 0;
 }
 
-/*
-* Card content los
-* ______________________________*/
-.card {
-  margin-left: 6.132698916%; // (58 * 100) /945.750
-  padding: 0 !important;
-}
-
-.card-content {
-  max-height: 90px;
-  i{
-    color: $palletegrey2;
-    font-size: 29px;
-    margin: -10px;
-  }
-}
-
-.activator i.material-icons {
-  position: absolute;
-  bottom: 30px;
-  right: 2px;
-  cursor: pointer;
-}
-
-.card-reveal {
-  position: relative;
-  p{
-    text-align: justify;
-  }
-
-  .link_card {
-    position: absolute;
-    bottom: 10px;
-    color: #BFC0C1;
-  }
-
-  .delete {
-    right: 20px;
-  }
-
-  .update {
-    right: 60px;
-  }
-
-  .show {
-    right: 100px;
-  }
-}
 #card-form{
   h5{
     color: #9E9E9E;

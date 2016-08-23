@@ -13,7 +13,7 @@ gem 'sdoc',         '0.4.0', group: :doc
 gem 'pg',           '0.17.1'
 gem 'devise',       '3.5.1'
 gem 'simple_form'
-gem 'materialize-sass' # https://github.com/mkhairi/materialize-sass
+gem 'materialize-sass', '0.97.3' # https://github.com/mkhairi/materialize-sass
 gem 'toastr-rails'     # http://www.benkirane.ch/rails-4-toastrjs-notifications/
 gem 'rails-i18n', '~> 4.0.0' # For 4.x
 gem 'math_engine'

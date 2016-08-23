@@ -34,6 +34,7 @@
   background-color: #101519;
  }
 }
+
 /*
 * links user(perfil and get out)
 * ______________________________*/
@@ -49,7 +50,7 @@
  }
 
  #drop-down {
-  margin-top: 4px;
+  margin-top: 18px;
  }
  .dropdown-content li > a, .dropdown-content li > span{
   color: $palleteblue;
@@ -76,6 +77,7 @@
  #panel-list li {//_____ content-list
   color: $palletegrey;
   padding: 10px;
+
   i {
     margin-left: 10px;
   }
@@ -97,7 +99,7 @@
 }
 
 #button-panel i {//____ icon the button ative painel
- margin-top: 4px;
+ margin-top: 20px;
 }
 
 .panel-list-divider {
@@ -224,6 +226,8 @@ nav{
  background-color: $palleteblue2;
 
 }
+
+
 #nav-mobile{
  background-color: $palleteblue2;
  li{

@@ -155,7 +155,7 @@ GEM
     lumberjack (1.0.10)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
-    materialize-sass (0.97.6)
+    materialize-sass (0.97.3)
       sass (~> 3.3)
     math_engine (0.6.4)
       lexr (>= 0.3.1)
@@ -331,7 +331,7 @@ DEPENDENCIES
   guard-rspec
   jbuilder (= 2.2.3)
   jquery-rails (= 4.0.3)
-  materialize-sass
+  materialize-sass (= 0.97.3)
   math_engine
   paperclip (~> 4.3)
   pg (= 0.17.1)
