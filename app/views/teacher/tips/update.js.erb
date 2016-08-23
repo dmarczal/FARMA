@@ -1,7 +1,6 @@
 <%unless @tip.errors.any? %>
   $("#content-teacher #tip-<%= @tip.id %>").html('<%= j render(partial: "teacher/tips/tip", locals:  {tip: @tip}) %>');
   $('#box-new-tips-for-<%= @question.id %>').slideUp();
-  $('#box-new-tips-for-<%= @question.id %>').empty();
 <% end %>
 
 Materialize.updateTextFields();

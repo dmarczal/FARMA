@@ -1,13 +1,20 @@
 <span class="col s12">Conteúdo:</span>
 
 <div class="box-question-content col s11">
-  <%= @question.content.to_s.html_safe %>
+  <%= @question.content.html_safe %>
 </div>
 
 <div class="col s12">
   <span class="left">Resposta Correta:</span>
   <p><%= @question.correct_answer %></p>
 </div>
+
+<div class="col s12">
+  <span class="left">Considerar Ordem:</span>
+  <p><%= @question.cmas_order ? "Sim" : "Não" %></p>
+</div>
+
+ <%= render 'test_to_answer' %>
 
 <article id="article-tips">
   <header class="center col s12">
@@ -19,11 +26,11 @@
   <div class="col s3 offset-s9">
     <%= link_to 'Nova Dica',
                 new_teacher_lo_exercise_question_tip_path(@lo, @exercise, @question),
-                class: 'btn',
+                class: 'btn new-tip-btn', 'data-id' => @question.id,
                 remote: true %>
   </div>
 
-  <div id="box-new-tips-for-<%= @question.id %>"></div>
+  <div id="box-new-tips-for-<%= @question.id %>" class="box-new-tip"></div>
 
   <ul id="list-tips" class="col s12 row">
     <%= render @tips %>

@@ -1,0 +1,25 @@
+<div id="test-response-<%= @question.id %>" class="col s12 row">
+  <div class="col m4 s12 row">
+    <div class="border">
+      <div class="box-response center col s12">
+        <span id="response">Testar Resposta</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="col m7 s12">
+    <div class="tips">
+    </div>
+  </div>
+
+  <form class="col s12" action="<%= @action %>" method="POST" data-remote="true">
+    <div class="row">
+      <div class="input-field col s6">
+        <input id="question_<%= @question.id %>_response" type="text" value="" name="answer[response]">
+        <label for="question_response">Testar Resposta</label>
+      </div>
+
+      <button type="submit" class="btn">Testar</button>
+    </div>
+  </form>
+</div>

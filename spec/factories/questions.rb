@@ -2,7 +2,7 @@ FactoryGirl.define do
   factory :question do
     title       {Faker::Name.name}
     content     {Faker::Name.name}
-    correct_answer {rand(100)}
+    correct_answer {"5"}
 
     exercise
   end

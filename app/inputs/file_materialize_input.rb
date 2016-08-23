@@ -19,7 +19,7 @@ class FileMaterializeInput < SimpleForm::Inputs::Base
 
   end
 
-  def label
+  def label(wrapper_options)
     ''
   end
 

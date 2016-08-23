@@ -19,26 +19,6 @@ p {
   bottom: 25px;
   right: 1.7%;
   z-index: 2;
-
-  .modal {
-    display: none;
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    overflow: auto
-  }
-}
-
-.btn-clicked .btn-floating {
-  display: none;
-}
-
-.btn-clicked .modal {
-  display: block;
-}
-
-#box-form-question {
-  display: none;
 }
 
 /*
@@ -56,10 +36,11 @@ p {
 
   .ajax-question-box {
     display: none;
-    background-color: white;
+    background-color: $palletewhite;
     margin: 0;
     padding: 30px 20px;
   }
+  
   .box-question-content {
     border-color: transparent;
   }
@@ -103,4 +84,23 @@ p {
 #questions_list {
   border: 1px solid #d1d1d1;
   padding: 0;
+}
+
+#box-form-question {
+  display: none;
+}
+
+#box-new-question {
+  display: none;
+  height: 850px;
+  border: 1px solid #d1d1d1;
+}
+
+.btn-cancel {
+  cursor: pointer;
+}
+
+.box-new-tip {
+  display: none;
+  height: 800px;
 }

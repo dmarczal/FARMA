@@ -1,4 +1,2 @@
 module Teacher::LosHelper
-
-
 end

@@ -9,7 +9,6 @@
 .box-question-content {
   padding: 2% 2% !important;
   margin: 1% 0 1% 4%;
-  border: 1px solid #d1d1d1;
 }
 
 #article-tips {
@@ -17,3 +16,28 @@
     margin-bottom: 20px;
   }
 }
+
+#questions_list li.collection-item {
+  border-left: 12px solid green;
+  border-bottom: 5px solid green;
+}
+
+/*
+ *  test Response
+ * ______________________________*/
+ .box-response {
+   cursor: pointer;
+   position: relative;
+   border: 5px solid #757575;
+   padding-top: 25px !important;
+   margin: 20px 0;
+   height: 80px;
+ }
+
+ .box-response.valid {
+   border: 5px solid #43a047;
+ }
+
+ .box-response.invalid {
+   border: 5px solid #e53935;
+ }

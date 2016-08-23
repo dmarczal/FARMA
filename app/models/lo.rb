@@ -14,8 +14,8 @@ class Lo < ActiveRecord::Base
     introductions = self.introductions.order :position
 
     @contents = exercises + introductions
-    @contents.sort {|a, b| a.position <=> b.position}
     define_index_method_for_contents
+    @contents.sort {|a, b| a.position <=> b.position}
   end
 
   private
