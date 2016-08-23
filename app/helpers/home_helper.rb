@@ -28,11 +28,7 @@ module HomeHelper
           Exploratory Environment</b>. In: 6th International Workshop on Intelligent
           Support in Exploratory and Open-Ended Learning Environments (ISEOLE) -
           17th International Conference on Artificial Intelligence in Education
-          (AIED 2015), 2015, Madrid-Espanha. Proceedings of the 6th International
-          Workshop on Intelligent Support in Exploratory and Open-Ended Learning
-          Environments (ISEOLE) - 17th International Conference on Artificial
-          Intelligence in Education (AIED 2015). Berlin: Springer, 2015. v. 1. p.
-          1-8.',
+          (AIED 2015), 2015, Madrid-Espanha. p.41.',
         abstract: 'The work approaches theoretical and implementation issues
           of a framework aimed at supporting human knowledge acquisition of
           mathematical concepts. We argue that the problem solving tasks to be
@@ -88,6 +84,28 @@ module HomeHelper
         attention to future research.',
         link: 'http://ceur-ws.org/Vol-1388/PALE2015-paper6.pdf',
         type: 'artigo'
+      },
+      {
+        ref: 'Moura, Vívian Ariane Barausse. <b>Avaliação do impacto da retroação na aprendizagem apoiada por uma ferramenta educacional</b>. 2015. 80f. Dissertação
+          (Mestrado em Informática) - Universidade Federal do Paraná,
+          Curitiba, 2015.',
+        abstract: 'Ao utilizar software educacional no âmbito escolar, o benefício que o software possa proporcionar ao aluno está relacionado aos objetivos propostos pelo professor. Portanto, cabe ao professor selecionar conteúdo e materiais que possam ser utilizados, tarefa amplificada pelos recursos disponíveis na Internet. A FARMA ferramenta web de autoria com enfoque no conceito de mobilidade tecnológico-educacional pode ser um instrumento auxiliar ao docente. A ferramenta possibilita ao professor utilizar e construir objetos de aprendizagem, permitindo que o professor visualize os erros cometidos pelo aluno. Para o aluno, a interação com a FARMA permite retroagir ao contexto do erro de maneira autônoma, possibilitando uma dinâmica de estudo diversificada. Essa pesquisa propõe um método de experimentação pedagógica baseado na retroação de erros e acertos quanto ao uso de objetos de aprendizagem da ferramenta FARMA na aprendizagem do discente. Este trabalho foi conduzido com uma pesquisa teórica onde foram estudadas concepções sobre o processo de ensino-aprendizagem, como: metodologias de ensino; aprendizagem; avaliação; participação social do aluno; e conceitos e aplicações de mobilidade educacional. Em sistemas tutores inteligentes foram estudadas ferramentas de autoria em IA, os módulos que compõem os STI e os objetos de aprendizagem. Propusemos neste trabalho uma metodologia de avaliação do impacto da retroação na aprendizagem do aluno. Aplicamos esta metodologia após a definição da coleta e análise dos dados. A coleta foi baseada na aplicação de diagnóstico, treinamento, pré-teste, interação e pós-teste. Foram desenvolvidos objetos de aprendizagem na FARMA abrangendo conteúdos de matemática para a fase de interação e uma experimentação com estes objetos foi realizada. Palavras chave: FARMA, Objeto de aprendizagem, Erros na aprendizagem, Retroação na aprendizagem, Processo de ensino-aprendizagem.',
+        link: 'http://acervodigital.ufpr.br/handle/1884/41921',
+        type: 'mestrado'
+      },
+      {
+        ref: 'Borelli, Ana Carla Wolski. <b>Avaliação da Usabilidade da Ferramenta de Autoria para a Remediação de Erros com Mobilidade na Aprendizagem - FARMA</b>. 2014. 39f. Monografia 
+          TCC - Universidade Federal do Paraná,
+          Curitiba, 2014.',
+        abstract: 'Este trabalho apresenta os resultados obtidos na avaliação da Ferramenta de
+          Autoria para a Remediação de erros com Mobilidade na Aprendizagem - FARMA. A
+          referida avaliação foi realizada com a colaboração de professores voluntários,
+          atuantes em uma escola de nível médio profissionalizante da rede pública do Estado
+          do Paraná, que usaram a ferramenta como complemento para suas aulas. Ao longo
+          do trabalho são mostradas as sugestões, dadas pelos participantes e também pela
+          autora do trabalho, que contribuíram para a melhoria da ferramenta.',
+        link: 'assets/TG_Ana_Carla_Borelli.pdf',
+        type: 'TCC'
       },
       # 2014
       {
@@ -155,6 +173,22 @@ module HomeHelper
         link: 'http://www.ria.net.br/index.php/ria/article/view/117',
         type: 'artigo'
       },
+      {
+        ref: 'Silva, Rômulo César. <b>Sequenciamento adaptativo de exercícios baseado na correspondência entre a dificuldade da solução e o desempenho dinâmico do aprendiz</b>. 2015. 132f. Tese 
+          (Doutorado em Ciência da Computação) - Universidade Federal do Paraná,
+          Curitiba, 2015.',
+        abstract: 'A perícia do aprendiz geralmente e desenvolvida através da resolução de exercícios que requerem um conjunto de habilidades avaliadas, tanto no sistema educacional de sala de aula convencional quanto em sistemas de apredizagem baseados em computador tais como Sistemas Tutores Inteligentes. Esta pesquisa propôs uma formula de rating para avaliação automática do desempenho do aluno, partindo-se do princípio de que o grau de dificuldade das questões pode ser medido pela taxa de alunos que as acertam/erram, sendo essa informação usada no cálculo de sua nota. Neste trabalho, os aspectos motivacionais em aprendizagem são considerados relevantes, sendo importante propor atividades adequadas ao nível da expertise do estudante, pois a apresentação de exercícios com grau de dificuldade muito abaixo (ou acima) do nível cognitivo do aprendiz pode causar entediamento (ou frustração), ocasionando o abandono da atividade proposta. Nesse sentido, este estudo também desenvolveu um algoritmo de sequenciamento adaptivo de exercícios que se baseia nos graus de dificuldade das questões, em que o sequenciamento e guiado pela performance dinâmica do aprendiz. Foi realizado um estudo empírico a partir de dados coletados de alunos reais que demonstrou a validade da formula de rating. Os algoritmos para calculo do grau de dificuldades das questões e dos ratings dos alunos, bem como o algoritmo de sequenciamento adaptivo foram implementados efetuando-se alterações na ferramenta web de autoria de objetos de aprendizagem FARMA, gerando assim o ambiente ADAPTFARMA. Também foi realizada uma avaliação experimental da aprendizagem através de experimento estatístico comparativo entre diferentes modalidades de sequenciamento de exercícios usando como base um objeto de aprendizagem construído em ADAPTFARMA. Palavras-chave: calibragem de exercícios, rating, Sistemas Tutores Inteligentes.',
+        link: 'http://acervodigital.ufpr.br/handle/1884/41678',
+        type: 'doutorado'
+      },
+      {
+        ref: 'Kutzke, Alexander Robert. <b>Informática educacional e a mediação do erro na educação : um estudo teórico-crítico e uma proposta de instrumento computacional</b>. 2015. 132f. Tese 
+          (Doutorado em Ciência da Computação) - Universidade Federal do Paraná,
+          Curitiba, 2015.',
+        abstract: 'O problema central da mediação do erro na educação escolar e possíveis contribuições da Informática Educativa são expostos de maneira crítica. Embora inúmeras pesquisas e abordagens pedagógicas salientem o importante papel do erro na educação, pouco, ainda, se faz a partir deste na prática. Em um ambiente como o da educação pública no Brasil, onde professores são sobrecarregados, ainda que os registros dos erros não sejam perdidos ou deixados de lado, o volume e o caráter esparso e caótico dos registros mantidos impossibilitam a análise por parte do professor. Dessa forma, salienta-se que, sem a mediação do erro, professores não possuem condições ideais para refletir sobre seu próprio método de ensino, e os alunos, por sua vez, ficam sem acesso aos seus erros e da mediação dos mesmos pelo professor. Nesse sentido, para que se garanta um posicionamento teórico-crítico condizente com a abordagem escolhida, uma breve revisão dos conceitos fundamentais da Filosofia da Educação é apresentada. A problemática do erro e sua mediação na educação escolar é explorada em detalhes. Para tanto, a partir das bases da Psicologia Histórico-Cultural, analisa-se a importância do erro no processo de formação de conceitos científicos do aluno e constata-se a sua indispensabilidade nesse processo. Por meio desse estudo, constata-se a predominância da chamada visão tradicional do erro no ideário docente, para a qual o erro é a expressão de uma displicência do aluno com os estudos, ou ainda, de sua incapacidade psico-biológica. Ressalta-se, então, a participação de tal concepção para a perpetuação do fenômeno do fracasso escolar e suas consequências, as quais geram resultados devastadores para o desenvolvimento humano dos estudantes. A resenha literária de informática educativa faz uma crítica à visão clássica construcionista, e argumenta como os trabalhos existentes se alinham às chamadas pedagogias do "aprender a aprender". Aponta-se, também, que os atuais sistemas educacionais na informática não proporcionam uma análise aprofundada das conexões existentes entre os erros apresentados por alunos. Assim, o presente trabalho, fundamentado nas bases da Pedagogia Histórico-Crítica e da Psicologia Histórico-Cultural propõe um arcabouço de sistema para a manipulação de registros de erros que promova a mediação do erro com participação efetiva do professor, tendo como objetivo central instrumentalizar professores e alunos no trabalho educativo para a superação da visão tradicional do erro. Uma implementação deste arcabouço para o ensino de programação de computadores, a qual dá origem a ferramenta chamada FARMA-ALG, é descrita em detalhes. Relatam-se resultados de experimentos realizados através do uso da ferramenta FARMA-ALG em ambientes reais de ensino. De acordo com tais resultados, apontam-se indícios de que a ferramenta e, por consequência, o arcabouço proposto, podem agir positivamente para a mediação do erro no trabalho educativo e na superação da visão tradicional do erro. Diferentes contribuições obtidas para a comunidade científica são ressaltadas. Palavras-chave: Mediação do erro; Informática Educativa; Pedagogia Histórico-Crítica; Psicologia Histórico- Cultural; Programação de computadores; Sistemas recomendadores; Mineração de dados educacionais.',
+        link: 'http://acervodigital.ufpr.br/handle/1884/40907',
+        type: 'doutorado'
+      },
       # 2012
       {
         ref: 'MARCZAL, D.; DIRENE, A. I. . FARMA: <b>Uma ferramenta de autoria para objetos de
@@ -172,6 +206,14 @@ module HomeHelper
           aprendizagem construídos com a FARMA.',
         link: 'http://www.br-ie.org/pub/index.php/sbie/article/view/1724',
         type: 'artigo'
+      },
+      {
+        ref: 'Leite, Maici Duarte. <b>Arquitetura para remediação de erros baseada em múltiplas representações externas</b>. 2013. 197f. Tese 
+          (Doutorado em Ciência da Computação) - Universidade Federal do Paraná,
+          Curitiba, 2013.',
+        abstract: 'A pesquisa desta tese está situada na área de Inteligência Artificial aplicada à aquisição de conceitos matemáticos e inclui características interdisciplinares, envolvendo a aplicação da Informática na Educação. O destaque deste estudo está em propor uma arquitetura para a remediação de erros por meio de representação externa, partindo de uma classificação de erros. Para compor uma classificação de erro matemático se fez necessária uma pesquisa na literatura existente referente à classificação de erros matemáticos, seguida de um estudo sobre Múltiplas Representações Externas e suas funções. Com o intuito de atender à lacuna do aluno de forma individual no momento da interação com o objeto de estudo fez-se necessário estudar conceitos presentes em Sistemas Tutores Inteligentes, em específico a Teoria ACT, que embasou o momento de apresentação da remediação ao aluno durante a interação, por meio do mapeamento do caminho ideal para a aquisição de um conceito durante o processo de resolução. O destaque da arquitetura proposta é a possibilidade de alertar o aluno no momento em que se desvia da trajetória de estratégia correta, permitindo que revise suas etapas no processo de resolução, de tal forma que possa retomar a estratégia de resolução correta passando pelo processo de pensamento, como alternativa ao processo de tentativa-erro. O teste do experimento se deteve na aplicação da arquitetura proposta a um objeto de aprendizagem que explorava conceito do Teorema de Pitágoras através da ferramenta de autoria FARMA. Os participantes do experimento apresentavam perfis distintos em relação às instituições de ensino, mas ambos já tinham conhecimento da temática proposta no objeto de aprendizagem.',
+        link: 'http://acervodigital.ufpr.br/handle/1884/34676',
+        type: 'doutorado'
       },
       {
         ref: 'MARCZAL, D.; DIRENE, A. I. . FARMA: <b>Uma ferramenta de autoria para objetos de
@@ -217,11 +259,19 @@ module HomeHelper
         link: 'http://www.br-ie.org/pub/index.php/sbie/article/view/1583',
         type: 'artigo'
       },
+      {
+        ref: 'Bazzo, Gustavo Cesar. <b>Classificação Automática de Erros de Aprendizes Humanos no Processo de Indução Analítica</b>. 2010. 69f. Dissertação
+          (Mestrado em Informática) - Universidade Federal do Paraná,
+          Curitiba, 2011.',
+        abstract: 'O problema da classificação automática de erros humanos no processo de indução analítica é exposto de maneira crítica em relação ao contexto da aprendizagem formal da matemática. As principais limitações de outras pesquisas existentes são apontadas em relação á concepção de modelos dinâmicos de aprendizes em sistemas tutores inteligentes. Os aspectos metodológicos de uma solução factível para o problema proposto são identificadas com base em métricas genéricas que se aplicam ás diferenças entre expressões matemáticas erradas e corretas. Uma implementação do modelo estudado é feita com base em dados experimentais coletados de aprendizes reais e submetidos á análise de especialistas no ensino de indução analítica. Os principais resultados apontam para índices de 87% de acerto na classificação automática. Metas futuras de pesquisa são delineadas no sentido de monitorar a evolução do desempenho acadêmico dos aprendizes por longos períodos.',
+        link: 'http://bdtd.ibict.br/vufind/Record/UFPR_ba12db55134c5090ae80fd271e361cdb/Details',
+        type: 'mestrado'
+      },
       #2010
       {
         ref: 'Marczal, Diego. <b>Um arcabouço que enfatiza a retroação a contextos de
           erro durante o acesso a conteúdos educacionais</b>. 2010. 69f. Dissertação
-          (Mestrado Mestrado em Informática) - Universidade Federal do Paraná,
+          (Mestrado em Informática) - Universidade Federal do Paraná,
           Curitiba, 2010.',
         abstract: 'Neste trabalho, são apresentados os aspectos que justificam a necessidade
           de se projetar a implementar um controlador genérico de interatividade
