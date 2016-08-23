@@ -1,12 +1,11 @@
 <div class="card col s3">
  <div class="card-image waves-effect waves-block waves-light">
-  <!-- <img class="activator" src="images/office.jpg"> -->
   <%= image_tag lo.image.url(:thumb), class: "activator image-lo responsive-img"%>
  </div>
 
  <div class="card-content">
   <span class="activator grey-text text-darken-4">
-   <i class="mdi-navigation-more-vert right"></i>
+   <i class="material-icons right">more_vert</i>
   </span>
   <p class="card-title hide-on-med-and-down" >
    <%= truncate_and_set_tooltip(lo.name, length: 10) %>
@@ -15,7 +14,7 @@
 
  <div class="card-reveal">
   <span class="card-title grey-text text-darken-4 clearfix">
-   <i class="mdi-navigation-close right"></i>
+   <i class="material-icons right">close</i>
    <%= truncate_and_set_tooltip(lo.name, length: 10) %>
   </span>
 

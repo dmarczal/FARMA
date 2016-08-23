@@ -1,7 +1,5 @@
 <% provide(:title, "Entrar") %>
-<% content_for :sub_title do %>
-   <p> Acessa a FARMA agora mesmo por meio de seu email e senha de acesso</p>
-<% end %>
+<% provide(:sub_title, "Acessa a FARMA agora mesmo por meio de seu email e senha de acesso") %>
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name),
                      html: {class: 'col s12'} ) do |f| %>

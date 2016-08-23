@@ -7,10 +7,14 @@ $(document).on 'page:change', ->
   window.FARMA.reloadMaterilizeEffects()
   window.FARMA.toggleVerticalMenu()
   window.FARMA.modalOpen()
-  window.FARMA.toggleBoxRequestQuestions()
+  window.FARMA.requestEditQuestion()
   window.FARMA.showQuestion()
   window.FARMA.fixTooltip()
   window.FARMA.imagePreview()
+  window.FARMA.requestFormTip()
+
+$(document).on 'page:update', ->
+  MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
 
 window.FARMA = {}
 

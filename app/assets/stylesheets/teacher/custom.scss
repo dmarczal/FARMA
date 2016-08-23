@@ -9,9 +9,9 @@
  left: 50.333086603%; //(680 * 100) / 1351
 }
 
-#logo-container.center-logo{
- left: 46.484085862%; //(628 * 100) / 1351
-}
+ #logo-container.center-logo {
+   left: 46.484085862%; //(628 * 100) / 1351
+ }
 
 #switch-page {
  padding: 0 5px;
@@ -34,10 +34,10 @@
   background-color: #101519;
  }
 }
+
 /*
 * links user(perfil and get out)
 * ______________________________*/
-
 #button_links_user {
  color: $palletewhite;
  margin-right: 2.22057735%; //(30 * 100) / 1351
@@ -50,7 +50,7 @@
  }
 
  #drop-down {
-  margin-top: 19px;
+  margin-top: 18px;
  }
  .dropdown-content li > a, .dropdown-content li > span{
   color: $palleteblue;
@@ -77,6 +77,7 @@
  #panel-list li {//_____ content-list
   color: $palletegrey;
   padding: 10px;
+
   i {
     margin-left: 10px;
   }
@@ -133,7 +134,6 @@
  margin-bottom: 0;
  padding-top: 20px;
 }
-
 
 /*
 * Form styles
@@ -226,6 +226,8 @@ nav{
  background-color: $palleteblue2;
 
 }
+
+
 #nav-mobile{
  background-color: $palleteblue2;
  li{
@@ -265,4 +267,11 @@ nav{
  */
 .modal {
   width: 75%;
+}
+
+
+//___________
+.nav-breadcrumbs .col {
+  line-height: 25px;
+  padding: 25px 0px;
 }

@@ -1,7 +1,6 @@
-<%unless @tip.errors.any? %>
+<% unless @tip.errors.any? %>
   $("#list-tips").append('<%= j render(partial: "teacher/tips/tip", locals:  {tip: @tip}) %>');
-  $('#box-new-tips-for-<%= @question.id %>').slideUp();
-  $('#box-new-tips-for-<%= @question.id %>').empty();
+  window.FARMA.toggleBoxNewTip("#box-new-tips-for-<%= @question.id %>");
 <% end %>
 
 Materialize.updateTextFields();
