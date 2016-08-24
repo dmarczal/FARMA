@@ -5,7 +5,7 @@
     <div class="clearfix">
       <%= image_tag("home/#{research[:type]}.png") %>
       <p class="title">
-        <%= raw research[:ref] %>
+        <b><%= raw research[:title] %></b>
       </p>
     </div>
 
@@ -30,6 +30,10 @@
     <span class="right">
       <a href="<%= research[:link] %>" class="right ">Ler o trabalho completo<i class="mdi-hardware-keyboard-tab left"></i></a>
     </span>
+
+    <p>
+        <%= raw research[:ref] %>
+    </p>
   </article>
 
 </li>
