@@ -77,5 +77,5 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.default_url_options = { host: 'farma-reborned.educacional.mat.br' }
+  config.action_mailer.default_url_options = { host: 'farma-reborn.educacional.mat.br' }
 end
