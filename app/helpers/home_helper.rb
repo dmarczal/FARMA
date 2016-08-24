@@ -3,6 +3,7 @@ module HomeHelper
     [
       #2015
       {
+        title: 'FARMA: Uma Ferramenta de Autoria para Objetos de Aprendizagem de Conceitos Matemáticos',
         ref: 'MARCZAL, D.; DIRENE, A. I. ; PIMENTEL, A. R. ; MASCHIO, E. . <b>FARMA: Uma
           Ferramenta de Autoria para Objetos de Aprendizagem de Conceitos Matemáticos</b>.
           In: IV Congresso Brasileiro de Informática na Educação, 2015, Maceió, Alagoas.
@@ -22,6 +23,9 @@ module HomeHelper
         type: 'artigo'
       },
       {
+        title: 'Adapting Collaboratively by Ranking Solution
+          Difficulty: an Appraisal of the Teacher-Learner Dynamics in an
+          Exploratory Environment',
         ref: 'SILVA, RÔMULO ; DIRENE, A. I. ; MARCZAL, D. ; GUIMARÃES, PAULO ; CABRAL, ANGELO
           ; CAMARGO, BRUNO . <b>Adapting Collaboratively by Ranking Solution
           Difficulty: an Appraisal of the Teacher-Learner Dynamics in an
@@ -47,6 +51,8 @@ module HomeHelper
         type: 'artigo'
       },
       {
+        title: 'Um Arcabouço
+          Adaptivo para Objetos de Aprendizagem',
         ref: 'SILVA, RÔMULO ; DIRENE, ALEXANDRE ; Marczal,
           Diego ; BORILLE, ANA CARLA ; GUIMARÃES, PAULO ;
           CABRAL, ANGELO ; CAMARGO, BRUNO . <b>Um Arcabouço
@@ -67,6 +73,7 @@ module HomeHelper
         type: 'artigo'
       },
       {
+        title: 'Using Problem Statement Parameters and Ranking Solution Difficulty to Support Personalization',
         ref: 'SILVA, RÔMULO ; DIRENE, A. I. ; MARCZAL, D. . <b>Using Problem Statement Parameters and Ranking Solution Difficulty to Support Personalization</b>. CEUR Workshop Proceedings, v. 1388, p. 46-51, 2015.',
         abstract: 'The work approaches theoretical and implementation issues
         of a framework aimed at supporting human knowledge acquisition of
@@ -86,6 +93,7 @@ module HomeHelper
         type: 'artigo'
       },
       {
+        title: 'Avaliação do impacto da retroação na aprendizagem apoiada por uma ferramenta educacional',
         ref: 'Moura, Vívian Ariane Barausse. <b>Avaliação do impacto da retroação na aprendizagem apoiada por uma ferramenta educacional</b>. 2015. 80f. Dissertação
           (Mestrado em Informática) - Universidade Federal do Paraná,
           Curitiba, 2015.',
@@ -94,6 +102,7 @@ module HomeHelper
         type: 'mestrado'
       },
       {
+        title: 'Avaliação da Usabilidade da Ferramenta de Autoria para a Remediação de Erros com Mobilidade na Aprendizagem - FARMA',
         ref: 'Borelli, Ana Carla Wolski. <b>Avaliação da Usabilidade da Ferramenta de Autoria para a Remediação de Erros com Mobilidade na Aprendizagem - FARMA</b>. 2014. 39f. Monografia 
           TCC - Universidade Federal do Paraná,
           Curitiba, 2014.',
@@ -109,12 +118,14 @@ module HomeHelper
       },
       # 2014
       {
+        title: 'Avaliação da Usabilidade da Ferramenta de Autoria para a Remediação de Erros com Mobilidade na Aprendizagem - FARMA',
         ref: 'LEITE, MAICI ; Marczal, Diego ; KRYNSKI, ELEANDRO MASCHIO ; PIMENTEL, ANDREY ; DIRENE, ALEXANDRE ; REINALDO, FRANCISCO . <b>Otimizando o processo de Ensino e Aprendizagem com a Arquitetura para Desenvolvimento de Objetos de Aprendizagem - ADOA</b>. In: XXVI Simpósio Brasileiro de Informática na Educação, 2015, Maceió, 2015. p. 1002.',
         abstract: 'Este artigo propõe a Arquitetura para desenvolvimento de Objetos de Aprendizagem (ADOA), empregando a classificação de erros matemáticos com Múltiplas Representações Externas (MRE), amparada pela Teoria Adaptive Control of Thought (ACT). A arquitetura objetiva prover remediações de erro mais adequadas a cada aluno e contexto de interação. Ela é demonstrada por meio do desenvolvimento de um OA denominado Pitágoras. Experimentos realizados com alunos atestaram a eficiência da arquitetura proposta. Os resultados indicam que o uso de MRE como amparo à remediação de erros em OAs trazem ganhos significativos para aquisição de conhecimento do aprendiz.',
         link: 'http://www.br-ie.org/pub/index.php/sbie/article/view/5408',
         type: 'artigo'
       },
       {
+        title: 'O uso das Múltiplas Representações Externas para Remediação de Erros em um Objeto de Aprendizagem para o Teorema de Pitágoras',
         ref: 'LEITE, M. D. ; MARCZAL, D. ; PIMENTEL, A. R. . <b>O uso das Múltiplas Representações Externas para Remediação de Erros em um Objeto de Aprendizagem para o Teorema de Pitágoras</b>. Revista de Informática Aplicada, v. 10, p. 29-34, 2014.',
         abstract: 'O uso de conceitos presentes em Sistemas Tutores Inteligentes vem crescendo em objetos de aprendizagem (OA), em especial a remediação de erros. O destaque deste estudo vai além do uso de conceitos de STI e explora a eficiência
         do uso das Múltiplas Representações Externas (MREs) na remediação de erros. Assim, o presente artigo apresenta o modelo arquitetural, os conceitos pertinentes à classificação de erros matemáticos e das Múltiplas Representações
@@ -124,6 +135,7 @@ module HomeHelper
         type: 'artigo'
       },
       {
+        title: 'A Conceptual Framework to use Remediation of Errors Based on Multiple External Remediation Applied to Learning Objects',
         ref: 'LEITE, MAICI DUARTE ; Marczal, Diego ; PIMENTEL, ANDREY RICARDO ; DIRENE, ALEXANDRE IBRAHIM . <b>A Conceptual Framework to use Remediation of Errors Based on Multiple External Remediation Applied to Learning Objects</b>. Journal of Technology and Science Education, v. 4, p. 155-166, 2014.',
         abstract: 'This paper presents the application of some concepts of Intelligent Tutoring Systems (ITS) to elaborate a conceptual framework that uses the remediation of errors with Multiple External Representations (MERs) in Learning Objects (LO). To this is demonstrated a development of LO for teaching the Pythagorean Theorem through this framework. This study explored the remediation process of error by a classification of error in mathematical, providing support for the use of MERs with the remediation of error. The main objective of the proposed framework is to assist the individual learner in the recovery of a mistake made during the interaction with the LO, either through carelessness or lack of knowledge. Initially, we present the compilation of the classification of mathematical errors and their relationship with MERs. Later the concepts involved with conceptual framework proposed. Finally, an experiment with LO developed with a authoring tool called FARMA, using the conceptual framework for teaching the Pythagorean Theorem is presented.',
         link: 'http://www.jotse.org/index.php/jotse/article/view/111',
@@ -131,6 +143,8 @@ module HomeHelper
       },
       #2013
       {
+        title: 'Multiple External
+          Representations in Remediation of Math Errors',
         ref: 'LEITE, M. D. ; MARCZAL, D. ; PIMENTEL, A. R. . <b>Multiple External
           Representations in Remediation of Math Errors</b>. In: ICEIS 2013 - 15th
           International Conference on Enterprise Information Systems, 2013, Angers,
@@ -152,6 +166,9 @@ module HomeHelper
         type: 'artigo'
       },
       {
+        title: 'Objeto de Aprendizagem
+          Pitágoras: uma aplicação do uso de Múltiplas de Representações Externas na
+          Remediação de Erros Matemáticos',
         ref: 'LEITE, M. D. ; MARCZAL, D. ; PIMENTEL, A. R. . <b>Objeto de Aprendizagem
           Pitágoras: uma aplicação do uso de Múltiplas de Representações Externas na
           Remediação de Erros Matemáticos</b>. In: XXXIII Congresso da Sociedade Brasileira
@@ -174,6 +191,7 @@ module HomeHelper
         type: 'artigo'
       },
       {
+        title: 'Sequenciamento adaptativo de exercícios baseado na correspondência entre a dificuldade da solução e o desempenho dinâmico do aprendiz',
         ref: 'Silva, Rômulo César. <b>Sequenciamento adaptativo de exercícios baseado na correspondência entre a dificuldade da solução e o desempenho dinâmico do aprendiz</b>. 2015. 132f. Tese 
           (Doutorado em Ciência da Computação) - Universidade Federal do Paraná,
           Curitiba, 2015.',
@@ -182,6 +200,7 @@ module HomeHelper
         type: 'doutorado'
       },
       {
+        title: 'Informática educacional e a mediação do erro na educação : um estudo teórico-crítico e uma proposta de instrumento computacional',
         ref: 'Kutzke, Alexander Robert. <b>Informática educacional e a mediação do erro na educação : um estudo teórico-crítico e uma proposta de instrumento computacional</b>. 2015. 132f. Tese 
           (Doutorado em Ciência da Computação) - Universidade Federal do Paraná,
           Curitiba, 2015.',
@@ -191,6 +210,8 @@ module HomeHelper
       },
       # 2012
       {
+        title: 'Uma ferramenta de autoria para objetos de
+          aprendizagem de conceitos matemáticos',
         ref: 'MARCZAL, D.; DIRENE, A. I. . FARMA: <b>Uma ferramenta de autoria para objetos de
           aprendizagem de conceitos matemáticos</b>. In: Congresso Brasileiro de Informática
           na Educação, 2012, Rio de Janeiro/RJ. Anais do SBIE 2012, 2012.',
@@ -208,6 +229,7 @@ module HomeHelper
         type: 'artigo'
       },
       {
+        title: 'Arquitetura para remediação de erros baseada em múltiplas representações externas',
         ref: 'Leite, Maici Duarte. <b>Arquitetura para remediação de erros baseada em múltiplas representações externas</b>. 2013. 197f. Tese 
           (Doutorado em Ciência da Computação) - Universidade Federal do Paraná,
           Curitiba, 2013.',
@@ -216,6 +238,8 @@ module HomeHelper
         type: 'doutorado'
       },
       {
+        title: 'Uma ferramenta de autoria para objetos de
+          aprendizagem de conceitos matemáticos',
         ref: 'MARCZAL, D.; DIRENE, A. I. . FARMA: <b>Uma ferramenta de autoria para objetos de
           aprendizagem de conceitos matemáticos</b>. In: Congresso Brasileiro de Informática
           na Educação, 2012, Rio de Janeiro/RJ. Anais do SBIE 2012, 2012.',
@@ -234,12 +258,15 @@ module HomeHelper
       },
       # 2011
       {
+        title: 'Um arcabouço que enfatiza a retroação a contextos de erro na solução de problemas',
         ref: 'MARCZAL, D.; Direne, Alexandre Ibraim . <b>Um arcabouço que enfatiza a retroação a contextos de erro na solução de problemas</b>. Revista Brasileira de Informática na Educação, v. 19, p. 63-73, 2011.',
         abstract: 'Inicialmente, são apresentados os aspectos que justificam a necessidade de se projetar e implementar um controlador genérico de interatividade que pode ser aplicado e reutilizado por diversos objetos de aprendizagem. Os principais objetivos do controlador são detalhados em termos de acesso ao conteúdo e como ele enfatiza aspectos meta-cognitivos envolvidos nas tarefas típicas de aprendizagem. Além disso, apresenta-se uma nova abordagem para utilizar os erros cometidos pelo aprendiz como uma ferramenta eficiente para reparar e construir o seu conhecimento. Ao final, a arquitetura e a implementação do arcabouço denominado controlador de acesso reflexivo e retroativo indexado por erros (CARRIE) têm seus módulos principais descritos e exemplificados.',
         link: 'http://www.br-ie.org/pub/index.php/rbie/article/view/1298/0',
         type: 'artigo'
       },
       {
+        title: 'Classificação automática de erros de
+          aprendizes humanos do processo de indução analítica',
         ref: 'BAZZO, G. ; DIRENE, A. I. ; MARCZAL, D. . <b>Classificação automática de erros de
           aprendizes humanos do processo de indução analítica</b>. In: SBIE-WIE 2011/SBIE,
           2011, Aracaju - SE. Anais do SBIE-WIE 2011/SBIE, 2011.',
@@ -260,6 +287,7 @@ module HomeHelper
         type: 'artigo'
       },
       {
+        title: 'Classificação Automática de Erros de Aprendizes Humanos no Processo de Indução Analítica',
         ref: 'Bazzo, Gustavo Cesar. <b>Classificação Automática de Erros de Aprendizes Humanos no Processo de Indução Analítica</b>. 2010. 69f. Dissertação
           (Mestrado em Informática) - Universidade Federal do Paraná,
           Curitiba, 2011.',
@@ -269,6 +297,8 @@ module HomeHelper
       },
       #2010
       {
+        title: 'Um arcabouço que enfatiza a retroação a contextos de
+          erro durante o acesso a conteúdos educacionais',
         ref: 'Marczal, Diego. <b>Um arcabouço que enfatiza a retroação a contextos de
           erro durante o acesso a conteúdos educacionais</b>. 2010. 69f. Dissertação
           (Mestrado em Informática) - Universidade Federal do Paraná,
@@ -290,6 +320,8 @@ module HomeHelper
         type: 'mestrado'
       },
       {
+        title: 'Software Livre como Objetos de Aprendizagem Generalizáveis do
+          Projeto CONDIGITAL',
         ref: 'DIRENE, A. I. ; MARCZAL, D. ; Teixeira, J. ; MORESCHI, F. ; PICOLOTTO, D. ;
           SILVA, D. ; SANTOS, L. ; ANDRADE, R. ; COELHO, F. ; SALVI, J. ; RAMOS G. ;
           PIMENTEL, A. R. . <b>Software Livre como Objetos de Aprendizagem Generalizáveis do
@@ -306,6 +338,8 @@ module HomeHelper
         type: 'artigo'
       },
       {
+        title: 'Um arcabouço que enfatiza a retroação a contextos
+          de erro durante o acesso a conteúdos educacionais',
         ref: 'MARCZAL, D.; DIRENE, A. I. . <b>Um arcabouço que enfatiza a retroação a contextos
           de erro durante o acesso a conteúdos educacionais</b>. In: Simpósio Brasileiro de
           Informática na Educação, 2010, João Pessoa - PB. Anais do ... Simpósio
@@ -326,6 +360,8 @@ module HomeHelper
       },
       # 2009
       {
+        title: 'Objetos de
+            aprendizagem generalizáveis para o currículo de Matemática do ensino médio',
         ref: 'DIRENE, A. I. ; RAMOS G. ; MARCZAL, D. ; CARVALHO, E. M. ; CASTILHO, M. A ;
           GARCIA, L. S. ; SILVA, F. ; BONA, L. C. E. ; SUNYE, M. S . <b>Objetos de
             aprendizagem generalizáveis para o currículo de Matemática do ensino médio</b>.
