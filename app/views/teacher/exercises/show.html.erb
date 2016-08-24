@@ -11,10 +11,10 @@
 
 <article>
   <header class="center">
-    <h2><%= @exercise.title %> - Questões</h2>
+    <h5><%= @exercise.title %> - Questões</h5>
   </header>
 
-  <%= @exercise.content.to_s.html_safe %>
+  <span class="center"><%= @exercise.content.to_s.html_safe %></span>
 
   <ul id="questions_list" class="collection col s12">
     <%= render @questions %>

@@ -1,6 +1,6 @@
-<li id='tip-<%= tip.id %>' class="box-tip s12 row">
+<li id='tip-<%= tip.id %>' class="box-tip s10 amber accent-3 row">
 
-  <span class="col s11">Conteúdo:</span>
+  <span class="col s11">Conteúdo da dica:</span>
 
   <div class="col s1">
     <%= link_to edit_teacher_lo_exercise_question_tip_path(@lo, @exercise, @question, tip),
@@ -16,10 +16,10 @@
     <% end %>
   </div>
 
-  <div class="col s10 offset-s1 box-tip-content">
+  <div class="col s10 offset-s1 box-tip-content text-multiply">
     <%= tip.content.html_safe %>
   </div>
 
-  <span class="col s12">Mostrar após a <%= tip.number_of_tries %>ª tentativa sem sucesso</span>
+  <p class="col s4 right text-multiply">Mostrar após a <%= tip.number_of_tries %>ª tentativa sem sucesso</p>
 
 </li>

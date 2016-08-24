@@ -1,23 +1,23 @@
-<span class="col s12">Conteúdo:</span>
+<span class="col s12"><i class="material-icons">subject</i> Conteúdo</span>
 
 <div class="box-question-content col s11">
   <%= @question.content.to_s.html_safe %>
 </div>
 
-<div class="col s12">
-  <span class="left">Resposta Correta: </span>
-  <p class="text-green"> <%= @question.correct_answer %></p>
+<div class="pandding right">
+  <span>Resposta Correta: </span>
+  <span class="chip light-gree"> <%= @question.correct_answer %></span>
 </div>
 
 <article id="article-tips">
-  <header class="center col s12">
-    <h4 class="text-green">Dicas</h4>
+  <header class="col s12">
+    <span class="color-amber"><i class="material-icons">lightbulb_outline</i> Dicas</span>
   </header>
 
-  <div class="col s3 offset-s9">
+  <div class="right">
     <%= link_to 'Nova Dica',
                 new_teacher_lo_exercise_question_tip_path(@lo, @exercise, @question),
-                class: 'btn',
+                class: 'btn-flat white tips black-text',
                 remote: true %>
   </div>
 

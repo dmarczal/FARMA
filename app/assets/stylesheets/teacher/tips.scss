@@ -3,12 +3,15 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 li.box-tip {
-  margin: 10px 0;
-  background-color: white;
-  border-bottom: 1px solid #d1d1d1;
+  margin: 5px 0;
+  border-radius: 5px;
+  padding: 5px;
+
+  .text-multiply{
+    opacity: 0.75;
+  }
 
   .box-tip-content {
-    padding: 10px;
   }
   span{
     .col{

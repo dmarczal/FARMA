@@ -3,8 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 /*
- * Question show styles
- * ______________________________*/
+* Question show styles
+* ______________________________*/
 
 .box-question-content {
   padding: 2% 2% !important;
@@ -13,7 +13,18 @@
 }
 
 #article-tips {
+
+  header{
+    h5{
+      opacity: 0.75;
+    }
+  }
+  i{
+    color: $palleteblack;
+  }
+
   .divider {
     margin-bottom: 20px;
   }
+
 }

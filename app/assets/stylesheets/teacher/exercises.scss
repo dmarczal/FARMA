@@ -10,6 +10,16 @@ p {
   margin: 0;
 }
 
+article{
+  background-color: transparent;
+
+  span{
+    p{
+      margin: 10px;
+    }
+  }
+}
+
 /*
 * fixed button style --- new Questions
 * ______________________________*/
@@ -48,14 +58,14 @@ p {
 .collection .collection-item{
   background-color: $palleteblue2;
   i{
-    color: $palletegreen;
+    color: $palletegreen2;
   }
 }
+
 .collection-item {
 
   padding: 20px 0 0 0 !important;
   position: relative;
-
 
   header {
     height: 57px;
@@ -67,9 +77,33 @@ p {
     margin: 0;
     padding: 30px 20px;
     color: $palleteblack;
+      .btn{
+        i{
+          color: $palleteblack;
+          opacity: 0.75;
+        }
+      }
+
   }
   .box-question-content {
     border-color: transparent;
+  }
+  .title{
+    color: palleteblack;
+    padding-left: 15px;
+    p{
+      font-size: 12pt;
+      margin-left: 35px;
+    }
+    i{
+      color: none;
+    }
+    .exercise{
+      color: $palletelightpink;
+    }
+    .introduction{
+      color: $palletepurple;
+    }
   }
 
 
@@ -100,6 +134,10 @@ p {
 
   .questions_list{
     height: 22px;
+  }
+  .padding{
+    padding-top: 40px;
+    padding-left: 20px;
   }
 }
 
