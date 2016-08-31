@@ -54,12 +54,13 @@ article{
 /*
 * list question style
 * ______________________________*/
-
-.collection .collection-item{
-  background-color: $palleteblue2;
+#questions_list.collection{
+  .collection-item{
+    background-color: #00E676;
   i{
-    color: $palletegreen2;
+    color: #1B5E20;
   }
+}
 }
 
 .collection-item {
@@ -69,6 +70,10 @@ article{
 
   header {
     height: 57px;
+  }
+
+  a.left {
+    margin-left: 56%;
   }
 
   .ajax-question-box {
@@ -95,9 +100,6 @@ article{
       font-size: 12pt;
       margin-left: 35px;
     }
-    i{
-      color: none;
-    }
     .exercise{
       color: $palletelightpink;
     }
@@ -105,7 +107,6 @@ article{
       color: $palletepurple;
     }
   }
-
 
   .show-question {
     position: absolute;;
