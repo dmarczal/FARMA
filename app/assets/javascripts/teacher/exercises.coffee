@@ -5,6 +5,7 @@ window.FARMA.slideQuestion = (button_clicked)->
   div_id = '#' + $(button_clicked).attr('data-target')
   $(button_clicked).toggleClass 'active'
   $(div_id).slideToggle()
+  window.FARMA.keyboardPanel()
 
 window.FARMA.toggleNewQuestion = ->
   $('#box-new-question').slideToggle(1000)

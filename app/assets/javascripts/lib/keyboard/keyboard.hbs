@@ -1,0 +1,25 @@
+<div id="keyboard">
+  <div class="jax" id="MathOutput">$${}$$</div>
+  <!-- Screen and clear key -->
+  <div class="top">
+    <!-- <input id="question_{{id}}_response" type="text" class="screen" value="" name="answer[response]">
+    <label for="question_response">Testar Resposta</label> -->
+    <button class="key waves-effect waves-light clear" data-value="C">C</button>
+    <input type="hidden" class="screen" id="MathInput"></input>
+    <!-- <button class="clear material-icons" data-value="<">keyboard_arrow_left</button>
+    <button class="clear material-icons" data-value=">">keyboard_arrow_right</button> -->
+  </div>
+
+  <div class="keys">
+    <!-- operators and other keys -->
+    {{#each keys}}
+      {{> element}}
+    {{/each}}
+  </div>
+
+  <div class="keys" id="more">
+    {{#each specialKeys}}
+      {{> element}}
+    {{/each}}
+  </div>
+</div>
