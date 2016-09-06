@@ -1,0 +1,31 @@
+<div class="card-team col s3 center red lighten-2">
+  <div class="title">
+    <h5><%= team.name %></h5>
+
+    <%= image_tag team.user.avatar.url, class: "circle", id: "img-user-team" %>
+
+    </br><span><%= team.user.name %></span>
+  </div>
+
+  <div class="created-at">
+    <span><%= team.created_at %></span>
+  </div>
+
+  <% if current_page? action: 'index' %>
+    <div class="registration">
+      <form action="/student/teams" method="post">
+        <div class="row">
+          <div class="input-field col s12">
+            <input type="hidden" name="id" value="<%= team.id %>">
+            <input id="code" name="code" type="text">
+            <label for="code">Insira a chave</label>
+
+            <button type="submit">INSCREVER-SE</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  <% else %>
+   <%= link_to "OAs da Turma", student_team_path(team) %>
+  <% end %>
+</div>

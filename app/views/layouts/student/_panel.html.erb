@@ -1,0 +1,29 @@
+<ul id="panel-list" class="col s12">
+
+  <%= link_to(student_path) do %>
+    <li <%= active_class 'dashboard' %> >
+      <i class="tiny material-icons right">dashboard</i>Dashboard
+    </li>
+  <% end %>
+
+  <%= link_to(student_los_path) do %>
+    <li <%= active_class_for_links ['los', 'exercises', 'introductions', 'questions'] %> >
+        <i class="tiny material-icons right">file_folder</i> Meus OAs
+    </li>
+  <% end %>
+
+  <div class="divider panel-list-divider"></div>
+
+  <%= link_to(student_teams_path) do %>
+    <li <%= active_class_for_links ['temas'] %> >
+        <i class="tiny material-icons right">file_folder</i> Turmas
+    </li>
+  <% end %>
+
+  <%= link_to(student_registered_teams_path) do %>
+    <li <%= active_class_for_links ['temas'] %> >
+        <i class="tiny material-icons right">file_folder</i> Turmas Matriculadas
+    </li>
+  <% end %>
+
+</ul>

@@ -1,0 +1,2 @@
+module ViewLo::ApplicationHelper
+end

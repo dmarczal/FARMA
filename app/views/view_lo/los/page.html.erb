@@ -1,0 +1,13 @@
+<article id="los-content" class="row">
+  <header class="center">
+    <h3><%= @lo.name %></h3>
+  </header>
+
+  <div class="col s2">
+    <%= render 'lo_panel' %>
+  </div>
+
+  <div id="contents" class="col s9 z-depth-1">
+    <%= render @content %>
+  </div>
+</article>

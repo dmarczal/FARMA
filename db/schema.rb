@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160613152247) do
+ActiveRecord::Schema.define(version: 20160830142800) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -104,6 +104,16 @@ ActiveRecord::Schema.define(version: 20160613152247) do
     t.datetime "image_updated_at"
   end
 
+  create_table "los_teams", force: :cascade do |t|
+    t.integer  "lo_id"
+    t.integer  "team_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "los_teams", ["lo_id"], name: "index_los_teams_on_lo_id", using: :btree
+  add_index "los_teams", ["team_id"], name: "index_los_teams_on_team_id", using: :btree
+
   create_table "questions", force: :cascade do |t|
     t.string   "title",          null: false
     t.integer  "position"
@@ -116,6 +126,16 @@ ActiveRecord::Schema.define(version: 20160613152247) do
     t.datetime "updated_at",     null: false
   end
 
+  create_table "teams", force: :cascade do |t|
+    t.string   "name"
+    t.string   "code"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "teams", ["user_id"], name: "index_teams_on_user_id", using: :btree
+
   create_table "tips", force: :cascade do |t|
     t.text     "content",                     null: false
     t.integer  "question_id"
@@ -123,6 +143,19 @@ ActiveRecord::Schema.define(version: 20160613152247) do
     t.datetime "updated_at",                  null: false
     t.integer  "number_of_tries", default: 1
   end
+
+  create_table "tips_counts", force: :cascade do |t|
+    t.integer  "tries"
+    t.integer  "question_id"
+    t.integer  "user_id"
+    t.integer  "team_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "tips_counts", ["question_id"], name: "index_tips_counts_on_question_id", using: :btree
+  add_index "tips_counts", ["team_id"], name: "index_tips_counts_on_team_id", using: :btree
+  add_index "tips_counts", ["user_id"], name: "index_tips_counts_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name",                   default: "", null: false
@@ -151,6 +184,24 @@ ActiveRecord::Schema.define(version: 20160613152247) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "users_teams", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "team_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "users_teams", ["team_id"], name: "index_users_teams_on_team_id", using: :btree
+  add_index "users_teams", ["user_id"], name: "index_users_teams_on_user_id", using: :btree
+
   add_foreign_key "answers", "questions"
   add_foreign_key "answers", "users"
+  add_foreign_key "los_teams", "los"
+  add_foreign_key "los_teams", "teams"
+  add_foreign_key "teams", "users"
+  add_foreign_key "tips_counts", "questions"
+  add_foreign_key "tips_counts", "teams"
+  add_foreign_key "tips_counts", "users"
+  add_foreign_key "users_teams", "teams"
+  add_foreign_key "users_teams", "users"
 end

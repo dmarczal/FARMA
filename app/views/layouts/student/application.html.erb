@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= full_title(yield(:title)) %></title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+
+  <%= stylesheet_link_tag    'student/application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'student/application', 'data-turbolinks-track' => true %>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.2-latest/MathJax.js?config=TeX-AMS_HTML"></script>
+
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+   <%= render 'shared/flash_messages'  %>
+
+   <div class="navbar-fixed nav-dashboard">
+     <%= render 'layouts/teacher/navbar' %>
+   </div>
+
+  <main id="main-student" class="row">
+    <div id="panel" class="col l2 row active hide-on-med-and-down">
+      <%= render 'layouts/student/panel' %>
+    </div>
+
+    <div>
+      <div id="content-teacher" class="col m12 l9 offset-l2 row">
+
+        <div class="content white">
+          <%= yield %>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>

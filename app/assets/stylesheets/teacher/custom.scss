@@ -2,111 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 /*
-*  NavBar
-*________________________________*/
-
-#logo-container {
- left: 50.333086603%; //(680 * 100) / 1351
-}
-
- #logo-container.center-logo {
-   left: 46.484085862%; //(628 * 100) / 1351
- }
-
-#switch-page {
- padding: 0 5px;
- label {
-  color: $palletewhite;
- }
- label:active{
-  color: $palletegreen;
- }
- label .lever {
-  background-color: #101519;
- }
- label input[type=checkbox]:checked + .lever:after {
-  background-color: $palletegreen;
- }
- label input[type=checkbox]:checked + .lever:active {
-  background-color: $palletegreen;
- }
- label input[type=checkbox]:checked + .lever{
-  background-color: #101519;
- }
-}
-
-/*
-* links user(perfil and get out)
-* ______________________________*/
-#button_links_user {
- color: $palletewhite;
- margin-right: 2.22057735%; //(30 * 100) / 1351
-
- .img-user {
-  height: 50px;
-  width: 50px;
-  margin-top: 7px;
-  margin-right: 10px;
- }
-
- #drop-down {
-  margin-top: 18px;
- }
- .dropdown-content li > a, .dropdown-content li > span{
-  color: $palleteblue;
- }
-}
-
-#links_user {
- top: 64px !important;
-}
-
-/*
-* Vertical menu
-* ______________________________*/
-
-#panel {//_____ Card_Painel
- position: fixed;
- overflow: hidden;
-
- #panel-list {//_____ list
-  padding: 0;
-  width: 200px;
- }
-
- #panel-list li {//_____ content-list
-  color: $palletegrey;
-  padding: 10px;
-
-  i {
-    margin-left: 10px;
-  }
- }
-
- #panel-list li.active {//_____ active content-list
-  color: $palletegreen;
- }
-
- #panel-list li:hover {//_____ focus in content-list
-  background-color: $palletewhite;
- }
-}
-
-#button-panel {//____ button ative painel
- width: 50px;
- height: 0;
- cursor: pointer;
-}
-
-#button-panel i {//____ icon the button ative painel
- margin-top: 20px;
-}
-
-.panel-list-divider {
- margin: 15px 0;
-}
-
-/*
 * Breadcrumbs Styles
 * ______________________________*/
 
@@ -183,7 +78,7 @@
 
 }
 
-#box-image-preview input {
+#box-image-preview input { // image_preview for los
  position: absolute;
  top: 0;
  left: 0;
@@ -227,7 +122,9 @@ nav{
 
 }
 
-
+/*
+*  nav mobile skyles
+* ______________________________*/
 #nav-mobile{
  background-color: $palleteblue2;
  li{
@@ -269,8 +166,9 @@ nav{
   width: 75%;
 }
 
-
-//___________
+/*
+*  breadcrumb style
+* ______________________________*/
 .nav-breadcrumbs .col {
   line-height: 25px;
   padding: 25px 0px;

@@ -1,0 +1,22 @@
+<h1 class="center"><%= exercise.title %></h1>
+
+<div class="content">
+  <%= exercise.content.html_safe %>
+</div>
+<div class="divider"></div>
+<div class="questions">
+  <% exercise.questions.each do |question| %>
+    <div id="question-<%= question.id %>">
+      <h5><%= question.title %>:</h5>
+
+      <%= question.content.html_safe %>
+
+      <div class="response">Responda</div>
+      <form class="" action="index.html" method="post">
+        <input type="text" name="response">
+        <button type="submit" class="btn">Enviar</button>
+      </form>
+      <div class="divider"></div>
+    </div>
+  <% end %>
+</div>

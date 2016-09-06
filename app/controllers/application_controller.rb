@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def after_sign_in_path_for(resource)
-    resource.is_a?(Admin) ? admin_path : teacher_path
+    resource.is_a?(Admin) ? admin_path : choose_workspace_path
   end
 
   protected

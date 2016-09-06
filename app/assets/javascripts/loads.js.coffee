@@ -9,7 +9,9 @@ $(document).on 'page:change', ->
   window.FARMA.reloadMaterilizeEffects()
   window.FARMA.navBarFixed()
 
-
+$(document).on 'page:update', ->
+  MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+  
 window.FARMA = {}
 
 window.FARMA.reloadMaterilizeEffects = ->
