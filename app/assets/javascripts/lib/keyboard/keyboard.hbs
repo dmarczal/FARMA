@@ -1,11 +1,10 @@
-<div id="keyboard">
-  <div class="jax" id="MathOutput">$${}$$</div>
+<div id="keyboard-{{id}}" class="keyboard">
+  <div class="jax" id="MathOutput-{{id}}">$${}$$</div>
   <!-- Screen and clear key -->
   <div class="top">
-    <!-- <input id="question_{{id}}_response" type="text" class="screen" value="" name="answer[response]">
-    <label for="question_response">Testar Resposta</label> -->
+    <input id="keyboard-{{id}}-screen" class="screen" type="text" value="" disabled />
     <button class="key waves-effect waves-light clear" data-value="C">C</button>
-    <input type="hidden" class="screen" id="MathInput"></input>
+    <!-- <input type="hidden" id="" id="MathInput"></input> -->
     <!-- <button class="clear material-icons" data-value="<">keyboard_arrow_left</button>
     <button class="clear material-icons" data-value=">">keyboard_arrow_right</button> -->
   </div>

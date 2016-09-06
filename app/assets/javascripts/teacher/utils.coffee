@@ -21,9 +21,10 @@ window.FARMA.toggleVerticalMenu = ->
 window.FARMA.fixTooltip = ->
   $('.material-tooltip').hide()
 
-window.FARMA.keyboardPanel = ->
-  $(document).on 'click', '#show-keyboard', ->
-    new window.FARMA.Keyboard()
+window.FARMA.keyboardPanel = (div_id) ->
+  $(document).on 'click', div_id + ' .response', ->
+    id = div_id.substring(10, 12).replace("-", "")
+    new window.FARMA.Keyboard(id)
 
 window.FARMA.silentSubmit = ->
   $('#lo_image').change ->

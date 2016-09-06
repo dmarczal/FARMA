@@ -1,6 +1,9 @@
 class window.FARMA.Keyboard
 
-  constructor: () ->
+  constructor: (id) ->
+
+    @screen = new window.FARMA.Screen();
+
     $.handlebars({
       templatePath: '/assets/lib/keyboard',
       templateExtension: 'hbs'
@@ -12,7 +15,8 @@ class window.FARMA.Keyboard
       console.log context
 
     #render
-    $('#keyboard-panel').render('keyboard', {
+    $('#keyboard-panel-' + id).render('keyboard', {
+        id: id
         keys: [
           { key: 7, value: 7, type: "key" },
           { key: 8, value: 8, type: "key" },
@@ -44,24 +48,23 @@ class window.FARMA.Keyboard
       })
 
     # Apply functionality
+    @clickHandler(id)
+    @hotKeyHandler(id)
 
-    @clickHandler()
-    @hotKeyHandler()
-
-  clickHandler: () ->
-    $(document).on 'click', '.key', (e) ->
+  clickHandler: (id) ->
+    $(document).on 'click', "#keyboard-#{id} .key", (e) ->
       if $(this).attr('data-value') != 'C'
-        window.FARMA.Screen.addToJax($(this).attr('data-value'))
+        window.FARMA.Screen.addToJax($(this).attr('data-value'), id)
       else
-        window.FARMA.Screen.cleanScreen()
+        window.FARMA.Screen.cleanScreen(id)
 
-  hotKeyHandler: () ->
+  hotKeyHandler: (id) ->
     $(document).on 'keypress', (e) ->
       switch e.key
-        when 's' then window.FARMA.Screen.addToJax("\\sqrt{}")
-        when 'o' then window.FARMA.Screen.addToJax("\\over")
-        when 'm' then window.FARMA.Screen.addToJax("\\left[\\begin{matrix}\\end{matrix}\\right]")
-        when 'n' then window.FARMA.Screen.addToJax("\\\\")
-        when 'e' then window.FARMA.Screen.addToJax("&")
-        when 'C' then window.FARMA.Screen.cleanScreen()
-        else window.FARMA.Screen.addToJax(e.key)
+        when 's' then window.FARMA.Screen.addToJax("\\sqrt{}", id)
+        when 'o' then window.FARMA.Screen.addToJax("\\over", id)
+        when 'm' then window.FARMA.Screen.addToJax("\\left[\\begin{matrix}\\end{matrix}\\right]", id)
+        when 'n' then window.FARMA.Screen.addToJax("\\\\", id)
+        when 'e' then window.FARMA.Screen.addToJax("&", id)
+        when 'C' then window.FARMA.Screen.cleanScreen(id)
+        else window.FARMA.Screen.addToJax(e.key, id)
