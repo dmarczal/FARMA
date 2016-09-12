@@ -20,3 +20,25 @@ window.FARMA.toggleVerticalMenu = ->
 
 window.FARMA.fixTooltip = ->
   $('.material-tooltip').hide()
+
+window.FARMA.keyboardPanel = (div_id) ->
+  $(document).on 'click', div_id + ' .response', ->
+    id = div_id.substring(10, 12).replace("-", "")
+    new window.FARMA.Keyboard(id)
+
+window.FARMA.silentSubmit = ->
+  $('#lo_image').change ->
+    $('.edit_lo').submit()
+    toastr.success("Imagem atualizada!")
+
+  $(document).on 'click', '.lo-title', ->
+    clone = $(this).clone()
+    $(@).replaceWith('<input class="string required input-lo-title edit-line" autofocus="autofocus" type="text" value="' + clone[0].innerText.trim() + '" name="lo[name]" id="lo_name">')
+
+  $(document).on 'click', '.lo-description', ->
+    clone = $(this).clone()
+    $(@).replaceWith('<input class="string required input-lo-description edit-line" autofocus="autofocus" type="text" value="' + clone[0].innerText.trim() + '" name="lo[description]" id="lo_description">')
+
+  $(document).on 'blur', '.edit-line', ->
+    $('.edit_lo').submit()
+    toastr.success("Informações atualizadas")

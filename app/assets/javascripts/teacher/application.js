@@ -20,6 +20,8 @@
 //= require ckeditor/init
 //= require ckeditor/functions_ck
 //= require ckeditor/config
+//= require jquery-handlebars
+//= require jquery-hotkeys
 //= require_tree ../lib/
 //= require teacher/utils
 //= require teacher/exercises
