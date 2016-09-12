@@ -22,6 +22,6 @@
  </div>
 
  <div class="card-action">
-   <%= link_to 'LO', view_lo_page_path(lo.id, '1') %>
+   <%= link_to 'LO', view_lo_page_path(lo.id, '1', params: {team: @team.id}) %>
  </div>
 </div>

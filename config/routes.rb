@@ -1,11 +1,6 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
-  #routes to lo view
-  namespace :view_lo do
-    get ':lo_id/pages/:page' => 'los#page', as: 'page'
-  end
-
   #################################### Devise Layout ###########################################
 
   devise_for :admins, controllers: { sessions: "admin/admins/sessions" }
@@ -74,6 +69,14 @@ Rails.application.routes.draw do
     get '/registered-teams' => 'teams#registered'
 
     resources :los
+  end
+
+  #################################### view lo Layout ###########################################
+
+  namespace :view_lo do
+    get 'teams/:team_id/los/:lo_id/pages/:page' => 'los#page', as: 'page'
+
+    post 'teams/:team_id/los/:lo_id/exercises/:exercise_id/questions/:question_id/create' => 'answers#create', as: 'answer'
   end
 
 end

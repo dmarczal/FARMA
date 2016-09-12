@@ -12,8 +12,10 @@
       <%= question.content.html_safe %>
 
       <div class="response">Responda</div>
-      <form class="" action="index.html" method="post">
-        <input type="text" name="response">
+      <form class="row" action="<%= view_lo_answer_path(@lo, exercise, question) %>" method="POST" data-remote="true">
+        <div class="col s1">
+          <input type="text" name="response">
+        </div>
         <button type="submit" class="btn">Enviar</button>
       </form>
       <div class="divider"></div>

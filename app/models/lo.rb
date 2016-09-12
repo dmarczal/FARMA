@@ -10,21 +10,14 @@ class Lo < ActiveRecord::Base
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   def content_by_position(index)
-    @content = contents[index.to_i - 1]
-
-    if @content.is_a?(Exercise)
-      questions = @content.questions.order :position
-      @content.questions = questions
-    end
-
-    @content
+    contents[index.to_i - 1]
   end
 
   # Mescla de introduções e exercícios
   def contents
     return @contents unless @contents.nil?
 
-    exercises = self.exercises.order :position
+    exercises = self.exercises.order(:position).includes :questions
     introductions = self.introductions.order :position
 
     @contents = exercises + introductions
