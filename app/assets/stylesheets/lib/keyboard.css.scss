@@ -1,18 +1,14 @@
 /* Using box shadows to create 3D effects */
 .keyboard {
-	width: 325px;
+	width: 330px;
 	height: auto;
-
-	margin: 100px auto;
-	padding: 20px 20px 9px;
-
-	background: #9dd2ea;
-	background: linear-gradient(#9dd2ea, #8bceec);
-	border-radius: 3px;
-	box-shadow: 0px 4px #009de4, 0px 10px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Top portion */
+.top {
+	height: 36px;
+}
+
 .top button.clear {
 	float: left;
 }
@@ -20,15 +16,8 @@
 .keyboard .jax {
 	height: 80px;
 	width: auto;
-
-
-
 	padding: 10px;
-	margin: 5px 0;
-
 	background: rgba(0, 0, 0, 0.2);
-	border-radius: 3px;
-	box-shadow: inset 0px 4px rgba(0, 0, 0, 0.2);
 
 	/* Typography */
 	font-size: 17px;
@@ -41,17 +30,15 @@
 
 /* Inset shadow on the screen to create indent */
 .top .screen {
-	height: 40px;
-	width: 192px;
+	height: 36px;
+	width: 238px;
 
 	float: right;
 
-	padding: 0 10px;
+	padding: 0 13px;
 
 	background: rgba(0, 0, 0, 0.2);
 	border: none;
-	border-radius: 3px;
-	box-shadow: inset 0px 4px rgba(0, 0, 0, 0.2);
 
 	/* Typography */
 	font-size: 17px;
@@ -60,6 +47,7 @@
 	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 	text-align: right;
 	letter-spacing: 1px;
+	border-bottom: 0px !important; //important to overcome materialize border-bottom
 }
 
 /* Clear floats */
@@ -77,10 +65,8 @@
 	height: 36px;
 
 	background: white;
-	border-radius: 3px;
-	box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
-
-	margin: 0 7px 11px 0;
+	border-radius: 0px;
+	box-shadow: 0px 0px rgba(0, 0, 0, 0.2);
 
 	color: #888;
 	line-height: 36px;
@@ -96,8 +82,15 @@
 /* Remove right margins from operator keys */
 /* style different type of keys (operators/evaluate/clear) differently */
 .keys button.operator {
-	background: #FFF0F5;
+	background: #b0e68f;
 	margin-right: 0;
+}
+
+.keys button.special {
+	background: #599a42;
+	padding-left: 23px;
+	float: right;
+	color: white;
 }
 
 .keys button.eval {
@@ -108,14 +101,14 @@
 
 .top button.clear {
 	background: #ff9fa8;
-	box-shadow: 0px 4px #ff7c87;
+	border: none;
 	color: white;
 }
 
 /* Some hover effects */
 .keys button:hover {
-	background: #9c89f6;
-	box-shadow: 0px 4px #6b54d3;
+	background: #418b00;
+	// box-shadow: 0px 4px #418b00;
 	color: white;
 }
 
@@ -127,7 +120,6 @@
 
 .top button.clear:hover {
 	background: #f68991;
-	box-shadow: 0px 4px #d3545d;
 	color: white;
 }
 
@@ -149,4 +141,12 @@
 
 .math>span {
 	border-right-color: transparent;
+}
+
+.valid-expression {
+	background: #c4d7b3 !important;
+}
+
+.invalid-expression {
+	background: #ddb5b5 !important;
 }

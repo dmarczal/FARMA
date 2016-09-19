@@ -24,6 +24,7 @@ window.FARMA.fixTooltip = ->
 window.FARMA.keyboardPanel = (div_id) ->
   $(document).on 'click', div_id + ' .response', ->
     id = div_id.substring(10, 12).replace("-", "")
+    $('.box-response').hide()
     new window.FARMA.Keyboard(id)
 
 window.FARMA.silentSubmit = ->
