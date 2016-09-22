@@ -1,13 +1,19 @@
 <div id="keyboard-{{id}}" class="keyboard">
-  <div class="jax" id="MathOutput-{{id}}">$${}$$</div>
+  <div class="side-input">
+    <button type="button" class="btn key waves-effect waves-light clear" data-value="C">Limpar</button>
+    <button type="button" id="diyBtn" class="btn clear">DIY</button>
+    <div class="jax" id="MathOutput-{{id}}">$${}$$</div>
+    <textarea id="keyboard-{{id}}-screen" class="screen" value="" placeholder="LaTeX puro aqui!" hidden></textarea>
+    <!-- <textarea id="kb-{{id}}-tex" class="screen screen-tex" placeholder="Fórmulas LaTeX"></textarea> -->
+  </div>
+
   <!-- Screen and clear key -->
-  <div class="top">
-    <input id="keyboard-{{id}}-screen" class="screen" type="text" value="" disabled />
-    <button type="button" class="btn key waves-effect waves-light clear" data-value="C">C</button>
+  <!-- <div class="top">
+
     <!-- <input type="hidden" id="" id="MathInput"></input> -->
     <!-- <button class="clear material-icons" data-value="<">keyboard_arrow_left</button>
     <button class="clear material-icons" data-value=">">keyboard_arrow_right</button> -->
-  </div>
+  <!-- </div> -->
 
   <div class="keys" id="default-keys">
     <!-- operators and other keys -->

@@ -43,7 +43,7 @@ class window.FARMA.Keyboard
           { key: "√", value: "\\sqrt{}", type: "key" },
           { key: "(", value: "{", type: "key" },
           { key: ")", value: "}", type: "key" },
-          { key: "", value: "", type: "operator mdi mdi-backspace" },
+          { key: "", value: "", type: "eval mdi mdi-desktop-mac tooltipped", options: "data-tooltip=Renderizar TeX data-delay=50 data-position=bottom" },
           # { key: "", value: "check", type: "eval mdi mdi-account-check" }
           # { key: "", value: "\\left[\\begin{matrix}\\end{matrix}\\right]", type: "operator mdi mdi-matrix" },
           # { key: "&", value: "&", type: "key" },
@@ -56,9 +56,11 @@ class window.FARMA.Keyboard
     # Apply functionality
     if !$("#question-" + id + "-show").hasClass("keyboard-active")
       @clickHandler(id)
-      @hotKeyHandler(id)
+      # @hotKeyHandler(id)
       @checkAnswer(id)
       $("#question-" + id + "-show").addClass("keyboard-active")
+    console.log $(".tooltipped")
+    $('.tooltipped').tooltip delay: 50
 
   clickHandler: (id) ->
     self = @screen
@@ -67,6 +69,14 @@ class window.FARMA.Keyboard
         self.addToJax($(this).text(), $(this).attr("data-value"), id)
       else
         self.cleanScreen(id)
+
+    $(document).on 'click', "#diyBtn", ->
+      console.log 'diy'
+      $('.screen').toggle()
+
+    $('form').on 'submit', ->
+      # $('#keyboard-panel-' + id).hide()
+      $('.box-response').show()
 
     $(document).on 'click', ".mdi-matrix", ->
       $.handlebars({

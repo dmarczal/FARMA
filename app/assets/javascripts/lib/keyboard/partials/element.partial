@@ -1,1 +1,1 @@
-<button type="button" class="btn key waves-effect waves-light tooltipped {{this.type}}" data-tooltip="{{this.key}}" data-position="top" data-value="{{this.value}}">{{this.key}}</button>
+<button type="button" class="btn key waves-effect waves-light tooltipped {{this.type}}" {{this.options}} data-value="{{this.value}}">{{this.key}}</button>
