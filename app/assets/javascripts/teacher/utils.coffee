@@ -22,9 +22,10 @@ window.FARMA.fixTooltip = ->
   $('.material-tooltip').hide()
 
 window.FARMA.keyboardPanel = (div_id) ->
-  $(document).on 'click', div_id + ' .response', ->
+  $(document).on 'click', div_id + ' .box-response', ->
     id = div_id.substring(10, 12).replace("-", "")
     new window.FARMA.Keyboard(id)
+    $(div_id + ' .box-response').hide()
 
 window.FARMA.silentSubmit = ->
   $('#lo_image').change ->

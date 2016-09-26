@@ -1,7 +1,13 @@
 class Teacher::TeamsController < Teacher::ApplicationController
+  add_breadcrumb 'Minhas Turmas', :teacher_teams_path
 
   def index
     @teams = current_user.my_teams.all
+  end
+
+  def show
+    @team = current_user.my_teams.find params[:id]
+    add_breadcrumb "Turma #{@team.name}", teacher_team_path(@team)
   end
 
   def new

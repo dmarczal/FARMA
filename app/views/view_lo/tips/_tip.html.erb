@@ -2,22 +2,22 @@
   <h6 class="center col s12">Dicas</h6>
   <div class="divider col s12"></div>
   <div class="col s2">
-    <%= previous_tip_test @lo, @exercise, @question, @tips, @tip %>
+    <%= previous_tip @team, question, tips, tip %>
     <!-- <a href="#"><i class="material-icons medium">chevron_left</i></a> -->
   </div>
 
   <div class="col s8">
     <p>
-      <%= @tip.content.html_safe %>
+      <%= tip.content.html_safe %>
     </p>
   </div>
 
   <div class="col s2">
-    <%= next_tip_test @lo, @exercise, @question, @tips, @tip %>
+    <%= next_tip @team, question, tips, tip %>
     <!-- <a href="#"><i class="material-icons medium right">chevron_right</i></a> -->
   </div>
 
   <div class="col s12 center box-bottom">
-    <span><%= current_tip @tips, @tip %></span>
+    <span><%= current_tip tips, tip %></span>
   </div>
 </div>

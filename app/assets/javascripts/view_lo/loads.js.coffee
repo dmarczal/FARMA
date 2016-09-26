@@ -1,5 +1,6 @@
 $(document).ready ->
   window.FARMA.displayFlashMessages()
+  window.FARMA.keyboardPanel()
 
 # https://github.com/mkhairi/materialize-sass/issues/63
 # Fixed materialize because turbolinks
@@ -29,3 +30,9 @@ window.FARMA.displayFlashMessages = ->
     "hideEasing": "linear",
     "showMethod": "fadeIn",
     "hideMethod": "fadeOut"
+
+window.FARMA.keyboardPanel = ->
+  $(document).on 'click', '.box-response', ->
+    id = $(@).data('id')
+    new window.FARMA.Keyboard(id)
+    $(@).hide()

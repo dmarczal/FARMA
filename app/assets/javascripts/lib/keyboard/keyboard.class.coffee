@@ -6,7 +6,7 @@ class window.FARMA.Keyboard
 
     $.handlebars({
       templatePath: '/assets/lib/keyboard',
-      templateExtension: 'hbs'
+      templateExtension: 'hbs',
       partialPath: '/assets/lib/keyboard/partials',
       partials: ['element']
     });
@@ -50,6 +50,7 @@ class window.FARMA.Keyboard
     # Apply functionality
     @clickHandler(id)
     @hotKeyHandler(id)
+    @onSubmit(id)
 
   clickHandler: (id) ->
     $(document).on 'click', "#keyboard-#{id} .key", (e) ->
@@ -57,6 +58,11 @@ class window.FARMA.Keyboard
         window.FARMA.Screen.addToJax($(this).attr('data-value'), id)
       else
         window.FARMA.Screen.cleanScreen(id)
+
+  onSubmit: (id) ->
+    $(document).on 'submit', "#keyboard-form-#{id}", ->
+      $("#keyboard-#{id}").hide()
+      $("#question-#{id}-show .box-response").show()
 
   hotKeyHandler: (id) ->
     $(document).on 'keypress', (e) ->

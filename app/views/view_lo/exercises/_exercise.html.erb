@@ -4,21 +4,6 @@
   <%= exercise.content.html_safe %>
 </div>
 <div class="divider"></div>
-<div class="questions">
-  <% exercise.questions.each do |question| %>
-    <div id="question-<%= question.id %>">
-      <h5><%= question.title %>:</h5>
-
-      <%= question.content.html_safe %>
-
-      <div class="response">Responda</div>
-      <form class="row" action="<%= view_lo_answer_path(@lo, exercise, question) %>" method="POST" data-remote="true">
-        <div class="col s1">
-          <input type="text" name="response">
-        </div>
-        <button type="submit" class="btn">Enviar</button>
-      </form>
-      <div class="divider"></div>
-    </div>
-  <% end %>
+<div class="questions row">
+  <%= render exercise.questions %>
 </div>

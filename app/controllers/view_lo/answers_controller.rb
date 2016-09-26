@@ -1,19 +1,32 @@
 class ViewLo::AnswersController < ViewLo::ApplicationController
 
   def create
-    data = question_id: params[:question_id], response: params[:response]
-    @answer = current_user.answers.new data
+    @class = 'valid'
+    @question = Question.find params[:question_id]
+    @team = Team.find params[:team_id]
+
+    @answer = current_user.answers.new(
+                    question_id: @question.id,
+                    response: answer_params[:response],
+                    team_id: @team.id
+    )
 
     unless @answer.correct
+      @class = 'invalid'
       tips_count = @answer.question.tips_counts.new(
                                   user_id: current_user.id,
-                                  team_id: params[:team_id],
-                                  tries: @answer.attempt_number)
-      tips_count.save
+                                  team_id: @team.id
+      )
 
-      @tips = @answer.question.tips.order(:number_of_tries).limit(tips_count.tries)
+      tips_count = tips_count.save_or_update
     end
 
     @answer.save
+  end
+
+  private
+
+  def answer_params
+    params.require(:answer).permit(:response)
   end
 end

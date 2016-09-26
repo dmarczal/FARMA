@@ -14,3 +14,75 @@
     margin-left: 10px;
   }
 }
+
+/*
+ * Question show styles
+ * ______________________________*/
+
+.box-question-content {
+  padding: 2% 2% !important;
+  margin: 1% 0 1% 4%;
+}
+
+#article-tips {
+  .divider {
+    margin-bottom: 20px;
+  }
+}
+
+#questions_list li.collection-item {
+  border-left: 12px solid green;
+  border-bottom: 5px solid green;
+}
+
+/*
+ *  test Response
+ * ______________________________*/
+ .box-response {
+   cursor: pointer;
+   position: relative;
+   border: 5px solid #757575;
+   padding-top: 25px !important;
+   margin: 20px 0;
+   height: 80px;
+ }
+
+ .box-response.valid {
+   border: 5px solid #43a047;
+ }
+
+ .box-response.invalid {
+   border: 5px solid #e53935;
+ }
+
+
+ /*
+  *  TIPS
+  *_______________________________________*/
+
+  .box-show-tips {
+    position: relative;
+    padding-top: 15px;
+    border: 1px solid #d1d1d1;
+    height: 250px;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+
+    .col {
+      padding-left: 0 ;
+      padding-right: 0 ;
+    }
+
+    i {
+      margin-top: 70px;
+    }
+
+    p {
+      margin-bottom: 20px;
+    }
+
+    .box-bottom {
+      position: absolute;
+      bottom: 0;
+    }
+  }

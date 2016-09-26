@@ -12,15 +12,7 @@
     </div>
   </div>
 
-  <form class="col s12" action="<%= @action %>" method="POST" data-remote="true">
-    <div class="row">
-      <div class="input-field col s6">
-        <input id="question_<%= @question.id %>_response" class="response" type="hidden" value="" name="answer[response]">
-        <!-- <label for="question_response">Testar Resposta</label> -->
-        <div id="keyboard-panel-<%= @question.id %>"></div>
-      </div>
-
-      <button type="submit" class="btn">Testar</button>
-    </div>
+  <form id="keyboard-form-<%= @question.id %>" class="col s12" action="<%= @action %>" method="POST" data-remote="true">
+    <div id="keyboard-panel-<%= @question.id %>"></div>
   </form>
 </div>

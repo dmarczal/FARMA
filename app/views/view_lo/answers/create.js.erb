@@ -1,0 +1,8 @@
+$('#question-<%= @answer.question.id %>-show .response').html('<%= @answer.response %>');
+
+<% unless @answer.correct %>
+  $("#question-<%= @question.id %>-show .tips").html("<%= j render partial: 'view_lo/tips/tip', locals: {tips: @question.tips_to_show(current_user, @team), tip: @question.tips_to_show(current_user, @team).last, question: @question} %>");
+<% end %>
+
+$('#question-<%= @answer.question.id %>-show .box-response').removeClass('invalid').removeClass('valid');
+$('#question-<%= @answer.question.id %>-show .box-response').addClass('<%= @class %>');

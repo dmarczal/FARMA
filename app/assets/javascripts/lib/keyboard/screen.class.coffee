@@ -43,4 +43,3 @@ class window.FARMA.Screen
 
   @updateInputsWith: (newValue, where) ->
     $("#keyboard-#{where}-screen").val(newValue)
-    $("#question_#{where}_response").val(newValue)

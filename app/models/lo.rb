@@ -10,7 +10,7 @@ class Lo < ActiveRecord::Base
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   def content_by_position(index)
-    contents[index.to_i - 1]
+    content = contents[index.to_i - 1]
   end
 
   # Mescla de introduções e exercícios
@@ -34,6 +34,7 @@ class Lo < ActiveRecord::Base
       def content.index
         @index
       end
+
       def content.index=(index)
         @index = index
       end
