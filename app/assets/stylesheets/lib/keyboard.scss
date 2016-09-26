@@ -1,34 +1,14 @@
 /* Using box shadows to create 3D effects */
+
 .keyboard {
-	width: 325px;
-	height: auto;
-
-	margin: 100px auto;
-	padding: 20px 20px 9px;
-
-	background: #9dd2ea;
-	background: linear-gradient(#9dd2ea, #8bceec);
-	border-radius: 3px;
-	box-shadow: 0px 4px #009de4, 0px 10px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* Top portion */
-.top button.clear {
-	float: left;
+	width: 740px;
+	height: 330px;
 }
 
 .keyboard .jax {
-	height: 80px;
-	width: auto;
-
-
-
+	height: 40%;
+	width: 100%;
 	padding: 10px;
-	margin: 5px 0;
-
-	background: rgba(0, 0, 0, 0.2);
-	border-radius: 3px;
-	box-shadow: inset 0px 4px rgba(0, 0, 0, 0.2);
 
 	/* Typography */
 	font-size: 17px;
@@ -40,47 +20,46 @@
 }
 
 /* Inset shadow on the screen to create indent */
-.top .screen {
-	height: 40px;
-	width: 192px;
+.screen {
+	height: 50%;
+	width: 100%;
 
 	float: right;
 
-	padding: 0 10px;
-
-	background: rgba(0, 0, 0, 0.2);
-	border: none;
-	border-radius: 3px;
-	box-shadow: inset 0px 4px rgba(0, 0, 0, 0.2);
+	background: rgba(0, 0, 0, 0.1);
 
 	/* Typography */
 	font-size: 17px;
-	line-height: 40px;
+	// line-height: 40px;
 	color: white;
 	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-	text-align: right;
-	letter-spacing: 1px;
+	// text-align: right;
+	// letter-spacing: 1px;
+	border-bottom: 0px !important; //importants to overcome materialize border-bottom
+	// margin-bottom: 10px !important;
 }
 
 /* Clear floats */
 .keys, .top {overflow: hidden;}
 
 /* Applying same to the keys */
-.keys button, .top button.clear {
+.keys button {
 	float: left;
 	position: relative;
 	top: 0;
 
 	cursor: pointer;
 
-	width: 66px;
-	height: 36px;
+	width: 82px;
+	height: 66px;
+	padding: 0;
+
+	font-family: roboto-thin;
+	font-size: 45px;
 
 	background: white;
-	border-radius: 3px;
-	box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
-
-	margin: 0 7px 11px 0;
+	border-radius: 0px;
+	box-shadow: 0px 0px rgba(0, 0, 0, 0.2);
 
 	color: #888;
 	line-height: 36px;
@@ -93,11 +72,32 @@
 	transition: all 0.2s ease;
 }
 
+button.clear {
+	height: 10%;
+	border-radius: 0;
+	background: none;
+	border: none;
+	box-shadow: none;
+	color: white;
+}
+
+button.clear:hover {
+	background: red;
+	color: white;
+}
+
 /* Remove right margins from operator keys */
 /* style different type of keys (operators/evaluate/clear) differently */
 .keys button.operator {
-	background: #FFF0F5;
+	background: #b0e68f;
 	margin-right: 0;
+}
+
+.keys button.special {
+	background: #599a42;
+	// padding-left: 23px;
+	// float: right;
+	color: white;
 }
 
 .keys button.eval {
@@ -106,16 +106,12 @@
 	color: #888e5f;
 }
 
-.top button.clear {
-	background: #ff9fa8;
-	box-shadow: 0px 4px #ff7c87;
-	color: white;
-}
+
 
 /* Some hover effects */
 .keys button:hover {
-	background: #9c89f6;
-	box-shadow: 0px 4px #6b54d3;
+	background: #418b00;
+	// box-shadow: 0px 4px #418b00;
 	color: white;
 }
 
@@ -125,11 +121,7 @@
 	color: #ffffff;
 }
 
-.top button.clear:hover {
-	background: #f68991;
-	box-shadow: 0px 4px #d3545d;
-	color: white;
-}
+
 
 /* Simulating "pressed" effect on active state of the keys by removing the box-shadow and moving the keys down a bit */
 .keys button:active {
@@ -142,6 +134,10 @@
 	top: 4px;
 }
 
+.keys#more {
+	float: right;
+}
+
 .top button.clear:active {
 	top: 4px;
 	box-shadow: 0px 0px #d3545d;
@@ -149,4 +145,19 @@
 
 .math>span {
 	border-right-color: transparent;
+}
+
+.valid-expression {
+	background: #98ec6a !important;
+}
+
+.invalid-expression {
+	background: #f55555 !important;
+}
+
+.side-input {
+	float: left;
+	width: 330px;
+	background: #8ee6c1;
+	height: 100%;
 }
