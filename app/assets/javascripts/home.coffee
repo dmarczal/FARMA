@@ -39,3 +39,8 @@ window.FARMA.researchIcon = ->
 
     unless ($(@).hasClass('active'))
       $(@).find('i').html('keyboard_arrow_up')
+
+window.FARMA.sidebarScrollSpy = ->
+  console.log 'yay'
+  $('.scrollspy').scrollSpy()
+  $('.tooltipped').tooltip({delay: 20});

@@ -2,6 +2,7 @@ $(document).ready ->
   window.FARMA.displayFlashMessages()
   window.FARMA.loadMouseOverOnCard()
   window.FARMA.researchIcon()
+  window.FARMA.sidebarScrollSpy()
 
 # https://github.com/mkhairi/materialize-sass/issues/63
 # Fixed materialize because turbolinks
@@ -11,7 +12,7 @@ $(document).on 'page:change', ->
 
 $(document).on 'page:update', ->
   MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
-  
+
 window.FARMA = {}
 
 window.FARMA.reloadMaterilizeEffects = ->
