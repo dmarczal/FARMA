@@ -2,7 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-@import 'home-sidebar';
 /*
 * Home page styles
 * ______________________________*/
@@ -229,6 +228,20 @@ nav#home-page-navbar.active {
   img{
     width: 150px;
     float: left;
+  }
+
+  .tabs {
+    overflow-x: auto;
+  }
+
+  .more > li {
+    opacity: 0;
+  }
+
+  .show-more, .show-less {
+    padding: 10px 45%;
+    color: #00D055;
+    cursor: pointer;
   }
 
   .research_abstract {
