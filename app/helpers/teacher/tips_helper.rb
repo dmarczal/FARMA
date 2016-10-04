@@ -1,5 +1,5 @@
 module Teacher::TipsHelper
-  def previous_tip(tips, tip)
+  def previous_tip_test(lo, exercise, question, tips, tip)
     if tips.length == 1
       return '<i class="material-icons medium grey-text">chevron_left</i>'.html_safe
     end
@@ -8,13 +8,14 @@ module Teacher::TipsHelper
       return '<i class="material-icons medium grey-text">chevron_left</i>'.html_safe
     end
 
-    index = tips.index tip
+    index = tips.index(tip) - 1
+
     link_to '<i class="material-icons medium">chevron_left</i>'.html_safe,
-            teacher_lo_exercise_question_tip_path(@lo, @exercise, @question, tips[index - 1]),
+            teacher_lo_exercise_question_tip_path(lo, exercise, question, tips[index]),
             remote: true
   end
 
-  def next_tip(tips, tip)
+  def next_tip_test(lo, exercise, question, tips, tip)
     if tips.length == 1
       return '<i class="material-icons medium grey-text right">chevron_right</i>'.html_safe
     end
@@ -23,13 +24,10 @@ module Teacher::TipsHelper
       return '<i class="material-icons medium grey-text right">chevron_right</i>'.html_safe
     end
 
-    index = tips.index tip
-    link_to '<i class="material-icons medium right">chevron_right</i>'.html_safe,
-            teacher_lo_exercise_question_tip_path(@lo, @exercise, @question, tips[index + 1]),
-            remote: true
-  end
+    index = tips.index(tip) + 1
 
-  def current_tip(tips, tip)
-    return "#{tips.index(tip) + 1}/#{tips.length}"
+    link_to '<i class="material-icons medium right">chevron_right</i>'.html_safe,
+            teacher_lo_exercise_question_tip_path(lo, exercise, question, tips[index]),
+            remote: true
   end
 end

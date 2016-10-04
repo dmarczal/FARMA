@@ -88,6 +88,22 @@ label.ckeditor{
   color: $palletegreen;
 }
 
+.text-orange{
+  color: #FF5722;
+}
+
+.gradient-white {
+  background: rgba($palletewhite,1);
+  background: -moz-linear-gradient(top, rgba($palletewhite,1) 0%, rgba($palletewhite,1) 8%, rgba($palletewhite,0.69) 28%, rgba($palletewhite,0) 51%, rgba($palletewhite,0.69) 74%, rgba($palletewhite,1) 88%, rgba($palletewhite,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba($palletewhite,1)), color-stop(8%, rgba($palletewhite,1)), color-stop(28%, rgba($palletewhite,0.69)), color-stop(51%, rgba($palletewhite,0)), color-stop(74%, rgba($palletewhite,0.69)));
+  background: -webkit-linear-gradient(top, rgba($palletewhite,1) 0%, rgba($palletewhite,1) 8%, rgba($palletewhite,0.69) 28%, rgba($palletewhite,0) 51%, rgba($palletewhite,0.69) 74%, rgba($palletewhite,1) 88%, rgba($palletewhite,1) 100%);
+  background: -o-linear-gradient(top, rgba($palletewhite,1) 0%, rgba($palletewhite,1) 8%, rgba($palletewhite,0.69) 28%, rgba($palletewhite,0) 51%, rgba($palletewhite,0.69) 74%, rgba($palletewhite,1) 88%, rgba($palletewhite,1) 100%);
+  background: -ms-linear-gradient(top, rgba($palletewhite,1) 0%, rgba($palletewhite,1) 8%, rgba($palletewhite,0.69) 28%, rgba($palletewhite,0) 51%, rgba($palletewhite,0.69) 74%, rgba($palletewhite,1) 88%, rgba($palletewhite,1) 100%);
+  background: linear-gradient(to bottom, rgba($palletewhite,1) 0%, rgba($palletewhite,1) 8%, rgba($palletewhite,0.69) 28%, rgba($palletewhite,0) 51%, rgba($palletewhite,0.69) 74%, rgba($palletewhite,1) 88%, rgba($palletewhite,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#edeeef', endColorstr='#edeeef', GradientType=0 );
+  opacity: 1.5;
+}
+
 /*
  * removing the active effect of the materialize
  * ______________________________*/
@@ -227,4 +243,112 @@ textarea.materialize-textarea:focus:not([readonly]) {
       right: 100px;
     }
   }
+}
+
+///////////teacher-student
+
+
+/*
+*  NavBar
+*________________________________*/
+
+#logo-container {
+ left: 50.333086603%; //(680 * 100) / 1351
+}
+
+ #logo-container.center-logo {
+   left: 46.484085862%; //(628 * 100) / 1351
+ }
+
+#switch-page {
+ padding: 0 5px;
+ label {
+  color: $palletewhite;
+ }
+ label:active{
+  color: $palletegreen;
+ }
+ label .lever {
+  background-color: #101519;
+ }
+ label input[type=checkbox]:checked + .lever:after {
+  background-color: $palletegreen;
+ }
+ label input[type=checkbox]:checked + .lever:active {
+  background-color: $palletegreen;
+ }
+ label input[type=checkbox]:checked + .lever{
+  background-color: #101519;
+ }
+}
+
+/*
+* links user(perfil and get out)
+* ______________________________*/
+#button_links_user {
+ color: $palletewhite;
+ margin-right: 2.22057735%; //(30 * 100) / 1351
+
+ .img-user {
+  height: 50px;
+  width: 50px;
+  margin-top: 7px;
+  margin-right: 10px;
+ }
+
+ #drop-down {
+  margin-top: 18px;
+ }
+ .dropdown-content li > a, .dropdown-content li > span{
+  color: $palleteblue;
+ }
+}
+
+#links_user {
+ top: 64px !important;
+}
+
+/*
+* Vertical menu
+* ______________________________*/
+
+#panel {//_____ Card_Painel
+ position: fixed;
+ overflow: hidden;
+
+ #panel-list {//_____ list
+  padding: 0;
+  width: 200px;
+ }
+
+ #panel-list li {//_____ content-list
+  color: $palletegrey;
+  padding: 10px;
+
+  i {
+    margin-left: 10px;
+  }
+ }
+
+ #panel-list li.active {//_____ active content-list
+  color: $palletegreen;
+ }
+
+ #panel-list li:hover {//_____ focus in content-list
+  background-color: $palletewhite;
+ }
+}
+
+#button-panel {//____ button ative painel
+ width: 50px;
+ height: 0;
+ cursor: pointer;
+}
+
+#button-panel i {//____ icon the button ative painel
+ margin-top: 20px;
+}
+
+.panel-list-divider {
+ margin: 15px 0;
 }

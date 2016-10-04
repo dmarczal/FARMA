@@ -54,5 +54,5 @@
           <<: *commons
         question:
           correct_answer: 'Resposta correta'
-          cmas_order: 'Considerar ordem das respsotas'
+          cmas_order: 'Considerar ordem das respostas'
           <<: *commons

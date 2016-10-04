@@ -32,7 +32,7 @@ span {
 }
 
 .span-created-at {
-  font-size: 14px;
+  font-size: 12px;
   color: #bdbdbd;
 }
 
@@ -53,9 +53,12 @@ span {
 
 #show-questions {
   margin: 10px 0;
+  a {
+    color: #039be5;
+  }
 }
 
-#card-form{
+.box-form {
   h5{
     color: #9E9E9E;
   }
@@ -72,4 +75,12 @@ span {
   input[type=text]{
     font-size: 14pt;
   }
+}
+
+/*
+* Introductions 
+* ______________________________*/
+#new_introduction button.btn,
+#new_exercise button.btn {
+  margin-top: 10px;
 }

@@ -1,0 +1,10 @@
+<form id="form-add-lo" action="/teacher/teams/<%= @team.id %>/add-los" method="post" data-remote="true">
+  <% @los.each do |lo| %>
+    <p class="checkbox-wrapper">
+      <input class="filled-in" type="checkbox" value="<%= lo.id %>" name="los[lo_<%= lo.id %>]" id="lo_<%= lo.id %>">
+      <label class="string optional" for="lo_<%= lo.id %>"><%= lo.name %></label>
+    </p>
+  <% end %>
+
+  <button type="submit" name="button" class="btn">Adicionar</button>
+</form>

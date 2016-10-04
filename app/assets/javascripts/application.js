@@ -17,5 +17,5 @@
 //= require materialize-sprockets
 //= require_self
 //= require loads
-//= require home
 //= require_tree ./lib/
+//= require home

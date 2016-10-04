@@ -21,17 +21,17 @@
   <%= truncate_and_set_popup(lo.name, lo.description, length: 180, separator: ' ') %>
 
   <%= link_to teacher_lo_path(lo), method: :delete, data: { confirm: 'tem certeza disso?' } do %>
-   <i class="material-icons link_card delete small tooltipped" data-position="left" data-tooltip="Remover">
+   <i class="material-icons link_card delete small tooltipped" data-position="top" data-tooltip="Remover">
     delete
    </i>
   <% end %>
   <%= link_to edit_teacher_lo_path(lo) do %>
-   <i class="material-icons link_card update small tooltipped" data-position="left" data-tooltip="Editar">
+   <i class="material-icons link_card update small tooltipped" data-position="top" data-tooltip="Editar">
     mode_edit
    </i>
   <% end %>
   <%= link_to teacher_lo_path(lo) do %>
-   <i class="material-icons link_card show small tooltipped" data-position="left" data-tooltip="Criar/Editar conteúdos">
+   <i class="material-icons link_card show small tooltipped" data-position="top" data-tooltip="Conteúdos do OA">
     note_add
    </i>
   <% end %>

@@ -1,0 +1,163 @@
+/* Using box shadows to create 3D effects */
+
+.keyboard {
+	width: 740px;
+	height: 330px;
+}
+
+.keyboard .jax {
+	height: 40%;
+	width: 100%;
+	padding: 10px;
+
+	/* Typography */
+	font-size: 17px;
+	line-height: 40px;
+	color: white;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+	text-align: right;
+	letter-spacing: 1px;
+}
+
+/* Inset shadow on the screen to create indent */
+.screen {
+	height: 50%;
+	width: 100%;
+
+	float: right;
+
+	background: rgba(0, 0, 0, 0.1);
+
+	/* Typography */
+	font-size: 17px;
+	// line-height: 40px;
+	color: white;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+	// text-align: right;
+	// letter-spacing: 1px;
+	border-bottom: 0px !important; //importants to overcome materialize border-bottom
+	// margin-bottom: 10px !important;
+}
+
+/* Clear floats */
+.keys, .top {overflow: hidden;}
+
+/* Applying same to the keys */
+.keys button {
+	float: left;
+	position: relative;
+	top: 0;
+
+	cursor: pointer;
+
+	width: 82px;
+	height: 66px;
+	padding: 0;
+
+	font-family: roboto-thin;
+	font-size: 45px;
+
+	background: white;
+	border-radius: 0px;
+	box-shadow: 0px 0px rgba(0, 0, 0, 0.2);
+
+	color: #888;
+	line-height: 36px;
+	text-align: center;
+
+	/* prevent selection of text inside keys */
+	user-select: none;
+
+	/* Smoothing out hover and active states using css3 transitions */
+	transition: all 0.2s ease;
+}
+
+button.clear {
+	height: 10%;
+	border-radius: 0;
+	background: none;
+	border: none;
+	box-shadow: none;
+	color: white;
+}
+
+button.clear:hover {
+	background: red;
+	color: white;
+}
+
+/* Remove right margins from operator keys */
+/* style different type of keys (operators/evaluate/clear) differently */
+.keys button.operator {
+	background: #b0e68f;
+	margin-right: 0;
+}
+
+.keys button.special {
+	background: #599a42;
+	// padding-left: 23px;
+	// float: right;
+	color: white;
+}
+
+.keys button.eval {
+	background: #f1ff92;
+	box-shadow: 0px 4px #9da853;
+	color: #888e5f;
+}
+
+
+
+/* Some hover effects */
+.keys button:hover {
+	background: #418b00;
+	// box-shadow: 0px 4px #418b00;
+	color: white;
+}
+
+.keys button.eval:hover {
+	background: #abb850;
+	box-shadow: 0px 4px #717a33;
+	color: #ffffff;
+}
+
+
+
+/* Simulating "pressed" effect on active state of the keys by removing the box-shadow and moving the keys down a bit */
+.keys button:active {
+	box-shadow: 0px 0px #6b54d3;
+	top: 4px;
+}
+
+.keys button.eval:active {
+	box-shadow: 0px 0px #717a33;
+	top: 4px;
+}
+
+.keys#more {
+	float: right;
+}
+
+.top button.clear:active {
+	top: 4px;
+	box-shadow: 0px 0px #d3545d;
+}
+
+.math>span {
+	border-right-color: transparent;
+}
+
+.valid-expression {
+	background: #98ec6a !important;
+}
+
+.invalid-expression {
+	background: #f55555 !important;
+}
+
+.side-input {
+	float: left;
+	width: 330px;
+	background: #8ee6c1;
+	height: 100%;
+}

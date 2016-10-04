@@ -1,0 +1,15 @@
+<article>
+  <header class="center">
+    <h1><%= @team.name %></h5>
+  </header>
+  <div class="divider"></div>
+
+  <h4>Objetos de Aprendizagem</h4>
+
+  <ul>
+    <% @team.los.all.each do |lo| %>
+      <li><%= link_to lo.name, teacher_team_lo_path(@team, lo) %></li>
+    <% end %>
+  </ul>
+
+</article>

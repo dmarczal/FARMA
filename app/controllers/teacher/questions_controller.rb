@@ -49,16 +49,23 @@ class Teacher::QuestionsController < Teacher::ApplicationController
   end
 
   def test_to_answer
-    @answer = @question.answers.new answer_params
+    @class_correct = 'valid'
+    @answer = current_user.answers.new(test: true,
+                    question_id: @question.id,
+                    response: answer_params[:response]
+    )
 
-    if @answer.correct
-      @class_correct = 'valid'
-    else
-      cookies["count_responses_#{@question.id}"] =  cookies["count_responses_#{@question.id}"] ?  cookies["count_responses_#{@question.id}"].to_i + 1 : 1
-
-      @tips = @question.tips.where("number_of_tries <= #{cookies["count_responses_#{@question.id}"]}")
-      @tip = @tips.last
+    unless @answer.correct
       @class_correct = 'invalid'
+
+      if cookies["count_responses_#{@question.id}"].nil?
+        cookies["count_responses_#{@question.id}"] = 1
+      else
+        cookies["count_responses_#{@question.id}"] = cookies["count_responses_#{@question.id}"].to_i + 1
+      end
+
+      @tips = @question.tips_to_show(tips_count: cookies["count_responses_#{@question.id}"].to_i)
+      @tip = @tips.last
     end
   end
 

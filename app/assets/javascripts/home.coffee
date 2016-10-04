@@ -39,3 +39,21 @@ window.FARMA.researchIcon = ->
 
     unless ($(@).hasClass('active'))
       $(@).find('i').html('keyboard_arrow_up')
+
+window.FARMA.sidebarScrollSpy = ->
+  $('.scrollspy').scrollSpy({scrollOffset: 600})
+  $('.tooltipped').tooltip({delay: 20})
+
+window.FARMA.tabbedResearchs = ->
+  $('ul.tabs').tabs();
+  $('.show-less').hide()
+  $('.show-more').on 'click', ->
+    $('.more').show()
+    Materialize.showStaggeredList('.more')
+    $('.show-more').hide()
+    $('.show-less').show()
+  $('.show-less').on 'click', ->
+    $('.more').hide()
+    $('.more').children().css('opacity', 0)
+    $('.show-less').hide()
+    $('.show-more').show()

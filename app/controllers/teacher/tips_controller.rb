@@ -5,7 +5,8 @@ class Teacher::TipsController < Teacher::ApplicationController
   before_action :find_question, only: [:new, :create]
 
   def show
-    @tips = @question.tips.where("number_of_tries <= #{cookies["count_responses_#{@question.id}"]}")
+    @tips = @question.tips_to_show(tips_count: cookies["count_responses_#{@question.id}"].to_i)
+    @tip = @question.tips.find params[:id]
   end
 
   def new

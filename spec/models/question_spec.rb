@@ -6,7 +6,7 @@ RSpec.describe Question, type: :model do
     @lo = FactoryGirl.create(:lo, user: @user)
     @exercise = FactoryGirl.create(:exercise, lo: @lo)
   end
-  
+
   context "create as new questions" do
 
     it "create a new question" do
@@ -27,5 +27,4 @@ RSpec.describe Question, type: :model do
     question.title = nil
     expect(question.save).to eq false
   end
-
 end
