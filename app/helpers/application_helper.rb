@@ -45,5 +45,4 @@ module ApplicationHelper
       return text_truncated + ' ' + link_plus + script
     end
   end
-
 end

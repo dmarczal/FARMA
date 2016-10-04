@@ -13,3 +13,23 @@
 #los-content {
   margin-top: 100px;
 }
+
+#los-content #contents {
+  background-color: white;
+  height: 460px;
+  overflow:auto;
+
+  p {
+    text-align: justify;
+  }
+
+  .response {
+    margin: 30px;
+    padding: 23px 38px;
+    width: 150px;
+    height: 70px;
+    border: 1px solid black;
+    cursor: pointer;
+    background-color: $palletewhite;
+  }
+}

@@ -20,14 +20,14 @@ describe "exercise methods" do
 
     it 'new exercise' do
       visit(new_teacher_lo_exercise_path(@lo))
-      expect(page).to have_content 'Novo exercicio'
+      expect(page).to have_content 'Novo Exercício'
     end
 
     it 'edit exercise' do
       exercise = FactoryGirl.create(:exercise, lo: @lo)
 
       visit(edit_teacher_lo_exercise_path(@lo, exercise))
-      expect(page).to have_content truncate("Editar o #{exercise.title}", length: 25)
+      expect(page).to have_content truncate("Editar Exercício", length: 25)
     end
   end
 

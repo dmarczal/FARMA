@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= favicon_link_tag %>
+  <title><%= full_title(yield(:title)) %></title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <%= stylesheet_link_tag    'view_lo/application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'view_lo/application', 'data-turbolinks-track' => true %>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.2-latest/MathJax.js?config=TeX-AMS_HTML"></script>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <header>
+    <%= render 'shared/flash_messages'  %>
+  </header>
+
+  <main>
+     <%= yield %>
+  </main>
+</body>
+</html>

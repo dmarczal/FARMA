@@ -25,24 +25,28 @@
 
 <main class="container">
   <div class="row">
-    <div class="col l6 s12 offset-l3">
-      <div class="card-panel hoverable">
-        <div class="row">
-          <div class="col s12 center">
-            <h2 class="header gray-text2"><%= yield :title %></h2>
-            <p class="gray-text2"><%= yield :sub_title %></p>
+    <% unless controller.controller_name == 'dashboard' %>
+      <div class="col l6 s12 offset-l3">
+        <div class="card-panel hoverable">
+          <div class="row">
+            <div class="col s12 center">
+              <h2 class="header gray-text2"><%= yield :title %></h2>
+              <p class="gray-text2"><%= yield :sub_title %></p>
+            </div>
+          </div>
+
+          <div class="row">
+            <%= yield %>
+          </div>
+
+          <div class="row">
+            <%= render "devise/shared/links" %>
           </div>
         </div>
-
-        <div class="row">
-          <%= yield %>
-        </div>
-
-        <div class="row">
-          <%= render "devise/shared/links" %>
-        </div>
       </div>
-    </div>
+    <% else %>
+      <%= yield %>
+    <% end %>
   </div>
 </main>
 

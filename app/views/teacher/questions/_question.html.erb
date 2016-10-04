@@ -15,16 +15,16 @@
       <ul>
         <li>
           <%= link_to edit_teacher_lo_exercise_question_path(@lo, @exercise, question),
-            class: 'tooltipped', 'data-position' => 'left', remote: true,
-            'data-tooltip' => "Editar a Questão #{question.title}" do %>
+                  class: 'tooltipped', 'data-position' => 'left', remote: true,
+                  'data-tooltip' => "Editar a questão: #{question.title}" do %>
             <i class="material-icons edit-question" data-id="<%= question.id %>">mode_edit</i>
           <% end %>
         </li>
 
         <li>
           <%= link_to [:teacher, @lo, @exercise, question], method: :delete,
-              data: { confirm: 'tem certeza disso?' }, class: 'tooltipped',
-              'data-position' => 'left', 'data-tooltip' => "Deletar questão" do %>
+                      data: { confirm: 'tem certeza disso?' }, class: 'tooltipped',
+                      'data-position' => 'left', 'data-tooltip' => "Deletar a questão: #{question.title}" do %>
               <i class="material-icons">delete</i>
           <% end %>
         </li>

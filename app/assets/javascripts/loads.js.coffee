@@ -2,6 +2,8 @@ $(document).ready ->
   window.FARMA.displayFlashMessages()
   window.FARMA.loadMouseOverOnCard()
   window.FARMA.researchIcon()
+  window.FARMA.sidebarScrollSpy()
+  window.FARMA.tabbedResearchs()
 
 # https://github.com/mkhairi/materialize-sass/issues/63
 # Fixed materialize because turbolinks
@@ -9,6 +11,8 @@ $(document).on 'page:change', ->
   window.FARMA.reloadMaterilizeEffects()
   window.FARMA.navBarFixed()
 
+$(document).on 'page:update', ->
+  MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
 
 window.FARMA = {}
 
@@ -34,4 +38,5 @@ window.FARMA.displayFlashMessages = ->
     "showEasing": "swing",
     "hideEasing": "linear",
     "showMethod": "fadeIn",
-    "hideMethod": "fadeOut"
+    "hideMethod": "fadeOut",
+    "preventDuplicates": false

@@ -20,7 +20,7 @@ describe "introduction methods" do
       introduction = FactoryGirl.create(:introduction, lo: @lo)
 
       visit(edit_teacher_lo_introduction_path(@lo, introduction))
-      expect(page).to have_content truncate("Editar #{introduction.title}", length: 25)
+      expect(page).to have_content truncate("Editar Introdução", length: 25)
     end
   end
 

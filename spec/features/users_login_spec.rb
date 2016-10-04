@@ -13,6 +13,6 @@ describe "the signin process" do
     filds = {'user_email' => @user.email,'user_password' => @user.password}
     fill_in_form filds, ".simple_form"
 
-    expect(page.current_path).to eq teacher_path
+    expect(page.current_path).to eq choose_workspace_path
   end
 end

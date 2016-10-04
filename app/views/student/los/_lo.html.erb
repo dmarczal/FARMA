@@ -1,0 +1,27 @@
+<div class="card col s3">
+ <div class="card-image waves-effect waves-block waves-light">
+  <%= image_tag lo.image.url(:thumb), class: "activator image-lo responsive-img"%>
+ </div>
+
+ <div class="card-content">
+  <span class="activator grey-text text-darken-4">
+   <i class="material-icons right">more_vert</i>
+  </span>
+  <p class="card-title hide-on-med-and-down" >
+   <%= truncate_and_set_tooltip(lo.name, length: 10) %>
+  </p>
+ </div>
+
+ <div class="card-reveal">
+  <span class="card-title grey-text text-darken-4 clearfix">
+   <i class="material-icons right">close</i>
+   <%= truncate_and_set_tooltip(lo.name, length: 10) %>
+  </span>
+
+  <%= truncate_and_set_popup(lo.name, lo.description, length: 180, separator: ' ') %>
+ </div>
+
+ <div class="card-action">
+   <%= link_to 'LO', view_lo_page_path(@team.id, lo.id, '1') %>
+ </div>
+</div>

@@ -1,0 +1,9 @@
+<%= simple_form_for([:teacher ,@team], html: {class: 'col s12 row', multipart: true}) do |f| %>
+
+  <%= f.input :name, autofocus: true %>
+
+  <%= f.input :code %>
+
+  <%= f.button :submit_materialize, cancel: teacher_teams_path %>
+
+<% end %>

@@ -183,7 +183,7 @@
 
 }
 
-#box-image-preview input {
+#box-image-preview input { // image_preview for los
   position: absolute;
   top: 0;
   left: 0;
@@ -236,7 +236,9 @@ nav{
 
 }
 
-
+/*
+*  nav mobile skyles
+* ______________________________*/
 #nav-mobile{
   background-color: $palleteblue2;
   li{
@@ -278,8 +280,9 @@ nav{
   width: 75%;
 }
 
-
-//___________
+/*
+*  breadcrumb style
+* ______________________________*/
 .nav-breadcrumbs .col {
   line-height: 25px;
   padding: 25px 0px;

@@ -14,4 +14,10 @@
 
   <div class="divider panel-list-divider"></div>
 
+  <%= link_to(teacher_teams_path) do %>
+    <li <%= active_class_for_links ['temas'] %> >
+        <i class="tiny material-icons right">file_folder</i> Turmas
+    </li>
+  <% end %>
+
 </ul>

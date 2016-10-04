@@ -1,0 +1,14 @@
+<div class="card-team col s3 center red lighten-2">
+  <div class="title">
+    <h5><%= link_to team.name, teacher_team_path(team) %></h5>
+
+    <span><%= team.code %></span>
+  </div>
+
+  <div class="created-at">
+    <span><%= team.created_at %></span>
+  </div>
+  <%= link_to "Adicionar OA", teacher_team_add_los_path(team),remote: true %>
+</div>
+
+<div id="modal" class="modal"></div>

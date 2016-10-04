@@ -1,0 +1,37 @@
+<div id="question-<%= question.id %>-show">
+  <h5><%= question.title %>:</h5>
+
+  <%= question.content.html_safe %>
+
+  <div class="col s12 row">
+    <div class="col m4 s12 row">
+      <div class="border">
+        <div class="box-response center col s12
+        <%= question.answers.last.correct ? 'valid' : 'invalid' unless question.answers.empty? %>"
+        data-id="<%= question.id %>">
+          <span class="response">
+            <% if question.answered(current_user, @team).empty? %>
+              Responda aqui
+            <% else %>
+              <%= question.answered(current_user, @team).last.response %>
+            <% end %>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col m7 s12">
+      <div class="tips">
+        <% unless question.tips_to_show(user: current_user, team: @team).nil? %>
+          <%= render partial: 'view_lo/tips/tip', locals: {tips: question.tips_to_show(user: current_user, team: @team), tip: question.tips_to_show(user: current_user, team: @team).last, question: question} %>
+        <% end %>
+      </div>
+    </div>
+
+    <form id="keyboard-form-<%= question.id %>" class="col s12" method="POST"
+      action="<%= view_lo_answer_path(@team, @lo, question.exercise, question) %>" data-remote="true">
+      <div id="keyboard-panel-<%= question.id %>"></div>
+    </form>
+  </div>
+
+</div>

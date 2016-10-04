@@ -13,15 +13,15 @@
   <%= link_to([:teacher, @lo, exercise], method: :delete, class: 'right', data: { confirm: 'tem certeza disso?' }) do%>
    <i class="material-icons">delete</i>
   <% end %>
-
  </div>
 
  <div id="show-questions" class="col S1">
-   <%= link_to([:teacher, @lo, exercise], class: 'btn-flat tooltipped',
-   'data-position' => 'right', 'data-tooltip' => "Criar/editar Questões do Exercício" ) do%>
+  <%= link_to([:teacher, @lo, exercise], class: 'btn-flat tooltipped',
+   'data-position' => 'top', 'data-tooltip' => "Questões do exercício: #{exercise.title}" ) do %>
+   
    <span class="right">Questões</span>
    <i class="mdi-hardware-keyboard-tab left"></i>
-   <% end %>
+  <% end %>
  </div>
 
  <div class="col s6 right">

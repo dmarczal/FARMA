@@ -1,0 +1,9 @@
+<h1 class="center"><%= exercise.title %></h1>
+
+<div class="content">
+  <%= exercise.content.html_safe %>
+</div>
+<div class="divider"></div>
+<div class="questions row">
+  <%= render exercise.questions %>
+</div>

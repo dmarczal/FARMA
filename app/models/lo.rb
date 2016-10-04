@@ -2,15 +2,22 @@ class Lo < ActiveRecord::Base
   belongs_to :user
   has_many :introductions, dependent: :destroy
   has_many :exercises, dependent: :destroy
+  has_many :teams
   has_attached_file :image, :styles => {:thumb => '200x200!'},
                       default_url: "home/oa.png"
 
   validates :name, :description, :user, presence: true
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
+  def content_by_position(index)
+    content = contents[index.to_i - 1]
+  end
+
   # Mescla de introduções e exercícios
   def contents
-    exercises = self.exercises.order :position
+    return @contents unless @contents.nil?
+
+    exercises = self.exercises.order(:position).includes :questions
     introductions = self.introductions.order :position
 
     @contents = exercises + introductions
@@ -19,6 +26,7 @@ class Lo < ActiveRecord::Base
   end
 
   private
+
   # This is necessary to show exercise and introduction order independently
   def define_index_method_for_contents
     i, e = 0, 0
@@ -26,6 +34,7 @@ class Lo < ActiveRecord::Base
       def content.index
         @index
       end
+
       def content.index=(index)
         @index = index
       end
