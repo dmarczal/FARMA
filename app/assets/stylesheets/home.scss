@@ -315,7 +315,7 @@ nav#home-page-navbar.active {
 * Area for awards the home page
 * _______________________________________________*/
 
-#home-page-awards{
+#home-page-awards {
   padding-top: 200px;
   padding-bottom: 400px;
 
@@ -331,12 +331,15 @@ nav#home-page-navbar.active {
       width: 180px;
       margin: 20px;
     }
-    span.card-title{
+    h5.card-title{
+      text-align: center;
       color: #75FCCC;
       font-size: 40px;
     }
-    p{
+    p {
+      font-size: 14px;
       color: #2F705A;
+      b {color: #00461e;}
     }
   }
 }

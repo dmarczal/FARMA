@@ -3,7 +3,7 @@ class Teacher::ApplicationController < ::ActionController::Base
   before_action :authenticate_user!
   before_action :page_title
 
-  add_breadcrumb 'Home', :teacher_path
+  add_breadcrumb 'Início', :teacher_path
   add_breadcrumb 'Meus OAs', :teacher_los_path, if: :los_or_exercises_or_introductions_controller?
   add_breadcrumb :breadcrumb_name, :breadcrumb_path, if: :exercises_or_introductions_controller?
 

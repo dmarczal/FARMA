@@ -37,4 +37,5 @@ window.FARMA.displayFlashMessages = ->
     "showEasing": "swing",
     "hideEasing": "linear",
     "showMethod": "fadeIn",
-    "hideMethod": "fadeOut"
+    "hideMethod": "fadeOut",
+    "preventDuplicates": false
