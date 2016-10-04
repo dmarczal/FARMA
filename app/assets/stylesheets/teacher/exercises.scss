@@ -3,16 +3,26 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 /*
- * Exercise pages styles
- * ______________________________*/
+* Exercise pages styles
+* ______________________________*/
 
 p {
   margin: 0;
 }
 
+article{
+  background-color: transparent;
+
+  span{
+    p{
+      margin: 10px;
+    }
+  }
+}
+
 /*
- * fixed button style --- new Questions
- * ______________________________*/
+* fixed button style --- new Questions
+* ______________________________*/
 
 .fixed-modal-btn {
   position: fixed;
@@ -22,8 +32,16 @@ p {
 }
 
 /*
- * list question style
- * ______________________________*/
+* list question style
+* ______________________________*/
+#questions_list.collection{
+  .collection-item{
+    background-color: #00E676;
+  i{
+    color: #1B5E20;
+  }
+}
+}
 
 .collection-item {
 
@@ -34,22 +52,47 @@ p {
     height: 57px;
   }
 
+  a.left {
+    margin-left: 56%;
+  }
+
   .ajax-question-box {
     display: none;
     background-color: $palletewhite;
     margin: 0;
     padding: 30px 20px;
+    color: $palleteblack;
+      .btn{
+        i{
+          color: $palleteblack;
+          opacity: 0.75;
+        }
+      }
+
   }
   
   .box-question-content {
     border-color: transparent;
   }
-
+  .title{
+    color: palleteblack;
+    padding-left: 15px;
+    p{
+      font-size: 12pt;
+      margin-left: 35px;
+    }
+    .exercise{
+      color: $palletelightpink;
+    }
+    .introduction{
+      color: $palletepurple;
+    }
+  }
 
   .show-question {
-    position: absolute;
-    left: 0;
-    top: 12px;
+    position: absolute;;
+    left: 0px;
+    top: 0px;
   }
 
   .show-question.active {
@@ -62,14 +105,22 @@ p {
     position: absolute;
     left: 8%;
     top: 20px;
+    color: white;
   }
 
   .questions-2-show{
-      span{
-        color: red;
-      }
+    span{
+      color: red;
+    }
   }
 
+  .questions_list{
+    height: 22px;
+  }
+  .padding{
+    padding-top: 40px;
+    padding-left: 20px;
+  }
 }
 
 .to-move {
@@ -79,10 +130,12 @@ p {
 
 #box-links-question {
   margin-bottom: 0;
+  position: relative;
+  bottom: 15px;
 }
 
 #questions_list {
-  border: 1px solid #d1d1d1;
+  border: 1px solid transparent;
   padding: 0;
 }
 
