@@ -41,6 +41,17 @@ window.FARMA.researchIcon = ->
       $(@).find('i').html('keyboard_arrow_up')
 
 window.FARMA.sidebarScrollSpy = ->
-  console.log 'yay'
-  $('.scrollspy').scrollSpy()
-  $('.tooltipped').tooltip({delay: 20});
+  $('.scrollspy').scrollSpy({scrollOffset: 600})
+  $('.tooltipped').tooltip({delay: 20})
+
+window.FARMA.tabbedResearchs = ->
+  $('ul.tabs').tabs();
+  $('.show-more').on 'click', ->
+    $('.more').show()
+    Materialize.showStaggeredList('.more')
+    $(this).addClass("show-less").removeClass("show-more")
+    $(this).text("keyboard_arrow_up")
+    $(this).on 'click', ->
+      $('.more').hide()
+      $(this).addClass("show-more").removeClass("show-less")
+      $(this).text("keyboard_arrow_down")

@@ -7,11 +7,69 @@
 
   <div class="row">
     <div class="col s12">
-      <ul class="collapsible popout collapsible-accordion" data-collapsible="accordion">
-
-        <%= render partial: 'home/researchs/research', collection: researchs  %>
-
+      <ul class="tabs">
+        <li class="tab col s3"><a class="active" href="#artigo">Artigos</a></li>
+        <li class="tab col s3"><a href="#poster">Poster</a></li>
+        <li class="tab col s3"><a href="#tcc">TCC</a></li>
+        <li class="tab col s3"><a href="#mestrado">Mestrado</a></li>
+        <li class="tab col s3"><a href="#doutorado">Doutorado</a></li>
       </ul>
+
+      <div id="artigo">
+        <ul class="collapsible popout collapsible-accordion" data-collapsible="accordion">
+          <%= render partial: 'home/researchs/research', collection: articles[0..4] %>
+          <% if articles.size() > 4 then %>
+              <ul class="collapsible popout collapsible-accordion more" data-collapsible="accordion" hidden>
+                <%= render partial: 'home/researchs/research', collection: articles[5..(articles.size())] %>
+              </ul>
+              <div class="show-more material-icons tabs col s12">keyboard_arrow_down</div>
+          <% end %>
+
+        </ul>
+      </div>
+
+      <div id="poster">
+        <ul class="collapsible popout collapsible-accordion" data-collapsible="accordion">
+          <%= render partial: 'home/researchs/research', collection: posters[0..4] %>
+          <div class="more" hidden>
+            <%= render partial: 'home/researchs/research', collection: posters[5..(posters.size())] %>
+          </div>
+          <button class="show-more">Mais...</button>
+        </ul>
+      </div>
+
+      <div id="tcc">
+        <ul class="collapsible popout collapsible-accordion" data-collapsible="accordion">
+          <%= render partial: 'home/researchs/research', collection: graduations[0..4] %>
+          <div class="more" hidden>
+            <%= render partial: 'home/researchs/research', collection: graduations[5..(graduations.size())] %>
+          </div>
+          <button class="show-more">Mais...</button>
+        </ul>
+      </div>
+
+      <div id="mestrado">
+        <ul class="collapsible popout collapsible-accordion" data-collapsible="accordion">
+          <%= render partial: 'home/researchs/research', collection: masters[0..4] %>
+          <div class="more" hidden>
+            <%= render partial: 'home/researchs/research', collection: masters[5..(masters.size())] %>
+          </div>
+          <button class="show-more">Mais...</button>
+        </ul>
+      </div>
+
+      <div id="doutorado">
+        <ul class="collapsible popout collapsible-accordion" data-collapsible="accordion">
+          <%= render partial: 'home/researchs/research', collection: doctors[0..4] %>
+          <% if doctors.size() > 4 then %>
+            <div class="more" hidden>
+              <%= render partial: 'home/researchs/research', collection: doctors[5..(doctors.size())] %>
+            </div>
+            <li><button class="show-more">Mais...</button></li>
+          <% end %>
+        </ul>
+      </div>
+
     </div>
   </div>
 

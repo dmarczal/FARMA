@@ -3,6 +3,7 @@ $(document).ready ->
   window.FARMA.loadMouseOverOnCard()
   window.FARMA.researchIcon()
   window.FARMA.sidebarScrollSpy()
+  window.FARMA.tabbedResearchs()
 
 # https://github.com/mkhairi/materialize-sass/issues/63
 # Fixed materialize because turbolinks
