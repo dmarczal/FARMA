@@ -46,12 +46,14 @@ window.FARMA.sidebarScrollSpy = ->
 
 window.FARMA.tabbedResearchs = ->
   $('ul.tabs').tabs();
+  $('.show-less').hide()
   $('.show-more').on 'click', ->
     $('.more').show()
     Materialize.showStaggeredList('.more')
-    $(this).addClass("show-less").removeClass("show-more")
-    $(this).text("keyboard_arrow_up")
-    $(this).on 'click', ->
-      $('.more').hide()
-      $(this).addClass("show-more").removeClass("show-less")
-      $(this).text("keyboard_arrow_down")
+    $('.show-more').hide()
+    $('.show-less').show()
+  $('.show-less').on 'click', ->
+    $('.more').hide()
+    $('.more').children().css('opacity', 0)
+    $('.show-less').hide()
+    $('.show-more').show()
