@@ -25,7 +25,7 @@ class Teacher::LosController < Teacher::ApplicationController
   def create #create new lo (post)
     @lo = current_user.los.new(lo_params)
     if @lo.save
-      redirect_to teacher_los_path
+      redirect_to teacher_lo_path(@lo)
     else
       flash.now[:error] = "Existem dados incorretos."
       render :new
