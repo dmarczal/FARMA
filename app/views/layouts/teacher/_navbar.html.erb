@@ -33,14 +33,14 @@
     <li class="">
       <a class="dropdown-button waves-effect waves-light clearfix" href="#!" data-activates="links_user">
         <%= current_user.name %><i id="drop-down" class="material-icons right">arrow_drop_down</i>
-        <%= image_tag current_user.avatar.url, class: "circle img-user left" %>
+        <%= image_tag current_user.avatar.url(:thumb), class: "circle img-user left" %>
       </a>
     </li>
   </ul>
 
   <ul id="nav-mobile" class="side-nav">
     <li class="clearfix">
-      <%= image_tag current_user.avatar.url, class: "circle", id: "img-user" %>
+      <%= image_tag current_user.avatar.url(:medium), class: "circle", id: "img-user" %>
       <h3 class="center"><%= current_user.name %></h3>
     </li>
 

@@ -33,12 +33,17 @@ class Teacher::TeamsController < Teacher::ApplicationController
 
   def add_los
     team = current_user.my_teams.find params[:team_id]
-    team.add_los params[:los]
+    lo_team = team.los_teams.new add_los_params
+    lo_team.save
   end
 
   private
 
   def team_params
     params.require(:team).permit(:name, :code)
+  end
+
+  def add_los_params
+    params.require(:los).permit(:lo_id)
   end
 end

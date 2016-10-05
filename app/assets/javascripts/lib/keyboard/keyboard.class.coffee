@@ -21,7 +21,7 @@ class window.FARMA.Keyboard
           { key: 7, value: 7, type: "key" },
           { key: 8, value: 8, type: "key" },
           { key: 9, value: 9, type: "key" },
-          { key: "÷", value: "\\over", type: "operator" },
+          { key: "÷", value: "\\over", type: "operator"},
           { key: "", value: "", type: "special mdi mdi-sigma" },
           { key: 4, value: 4, type: "key" },
           { key: 5, value: 5, type: "key" },
