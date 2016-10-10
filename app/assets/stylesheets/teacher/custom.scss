@@ -2,23 +2,128 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 /*
+*  NavBar
+*________________________________*/
+
+#logo-container {
+  left: 50.333086603%; //(680 * 100) / 1351
+}
+
+#logo-container.center-logo {
+  left: 46.484085862%; //(628 * 100) / 1351
+}
+
+#switch-page {
+  padding: 0 5px;
+  label {
+    color: $palletewhite;
+  }
+  label:active{
+    color: $palletegreen;
+  }
+  label .lever {
+    background-color: #101519;
+  }
+  label input[type=checkbox]:checked + .lever:after {
+    background-color: $palletegreen;
+  }
+  label input[type=checkbox]:checked + .lever:active {
+    background-color: $palletegreen;
+  }
+  label input[type=checkbox]:checked + .lever{
+    background-color: #101519;
+  }
+}
+
+/*
+* links user(perfil and get out)
+* ______________________________*/
+#button_links_user {
+  color: $palletewhite;
+  margin-right: 2.22057735%; //(30 * 100) / 1351
+
+  .img-user {
+    height: 36px;
+    width: 36px;
+    margin-top: 15px;
+    margin-right: 10px;
+  }
+
+  #drop-down {
+    margin-top: 18px;
+  }
+  .dropdown-content li > a, .dropdown-content li > span{
+    color: $palleteblue;
+  }
+}
+
+#links_user {
+  top: 64px !important;
+}
+
+/*
+* Vertical menu
+* ______________________________*/
+
+#panel {//_____ Card_Painel
+  position: fixed;
+  overflow: hidden;
+}
+
+#panel-list {//_____ list
+  padding: 0;
+  width: 200px;
+}
+
+#panel-list li {//_____ content-list
+  color: $palletegrey;
+  padding: 10px;
+
+  i {
+    margin-left: 10px;
+  }
+}
+#panel-list li.active {//_____ active content-list
+  color: $palletegreen;
+}
+
+#panel-list li:hover {//_____ focus in content-list
+  background-color: $palletewhite;
+}
+
+
+#button-panel {//____ button ative painel
+  width: 50px;
+  height: 0;
+  cursor: pointer;
+}
+
+#button-panel i {//____ icon the button ative painel
+  margin-top: 20px;
+}
+
+.panel-list-divider {
+  margin: 15px 0;
+}
+
+/*
 * Breadcrumbs Styles
 * ______________________________*/
 
 .nav-breadcrumbs {
- background-color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
 
- .breadcrumb {
-  color: $palletegreen;
- }
+  .breadcrumb {
+    color: $palletegreen;
+  }
 
- span.breadcrumb {
-  color: $palletegrey2;
- }
+  span.breadcrumb {
+    color: $palletegrey2;
+  }
 }
 
 .breadcrumb:before {
- color: $palletegrey2;
+  color: $palletegrey2;
 }
 
 /*
@@ -26,8 +131,8 @@
 * ______________________________*/
 
 #box-button-form {
- margin-bottom: 0;
- padding-top: 20px;
+  margin-bottom: 0;
+  padding-top: 20px;
 }
 
 /*
@@ -35,90 +140,99 @@
 * ______________________________*/
 
 .box-form {
- position: relative;
- padding: 20px;
- margin-top: 30px;
+  position: relative;
+  padding: 20px;
+  margin-top: 30px;
 
- .lo_image {
-  padding: 0 ;
-  margin: 0 ;
-  margin-bottom: 20px;
- }
+  .lo_image {
+    padding: 0 ;
+    margin: 0 ;
+    margin-bottom: 20px;
+  }
 
- .text-box {
-  width: 100%;
-  height: 100%;
-  padding: 60px 20px 0 20px;
- }
+  .text-box {
+    width: 100%;
+    height: 100%;
+    padding: 60px 20px 0 20px;
+  }
 
- .btn-cancel {
-  position: absolute;
-  top: 5px;
-  right: 5px;
- }
+  .btn-cancel {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
 }
 
 .simple_form {
- float: none !important;
+  float: none !important;
 }
 
 .image_preview {
- background-color: #DEE0E2;//Color gray of the input image
+  background-color: #DEE0E2;//Color gray of the input image
 }
 
 .box-image {
- position: relative; // position relative for the input absolute
- width: 100%;
- height: 200px;
-
- img {
+  position: relative; // position relative for the input absolute
   width: 100%;
-  height: 100%;
- }
+  height: 200px;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
 
 }
 
 #box-image-preview input { // image_preview for los
- position: absolute;
- top: 0;
- left: 0;
- filter: alpha(opacity=0);
- opacity: 0;
- height: 100%;
- width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  height: 100%;
+  width: 100%;
 }
 
 .file_preview.active { // show the image selected
- display: block;
- border: 1px solid black;
+  display: block;
+  border: 1px solid black;
 }
 
 .file_preview {
- width: 100%;
- display: none;
+  width: 100%;
+  display: none;
 }
 
 #box-textarea {
- padding: 0;
+  padding: 0;
 }
 
 #box-image-preview {
- padding: 0;
+  padding: 0;
 }
 .pink-red{
- background-color: $palletepink;
+  background-color: $palletepink;
 }
 .pink-red:hover{
- background-color: $palletepink2;
+  background-color: $palletepink2;
+}
+.light-gree{
+  background-color: $palletegreen2;
+}
+.green-light{
+  background-color: $palletegreen;
+}
+.green-light:hover{
+  background-color: $palletegreen2;
 }
 .purple-color{
- background-color: $palletepurple;
+  background-color: $palletepurple;
 }
 .light-pink-color{
- background-color: $palletelightpink;
+  background-color: $palletelightpink;
 }
 nav{
- background-color: $palleteblue2;
+  background-color: $palleteblue2;
 
 }
 
@@ -126,42 +240,42 @@ nav{
 *  nav mobile skyles
 * ______________________________*/
 #nav-mobile{
- background-color: $palleteblue2;
- li{
-  a{
-   color: $palletewhite;
-  }
- }
- li:active{
-  a{
-   color: $palletegreen;
-  }
- }
- li:hover{
   background-color: $palleteblue2;
-  a{
-   background-color: $palleteblue2;
+  li{
+    a{
+      color: $palletewhite;
+    }
   }
- }
- img{
-  width: 127px;
-  margin: 31px 47px -34px 41px;
- }
- h3{
-  color: $palletewhite;
-  font-size: 22px;
- }
+  li:active{
+    a{
+      color: $palletegreen;
+    }
+  }
+  li:hover{
+    background-color: $palleteblue2;
+    a{
+      background-color: $palleteblue2;
+    }
+  }
+  img{
+    width: 127px;
+    margin: 31px 47px -34px 41px;
+  }
+  h3{
+    color: $palletewhite;
+    font-size: 22px;
+  }
 }
 .nav-breadcrumbs span.breadcrumb::before {
- color: $palletegreen;
+  color: $palletegreen;
 }
 .nav-breadcrumbs .breadcrumb{
- color: $palletegrey2;
+  color: $palletegrey2;
 }
 
 /*
- * Bootstrap modal
- */
+* Bootstrap modal
+*/
 .modal {
   width: 75%;
 }
