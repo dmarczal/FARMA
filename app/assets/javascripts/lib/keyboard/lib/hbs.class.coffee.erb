@@ -3,15 +3,20 @@
   @template_path = '/assets/lib/keyboard/views/templates'
 
   def asset_partial(file)
-    asset_file(file, @partial_path)
+    asset_file(file, @partial_path, 'partial')
   end
 
   def asset_template(file)
-    asset_file(file, @template_path)
+    asset_file(file, @template_path, 'hbs')
   end
 
-  def asset_file(file, path)
-    asset_path("#{path}/#{file}").gsub("#{path}/", '')
+  def asset_file(file, path, extension)
+    return file unless Rails.env.production?
+    p = path.gsub('/assets/', '')
+    f = "#{p}/#{file}.#{extension}"
+    asset = asset_path(f)
+    asset.gsub!("#{path}/", '')
+    asset.gsub(".#{extension}", '')
   end
 %>
 
@@ -19,6 +24,10 @@ class window.FARMA.Hbs
 
   constructor: ->
     $.handlebars(@options)
+    console.log "oi"
+    console.log "<%= asset_path("lib/keyboard/views/templates/keyboard.hbs") %>"
+    console.log "<%= asset_template("keyboard") %>"
+    console.log "<%= asset_partial("element") %>"
 
   options:
     templateExtension: 'hbs'
@@ -33,5 +42,7 @@ class window.FARMA.Hbs
     templates = 
       keyboard: "<%= asset_template('keyboard')  %>"
       formulas: "<%= asset_template('formulas')  %>"
+
+    console.log(templates)
 
     templates[template]
