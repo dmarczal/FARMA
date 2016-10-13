@@ -1,0 +1,37 @@
+<%
+  @partial_path = '/assets/lib/keyboard/views/partials'
+  @template_path = '/assets/lib/keyboard/views/templates'
+
+  def asset_partial(file)
+    asset_file(file, @partial_path)
+  end
+
+  def asset_template(file)
+    asset_file(file, @template_path)
+  end
+
+  def asset_file(file, path)
+    asset_path("#{path}/#{file}").gsub("#{path}/", '')
+  end
+%>
+
+class window.FARMA.Hbs
+
+  constructor: ->
+    $.handlebars(@options)
+
+  options:
+    templateExtension: 'hbs'
+    partialPath: '<%= @partial_path %>'
+    templatePath: '<%= @template_path %>'
+    partials: 
+      [
+        "<%= asset_partial('element') %>"
+      ]
+
+  render: (template) ->
+    templates = 
+      keyboard: "<%= asset_template('keyboard')  %>"
+      formulas: "<%= asset_template('formulas')  %>"
+
+    templates[template]

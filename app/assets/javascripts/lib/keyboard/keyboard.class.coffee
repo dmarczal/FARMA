@@ -1,21 +1,14 @@
 class window.FARMA.Keyboard
 
   constructor: (id) ->
-
-    @screen = new window.FARMA.Screen();
-
-    $.handlebars({
-      templatePath: '/assets/lib/keyboard/templates',
-      templateExtension: 'hbs'
-      partialPath: '/assets/lib/keyboard/partials',
-      partials: ['element']
-    });
+    @screen = new window.FARMA.Screen()
+    @hbs = new window.FARMA.Hbs()
 
     Handlebars.registerHelper 'log', (context) ->
       console.log context
 
-    #render
-    $('#keyboard-panel-' + id).render('keyboard', {
+    # render
+    $('#keyboard-panel-' + id).render(@hbs.render('keyboard'), {
         id: id
         keys: [
           { key: 7, value: 7, type: "key" },
@@ -80,16 +73,10 @@ class window.FARMA.Keyboard
       # $('#keyboard-panel-' + id).hide()
       $('.box-response').show()
 
+    hbs = @hbs
     $(document).on 'click', ".mdi-matrix", ->
-      $.handlebars({
-        templatePath: '/assets/lib/keyboard/templates',
-        templateExtension: 'hbs'
-        partialPath: '/assets/lib/keyboard/partials',
-        partials: ['element']
-      });
-      # $('#keyboard-' + id).find("#default-keys").hide()
 
-      $('#keyboard-' + id).find("#more").render('formulas', {
+      $('#keyboard-' + id).find("#more").render(hbs.render('formulas'), {
         keys: [
           { key: "&", value: "&", type: "key" },
           { key: "", value: "\\\\", type: "key mdi mdi-keyboard-return" },
