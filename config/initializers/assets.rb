@@ -14,4 +14,4 @@ Rails.application.config.assets.version = '1.0'
 
 Rails.application.config.assets.precompile += %w( admin/login.css.scss )
 
-Rails.application.config.assets.precompile += %w( ckeditor/*)
+Rails.application.config.assets.precompile += %w( ckeditor/* )

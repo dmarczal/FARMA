@@ -2,11 +2,11 @@
 lock '3.5.0'
 
 set :user,            'apps'
-set :application, "farma-reborned.educacional.mat.br"
+set :application, "farma-reborn.educacional.mat.br"
 
 set :scm, :git
 set :branch, "staging"
-set :repo_url, 'git@bitbucket.org:farma-reborned/farma.git'
+set :repo_url, 'git@bitbucket.org:farma-reborn/farma.git'
 set :keep_releases, 3
 
 set :format, :pretty

@@ -1,7 +1,10 @@
 class Teacher::ApplicationController < ::ActionController::Base
+
   layout "teacher/application"
   before_action :authenticate_user!
   before_action :page_title
+
+  helper_method :breadcrumb_name, :breadcrumb_path
 
   add_breadcrumb 'Início', :teacher_path
   add_breadcrumb 'Meus OAs', :teacher_los_path, if: :los_or_exercises_or_introductions_controller?
@@ -32,7 +35,4 @@ class Teacher::ApplicationController < ::ActionController::Base
       lo = find_lo
       teacher_lo_path(lo)
     end
-
-    helper_method :breadcrumb_name, :breadcrumb_path
-
 end

@@ -1,0 +1,60 @@
+<%
+  @partial_path = '/assets/lib/keyboard/views/partials'
+  @template_path = '/assets/lib/keyboard/views/templates'
+
+  def asset_partial(file)
+    asset_file(file, @partial_path, 'partial')
+  end
+
+  def asset_template(file)
+    asset_file(file, @template_path, 'hbs')
+  end
+
+  def asset_file(file, path, extension)
+    return file unless Rails.env.production?
+    p = path.gsub('/assets/', '')
+    f = "#{p}/#{file}.#{extension}"
+    asset = asset_path(f)
+    asset.gsub!("#{path}/", '')
+    asset.gsub(".#{extension}", '')
+  end
+%>
+
+class window.FARMA.Hbs
+
+  constructor: ->
+    $.handlebars(@options)
+    @changeIncludePartial()
+
+  options:
+    templateExtension: 'hbs'
+    partialPath: '<%= @partial_path %>'
+    templatePath: '<%= @template_path %>'
+    partials: 
+      [
+        "<%= asset_partial('element') %>"
+      ]
+
+  render: (template) ->
+    templates = 
+      keyboard: "<%= asset_template('keyboard')  %>"
+      formulas: "<%= asset_template('formulas')  %>"
+
+    templates[template]
+
+  partialMap: (partial) ->
+    partials =
+      element: "<%= asset_partial('element') %>"
+
+    partials[partial]
+
+  changeIncludePartial: ->
+    map = @partialMap
+    Handlebars.registerHelper 'render', (templateName, options) -> 
+      templateName = map(templateName)
+      partial = Handlebars.partials[templateName]
+      if (typeof partial is "string")
+        partial = Handlebars.compile(partial)
+        Handlebars.partials[templateName] = partial
+      context = $.extend({}, this, options.hash)
+      new Handlebars.SafeString partial(context)
