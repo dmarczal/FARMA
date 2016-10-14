@@ -24,10 +24,7 @@ class window.FARMA.Hbs
 
   constructor: ->
     $.handlebars(@options)
-    console.log "oi"
-    console.log "<%= asset_path("lib/keyboard/views/templates/keyboard.hbs") %>"
-    console.log "<%= asset_template("keyboard") %>"
-    console.log "<%= asset_partial("element") %>"
+    @changeIncludePartial()
 
   options:
     templateExtension: 'hbs'
@@ -43,6 +40,21 @@ class window.FARMA.Hbs
       keyboard: "<%= asset_template('keyboard')  %>"
       formulas: "<%= asset_template('formulas')  %>"
 
-    console.log(templates)
-
     templates[template]
+
+  partialMap: (partial) ->
+    partials =
+      element: "<%= asset_partial('element') %>"
+
+    partials[partial]
+
+  changeIncludePartial: ->
+    map = @partialMap
+    Handlebars.registerHelper 'render', (templateName, options) -> 
+      templateName = map(templateName)
+      partial = Handlebars.partials[templateName]
+      if (typeof partial is "string")
+        partial = Handlebars.compile(partial)
+        Handlebars.partials[templateName] = partial
+      context = $.extend({}, this, options.hash)
+      new Handlebars.SafeString partial(context)

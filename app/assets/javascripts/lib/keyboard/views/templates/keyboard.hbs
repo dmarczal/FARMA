@@ -19,13 +19,13 @@
   <div class="keys" id="default-keys">
     <!-- operators and other keys -->
     {{#each keys}}
-      {{> element}}
+      {{render 'element'}}
     {{/each}}
   </div>
 
   <div class="keys" id="more">
     {{#each specialKeys}}
-      {{> element}}
+      {{render 'element'}}
     {{/each}}
     <button type="submit" class="btn waves-effect waves-light tooltipped eval mdi mdi-account-check" data-tooltip="{{this.key}}" data-position="top" data-value="check">{{this.key}}</button>
 
