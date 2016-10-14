@@ -16,8 +16,7 @@ class Student::TeamsController < Student::ApplicationController
       redirect_to student_team_path(team)
     else
       flash.now[:error] = "Chave incorreta."
-      @teams = Team.all.includes :user
-      render :index
+      redirect_to student_teams_path
     end
   end
 
