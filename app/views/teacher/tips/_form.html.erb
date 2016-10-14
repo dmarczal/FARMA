@@ -10,7 +10,7 @@
   <%= simple_form_for([:teacher, @lo, @exercise, @question, @tip],
                       html: {class: 'col s12'}, remote: true) do |f| %>
 
-    <%= f.input :content, autofocus: true,:as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'Full'} }%>
+    <%= f.input :content, autofocus: true,:as => :ckeditor, input_html: { id: ckeditor_id(@question) } %>
 
     <div class="col s3">
       <%= f.input :number_of_tries %>
