@@ -4,6 +4,12 @@
   <title><%= full_title(yield(:title)) %></title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="//cdn.materialdesignicons.com/1.7.12/css/materialdesignicons.min.css" rel="stylesheet">
+
+  <%= stylesheet_link_tag    'teacher/application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'teacher/application', 'data-turbolinks-track' => true %>
+
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.2-latest/MathJax.js?config=TeX-AMS_HTML"></script>
+
   <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
       showProcessingMessages: false,
@@ -13,9 +19,7 @@
       }
     });
   </script>
-  <%= stylesheet_link_tag    'teacher/application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'teacher/application', 'data-turbolinks-track' => true %>
-  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.2-latest/MathJax.js?config=TeX-AMS_HTML"></script>
+
   <%= csrf_meta_tags %>
 </head>
 <body>

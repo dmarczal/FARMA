@@ -1,18 +1,11 @@
 <%= render 'shared/flash_messages'  %>
 
-<div class="divider"></div>
-
-<h3 class="center"><%= @title_form %></h3>
-
-<div class="divider"></div>
-<div class="box-form">
-
   <%= simple_form_for([:teacher, @lo, @exercise, @question, @tip],
                       html: {class: 'col s12'}, remote: true) do |f| %>
 
     <%= f.input :content, autofocus: true,:as => :ckeditor, input_html: { id: ckeditor_id(@question) } %>
 
-    <div class="col s3">
+    <div class="col s3 pandding">
       <%= f.input :number_of_tries %>
     </div>
 

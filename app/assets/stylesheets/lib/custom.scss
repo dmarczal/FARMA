@@ -88,6 +88,22 @@ label.ckeditor{
   color: $palletegreen;
 }
 
+.text-orange{
+  color: #FF5722;
+}
+
+.gradient-white {
+  background: rgba($palletewhite,1);
+  background: -moz-linear-gradient(top, rgba($palletewhite,1) 0%, rgba($palletewhite,1) 8%, rgba($palletewhite,0.69) 28%, rgba($palletewhite,0) 51%, rgba($palletewhite,0.69) 74%, rgba($palletewhite,1) 88%, rgba($palletewhite,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba($palletewhite,1)), color-stop(8%, rgba($palletewhite,1)), color-stop(28%, rgba($palletewhite,0.69)), color-stop(51%, rgba($palletewhite,0)), color-stop(74%, rgba($palletewhite,0.69)));
+  background: -webkit-linear-gradient(top, rgba($palletewhite,1) 0%, rgba($palletewhite,1) 8%, rgba($palletewhite,0.69) 28%, rgba($palletewhite,0) 51%, rgba($palletewhite,0.69) 74%, rgba($palletewhite,1) 88%, rgba($palletewhite,1) 100%);
+  background: -o-linear-gradient(top, rgba($palletewhite,1) 0%, rgba($palletewhite,1) 8%, rgba($palletewhite,0.69) 28%, rgba($palletewhite,0) 51%, rgba($palletewhite,0.69) 74%, rgba($palletewhite,1) 88%, rgba($palletewhite,1) 100%);
+  background: -ms-linear-gradient(top, rgba($palletewhite,1) 0%, rgba($palletewhite,1) 8%, rgba($palletewhite,0.69) 28%, rgba($palletewhite,0) 51%, rgba($palletewhite,0.69) 74%, rgba($palletewhite,1) 88%, rgba($palletewhite,1) 100%);
+  background: linear-gradient(to bottom, rgba($palletewhite,1) 0%, rgba($palletewhite,1) 8%, rgba($palletewhite,0.69) 28%, rgba($palletewhite,0) 51%, rgba($palletewhite,0.69) 74%, rgba($palletewhite,1) 88%, rgba($palletewhite,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#edeeef', endColorstr='#edeeef', GradientType=0 );
+  opacity: 1.5;
+}
+
 /*
  * removing the active effect of the materialize
  * ______________________________*/

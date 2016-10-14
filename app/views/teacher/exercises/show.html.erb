@@ -9,10 +9,10 @@
 
 <article>
   <header class="center">
-    <h2><%= @exercise.title %> - Questões</h2>
+    <h5><%= @exercise.title %> - Questões</h5>
   </header>
 
-  <%= @exercise.content.to_s.html_safe %>
+  <span class="center"><%= @exercise.content.to_s.html_safe %></span>
 
   <div class="divider"></div>
   <div id="box-new-question"></div>

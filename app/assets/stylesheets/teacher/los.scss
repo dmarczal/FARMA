@@ -32,7 +32,7 @@ span {
 }
 
 .span-created-at {
-  font-size: 14px;
+  font-size: 12px;
   color: #bdbdbd;
 }
 
@@ -53,6 +53,9 @@ span {
 
 #show-questions {
   margin: 10px 0;
+  a {
+    color: #039be5;
+  }
 }
 
 .box-form {
