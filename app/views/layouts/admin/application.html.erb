@@ -10,11 +10,29 @@
 </head>
 <body>
 
-  <%= render 'shared/flash_messages'  %>
+   <%= render 'shared/flash_messages'  %>
 
-  <div class="container">
-     <%= yield %>
+  <div class="navbar-fixed nav-dashboard">
+    <%= render 'layouts/admin/navbar' %>
   </div>
+
+  <main id="main-teacher" class="row">
+
+    <div id="panel" class="col l2 row active hide-on-med-and-down">
+      <%= render 'layouts/admin/panel' %>
+    </div>
+
+    <div id="container">
+      <div id="content-teacher" class="col m12 l9 offset-l2 row">
+
+        <div class="content white">
+          <%= yield %>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
 
 </body>
 </html>

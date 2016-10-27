@@ -1,5 +1,11 @@
 'pt-BR':
   hello: 'Olá'
+  views:
+    show: "Mostrar"
+    edit: "Editar"
+    destroy: "Deletar"
+    edit: 'Editar'
+    back: 'Voltar'
   time:
     am: ''
     formats:
@@ -28,6 +34,9 @@
         question:
           one: Questão
           other: Questões
+        admin/research:
+            one: 'Pesquisa'
+            other: 'Pesquisas'
       attributes:
         attribute_commons: &commons
           name: "Nome"
@@ -39,7 +48,7 @@
           password_confirmation: "Confirmação da senha"
           remember_me: "Lembrar me"
           current_password: "Senha atual"
-          reset_password_token: "Token de ateração de senha"
+          reset_password_token: "Token de alteração de senha"
           confirmation_token: "Token de confirmação"
           <<: *commons
         contact:
@@ -55,4 +64,9 @@
         question:
           correct_answer: 'Resposta correta'
           cmas_order: 'Considerar ordem das respostas'
+          <<: *commons
+        admin/research:
+          ref: 'Referência'
+          abstract: 'Resumo'
+          kind: 'Tipo'
           <<: *commons
