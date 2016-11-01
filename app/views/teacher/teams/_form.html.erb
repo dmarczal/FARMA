@@ -1,8 +1,8 @@
 <%= simple_form_for([:teacher ,@team], html: {class: 'col s12 row', multipart: true}) do |f| %>
 
   <%= f.input :name, autofocus: true %>
-
   <%= f.input :code %>
+  <%= f.input :los,as: :mult_select, collection: @los, name: "Selecione os objetos que deseja adicionar" %>
 
   <%= f.button :submit_materialize, cancel: teacher_teams_path %>
 

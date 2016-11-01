@@ -20,14 +20,29 @@
 
   <ul id="button_links_user" class="hide-on-med-and-down right">
     <li>
-      <div id="switch-page" class="switch">
-        <label>
-          Professor
-          <input type="checkbox">
-          <span class="lever"></span>
-          Aprendiz
-        </label>
-      </div>
+      <% if request.env['PATH_INFO'].match( /student/ ) %>
+        <%= link_to teacher_path do %>
+          <div id="switch-page" class="switch">
+            <label>
+              Professor
+              <input type="checkbox" CHECKED >
+              <span class="lever"></span>
+              Aprendiz
+            </label>
+          </div>
+        <% end %>
+      <% else %>
+        <%= link_to student_path do %>
+          <div id="switch-page" class="switch">
+            <label>
+              Professor
+              <input type="checkbox">
+              <span class="lever"></span>
+              Aprendiz
+            </label>
+          </div>
+        <% end %>
+      <% end %>
     </li>
     <!-- Dropdown Trigger -->
     <li class="">
@@ -48,7 +63,7 @@
       <div id="switch-page" class="switch">
         <label>
           Professor
-          <input type="checkbox">
+          <input type="checkbox" <%= request.env['PATH_INFO'].match("/student/") ? "CHECKED" : ""%> >
           <span class="lever"></span>
           Aprendiz
         </label>
