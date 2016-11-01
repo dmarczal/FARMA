@@ -27,6 +27,7 @@ window.FARMA.reloadMaterilizeEffects = ->
   $('.tooltipped').tooltip({delay: 200})
   $('.button-collapse').sideNav() # reinitialize nav-mobile
   $('.modal-trigger').leanModal()
+  $('select').material_select()
 
 window.FARMA.displayFlashMessages = ->
   toastr.options =

@@ -3,11 +3,21 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .card-team {
+  position: relative;
+  margin-left: 60px;
   border-radius: 10px;
   padding: 40px 0 !important;
 
   .title {
     margin-bottom: 20px;
+  }
+
+  .material-icons {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    color: black;
   }
 }
 

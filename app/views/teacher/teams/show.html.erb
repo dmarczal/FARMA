@@ -8,7 +8,7 @@
 
   <ul>
     <% @team.los.all.each do |lo| %>
-      <li><%= link_to lo.name, teacher_team_lo_path(@team, lo) %></li>
+      <li><%= lo.name %></li>
     <% end %>
   </ul>
 

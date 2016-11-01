@@ -32,12 +32,7 @@ Rails.application.routes.draw do
     get '/' => 'dashboard#index'
 
     #routes for teams (get: [index, new, show], post: create)
-    resources :teams, only: [:index, :new, :create, :show] do
-      get '/add-los' => 'teams#list_add_los'
-      post '/add-los' => 'teams#add_los'
-
-      get '/los/:id' => 'teams#lo', as: :lo
-    end
+    resources :teams, except: [:edit, :update]
 
     #routes for los (get: [index, new, edit], post: create, delete: destroy, put: update)
     resources :los do
