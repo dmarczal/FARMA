@@ -17,27 +17,32 @@ class window.FARMA.Keyboard
     #render
     $('#keyboard-panel-' + id).render('keyboard', {
         id: id
+        delimiters: [
+          { key: "(       )", value: "(       )", type: "key" },
+          { key: "[       ]", value: "[       ]", type: "key" },
+          { key: "{       }", value: "{       }", type: "key" }
+        ]
         keys: [
-          { key: 7, value: 7, type: "key" },
-          { key: 8, value: 8, type: "key" },
-          { key: 9, value: 9, type: "key" },
-          { key: "÷", value: "\\over", type: "operator" },
-          { key: "", value: "", type: "special mdi mdi-sigma" },
-          { key: 4, value: 4, type: "key" },
-          { key: 5, value: 5, type: "key" },
-          { key: 6, value: 6, type: "key" },
-          { key: "x", value: "*", type: "operator" },
-          { key: "", value: "", type: "special mdi mdi-function" },
           { key: 1, value: 1, type: "key" },
           { key: 2, value: 2, type: "key" },
           { key: 3, value: 3, type: "key" },
-          { key: "-", value: "-", type: "operator" },
-          { key: "", value: "", type: "special mdi mdi-flask-outline" },
+          # { key: "÷", value: "\\over", type: "operator" },
+          # { key: "", value: "", type: "special mdi mdi-sigma" },
+          { key: 4, value: 4, type: "key" },
+          { key: 5, value: 5, type: "key" },
+          { key: 6, value: 6, type: "key" },
+          # { key: "x", value: "*", type: "operator" },
+          # { key: "", value: "", type: "special mdi mdi-function" },
+          { key: 7, value: 7, type: "key" },
+          { key: 8, value: 8, type: "key" },
+          { key: 9, value: 9, type: "key" },
+          # { key: "-", value: "-", type: "operator" },
+          # { key: "", value: "", type: "special mdi mdi-flask-outline" },
           { key: ".", value: ".", type: "key" },
           { key: 0, value: 0, type: "key" },
           { key: "=", value: "=", type: "key" }
-          { key: "+", value: "+", type: "operator" }
-          { key: "", value: "\\left[\\begin{matrix}\\end{matrix}\\right]", type: "special mdi mdi-matrix" },
+          # { key: "+", value: "+", type: "operator" }
+          # { key: "", value: "\\left[\\begin{matrix}\\end{matrix}\\right]", type: "special mdi mdi-matrix" },
         ]
         specialKeys: [
           { key: "√", value: "\\sqrt{}", type: "key" },
@@ -51,14 +56,20 @@ class window.FARMA.Keyboard
           # { key: "%", value: "*100", type: "key" },
           # { key: "", value: "\\\\", type: "operator mdi mdi-keyboard-return" }
         ]
+        function: [
+          { key: "√", value: "\\sqrt{}", type: "key" },
+          { key: "(", value: "{", type: "key" },
+          { key: ")", value: "}", type: "key" }
+        ]
       })
 
     # Apply functionality
-    if !$("#question-" + id + "-show").hasClass("keyboard-active")
+    obj = $("#question-" + id + "-show")
+    if !obj.hasClass("keyboard-active")
       @clickHandler(id)
       # @hotKeyHandler(id)
       @checkAnswer(id)
-      $("#question-" + id + "-show").addClass("keyboard-active")
+      obj.addClass("keyboard-active")
     console.log $(".tooltipped")
     $('.tooltipped').tooltip delay: 50
 
@@ -70,12 +81,30 @@ class window.FARMA.Keyboard
       else
         self.cleanScreen(id)
 
+    # $(document).on 'click', '#functions', ->
+    #   $('#function-keys').show()
+    #   $('#matrix-keys').hide()
+    #   $('#trig-keys').hide();
+
+
+    $(document).on 'click', '#special-keys ul li', ->
+      $('#special-keys ul li').removeClass('active');
+      $(@).addClass('active')
+
+      $('#advanced-keys div').hide();
+      show_id = "#" + $(@).data('id')
+      $(show_id).show()
+
+
+
+    $(document).on 'click', '#show-direct-input', ->
+      $('.direct-input').toggle()
+
     $(document).on 'click', "#diyBtn", ->
-      console.log 'diy'
       $('.screen').toggle()
 
     $('form').on 'submit', ->
-      # $('#keyboard-panel-' + id).hide()
+      $('#keyboard-panel-' + id).hide()
       $('.box-response').show()
 
     $(document).on 'click', ".mdi-matrix", ->
