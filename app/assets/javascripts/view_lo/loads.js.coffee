@@ -6,6 +6,7 @@ $(document).ready ->
 # Fixed materialize because turbolinks
 $(document).on 'page:change', ->
   window.FARMA.reloadMaterilizeEffects()
+  window.FARMA.updateBars(30, 50)
 
 $(document).on 'page:update', ->
   MathJax.Hub.Queue(["Typeset",MathJax.Hub]);

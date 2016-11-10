@@ -1,13 +1,12 @@
 #lo-panel {
   position: fixed;
   overflow: auto;
-  width: 200px;
+  width: 52px;
   height: 100%;
-  border-right: 1px solid #e0e0e0;
 
   #top-panel {
     width: 100%;
-    height: 150px;
+    height: 50px;
   }
 
   ul {
@@ -55,34 +54,96 @@
    border: 5px solid #e53935;
  }
 
-
  /*
-  *  TIPS
-  *_______________________________________*/
+  *  novo template
+  * ________________________________________________________________________________________*/
 
-  .box-show-tips {
-    position: relative;
-    padding-top: 15px;
-    border: 1px solid #d1d1d1;
-    height: 250px;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+nav {
+  width: 1250px;
 
-    .col {
-      padding-left: 0 ;
-      padding-right: 0 ;
+  .img-user {
+    margin-top: 3px;
+    margin-right: 5px;
+  }
+
+  #my-process {
+    cursor: pointer;
+    margin-right: 50px;
+    font-size: 20px;
+    height: 64px;
+  }
+}
+
+#process-bars {
+  margin-top: 64px;
+
+  .bar {
+    height: 5px;
+
+    border-radius: 10px;
+    /* Declaração para aparecer no Firefox */
+    -moz-border-radius: 10px;
+    /* Para exibir nos outros navegadores como Chrome, safari, opera*/
+    -webkit-border-radius: 10px;
+    
+    .process-bar {
+      height: 5px;
+      margin-top: 20px;
+
+      border-radius: 10px;
+    	/* Declaração para aparecer no Firefox */
+    	-moz-border-radius: 10px;
+    	/* Para exibir nos outros navegadores como Chrome, safari, opera*/
+    	-webkit-border-radius: 10px;
     }
 
-    i {
-      margin-top: 70px;
-    }
+    .preview-bar {
+      height: 5px;
+      margin-top: 20px;
 
-    p {
-      margin-bottom: 20px;
-    }
-
-    .box-bottom {
-      position: absolute;
-      bottom: 0;
+      border-radius: 10px;
+    	/* Declaração para aparecer no Firefox */
+    	-moz-border-radius: 10px;
+    	/* Para exibir nos outros navegadores como Chrome, safari, opera*/
+    	-webkit-border-radius: 10px;
     }
   }
+}
+
+.box-process-bar {
+  .text {
+    height: 50px;
+  }
+
+  .bar {
+    width: 200px;
+    height: 5px;
+
+    border-radius: 10px;
+  	/* Declaração para aparecer no Firefox */
+  	-moz-border-radius: 10px;
+  	/* Para exibir nos outros navegadores como Chrome, safari, opera*/
+  	-webkit-border-radius: 10px;
+
+    .process-bar {
+      height: 5px;
+      margin-top: -5px;
+
+      border-radius: 10px;
+    	/* Declaração para aparecer no Firefox */
+    	-moz-border-radius: 10px;
+    	/* Para exibir nos outros navegadores como Chrome, safari, opera*/
+    	-webkit-border-radius: 10px;
+    }
+
+    .preview-bar {
+      height: 5px;
+
+      border-radius: 10px;
+    	/* Declaração para aparecer no Firefox */
+    	-moz-border-radius: 10px;
+    	/* Para exibir nos outros navegadores como Chrome, safari, opera*/
+    	-webkit-border-radius: 10px;
+    }
+  }
+}

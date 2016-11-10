@@ -1,0 +1,30 @@
+<%= render "layouts/view_lo/navbar_dropdowns/links_user" %>
+<%= render "layouts/view_lo/navbar_dropdowns/process_bars" %>
+
+<nav class="right grey lighten-5">
+  <div class="nav-wrapper">
+    <a href="#" class="brand-logo center">Logo</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+      <li id="my-process" class="dropdown-button waves-effect waves-light" data-activates="process-bars">
+        <div class="box-process-bar">
+          <div class="text center">
+            <span class="grey-text lighten-1">Meu rendimento</span>
+          </div>
+          <div class="bar grey">
+            <div class="preview-bar green accent-3"></div>
+            <div class="process-bar green accent-4"></div>
+          </div>
+        </div>
+      </li>
+
+      <!-- Dropdown Trigger -->
+      <li>
+        <a class="dropdown-button waves-effect waves-light clearfix" href="#!" data-activates="links_user">
+          <%= current_user.name %><i id="drop-down" class="material-icons right">arrow_drop_down</i>
+          <%= image_tag current_user.avatar.url(:thumb), class: "circle img-user left" %>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

@@ -22,3 +22,4 @@
 //= require ckeditor/functions_ck
 //= require ckeditor/config
 //= require_tree ../lib/
+//= require view_lo/los

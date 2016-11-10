@@ -44,8 +44,9 @@
         <% end %>
       <% end %>
     </li>
+
     <!-- Dropdown Trigger -->
-    <li class="">
+    <li>
       <a class="dropdown-button waves-effect waves-light clearfix" href="#!" data-activates="links_user">
         <%= current_user.name %><i id="drop-down" class="material-icons right">arrow_drop_down</i>
         <%= image_tag current_user.avatar.url(:thumb), class: "circle img-user left" %>

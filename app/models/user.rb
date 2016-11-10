@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   has_many :users_teams
   has_many :teams, through: :users_teams
   has_many :my_teams, class_name: "Team"
-  has_attached_file :avatar, :styles => {:thumb => "100x100^", :medium => "400x400^"}, default_url: "missing.png"
+  has_attached_file :avatar, :styles => {:thumb => "55x55^", :medium => "400x400^"}, default_url: "missing.png"
 
   validates :name, presence: true
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
