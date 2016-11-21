@@ -66,6 +66,7 @@ class Teacher::QuestionsController < Teacher::ApplicationController
 
       @tips = @question.tips_to_show(tips_count: cookies["count_responses_#{@question.id}"].to_i)
       @tip = @tips.last
+      @tips_count = cookies["count_responses_#{@question.id}"].to_i
     end
   end
 

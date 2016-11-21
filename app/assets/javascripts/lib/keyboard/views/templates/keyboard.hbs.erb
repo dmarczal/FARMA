@@ -1,19 +1,16 @@
 <div id="keyboard-{{id}}" class="keyboard">
 
-  <!-- Screen and clear key -->
-  <!-- <div class="top">
-
-    <!-- <input type="hidden" id="" id="MathInput"></input> -->
-    <!-- <button class="clear material-icons" data-value="<">keyboard_arrow_left</button>
-    <button class="clear material-icons" data-value=">">keyboard_arrow_right</button> -->
-  <!-- </div> -->
   <div class="top">
     <button type="button" class="btn key waves-effect waves-light clear" data-value="C">Limpar</button>
-    <button type="button" id="diyBtn" class="btn clear">DIY</button>
     <div class="jax" id="MathOutput-{{id}}">$${}$$</div>
+    <button type="button" class="btn key waves-effect waves-light submit" data-value="Send">Enviar<i class="material-icons right">send</i></button>
   </div>
 
-  <div class="clearfix">
+  <div class="clearfix" id="board">
+
+    <div id="tries">
+      <%= @tips_count %>
+    </div>
 
     <div class="keys" id="default-keys">
       <div id="delimiters">
@@ -56,15 +53,6 @@
 
     </div>
   </div>
-
-
-  <!-- <div class="keys" id="more">
-    {{#each specialKeys}}
-      {{render 'element'}}
-    {{/each}}
-    <button type="submit" class="btn waves-effect waves-light tooltipped eval mdi mdi-account-check" data-tooltip="{{this.key}}" data-position="top" data-value="check">{{this.key}}</button>
-
-  </div> -->
 
   <div id="show-direct-input"><></div>
 

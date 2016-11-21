@@ -1,11 +1,4 @@
-.keyboard {
-	width: 740px;
-	height: 330px;
-}
 
-
-
-/* Inset shadow on the screen to create indent */
 .screen {
 	height: 50%;
 	width: 100%;
@@ -35,8 +28,9 @@
 .keyboard {
 
 	width: 100%;
-	height: 456px;
-	padding: 20px;
+	min-width: 330px;
+	height: 520px;
+	// padding: 20px;
 
 	background: #00E9B4;
 	box-shadow: 0px 10px 5px #888888;
@@ -45,7 +39,7 @@
 
 	.top {
 
-		margin: -20px 0px 20px -20px;
+		// margin: -20px 0px 20px -20px;
 		height: 40%;
 		width: 100%;
 		background-color: white;
@@ -59,11 +53,40 @@
 			letter-spacing: 1px;
 		}
 
+
+
+	}
+
+	#board {
+		margin-top: 20px;
+	}
+
+	#tries {
+		box-shadow: 3px 1px 5px grey;
+		color: white;
+    background-color: red;
+    width: 33px;
+    height: 33px;
+    position: absolute;
+    text-align: center;
+    border-radius: 50%;
+    font-weight: bold;
+    top: 195px;
+		left: 50px;
+    font-size: 18px;
+    padding: 7px 0;
 	}
 
 	#default-keys {
 		position: relative;
-		width: 35%;
+		width: 40%;
+		min-width: 332px;
+		float: left;
+	}
+
+	#special-keys{
+		width: 60%;
+		position: relative;
 		float: left;
 	}
 
@@ -84,14 +107,8 @@
 	#separator {
 		width: 0px;
 		height: 264px;
-		margin: 0 50px;
+		margin: 0 25px;
 		border-left: 1px solid #2C403B;
-		float: left;
-	}
-
-	#special-keys{
-		width: 65%;
-		position: relative;
 		float: left;
 	}
 
@@ -102,12 +119,12 @@
 		font-weight: 600;
 		font-size: 24px;
 		cursor: pointer;
-		margin: 290px -20px 0 -20px;
+		margin: 312px 0 0 0;
 		background: #180675;
 	}
 
 	.direct-input {
-		margin: 0 -20px 0 -20px;
+		margin: 0;
 		background: #180675;
 		height: 100%;
 	}
@@ -120,7 +137,7 @@
 		}
 		ul li {
 			padding: 0 10px;
-			margin: 0 20px;
+			margin: 0 5px;
 			display: inline;
 		}
 		ul li:hover {
@@ -129,7 +146,6 @@
 		}
 		width: 80%;
 		float: right;
-		margin: 10px;
 	}
 
 	button {
@@ -160,21 +176,33 @@
 		/* Smoothing out hover and active states using css3 transitions */
 		transition: all 0.2s ease;
 	}
-}
 
+	.clear {
+		padding: 0px;
+		border-radius: 0;
+		background: none;
+		border: none;
+		box-shadow: none;
+		color: #B6BEB8;
+		font-size: 10px;
+	}
 
-button.clear {
-	height: 10%;
-	border-radius: 0;
-	background: none;
-	border: none;
-	box-shadow: none;
-	color: white;
-}
+	.clear:hover {
+		background: red;
+		color: white;
+	}
 
-button.clear:hover {
-	background: red;
-	color: white;
+	.submit {
+		color: orange;
+		background: none;
+		font-size: 20px;
+		position: absolute;
+    top: 150px;
+    left: 35%;
+		padding: 0px;
+		width: 200px;
+	}
+
 }
 
 /* Remove right margins from operator keys */
