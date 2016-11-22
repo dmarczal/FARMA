@@ -1,13 +1,19 @@
-<article id="los-content" class="row">
-  <header class="center col s9 offset-l2">
-    <h3><%= @lo.name %></h3>
-  </header>
+<% provide(:lo_name, @lo.name) %>
 
-  <div>
-    <%= render 'lo_panel' %>
-  </div>
+<% content_for :contents_lo do %>
+  <% @contents.each_with_index do |content, index| %>
+    <li>
+      <% if content.is_a?(Exercise) %>
+        <%= link_to_unless_current_page(view_lo_page_path(@team, @lo, index + 1)) do %>
+          <i class="material-icons">format_list_bulleted</i>
+        <% end %>
+      <% else %>
+        <%= link_to_unless_current_page(view_lo_page_path(@team, @lo, index + 1)) do %>
+          <i class="material-icons">text_format</i>
+        <% end %>
+      <% end %>
+    </li>
+  <% end %>
+<% end %>
 
-  <div id="contents" class="col s9 z-depth-1 offset-l2">
-    <%= render @content %>
-  </div>
-</article>
+<%= render @content %>

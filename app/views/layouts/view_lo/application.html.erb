@@ -18,7 +18,22 @@
   </header>
 
   <main>
-     <%= yield %>
+    <article id="los-content" class="row">
+      <header class="center col s9 offset-l2">
+        <h3><%= yield :lo_name %></h3>
+      </header>
+
+      <div id="lo-panel">
+        <div id="top-panel"></div>
+        <ul>
+          <%= yield :contents_lo %>
+        </ul>
+      </div>
+
+      <div id="contents" class="col s9 z-depth-1 offset-l2">
+        <%= yield %>
+      </div>
+    </article>
   </main>
 </body>
 </html>
