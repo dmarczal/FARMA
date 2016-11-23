@@ -5,5 +5,7 @@ class ViewLo::LosController < ViewLo::ApplicationController
     @lo = @team.los.find params[:lo_id]
     @content = @lo.content_by_position params[:page]
     @contents = @lo.contents
+    @percent_process_bar = "30"
+    @percent_preview_bar = "50"
   end
 end

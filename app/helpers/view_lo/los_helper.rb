@@ -1,7 +1,15 @@
 module ViewLo::LosHelper
   def link_to_unless_current_page(url, &block)
-    return link_to(capture(&block), url) unless current_page?(url)
+    unless current_page?(url)
+      li = content_tag :li do
+        link_to(capture(&block), url)
+      end
 
-    capture(&block)
+      return li
+    end
+
+    content_tag :li, class: "active" do
+      capture(&block)
+    end
   end
 end

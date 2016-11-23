@@ -10,6 +10,7 @@
   <%= javascript_include_tag 'view_lo/application', 'data-turbolinks-track' => true %>
   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.2-latest/MathJax.js?config=TeX-AMS_HTML"></script>
   <%= csrf_meta_tags %>
+
 </head>
 <body>
   <header>
@@ -18,22 +19,18 @@
   </header>
 
   <main>
-    <article id="los-content" class="row">
-      <header class="center col s9 offset-l2">
-        <h3><%= yield :lo_name %></h3>
-      </header>
-
-      <div id="lo-panel">
-        <div id="top-panel"></div>
-        <ul>
+    <div id="los-content" class="row">
+      <div id="lo-panel" class="white">
+        <div id="top-panel"><i class="material-icons">reorder</i></div>
+          <ul>
           <%= yield :contents_lo %>
         </ul>
       </div>
 
-      <div id="contents" class="col s9 z-depth-1 offset-l2">
+      <div id="contents" class="col s8">
         <%= yield %>
       </div>
-    </article>
+    </div>
   </main>
 </body>
 </html>

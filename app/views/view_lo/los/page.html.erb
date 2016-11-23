@@ -1,19 +1,19 @@
-<% provide(:lo_name, @lo.name) %>
-
 <% content_for :contents_lo do %>
   <% @contents.each_with_index do |content, index| %>
-    <li>
-      <% if content.is_a?(Exercise) %>
-        <%= link_to_unless_current_page(view_lo_page_path(@team, @lo, index + 1)) do %>
-          <i class="material-icons">format_list_bulleted</i>
-        <% end %>
-      <% else %>
-        <%= link_to_unless_current_page(view_lo_page_path(@team, @lo, index + 1)) do %>
-          <i class="material-icons">text_format</i>
-        <% end %>
+    <% if content.is_a?(Exercise) %>
+      <%= link_to_unless_current_page(view_lo_page_path(@team, @lo, index + 1)) do %>
+        <i class="material-icons">format_list_bulleted</i>
       <% end %>
-    </li>
+    <% else %>
+      <%= link_to_unless_current_page(view_lo_page_path(@team, @lo, index + 1)) do %>
+        <i class="material-icons">text_format</i>
+      <% end %>
+    <% end %>
   <% end %>
 <% end %>
 
 <%= render @content %>
+
+<%= javascript_tag do %>
+  <%= render "update_bars.js.erb" %>
+<% end %>

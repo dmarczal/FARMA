@@ -1,10 +1,10 @@
-window.FARMA.updateBars = (process_bar, preview_bar) ->
-  percent_process_bar = $(".bar").width() * process_bar / 100
-  percent_preview_bar = $(".bar").width() * preview_bar / 100
+window.FARMA.updateBars = (percent_process_bar, percent_preview_bar) ->
+  width_process_bar = $(".bar").width() * percent_process_bar / 100
+  width_preview_bar = $(".bar").width() * percent_preview_bar / 100
 
-  $(".process-bar").css "width", percent_process_bar
-  $(".preview-bar").css "width", percent_preview_bar
+  $(".process-bar").css "width", width_process_bar
+  $(".preview-bar").css "width", width_preview_bar
 
-  $("#process-bars .preview-bar-percent .percent").html preview_bar
-  $("#process-bars .process-bar-percent .percent").html process_bar
-  $("#process-bars .not-preview-bar-percent .percent").html 100 - preview_bar
+  $("#process .preview-bar-percent .percent").html percent_preview_bar
+  $("#process .process-bar-percent .percent").html percent_process_bar
+  $("#process .not-preview-bar-percent .percent").html 100 - percent_preview_bar

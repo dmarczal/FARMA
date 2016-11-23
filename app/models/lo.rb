@@ -19,10 +19,13 @@ class Lo < ActiveRecord::Base
 
     exercises = self.exercises.order(:position).includes :questions
     introductions = self.introductions.order :position
+    exercises = define_index_method_for_questions exercises
 
     @contents = exercises + introductions
+    @contents = @contents.sort {|a, b| a.position <=> b.position}
     define_index_method_for_contents
-    @contents.sort {|a, b| a.position <=> b.position}
+
+    @contents
   end
 
   private
@@ -47,5 +50,26 @@ class Lo < ActiveRecord::Base
         content.index= e
       end
     end
+  end
+
+  def define_index_method_for_questions(exercises)
+    exercises.each do |exercise|
+      q = 0
+
+      exercise.questions.each do |question|
+        def question.index
+          @index_q
+        end
+
+        def question.index=(index)
+          @index_q = index
+        end
+
+        q += 1
+        question.index= q
+      end
+    end
+
+    exercises
   end
 end

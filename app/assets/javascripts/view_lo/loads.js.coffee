@@ -6,7 +6,6 @@ $(document).ready ->
 # Fixed materialize because turbolinks
 $(document).on 'page:change', ->
   window.FARMA.reloadMaterilizeEffects()
-  window.FARMA.updateBars(20, 50)
 
 $(document).on 'page:update', ->
   MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
@@ -16,6 +15,7 @@ window.FARMA = {}
 window.FARMA.reloadMaterilizeEffects = ->
   Waves.displayEffect() # reinitialize wave effect on button
   Materialize.updateTextFields() # reinitialize form label
+  $('.dropdown-button').dropdown()
 
 window.FARMA.displayFlashMessages = ->
   toastr.options =

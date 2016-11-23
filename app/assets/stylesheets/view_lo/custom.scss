@@ -1,64 +1,17 @@
-#lo-panel {
-  position: fixed;
-  overflow: auto;
-  width: 52px;
-  height: 100%;
+/*
+ *  Default
+ * ________________________________________________________________________________________*/
 
-  #top-panel {
-    width: 100%;
-    height: 50px;
-  }
-
-  ul {
-    margin-left: 10px;
-  }
+body {
+  background-color: #eeeeee;
 }
 
 /*
- * Question show styles
- * ______________________________*/
-
-.box-question-content {
-  padding: 2% 2% !important;
-  margin: 1% 0 1% 4%;
-}
-
-#article-tips {
-  .divider {
-    margin-bottom: 20px;
-  }
-}
-
-#questions_list li.collection-item {
-  border-left: 12px solid green;
-  border-bottom: 5px solid green;
-}
-
-/*
- *  test Response
- * ______________________________*/
- .box-response {
-   cursor: pointer;
-   position: relative;
-   border: 5px solid #757575;
-   padding-top: 25px !important;
-   margin: 20px 0;
-   height: 80px;
- }
-
- .box-response.valid {
-   border: 5px solid #43a047;
- }
-
- .box-response.invalid {
-   border: 5px solid #e53935;
- }
-
- /*
-  *  novo template
-  * ________________________________________________________________________________________*/
+ *  NavBar
+ * ________________________________________________________________________________________*/
 
 nav {
+  box-shadow: none !important;
   width: 1250px;
   color: #9e9e9e;
 
@@ -87,7 +40,11 @@ nav {
   }
 }
 
-#process-bars {
+/*
+ *  DropDown progress
+ * ________________________________________________________________________________________*/
+
+#process {
   margin-top: 64.4px;
 
   div {
@@ -107,39 +64,11 @@ nav {
       font-size: 10px;
     }
   }
-
-  .bar {
-    height: 5px;
-
-    border-radius: 10px;
-    /* Declaração para aparecer no Firefox */
-    -moz-border-radius: 10px;
-    /* Para exibir nos outros navegadores como Chrome, safari, opera*/
-    -webkit-border-radius: 10px;
-
-    .process-bar {
-      height: 5px;
-      margin-top: 20px;
-
-      border-radius: 10px;
-    	/* Declaração para aparecer no Firefox */
-    	-moz-border-radius: 10px;
-    	/* Para exibir nos outros navegadores como Chrome, safari, opera*/
-    	-webkit-border-radius: 10px;
-    }
-
-    .preview-bar {
-      height: 5px;
-      margin-top: 20px;
-
-      border-radius: 10px;
-    	/* Declaração para aparecer no Firefox */
-    	-moz-border-radius: 10px;
-    	/* Para exibir nos outros navegadores como Chrome, safari, opera*/
-    	-webkit-border-radius: 10px;
-    }
-  }
 }
+
+/*
+ *  Prograss Bar
+ * ________________________________________________________________________________________*/
 
 .box-process-bar {
   .text {
@@ -178,3 +107,68 @@ nav {
     }
   }
 }
+
+/*
+ *  Panel lo (Lo browser)
+ * ________________________________________________________________________________________*/
+
+#lo-panel {
+  position: fixed;
+  overflow: auto;
+  width: 52px;
+  height: 100%;
+
+  #top-panel {
+    width: 100%;
+    height: 50px;
+
+    i {
+      margin: 20px 0 0 13px;
+    }
+  }
+
+  ul {
+    margin-top: 150px;
+
+    li {
+      padding: 8px 0 0 13px;
+      height: 40px;
+    }
+
+    li.active {
+      padding: 8px 0 0 10px;
+      border-left: 3px solid #1de9b6;
+    }
+
+    i {
+      font-size: 25px;
+      color: #1de9b6;
+      margin-left: 2px;
+    }
+
+    a i {
+      color: #bdbdbd;
+    }
+  }
+}
+
+/*
+ *  Contents
+ * ________________________________________________________________________________________*/
+
+ #contents {
+   margin: 70px 0 0 200px;
+   padding: 0;
+
+   h3 {
+     margin-top: 0;
+   }
+
+   header {
+     padding: 70px 70px 10px 70px;
+   }
+
+   .content {
+     padding: 10px 70px 10px 70px;
+   }
+ }
