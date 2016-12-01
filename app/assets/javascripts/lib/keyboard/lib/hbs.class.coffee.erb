@@ -33,6 +33,7 @@ class window.FARMA.Hbs
     partials:
       [
         "<%= asset_partial('element') %>"
+        "<%= asset_partial('advanced') %>"
       ]
 
   render: (template) ->
@@ -44,7 +45,8 @@ class window.FARMA.Hbs
 
   partialMap: (partial) ->
     partials =
-      element: "<%= asset_partial('element') %>"
+      element: "<%= asset_partial('element') %>",
+      advanced: "<%= asset_partial('advanced') %>"
 
     partials[partial]
 

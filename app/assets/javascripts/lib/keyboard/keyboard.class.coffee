@@ -10,31 +10,31 @@ class window.FARMA.Keyboard
     # render
     $('#keyboard-panel-' + id).render(@hbs.render('keyboard'), {
         id: id
-        delimiters: [
-          { key: "(       )", value: "(       )", type: "key" },
-          { key: "[       ]", value: "[       ]", type: "key" },
-          { key: "{       }", value: "{       }", type: "key" }
+        operators: [
+          { key: "÷", value: "\\over", type: "operator" },
+          { key: "x", value: "*", type: "operator" },
+          { key: "-", value: "-", type: "operator" },
+          { key: "+", value: "+", type: "operator" }
         ]
         keys: [
           { key: 1, value: 1, type: "key" },
           { key: 2, value: 2, type: "key" },
           { key: 3, value: 3, type: "key" },
-          # { key: "÷", value: "\\over", type: "operator" },
+
           # { key: "", value: "", type: "special mdi mdi-sigma" },
           { key: 4, value: 4, type: "key" },
           { key: 5, value: 5, type: "key" },
           { key: 6, value: 6, type: "key" },
-          # { key: "x", value: "*", type: "operator" },
+
           # { key: "", value: "", type: "special mdi mdi-function" },
           { key: 7, value: 7, type: "key" },
           { key: 8, value: 8, type: "key" },
           { key: 9, value: 9, type: "key" },
-          # { key: "-", value: "-", type: "operator" },
+
           # { key: "", value: "", type: "special mdi mdi-flask-outline" },
           { key: ".", value: ".", type: "key" },
           { key: 0, value: 0, type: "key" },
           { key: "=", value: "=", type: "key" }
-          # { key: "+", value: "+", type: "operator" }
           # { key: "", value: "\\left[\\begin{matrix}\\end{matrix}\\right]", type: "special mdi mdi-matrix" },
         ]
         specialKeys: [
@@ -49,10 +49,32 @@ class window.FARMA.Keyboard
           # { key: "%", value: "*100", type: "key" },
           # { key: "", value: "\\\\", type: "operator mdi mdi-keyboard-return" }
         ]
-        function: [
+        functions: [
           { key: "√", value: "\\sqrt{}", type: "key" },
-          { key: "(", value: "{", type: "key" },
-          { key: ")", value: "}", type: "key" }
+          { key: "ϰ^y^", value: "{", type: "key" },
+          { key: "1/ϰ", value: "{", type: "key" },
+          { key: "y√ϰ", value: "{", type: "key" },
+          { key: "x/y", value: "{", type: "key" },
+          { key: "ln(ϰ)", value: "{", type: "key" },
+          { key: "e^ϰ^", value: "{", type: "key" },
+          { key: "log(ϰ)", value: "{", type: "key" },
+          { key: "n!", value: "{", type: "key" },
+          { key: "|ϰ|", value: "}", type: "key" }
+        ]
+        matrix: [
+          { key: "", value: "\\left[\\begin{matrix}\\end{matrix}\\right]", type: "operator mdi mdi-matrix" },
+          { key: "&", value: "&", type: "key" }
+        ]
+        trig: [
+          { key: "sin(ϰ)", value: "\\sin", type: "key" },
+          { key: "sin-¹(ϰ)", value: "\\arcsin", type: "key" },
+          { key: "π", value: "π", type: "key" },
+          { key: "cos(ϰ)", value: "\\cos", type: "key" },
+          { key: "cos-¹(ϰ)", value: "\\arccos", type: "key" },
+          { key: "θ", value: "θ", type: "key" },
+          { key: "tan(ϰ)", value: "\\tan", type: "key" },
+          { key: "tan-¹(ϰ)", value: "\\arctan", type: "key" },
+          { key: "α", value: "α", type: "key" }
         ]
       })
 
@@ -69,9 +91,9 @@ class window.FARMA.Keyboard
   clickHandler: (id) ->
     self = @screen
     $(document).on 'click', "#keyboard-#{id} .key", (e) ->
-      if $(this).attr('data-value') != 'C'
+      if $(this).attr('data-value') != 'send'
         self.addToJax($(this).text(), $(this).attr("data-value"), id)
-      else
+      if $(this).attr('data-value') == 'C'
         self.cleanScreen(id)
 
     # $(document).on 'click', '#functions', ->
@@ -93,12 +115,11 @@ class window.FARMA.Keyboard
     $(document).on 'click', '#show-direct-input', ->
       $('.direct-input').toggle()
 
-    $(document).on 'click', "#diyBtn", ->
-      $('.screen').toggle()
-
-    $('form').on 'submit', ->
-      $('#keyboard-panel-' + id).hide()
-      $('.box-response').show()
+    $("#response-form-#{id}").on 'submit', ->
+      $("#keyboard-#{id}").hide()
+      $("#question_#{id}_response").attr("data-storage", $("#keyboard-#{id}-screen").val())
+      $("#question_#{id}_response").val($("#keyboard-#{id}-screen").val())
+      $("#question-#{id}-show .box-response").show()
 
     hbs = @hbs
     $(document).on 'click', ".mdi-matrix", ->
@@ -113,10 +134,11 @@ class window.FARMA.Keyboard
       })
       $('#keyboard-' + id).find("#more").show("slide", {direction: "left"}, 5000)
 
-  onSubmit: (id) ->
-    $(document).on 'submit', "#keyboard-form-#{id}", ->
-      $("#keyboard-#{id}").hide()
-      $("#question-#{id}-show .box-response").show()
+  # onSubmit: (id) ->
+  #   $(document).on 'submit', "#keyboard-form-#{id}", ->
+  #     $("#keyboard-#{id}").hide()
+  #     $('#keyboard-form-#{id} .response').val($('#keyboard-'+ id +'-screen').val())
+  #     $("#question-#{id}-show .box-response").show()
 
   hotKeyHandler: (id) ->
     self = @screen

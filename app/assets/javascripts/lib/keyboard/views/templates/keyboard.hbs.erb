@@ -3,25 +3,24 @@
   <div class="top">
     <button type="button" class="btn key waves-effect waves-light clear" data-value="C">Limpar</button>
     <div class="jax" id="MathOutput-{{id}}">$${}$$</div>
-    <button type="button" class="btn key waves-effect waves-light submit" data-value="Send">Enviar<i class="material-icons right">send</i></button>
+    <button type="submit" class="btn key waves-effect waves-light submit" data-value="send">Enviar<i class="material-icons right">send</i></button>
   </div>
 
   <div class="clearfix" id="board">
 
     <div id="tries">
-      <%= @tips_count %>
+      <%= @tries %>
     </div>
 
     <div class="keys" id="default-keys">
-      <div id="delimiters">
-        {{#each delimiters}}
-        {{> element}}
+      <div id="operators">
+        {{#each operators}}
+          {{> element}}
         {{/each}}
       </div>
-      <!-- operators and other keys -->
-      <div id="operators">
+      <div id="keys">
         {{#each keys}}
-        {{> element}}
+          {{> element}}
         {{/each}}
       </div>
     </div>
@@ -37,16 +36,20 @@
           <li data-id="trig-keys">TRIGONOMETRIA</li>
         </ul>
         <div id="advanced-keys">
-          <div id="function-keys" hidden>
-            {{#each function}}
-              {{> element}}
+          <div id="functions-keys">
+            {{#each functions}}
+              {{> advanced}}
             {{/each}}
           </div>
           <div id="matrix-keys" hidden>
-            Matrizes
+            {{#each matrix}}
+              {{> advanced}}
+            {{/each}}
           </div>
           <div id="trig-keys" hidden>
-            Trigonometria
+            {{#each trig}}
+              {{> advanced}}
+            {{/each}}
           </div>
         </div>
       </div>
@@ -57,8 +60,6 @@
   <div id="show-direct-input"><></div>
 
   <div class="direct-input" hidden>
-
-
     <textarea id="keyboard-{{id}}-screen" class="screen" value="" placeholder="LaTeX puro aqui!" hidden></textarea>
     <textarea id="kb-{{id}}-tex" class="screen screen-tex" placeholder="Fórmulas LaTeX"></textarea>
   </div>

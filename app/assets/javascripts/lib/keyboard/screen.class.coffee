@@ -12,11 +12,9 @@ class window.FARMA.Screen
     newValue = @getResponseValue(where) + key
     console.log newTex
     if window.FARMA.Validator.isNumeric(newTex)
-      $("#keyboard-#{where}-screen").addClass('valid-expression')
-      $("#keyboard-#{where}-screen").removeClass('invalid-expression')
+      @switchClass(where, true)
     else
-      $("#keyboard-#{where}-screen").addClass('invalid-expression')
-      $("#keyboard-#{where}-screen").removeClass('valid-expression')
+      @switchClass(where, false)
     @updateInputsWith(newValue, newTex, where)
     @renderTex(newTex, where)
 
@@ -24,7 +22,7 @@ class window.FARMA.Screen
     $("#keyboard-#{where}-screen").val()
 
   getResponseValue: (where) ->
-    $("#response-#{where}").attr("data-storage")
+    $("#question_#{where}_response").attr("data-storage")
 
   cleanScreen: (id) ->
     @updateInputsWith("", "", id)
@@ -60,7 +58,15 @@ class window.FARMA.Screen
 
   updateInputsWith: (newValue, newTex, where) ->
     $("#keyboard-#{where}-screen").val(newTex)
-    $("#response-#{where}").attr("data-storage", newValue)
+    $("#question_#{where}_response").attr("data-storage", newValue)
     console.log(newValue)
     if window.FARMA.Validator.isNumeric(newValue)
       $("#response-#{where}").val(newValue)
+
+  switchClass: (where, state) ->
+    if (state)
+      $("#keyboard-#{where}-screen").addClass('valid-expression')
+      $("#keyboard-#{where}-screen").removeClass('invalid-expression')
+    else
+      $("#keyboard-#{where}-screen").addClass('invalid-expression')
+      $("#keyboard-#{where}-screen").removeClass('valid-expression')
