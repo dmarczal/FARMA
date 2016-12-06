@@ -9,7 +9,7 @@
   <div class="clearfix" id="board">
 
     <div id="tries">
-      <%= @tries %>
+      <%= @tips_count %>
     </div>
 
     <div class="keys" id="default-keys">
@@ -59,9 +59,6 @@
 
   <div id="show-direct-input"><></div>
 
-  <div class="direct-input" hidden>
-    <textarea id="keyboard-{{id}}-screen" class="screen" value="" placeholder="LaTeX puro aqui!" hidden></textarea>
-    <textarea id="kb-{{id}}-tex" class="screen screen-tex" placeholder="Fórmulas LaTeX"></textarea>
+  <div class="direct-input hide">
+    <textarea id="keyboard-{{id}}-screen" class="screen" value="" placeholder="Fórmulas LaTeX"></textarea>
   </div>
-
-</div>

@@ -67,8 +67,10 @@ class Teacher::QuestionsController < Teacher::ApplicationController
       @tips = @question.tips_to_show(tips_count: cookies["count_responses_#{@question.id}"].to_i)
       @tip = @tips.last
       @tips_count = cookies["count_responses_#{@question.id}"].to_i
-      @tries = @question.tips.order :number_of_tries
+
     end
+    @tips_count = cookies["count_responses_#{@question.id}"].to_i
+
   end
 
   private

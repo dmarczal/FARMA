@@ -62,8 +62,9 @@ class window.FARMA.Keyboard
           { key: "|ϰ|", value: "}", type: "key" }
         ]
         matrix: [
-          { key: "", value: "\\left[\\begin{matrix}\\end{matrix}\\right]", type: "operator mdi mdi-matrix" },
-          { key: "&", value: "&", type: "key" }
+          { key: "", value: "\\left[\\begin{matrix}\n\t\n\\end{matrix}\\right]", type: "operator mdi mdi-matrix" },
+          { key: "&", value: "&", type: "key" },
+          { key: "", value: "\\\\\n\t", type: "operator mdi mdi-keyboard-return" }
         ]
         trig: [
           { key: "sin(ϰ)", value: "\\sin", type: "key" },
@@ -82,7 +83,7 @@ class window.FARMA.Keyboard
     obj = $("#question-" + id + "-show")
     if !obj.hasClass("keyboard-active")
       @clickHandler(id)
-      # @hotKeyHandler(id)
+      @hotKeyHandler(id)
       @checkAnswer(id)
       obj.addClass("keyboard-active")
     console.log $(".tooltipped")
@@ -96,12 +97,6 @@ class window.FARMA.Keyboard
       if $(this).attr('data-value') == 'C'
         self.cleanScreen(id)
 
-    # $(document).on 'click', '#functions', ->
-    #   $('#function-keys').show()
-    #   $('#matrix-keys').hide()
-    #   $('#trig-keys').hide();
-
-
     $(document).on 'click', '#special-keys ul li', ->
       $('#special-keys ul li').removeClass('active');
       $(@).addClass('active')
@@ -110,10 +105,8 @@ class window.FARMA.Keyboard
       show_id = "#" + $(@).data('id')
       $(show_id).show()
 
-
-
     $(document).on 'click', '#show-direct-input', ->
-      $('.direct-input').toggle()
+      $('.direct-input').toggleClass('hide')
 
     $("#response-form-#{id}").on 'submit', ->
       $("#keyboard-#{id}").hide()
@@ -142,22 +135,18 @@ class window.FARMA.Keyboard
 
   hotKeyHandler: (id) ->
     self = @screen
-    $(document).on 'keypress', (e) ->
-      switch e.key
-        when 's' then self.addToJax("s", "\\sqrt{}", id)
-        when 'o' then self.addToJax("o", "\\over", id)
-        when 'm' then self.addToJax("m", "\\left[\\begin{matrix}\\end{matrix}\\right]", id)
-        when 'n' then self.addToJax("n", "\\\\", id)
-        when 'e' then self.addToJax("e", "&", id)
-        when 'C' then self.cleanScreen(id)
-        else self.addToJax(e.key, id)
+    $(document).on 'keydown', "#keyboard-#{id}-screen", (e) ->
+      unless e.key.length != 1
+        switch e.key
+          when 'Backspace' then console.log 'backspace'
+          when 'C' then self.cleanScreen(id)
+          else self.addToJax(e.key, e.key, id)
 
   checkAnswer: (where) ->
     $("#response-form-#{where}").bind 'ajax:complete', ->
-    # $(document).on 'submit', "#response-form-#{where}", ->
-      if $("#test-response-#{where} .box-response").hasClass('invalid')
-        $("#keyboard-#{where} .jax").addClass('invalid-expression')
-        $("#keyboard-#{where} .jax").removeClass('valid-expression')
-      if $("#test-response-#{where} .box-response").hasClass('valid')
-        $("#keyboard-#{where} .jax").addClass('valid-expression')
-        $("#keyboard-#{where} .jax").removeClass('invalid-expression')
+      math = $("#keyboard-#{where} .jax")
+      answer = $("#test-response-#{where} .box-response")
+      if answer.hasClass('invalid')
+        math.toggleClass('invalid-expression valid-expression')
+      if answer.hasClass('valid')
+        math.toggleClass('valid-expression invalid-expression')

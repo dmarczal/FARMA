@@ -32,6 +32,10 @@ class window.FARMA.Screen
     $("#keyboard-#{id}-screen").removeClass('invalid-expression')
     $("#keyboard-#{id}-screen").removeClass('valid-expression')
 
+  chop: (id) ->
+    actual = @getScreenTex(id)
+    return actual.slice(0, (actual.length - 1))
+
   renderTex: (expression, where) ->
     MathJax.Hub.Queue(["Typeset", MathJax.Hub])
     tex = MathJax.Hub.getAllJax("MathOutput-#{where}")[0]
@@ -43,7 +47,7 @@ class window.FARMA.Screen
 
   expressionMerge: (oldValue, newValue) ->
     if @recognizeMatrix(oldValue)
-      return oldValue.split("\\end{matrix}").join("#{newValue}\\end{matrix}")
+      return oldValue.split("\n\\end{matrix}").join("#{newValue}\n\\end{matrix}")
     if @recognizeBrackets(oldValue)
       return oldValue.replace "}", newValue + "}"
     oldValue + newValue
