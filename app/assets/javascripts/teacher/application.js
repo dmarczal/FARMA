@@ -27,3 +27,5 @@
 //= require teacher/questions
 //= require teacher/tips
 //= require teacher/los
+//= require codemirror
+//= require codemirror/modes/stex

@@ -7,7 +7,7 @@
   end
 
   def asset_template(file)
-    asset_file(file, @template_path, 'hbs.erb')
+    asset_file(file, @template_path, 'hbs')
   end
 
   def asset_file(file, path, extension)
@@ -27,7 +27,7 @@ class window.FARMA.Hbs
     @changeIncludePartial()
 
   options:
-    templateExtension: 'hbs.erb'
+    templateExtension: 'hbs'
     partialPath: '<%= @partial_path %>'
     templatePath: '<%= @template_path %>'
     partials:

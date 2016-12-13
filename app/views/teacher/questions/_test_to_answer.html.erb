@@ -16,7 +16,7 @@
     <div class="row">
       <div class="input-field col s12">
         <input id="question_<%= @question.id %>_response" class="response" type="hidden" data-storage="" value="" name="answer[response]">
-        <div id="keyboard-panel-<%= @question.id %>"></div>
+        <div id="keyboard-panel-<%= @question.id %>" data-tries="0"></div>
       </div>
     </div>
   </form>
