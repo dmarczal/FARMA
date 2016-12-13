@@ -6,6 +6,7 @@ class Teacher::QuestionsController < Teacher::ApplicationController
 
   def show
     cookies.delete("count_responses_#{@question.id}")
+    cookies["count_tries_#{@question.id}"] = 0 #replace later for @answer.attempt_number mechanism
     @tips = @question.tips.order :number_of_tries
     @action = teacher_lo_exercise_question_test_to_answer_path(@lo, @exercise, @question)
   end
@@ -55,6 +56,11 @@ class Teacher::QuestionsController < Teacher::ApplicationController
                     response: answer_params[:response]
     )
 
+    # replace later for @answer.attempt_number mechanism
+    cookies["count_tries_#{@question.id}"] = cookies["count_tries_#{@question.id}"].to_i + 1
+    @tries = cookies["count_tries_#{@question.id}"].to_i
+    #####################################################
+
     unless @answer.correct
       @class_correct = 'invalid'
 
@@ -67,7 +73,9 @@ class Teacher::QuestionsController < Teacher::ApplicationController
       @tips = @question.tips_to_show(tips_count: cookies["count_responses_#{@question.id}"].to_i)
       @tip = @tips.last
       @tips_count = cookies["count_responses_#{@question.id}"].to_i
+
     end
+
   end
 
   private

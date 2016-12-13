@@ -19,3 +19,4 @@
 //= require loads
 //= require_tree ./lib/
 //= require home
+//= require codemirror
