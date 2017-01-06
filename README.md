@@ -2,6 +2,16 @@
 
 Ferramenta de Autoria para a Remediação de erros com Mobilidade na Aprendizagem.
 
+##Pré-requisitos
+
+```
+nodejs
+libpq-dev
+postgresql
+postgresql-contrib
+
+```
+
 ##Instalação
 
 1. Clone o repositório do projeto utilizando o comando 
