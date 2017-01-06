@@ -20,6 +20,7 @@ postgresql-contrib
 
 2. Instalar as gems necessárias
 
+    * Executar  `gem install bundler`
     * Executar  `bundle install`
 
 3. Configure as váriaveis de ambiente
