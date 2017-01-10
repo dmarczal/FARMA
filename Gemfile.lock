@@ -85,6 +85,8 @@ GEM
       activesupport (>= 3.0)
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
+    codemirror-rails (5.16.0)
+      railties (>= 3.0, < 6.0)
     coderay (1.1.1)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
@@ -326,6 +328,7 @@ DEPENDENCIES
   capistrano-rvm
   capybara
   ckeditor (~> 4.1)
+  codemirror-rails
   coffee-rails (= 4.1.0)
   database_cleaner
   devise (= 3.5.1)
@@ -355,6 +358,9 @@ DEPENDENCIES
   turbolinks (= 2.3.0)
   uglifier (= 2.5.3)
   web-console (~> 3.0)
+
+RUBY VERSION
+   ruby 2.2.3p173
 
 BUNDLED WITH
    1.13.3

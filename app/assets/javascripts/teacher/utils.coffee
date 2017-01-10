@@ -5,7 +5,6 @@ window.FARMA.toggleVerticalMenu = ->
   $('#button-panel').click ->
     $('#panel').toggleClass 'active'
 
-
     if $('#panel').hasClass 'active'
       $('#content-teacher').removeClass('l12').addClass('l9 offset-l2')
       $('#logo-container').removeClass 'center-logo'
@@ -22,11 +21,12 @@ window.FARMA.fixTooltip = ->
   $('.material-tooltip').hide()
 
 window.FARMA.keyboardPanel = (div_id) ->
-  $(document).on 'click', div_id + ' .box-response', ->
+  $(document).on 'click', "#{div_id} .box-response", ->
     id = div_id.substring(10, 12).replace("-", "")
-    $('.box-response').hide()
-    new window.FARMA.Keyboard(id)
-    $(div_id + ' .box-response').hide()
+    $(@).hide()
+    obj = $("#question-#{@id}-show")
+    unless obj.hasClass("keyboard-active")
+      new window.FARMA.Keyboard(id)
 
 window.FARMA.silentSubmit = ->
   $('#lo_image').change ->

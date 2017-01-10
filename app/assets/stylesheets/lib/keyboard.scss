@@ -1,114 +1,242 @@
-/* Using box shadows to create 3D effects */
 
-.keyboard {
-	width: 740px;
-	height: 330px;
+#keyboard-panel-1 {
+	@media all and (max-width: 1000px) {
+		.keyboard {
+			width: 400px;
+
+			.top {
+				.submit {
+					left: 175px;
+				}
+			}
+			#special-keys {
+				#separator {
+					border: none;
+				}
+			} // #special-keys
+		} // .keyboard
+		.make-tall {
+			height: 1100px;
+		}
+	}
 }
 
-.keyboard .jax {
-	height: 40%;
-	width: 100%;
-	padding: 10px;
 
-	/* Typography */
-	font-size: 17px;
-	line-height: 40px;
-	color: white;
-	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-	text-align: right;
-	letter-spacing: 1px;
-}
-
-/* Inset shadow on the screen to create indent */
 .screen {
-	height: 50%;
+	height: 100%;
 	width: 100%;
-
 	float: right;
-
 	background: rgba(0, 0, 0, 0.1);
-
-	/* Typography */
 	font-size: 17px;
-	// line-height: 40px;
 	color: white;
 	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-	// text-align: right;
-	// letter-spacing: 1px;
-	border-bottom: 0px !important; //importants to overcome materialize border-bottom
-	// margin-bottom: 10px !important;
 }
 
 /* Clear floats */
-.keys, .top {overflow: hidden;}
+.keys, .top {
+	overflow: hidden;
+	width: 332px;
+}
 
-/* Applying same to the keys */
-.keys button {
-	float: left;
-	position: relative;
-	top: 0;
-
-	cursor: pointer;
-
-	width: 82px;
-	height: 66px;
-	padding: 0;
-
+.keyboard {
+	min-width: 330px;
+	max-width: 800px;
+	height: 533px;
+	background: #00E9B4;
 	font-family: roboto-thin;
-	font-size: 45px;
 
-	background: white;
-	border-radius: 0px;
-	box-shadow: 0px 0px rgba(0, 0, 0, 0.2);
+	.top {
+		height: 216px;
+		width: 100%;
+		background-color: white;
 
-	color: #888;
-	line-height: 36px;
-	text-align: center;
+		.jax {
+			line-height: 40px;
+			color: black;
+			text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+			text-align: right;
+			letter-spacing: 1px;
+		}
 
-	/* prevent selection of text inside keys */
-	user-select: none;
+		.submit {
+			color: orange;
+			background: none;
+			font-size: 16px;
+			font-weight: bolder;
+			position: absolute;
+	    top: 150px;
+	    left: 350px;
+			padding: 0px;
+			width: 100px;
+			box-shadow: none;
+		}
 
-	/* Smoothing out hover and active states using css3 transitions */
-	transition: all 0.2s ease;
+		.submit:hover {
+				box-shadow: 0px 10px 5px #888888;
+		}
+
+	}
+
+	#board {
+		margin-top: 25px;
+	}
+
+	#tries {
+		box-shadow: 3px 1px 5px grey;
+		color: white;
+    background-color: red;
+    width: 33px;
+    height: 33px;
+    position: absolute;
+    text-align: center;
+    border-radius: 50%;
+    font-weight: bold;
+    top: 200px;
+		left: 50px;
+    font-size: 18px;
+    padding: 6px 0;
+	}
+
+	#default-keys {
+		padding: 0 20px;
+		position: relative;
+		width: 400px;
+		min-width: 400px;
+		float: left;
+
+		#operators {
+			float: right;
+			position: relative;
+			width: 90px;
+			height: 100%;
+		}
+
+		#keys {
+			float: left;
+			position: relative;
+			width: 270px;
+		}
+
+	} // #default-keys
+
+	#special-keys{
+		width: 400px;
+		min-width: 400px;
+		position: relative;
+		float: left;
+		background-color: #00E9B4;
+
+		#separator {
+			width: 0px;
+			height: 264px;
+			margin: 0;
+			border-left: 1px solid #2C403B;
+			float: left;
+		}
+
+		.modifiers {
+			margin: 0 20px;
+			width: 358px; // 400px - 20px (margin) - 2px (separator border)
+			float: right;
+
+			ul {
+				margin: 0;
+				padding: 0;
+				list-style-type: none;
+			}
+			ul li {
+				padding: 0 10px;
+				margin: 0 5px;
+				display: inline;
+				letter-spacing: -1px;
+			}
+			ul li:hover {
+				border-bottom: 5px solid #8FF5DE;
+				cursor: pointer;
+			}
+
+			#advanced-keys {
+				padding-top: 5px;
+
+				.advanced {
+					font-size: 20px;
+					padding: 0;
+					margin: 0 15px;
+					text-transform: lowercase;
+				}
+
+			} // #advanced-keys
+
+		} // .modifiers
+
+	} // #special-keys
+
+	#show-direct-input {
+		padding: 10px 0;
+		text-align: center;
+		color: #00E9B4;
+		font-weight: 600;
+		font-size: 24px;
+		cursor: pointer;
+		margin: 317px 0 0 0;
+		background: #180675;
+		// box-shadow: 0px 10px 5px #888888;
+	}
+
+	.direct-input {
+		margin: 0;
+		// background: #180675;
+		height: 50%;
+	}
+
+
+
+	button {
+		float: left;
+		position: relative;
+		top: 0;
+
+		cursor: pointer;
+
+		width: 82px;
+		height: 66px;
+		padding: 10px 10%;
+
+		font-family: roboto-thin;
+		font-size: 45px;
+
+		background: #00E9B4;
+		border-radius: 0px;
+		box-shadow: 0px 0px rgba(0, 0, 0, 0.2);
+
+		color: #2C403B;
+		line-height: 36px;
+		text-align: center;
+
+		/* prevent selection of text inside keys */
+		user-select: none;
+		transition: all 0.2s ease;
+	}
+
+	.clear {
+		padding: 0px;
+		border-radius: 0;
+		background: none;
+		border: none;
+		box-shadow: none;
+		color: #B6BEB8;
+		font-size: 10px;
+	}
+
+	.clear:hover {
+		background: red;
+		color: white;
+	}
+
+
+
 }
 
-button.clear {
-	height: 10%;
-	border-radius: 0;
-	background: none;
-	border: none;
-	box-shadow: none;
-	color: white;
-}
-
-button.clear:hover {
-	background: red;
-	color: white;
-}
-
-/* Remove right margins from operator keys */
-/* style different type of keys (operators/evaluate/clear) differently */
-.keys button.operator {
-	background: #b0e68f;
-	margin-right: 0;
-}
-
-.keys button.special {
-	background: #599a42;
-	// padding-left: 23px;
-	// float: right;
-	color: white;
-}
-
-.keys button.eval {
-	background: #f1ff92;
-	box-shadow: 0px 4px #9da853;
-	color: #888e5f;
-}
-
-
-
-/* Some hover effects */
 .keys button:hover {
 	background: #418b00;
 	// box-shadow: 0px 4px #418b00;
@@ -121,9 +249,6 @@ button.clear:hover {
 	color: #ffffff;
 }
 
-
-
-/* Simulating "pressed" effect on active state of the keys by removing the box-shadow and moving the keys down a bit */
 .keys button:active {
 	box-shadow: 0px 0px #6b54d3;
 	top: 4px;
@@ -155,9 +280,6 @@ button.clear:hover {
 	background: #f55555 !important;
 }
 
-.side-input {
-	float: left;
-	width: 330px;
-	background: #8ee6c1;
-	height: 100%;
+.make-tall {
+	height: 860px;
 }

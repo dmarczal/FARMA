@@ -1,0 +1,1 @@
+<button type="button" class="btn key waves-effect waves-light {{this.type}} advanced" data-value="{{this.value}}">{{this.key}}</button>

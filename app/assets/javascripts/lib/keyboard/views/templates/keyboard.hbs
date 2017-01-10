@@ -1,34 +1,62 @@
 <div id="keyboard-{{id}}" class="keyboard">
-  <div class="side-input">
+
+  <div class="top">
     <button type="button" class="btn key waves-effect waves-light clear" data-value="C">Limpar</button>
-    <button type="button" id="diyBtn" class="btn clear">DIY</button>
     <div class="jax" id="MathOutput-{{id}}">$${}$$</div>
-    <input id="response-{{id}}" type="text" value="" name="answer[response]" hidden data-storage=""/>
-    <textarea id="keyboard-{{id}}-screen" class="screen" value="" placeholder="LaTeX puro aqui!" hidden ></textarea>
-    <!-- <textarea id="kb-{{id}}-tex" class="screen screen-tex" placeholder="Fórmulas LaTeX"></textarea> -->
+    <button type="submit" class="btn key waves-effect waves-light submit" data-value="send">Enviar<i class="material-icons right">send</i></button>
   </div>
 
-  <!-- Screen and clear key -->
-  <!-- <div class="top">
+  <div class="clearfix" id="board">
 
-    <!-- <input type="hidden" id="" id="MathInput"></input> -->
-    <!-- <button class="clear material-icons" data-value="<">keyboard_arrow_left</button>
-    <button class="clear material-icons" data-value=">">keyboard_arrow_right</button> -->
-  <!-- </div> -->
+    <div id="tries">{{tries}}</div>
 
-  <div class="keys" id="default-keys">
-    <!-- operators and other keys -->
-    {{#each keys}}
-      {{render 'element'}}
-    {{/each}}
+    <div class="keys" id="default-keys">
+      <div id="operators">
+        {{#each operators}}
+          {{> element}}
+        {{/each}}
+      </div>
+      <div id="keys">
+        {{#each keys}}
+          {{> element}}
+        {{/each}}
+      </div>
+    </div>
+
+    <div id="special-keys">
+
+      <div id="separator"></div>
+
+      <div class="modifiers">
+        <ul>
+          <li data-id="functions-keys">FUNÇÕES</li>
+          <li data-id="matrix-keys">MATRIZES</li>
+          <li data-id="trig-keys">TRIGONOMETRIA</li>
+        </ul>
+        <div id="advanced-keys">
+          <div id="functions-keys">
+            {{#each functions}}
+              {{> advanced}}
+            {{/each}}
+          </div>
+          <div id="matrix-keys" hidden>
+            {{#each matrix}}
+              {{> advanced}}
+            {{/each}}
+          </div>
+          <div id="trig-keys" hidden>
+            {{#each trig}}
+              {{> advanced}}
+            {{/each}}
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 
-  <div class="keys" id="more">
-    {{#each specialKeys}}
-      {{render 'element'}}
-    {{/each}}
-    <button type="submit" class="btn waves-effect waves-light tooltipped eval mdi mdi-account-check" data-tooltip="{{this.key}}" data-position="top" data-value="check">{{this.key}}</button>
+  <div id="show-direct-input"><></div>
 
+  <div class="direct-input hide">
+    <textarea id="keyboard-{{id}}-screen" class="screen" value="" placeholder="Fórmulas LaTeX"></textarea>
   </div>
-
-</div>
