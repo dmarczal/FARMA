@@ -18,18 +18,11 @@
     <%= render 'layouts/view_lo/navbar' %>
   </header>
 
-  <main>
-    <div id="los-content" class="row">
-      <div id="lo-panel" class="white">
-        <div id="top-panel"><i class="material-icons">reorder</i></div>
-          <ul>
-          <%= yield :contents_lo %>
-        </ul>
-      </div>
+  <main id="los-content" class="row">
+    <%= render 'layouts/view_lo/panel' %>
 
-      <div id="contents" class="col s8">
-        <%= yield %>
-      </div>
+    <div id="contents" class="col s8">
+      <%= yield %>
     </div>
   </main>
 </body>

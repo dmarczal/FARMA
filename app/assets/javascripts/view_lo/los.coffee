@@ -8,3 +8,12 @@ window.FARMA.updateBars = (percent_process_bar, percent_preview_bar) ->
   $("#process .preview-bar-percent .percent").html percent_preview_bar
   $("#process .process-bar-percent .percent").html percent_process_bar
   $("#process .not-preview-bar-percent .percent").html 100 - percent_preview_bar
+
+window.FARMA.navBarFixed = ->
+  $(window).scroll ->
+    if $(this).scrollTop() > 0
+      $('nav').addClass 'active'
+      $('#lo-panel').addClass 'active'
+    else
+      $('nav').removeClass 'active'
+      $('#lo-panel').removeClass 'active'

@@ -6,7 +6,7 @@ window.FARMA.navBarFixed = ->
   $(window).scroll ->
     if $(this).scrollTop() > 0
       $('img.logo').addClass 'nav-bar-fixed'
-      $('#home-page-navbar').addClass 'active'
+      $('#home-page-navba').addClass 'active'
     else
       $('img.logo').removeClass 'nav-bar-fixed'
       $('#home-page-navbar').removeClass 'active'
