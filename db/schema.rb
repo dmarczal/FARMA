@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161021202412) do
+ActiveRecord::Schema.define(version: 20170207164251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -125,6 +125,46 @@ ActiveRecord::Schema.define(version: 20161021202412) do
   add_index "los_teams", ["lo_id"], name: "index_los_teams_on_lo_id", using: :btree
   add_index "los_teams", ["team_id"], name: "index_los_teams_on_team_id", using: :btree
 
+  create_table "progress_exercises", force: :cascade do |t|
+    t.integer  "team_id"
+    t.integer  "user_id"
+    t.integer  "exercise_id"
+    t.float    "progress_percent", default: 0.0
+    t.float    "preview_percent",  default: 0.0
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+  end
+
+  add_index "progress_exercises", ["exercise_id"], name: "index_progress_exercises_on_exercise_id", using: :btree
+  add_index "progress_exercises", ["team_id"], name: "index_progress_exercises_on_team_id", using: :btree
+  add_index "progress_exercises", ["user_id"], name: "index_progress_exercises_on_user_id", using: :btree
+
+  create_table "progress_introductions", force: :cascade do |t|
+    t.integer  "team_id"
+    t.integer  "user_id"
+    t.integer  "introduction_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "progress_introductions", ["introduction_id"], name: "index_progress_introductions_on_introduction_id", using: :btree
+  add_index "progress_introductions", ["team_id"], name: "index_progress_introductions_on_team_id", using: :btree
+  add_index "progress_introductions", ["user_id"], name: "index_progress_introductions_on_user_id", using: :btree
+
+  create_table "progress_los", force: :cascade do |t|
+    t.integer  "team_id"
+    t.integer  "user_id"
+    t.integer  "lo_id"
+    t.float    "progress_percent", default: 0.0
+    t.float    "preview_percent",  default: 0.0
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+  end
+
+  add_index "progress_los", ["lo_id"], name: "index_progress_los_on_lo_id", using: :btree
+  add_index "progress_los", ["team_id"], name: "index_progress_los_on_team_id", using: :btree
+  add_index "progress_los", ["user_id"], name: "index_progress_los_on_user_id", using: :btree
+
   create_table "questions", force: :cascade do |t|
     t.string   "title",          null: false
     t.integer  "position"
@@ -210,6 +250,15 @@ ActiveRecord::Schema.define(version: 20161021202412) do
   add_foreign_key "answers", "users"
   add_foreign_key "los_teams", "los"
   add_foreign_key "los_teams", "teams"
+  add_foreign_key "progress_exercises", "exercises"
+  add_foreign_key "progress_exercises", "teams"
+  add_foreign_key "progress_exercises", "users"
+  add_foreign_key "progress_introductions", "introductions"
+  add_foreign_key "progress_introductions", "teams"
+  add_foreign_key "progress_introductions", "users"
+  add_foreign_key "progress_los", "los"
+  add_foreign_key "progress_los", "teams"
+  add_foreign_key "progress_los", "users"
   add_foreign_key "teams", "users"
   add_foreign_key "tips_counts", "questions"
   add_foreign_key "tips_counts", "teams"

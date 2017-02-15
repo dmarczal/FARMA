@@ -3,6 +3,7 @@ class Lo < ActiveRecord::Base
   has_many :introductions, dependent: :destroy
   has_many :exercises, dependent: :destroy
   has_many :teams
+  has_many :progress_lo
   has_attached_file :image, :styles => {:thumb => '200x200!'},
                       default_url: "home/oa.png"
 

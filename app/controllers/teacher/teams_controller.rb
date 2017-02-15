@@ -25,7 +25,7 @@ class Teacher::TeamsController < Teacher::ApplicationController
 
       unless los.nil?
         los.each do |lo|
-          @team.los_teams.new(lo_id: lo).save
+          @team.register_lo lo
         end
       end
 
