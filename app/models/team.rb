@@ -22,8 +22,8 @@ class Team < ActiveRecord::Base
   end
 
   def register_lo(lo)
-    unless los_teams.exists? lo.id
-      los_teams.create(lo_id: lo.id)
+    unless los_teams.exists? lo_id: lo
+      los_teams.create(lo_id: lo)
     end
   end
 

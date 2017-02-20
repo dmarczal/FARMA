@@ -22,6 +22,7 @@ class Progress::Lo < ::ActiveRecord::Base
       data[:progress_percent] += e.progress_percent/total
     end
 
+    round_progress data
     update data
   end
 
@@ -34,6 +35,7 @@ class Progress::Lo < ::ActiveRecord::Base
       data[:progress_percent] += 1.0/total * 100
       data[:preview_percent] += 1.0/total * 100
 
+      round_progress data
       update data
     end
   end
@@ -55,6 +57,12 @@ class Progress::Lo < ::ActiveRecord::Base
     data[:preview_percent] += progress.preview_percent/total
     data[:progress_percent] += progress.progress_percent/total
 
+    round_progress data
     update data
+  end
+
+  def round_progress(data)
+    data[:progress_percent] = data[:progress_percent].round
+    data[:preview_percent] = data[:preview_percent].round
   end
 end

@@ -27,7 +27,7 @@ RSpec.describe Progress::Lo, type: :model do
     @progress.previewed_an_introduction @introduction1
   end
 
-  it "deve atualizar o progresso do lo, introduções" do
+  it "When viewing an introduction, it must be completed and add progress on the bars" do
     @progress.previewed_an_introduction @introduction1
 
     expect(@progress.progress_percent).to eq 50
@@ -39,21 +39,7 @@ RSpec.describe Progress::Lo, type: :model do
     expect(@progress.preview_percent).to eq 100
   end
 
-  it "deve atualizar o progresso do lo, respondedo todas as questões" do
-    create_exercise_question
-
-    @progress.previewed_an_introduction @introduction2
-
-    @question1.answers.create!(team: @team, user: @learner, response: "2")
-    @question2.answers.create!(team: @team, user: @learner, response: "3")
-    @question3.answers.create!(team: @team, user: @learner, response: "4")
-
-    @progress.recalc
-    expect(@progress.progress_percent.round).to eq 67
-    expect(@progress.preview_percent.round).to eq 100
-  end
-
-  it "deve atualizar o progresso do lo, respondedo apenas 2 questões" do
+  it "When answering questions and miss them, you should only update the preview bar" do
     create_exercise_question
 
     @progress.previewed_an_introduction @introduction2
@@ -62,11 +48,11 @@ RSpec.describe Progress::Lo, type: :model do
     @question2.answers.create!(team: @team, user: @learner, response: "3")
 
     @progress.recalc
-    expect(@progress.progress_percent.round).to eq 67
-    expect(@progress.preview_percent.round).to eq 89
+    expect(@progress.progress_percent).to eq 67
+    expect(@progress.preview_percent).to eq 89
   end
 
-  it "deve atualizar o progresso do lo, respondedo e acertando todas as questões" do
+  it "When answering questions, you should update both bars" do
     create_exercise_question
 
     @progress.previewed_an_introduction @introduction2
@@ -76,7 +62,7 @@ RSpec.describe Progress::Lo, type: :model do
     @question3.answers.create!(team: @team, user: @learner, response: "5")
 
     @progress.recalc
-    expect(@progress.progress_percent.round).to eq 100
-    expect(@progress.preview_percent.round).to eq 100
+    expect(@progress.progress_percent).to eq 100
+    expect(@progress.preview_percent).to eq 100
   end
 end
