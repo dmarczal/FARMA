@@ -1,5 +1,12 @@
 class window.FARMA.Keyboard
 
+  @preLoad: (id) ->
+    $(document).on 'click', ".box-response", ->
+      # $(@).hide()
+      obj = $("#keyboard-panel-#{@id}")
+      unless obj.hasClass("keyboard-active")
+        new window.FARMA.Keyboard(id)
+
   constructor: (id) ->
     @id = id
     @screen = new window.FARMA.Screen()
@@ -22,7 +29,7 @@ class window.FARMA.Keyboard
       })
 
     # Apply functionality
-    obj = $("#question-#{@id}-show")
+    obj = $("#keyboard-panel-#{@id}")
     unless obj.hasClass("keyboard-active")
       obj.addClass("keyboard-active")
       @clickHandler()

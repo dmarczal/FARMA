@@ -1,10 +1,10 @@
 <li id='question-<%= question.id %>' class="collection-item row col s12">
-  
+
   <div class="col s12 row questions_list">
     <header class="left">
       <%= link_to teacher_lo_exercise_question_path(@lo, @exercise, question), remote: true do %>
         <i id="show-question-<%= question.id %>"
-        class="show-question material-icons medium" data-target="question-<%= question.id %>-show">
+        class="show-question material-icons medium" data-id="<%= question.id %>" data-target="question-<%= question.id %>-show">
         keyboard_arrow_right
       </i>
       <% end %>
@@ -28,7 +28,7 @@
               <i class="material-icons">delete</i>
           <% end %>
         </li>
-      </ul>  
+      </ul>
     </div>
   </div>
 
