@@ -1,23 +1,24 @@
 class window.FARMA.Keyboard
 
   @preLoad: (id) ->
-    $(document).on 'click', ".box-response", ->
-      # $(@).hide()
-      obj = $("#keyboard-panel-#{@id}")
-      unless obj.hasClass("keyboard-active")
-        new window.FARMA.Keyboard(id)
+    obj = $(document).find("#keyboard-panel-#{id}")
+    if obj.hasClass("keyboard-active")
+      $("#keyboard-#{id}").show()
+    else
+      new window.FARMA.Keyboard(id)
 
   constructor: (id) ->
+    self = $("#keyboard-panel-#{id}")
     @id = id
     @screen = new window.FARMA.Screen()
     @hbs = new window.FARMA.Hbs()
-    @tries = $("#keyboard-panel-#{id}").data("tries")
+    @tries = self.data("tries")
 
     Handlebars.registerHelper 'log', (context) ->
       console.log context
 
     # render
-    $("#keyboard-panel-#{@id}").render(@hbs.render('keyboard'), {
+    self.render(@hbs.render('keyboard'), {
         id: id
         tries: @tries
         operators: window.FARMA.Keys.operators()
@@ -29,13 +30,13 @@ class window.FARMA.Keyboard
       })
 
     # Apply functionality
-    obj = $("#keyboard-panel-#{@id}")
-    unless obj.hasClass("keyboard-active")
-      obj.addClass("keyboard-active")
-      @clickHandler()
-      @hotKeyHandler()
-      @checkAnswer()
-      @onSubmit()
+    # obj = $("#keyboard-panel-#{@id}")
+    # unless obj.hasClass("keyboard-active")
+    self.addClass("keyboard-active")
+    @clickHandler()
+    @hotKeyHandler()
+    @checkAnswer()
+    @onSubmit()
 
   clickHandler: ->
     id = @id
@@ -65,6 +66,8 @@ class window.FARMA.Keyboard
 
   onSubmit: (editor) ->
     id = @id
+    self = @screen
+
     $("#response-form-#{id}").on 'submit', ->
       if editor
         editor.toTextArea();

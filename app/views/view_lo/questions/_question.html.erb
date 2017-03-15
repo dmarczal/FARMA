@@ -7,12 +7,12 @@
     <%= question.content.html_safe %>
   </div>
 
-  <div class="show-question" id="question-<%= question.id %>-show" data-id="<%= question.id %>">
+  <div class="show-question" id="question-<%= question.id %>-show">
     <div id="question-1-show">
-      <div class="box-response">
+      <div class="box-response" data-id="<%= question.id %>">
         <form id="keyboard-form-<%= question.id %>" class="col s12" method="POST"
           action="<%= view_lo_answer_path(@team, @lo, question.exercise, question) %>" data-remote="true">
-          <div id="keyboard-panel-<%= question.id %>"></div>
+          <div id="keyboard-panel-<%= question.id %>" data-storage=""></div>
         </form>
       </div>
     </div>

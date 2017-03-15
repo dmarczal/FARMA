@@ -10,7 +10,6 @@ class window.FARMA.Screen
   addToJax: (key, what, where) ->
     newTex = @expressionMerge(@getScreenTex(where), what)
     newValue = @getResponseValue(where) + key
-    console.log newTex
     if window.FARMA.Validator.isNumeric(newTex)
       @switchClass(where, true)
     else
@@ -22,7 +21,7 @@ class window.FARMA.Screen
     $("#keyboard-#{where}-screen").val()
 
   getResponseValue: (where) ->
-    $("#question_#{where}_response").attr("data-storage")
+    $("#keyboard-panel-#{where}").attr("data-storage")
 
   cleanScreen: (id) ->
     @updateInputsWith("", "", id)
@@ -62,8 +61,7 @@ class window.FARMA.Screen
 
   updateInputsWith: (newValue, newTex, where) ->
     $("#keyboard-#{where}-screen").val(newTex)
-    $("#question_#{where}_response").attr("data-storage", newValue)
-    console.log(newValue)
+    $("#keyboard-panel-#{where}").attr("data-storage", newValue)
     if window.FARMA.Validator.isNumeric(newValue)
       $("#response-#{where}").val(newValue)
 
