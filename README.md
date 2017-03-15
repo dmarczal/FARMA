@@ -4,7 +4,7 @@ Ferramenta de Autoria para a Remediação de erros com Mobilidade na Aprendizage
 
 ##Instalação
 
-1. Clone o repositório do projeto utilizando o comando 
+1. Clone o repositório do projeto utilizando o comando
 
     * `git clone https://dmarczal@bitbucket.org/farma-reborned/farma.git`
 

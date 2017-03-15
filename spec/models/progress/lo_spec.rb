@@ -30,12 +30,12 @@ RSpec.describe Progress::Lo, type: :model do
   it "When viewing an introduction, it must be completed and add progress on the bars" do
     @progress.previewed_an_introduction @introduction1
 
-    expect(@progress.progress_percent).to eq 50
+    expect(@progress.progress_percent).to eq 0
     expect(@progress.preview_percent).to eq 50
 
     @progress.previewed_an_introduction @introduction2
 
-    expect(@progress.progress_percent).to eq 100
+    expect(@progress.progress_percent).to eq 0
     expect(@progress.preview_percent).to eq 100
   end
 
@@ -45,10 +45,10 @@ RSpec.describe Progress::Lo, type: :model do
     @progress.previewed_an_introduction @introduction2
 
     @question1.answers.create!(team: @team, user: @learner, response: "2")
-    @question2.answers.create!(team: @team, user: @learner, response: "3")
+    @question2.answers.create!(team: @team, user: @learner, response: "10")
 
     @progress.recalc
-    expect(@progress.progress_percent).to eq 67
+    expect(@progress.progress_percent).to eq 33
     expect(@progress.preview_percent).to eq 89
   end
 

@@ -2,6 +2,7 @@
 
   <%= f.input :title, autofocus: true %>
   <%= f.input :content, :as => :ckeditor %>
+  <%= f.association :tags, as: :mult_select, name: "Selecione as tags" %>
 
   <%= f.button :submit_materialize, :cancel => teacher_lo_path(@lo) %>
 <% end %>

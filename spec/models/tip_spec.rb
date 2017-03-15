@@ -12,7 +12,7 @@ RSpec.describe Tip, type: :model do
 
     it "create a new question" do
       expect{
-        tip = FactoryGirl.create(:tip, question: @question)
+        FactoryGirl.create(:tip, question: @question)
       }.to change(Tip,:count).by(1)
     end
 

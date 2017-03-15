@@ -6,12 +6,11 @@ class Progress::Exercise < ActiveRecord::Base
   validates :team, :exercise, :user, presence: true
 
   def set_progress(answer)
-    data = {preview_percent: self.preview_percent}
     if ::Answer.find_by(team_id: answer.team_id,
                         user_id: answer.user_id,
                         question_id: answer.question_id).nil?
 
-      data[:preview_percent] += 1.0/exercise.questions_count * 100
+      self.preview_percent += 1.0/exercise.questions_count * 100
     end
 
     if answer.correct and ::Answer.find_by(team_id: answer.team_id,
@@ -22,6 +21,6 @@ class Progress::Exercise < ActiveRecord::Base
       self.progress_percent += 1.0/exercise.questions_count * 100
     end
 
-    update data
+    save!
   end
 end

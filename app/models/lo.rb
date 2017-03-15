@@ -4,6 +4,8 @@ class Lo < ActiveRecord::Base
   has_many :exercises, dependent: :destroy
   has_many :teams
   has_many :progress_lo
+  has_and_belongs_to_many :tags
+
   has_attached_file :image, :styles => {:thumb => '200x200!'},
                       default_url: "home/oa.png"
 
@@ -11,7 +13,15 @@ class Lo < ActiveRecord::Base
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   def content_by_position(index)
-    content = contents[index.to_i - 1]
+    contents[index.to_i - 1]
+  end
+
+  def update_los_teams
+    los_progress = Progress::lo.find_by lo_id: self.id
+
+    los_progress.each do |lo_progress|
+      lo_progress.recalc
+    end
   end
 
   # Mescla de introduções e exercícios
