@@ -15,7 +15,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require materialize-sprockets
-//= require jquery-handlebars
 //= require jquery-hotkeys
 //= require_tree ../view_lo/
 //= require ckeditor/init
