@@ -1,17 +1,20 @@
 <article class="question z-depth-1 white">
   <header class="grey-text lighten-1">
-    Questão <%= question.index %>
+    <%= question.title %>
   </header>
 
   <div class="content">
-    <%= question.title %>
     <%= question.content.html_safe %>
   </div>
 
-  <div class="box-response">
-    <form id="keyboard-form-<%= question.id %>" class="col s12" method="POST"
-      action="<%= view_lo_answer_path(@team, @lo, question.exercise, question) %>" data-remote="true">
-      <div id="keyboard-panel-<%= question.id %>"></div>
-    </form>
+  <div class="show-question" id="question-<%= question.id %>-show">
+    <div id="question-1-show">
+      <div class="box-response" data-id="<%= question.id %>">
+        <form id="keyboard-form-<%= question.id %>" class="col s12" method="POST"
+          action="<%= view_lo_answer_path(@team, @lo, question.exercise, question) %>" data-remote="true">
+          <div id="keyboard-panel-<%= question.id %>" data-storage=""></div>
+        </form>
+      </div>
+    </div>
   </div>
 </article>

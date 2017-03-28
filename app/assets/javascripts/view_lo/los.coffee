@@ -17,3 +17,7 @@ window.FARMA.navBarFixed = ->
     else
       $('nav').removeClass 'active'
       $('#lo-panel').removeClass 'active'
+
+window.FARMA.showKeyboard = ->
+  $(".box-response").on 'click', ->
+      window.FARMA.Keyboard.preLoad($(@).attr('data-id'))

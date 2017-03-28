@@ -17,7 +17,7 @@
 //= require materialize-sprockets
 //= require jquery-handlebars
 //= require jquery-hotkeys
-//= require view_lo/loads
+//= require_tree ../view_lo/
 //= require ckeditor/init
 //= require ckeditor/functions_ck
 //= require ckeditor/config
