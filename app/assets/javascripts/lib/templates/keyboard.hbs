@@ -13,12 +13,12 @@
     <div class="keys" id="default-keys">
       <div id="operators">
         {{#each operators}}
-          {{> element}}
+          {{> partials/_element }}
         {{/each}}
       </div>
       <div id="keys">
         {{#each keys}}
-          {{> element}}
+          {{> partials/_element }}
         {{/each}}
       </div>
     </div>
@@ -36,17 +36,17 @@
         <div id="advanced-keys">
           <div id="functions-keys">
             {{#each functions}}
-              {{> advanced}}
+              {{> partials/_advanced}}
             {{/each}}
           </div>
           <div id="matrix-keys" hidden>
             {{#each matrix}}
-              {{> advanced}}
+              {{> partials/_advanced}}
             {{/each}}
           </div>
           <div id="trig-keys" hidden>
             {{#each trig}}
-              {{> advanced}}
+              {{> partials/_advanced}}
             {{/each}}
           </div>
         </div>

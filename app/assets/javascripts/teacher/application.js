@@ -21,7 +21,8 @@
 //= require ckeditor/functions_ck
 //= require ckeditor/config
 //= require handlebars
-//= require_tree ../lib/
+//= require_tree ../lib/templates
+//= require_tree ../lib/keyboard
 //= require teacher/utils
 //= require teacher/exercises
 //= require teacher/questions

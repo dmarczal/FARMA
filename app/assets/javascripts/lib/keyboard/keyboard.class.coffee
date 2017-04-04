@@ -11,27 +11,24 @@ class window.FARMA.Keyboard
     self = $("#keyboard-panel-#{id}")
     @id = id
     @screen = new window.FARMA.Screen()
-    @hbs = new window.FARMA.Hbs()
+    # @hbs = new window.FARMA.Hbs()
     @tries = self.data("tries")
 
     Handlebars.registerHelper 'log', (context) ->
       console.log context
 
-    # render
-    self.render(@hbs.render('keyboard'), {
-        id: id
-        tries: @tries
-        operators: window.FARMA.Keys.operators()
-        keys: window.FARMA.Keys.keys()
-        specialKeys: window.FARMA.Keys.specialKeys()
-        functions: window.FARMA.Keys.functions()
-        matrix: window.FARMA.Keys.matrix()
-        trig: window.FARMA.Keys.trig()
-      })
+    keyboard = HandlebarsTemplates['keyboard']({
+          id: id
+          tries: @tries
+          operators: window.FARMA.Keys.operators()
+          keys: window.FARMA.Keys.keys()
+          specialKeys: window.FARMA.Keys.specialKeys()
+          functions: window.FARMA.Keys.functions()
+          matrix: window.FARMA.Keys.matrix()
+          trig: window.FARMA.Keys.trig()
+    });
 
-    # Apply functionality
-    # obj = $("#keyboard-panel-#{@id}")
-    # unless obj.hasClass("keyboard-active")
+    self.html keyboard
     self.addClass("keyboard-active")
     @clickHandler()
     @hotKeyHandler()
