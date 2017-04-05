@@ -65,8 +65,6 @@ Rails.application.routes.draw do
     resources :teams, only: [:index, :show, :create]
 
     get '/registered-teams' => 'teams#registered'
-
-    resources :los
   end
 
   #################################### view lo Layout ###########################################
