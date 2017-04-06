@@ -1,25 +1,20 @@
-$(document).ready ->
+# https://github.com/mkhairi/materialize-sass/issues/63
+# Fixed materialize because turbolinks
+window.FARMA = {}
+
+$(document).on 'turbolinks:load', ->
+  window.FARMA.reloadMaterilizeEffects()
+  window.FARMA.navBarFixed()
   window.FARMA.displayFlashMessages()
   window.FARMA.loadMouseOverOnCard()
   window.FARMA.researchIcon()
   window.FARMA.sidebarScrollSpy()
   window.FARMA.tabbedResearchs()
 
-# https://github.com/mkhairi/materialize-sass/issues/63
-# Fixed materialize because turbolinks
-$(document).on 'page:change', ->
-  window.FARMA.reloadMaterilizeEffects()
-  window.FARMA.navBarFixed()
-
-$(document).on 'page:update', ->
-  MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
-
-window.FARMA = {}
-
 window.FARMA.reloadMaterilizeEffects = ->
   Waves.displayEffect() # reinitialize wave effect on button
   $('.dropdown-button').dropdown() # reinitialize dropdown
-  Materialize.updateTextFields() # reinitialize form label
+  # Materialize.updateTextFields() # reinitialize form label
   $('input[autofocus]').siblings('label, i').addClass('active')
   $('.button-collapse').sideNav() # reinitialize nav-mobile
   $('.parallax').parallax() # reinitialize parallax

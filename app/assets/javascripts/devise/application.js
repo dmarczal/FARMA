@@ -16,6 +16,3 @@
 //= require turbolinks
 //= require materialize-sprockets
 //= require devise/loads
-//= require ckeditor/init
-//= require ckeditor/config
-//= require_tree ../lib/

@@ -16,6 +16,5 @@
 //= require turbolinks
 //= require materialize-sprockets
 //= require loads
-//= require_tree ./lib/
 //= require home
 //= require codemirror

@@ -4,13 +4,10 @@ $(document).ready ->
 
 # https://github.com/mkhairi/materialize-sass/issues/63
 # Fixed materialize because turbolinks
-$(document).on 'page:change', ->
+$(document).on 'turbolinks:load', ->
   window.FARMA.reloadMaterilizeEffects()
   window.FARMA.navBarFixed()
-
-$(document).on 'page:update', ->
-  MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
-
+  
 window.FARMA = {}
 
 window.FARMA.reloadMaterilizeEffects = ->

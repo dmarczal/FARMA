@@ -1,3 +1,4 @@
+#= require_tree ../templates
 class window.FARMA.Keyboard
 
   @preLoad: (id) ->
@@ -26,7 +27,7 @@ class window.FARMA.Keyboard
           functions: window.FARMA.Keys.functions()
           matrix: window.FARMA.Keys.matrix()
           trig: window.FARMA.Keys.trig()
-    });
+    })
 
     self.html keyboard
     self.addClass("keyboard-active")
