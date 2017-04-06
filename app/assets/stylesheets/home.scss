@@ -230,6 +230,10 @@ nav#home-page-navbar.active {
     float: left;
   }
 
+  li.tab a {
+    color: $palletegrey2;
+  }
+
   .tabs {
     overflow-x: auto;
   }
@@ -288,7 +292,7 @@ nav#home-page-navbar.active {
     padding-bottom: 20px;
 
     b {
-      color: $palletegreen;
+      color: $palletegrey2;
     }
   }
 

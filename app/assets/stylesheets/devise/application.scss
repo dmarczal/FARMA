@@ -1,3 +1,7 @@
 @import "lib/materialize";
 
 @import "devise/login";
+
+.toast-message {
+  word-break: normal;
+}
