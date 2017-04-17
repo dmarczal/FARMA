@@ -2,8 +2,6 @@
 * Configurations
 **************************************************************/
 @import "config/materialize_base";
-@import "materialize/components/dropdown";
-@import "lib/variables_and_functions";
 
 /*************************************************************
 * Vendors stylesheets
@@ -14,10 +12,8 @@
 * Custom and bugs fix from materialize
 **************************************************************/
 @import "customizations/materialize.scss";
-@import "customizations/toastr.scss";
 
 /*************************************************************
 * Apps stylesheets
 **************************************************************/
-@import "shared/layout";
-@import "admin/colors";
+@import "lib/vertical_horizontal_align"

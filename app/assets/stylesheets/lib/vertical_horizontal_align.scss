@@ -1,0 +1,23 @@
+/*************************************************************
+* Vertical and horizontal align
+**************************************************************/
+
+html, body {
+  height: 100%;
+}
+
+.container {
+  height: 100%;
+}
+
+.vertical-centering {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.horizontal-centering {
+  width: 50%;
+  margin: auto;
+}

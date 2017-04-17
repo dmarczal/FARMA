@@ -1,10 +1,10 @@
 module Teacher::ApplicationHelper
 
   def active_class current_controller
-    controller.controller_name == current_controller ? 'class=active' : nil
+    controller.controller_name.to_sym == current_controller ? 'class=active' : nil
   end
 
-  def active_class_for_links controllers
+  def active_class_for_links *controllers
     current_controller = nil
 
     controllers.each do |controller|

@@ -11,9 +11,9 @@
 // about supported directives.
 //
 //= require jquery
-//= require toastr
 //= require jquery_ujs
 //= require turbolinks
+//= require toastr.min
 //= require materialize-sprockets
 //= require jquery-hotkeys
 //= require_tree ../view_lo/

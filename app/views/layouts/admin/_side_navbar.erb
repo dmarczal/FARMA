@@ -1,0 +1,28 @@
+<div class="sidebar" >
+  <ul class="list">
+
+    <li <%= active_class :dashboard %> >
+      <%= link_to(admin_path) do %>
+        Dashboard
+        <i class="mdi-action-home"></i>
+      <% end %>
+    </li>
+    
+    <li <%= active_class_for_links :researches %> >
+      <%= link_to(admin_researches_path) do %>
+        Pesquisas 
+        <i class="tiny material-icons">file_folder</i>
+      <% end %>
+    </li>
+
+    <div class="divider col s12"></div>
+
+    <li>
+      <%= link_to "#" do %>
+          Equipe
+          <i class="tiny material-icons">file_folder</i> 
+      <% end %>
+    </li>
+
+  </ul>
+</div>

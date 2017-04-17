@@ -1,0 +1,44 @@
+/*************************************************************
+* top navbar
+**************************************************************/
+
+div.navbar-fixed nav {
+  background-color: red;
+}
+
+/*************************************************************
+* sidebar
+**************************************************************/
+
+div.sidebar {
+
+	ul {
+
+		li , li a {
+			color: $palletegrey;
+		}
+
+		li.active a {
+			color: $palletegreen;
+		}
+
+		li:hover {
+			background-color: $palletewhite;
+		}
+	}
+}
+
+.main-content:before {
+	border-left-color: #e0e0e0;
+}
+
+/*************************************************************
+* Page header
+**************************************************************/
+
+.page-header {
+	border-bottom-color: #e0e0e0;
+}
+
+
+

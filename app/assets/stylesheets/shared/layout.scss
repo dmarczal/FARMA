@@ -1,0 +1,58 @@
+/*************************************************************
+* navbar
+**************************************************************/
+ .user-profile > a img {
+    float: left;
+    width: 34px;
+    height: 34px;
+    margin: 13px 8px 0 0;
+}
+
+/*************************************************************
+* sidebar
+**************************************************************/
+
+div.sidebar {
+	position: fixed;
+	overflow: hidden;
+
+	ul {
+		padding: 0;
+		width: 200px;
+
+		li {
+			padding: 10px;
+			clear: both;
+
+			i {
+				float: right;
+				margin-left: 10px;
+			}
+		}
+	}
+}
+
+.main-content:before {
+   	content: '';
+    position: absolute;
+    height: 55%;
+    top: 20%;
+    border-left-width: 1px;
+	border-left-style: solid;
+ }
+
+ .main-content .content {
+ 	margin-left: 15px;
+ }
+
+/*************************************************************
+* Page header
+**************************************************************/
+.page-header {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+
+	h1, h2, h3, h4, h5, h6 {
+		margin-bottom: 0.008rem;
+	}
+}

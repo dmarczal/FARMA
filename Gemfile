@@ -20,7 +20,6 @@ gem 'pg',           '0.20.0'
 gem 'devise',       '4.2.1'
 gem 'simple_form',  '~> 3.4'
 gem 'materialize-sass', '0.98.1' # https://github.com/mkhairi/materialize-sass
-gem 'toastr-rails'
 gem 'rails-i18n', '~> 5.0.0' # For 5.x
 gem 'math_engine'
 

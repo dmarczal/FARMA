@@ -9,21 +9,27 @@ class ApplicationController < ActionController::Base
     resource.is_a?(Admin) ? admin_path : choose_workspace_path
   end
 
-  protected
+  def after_sign_out_path_for(resource)
+     return new_admin_session_path if resource == :admin
 
-    def layout_by_resource
-      return "devise/users_options" if devise_controller?
+     root_path
+  end
 
-      "application"
-    end
+protected
 
-    def configure_permitted_parameters
-     devise_parameter_sanitizer.permit(:sign_up) do |user_params|
-       user_params.permit(:name, :email, :name, :short_description, :biography, :password, :password_confirmation, :remember_me, :avatar)
-     end
+  def layout_by_resource
+    return "devise/users_options" if devise_controller?
 
-     devise_parameter_sanitizer.permit(:account_update) do |user_params|
-       user_params.permit(:name, :email, :password, :password_confirmation, :current_password, :avatar)
-     end
-    end
+    "application"
+  end
+
+  def configure_permitted_parameters
+   devise_parameter_sanitizer.permit(:sign_up) do |user_params|
+     user_params.permit(:name, :email, :name, :short_description, :biography, :password, :password_confirmation, :remember_me, :avatar)
+   end
+
+   devise_parameter_sanitizer.permit(:account_update) do |user_params|
+     user_params.permit(:name, :email, :password, :password_confirmation, :current_password, :avatar)
+   end
+ end
 end

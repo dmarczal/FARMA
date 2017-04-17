@@ -6,6 +6,7 @@
  * ______________________________*/
 
 @import "materialize/components/color";
+
 $primary-color: color("green", "accent-4") !default;
 $secondary-color: color("green", "darken-1") !default;
 
@@ -27,28 +28,6 @@ $secondary-color: color("green", "darken-1") !default;
 @import "materialize/components/roboto";
 @import "materialize/components/typography";
 @import "materialize/components/cards";
-//@import "materialize/components/toast";
-@import "materialize/components/tabs";
 @import "materialize/components/tooltip";
-@import "materialize/components/buttons";
-@import "materialize/components/dropdown";
-@import "materialize/components/waves";
-@import "materialize/components/modal";
-@import "materialize/components/collapsible";
-@import "materialize/components/chips";
-//@import "materialize/components/materialbox";
 @import "materialize/components/forms/forms";
-// @import "materialize/components/table_of_contents";
-@import "materialize/components/sideNav";
-//@import "materialize/components/preloader";
-@import "materialize/components/slider";
-//@import "materialize/components/carousel";
-//@import "materialize/components/date_picker/default.scss";
-//@import "materialize/components/date_picker/default.date.scss";
-//@import "materialize/components/date_picker/default.time.scss";
-
-
-// SHARED IMPORT
-@import "variables_and_functions";
-@import "toastr.min";
-@import "custom";
+@import "materialize/components/buttons";

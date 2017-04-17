@@ -2,20 +2,21 @@
 <html>
 <head>
   <%= favicon_link_tag %>
-  <title>Entrar - Farma Admin</title>
+  <title>Administrativo da Farma</title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-  <%= stylesheet_link_tag    'admin/login' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'admin/session' %>
+  <%= javascript_include_tag 'admin/session', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-  <%= render 'shared/flash_messages'  %>
+  <%= render 'shared/flash_messages' %>
 
   <div id="admin-login-page" class="container">
-    <div class="card-panel hoverable">
+    <div class="card-panel hoverable vertical-centering horizontal-centering">
       <h5 class="center-align"> Acesso a área administrativa </h5>
+      <br>
       <div class="row">
         <%= yield %>
       </div>
