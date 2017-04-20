@@ -20,7 +20,7 @@ window.FARMA = {}
 
 window.FARMA.reloadMaterilizeEffects = ->
   Waves.displayEffect() # reinitialize wave effect on button
-  $('.dropdown-button').dropdown() # reinitialize dropdown
+  $('.dropdown-button').dropdown({ belowOrigin: true }) # reinitialize dropdown
   # reinitialize form label
   Materialize.updateTextFields()
   $('input[autofocus]').siblings('label, i').addClass('active')

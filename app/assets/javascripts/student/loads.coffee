@@ -14,6 +14,7 @@ window.FARMA = {}
 window.FARMA.reloadMaterilizeEffects = ->
   Waves.displayEffect() # reinitialize wave effect on button
   Materialize.updateTextFields() # reinitialize form label
+  $('.dropdown-button').dropdown({ belowOrigin: true }) # reinitialize dropdown
 
 window.FARMA.displayFlashMessages = ->
   toastr.options =

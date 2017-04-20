@@ -7,13 +7,13 @@ $(document).ready ->
 $(document).on 'turbolinks:load', ->
   window.FARMA.reloadMaterilizeEffects()
   window.FARMA.navBarFixed()
-  
+
 window.FARMA = {}
 
 window.FARMA.reloadMaterilizeEffects = ->
   Waves.displayEffect() # reinitialize wave effect on button
   Materialize.updateTextFields() # reinitialize form label
-  $('.dropdown-button').dropdown()
+  $('.dropdown-button').dropdown({ belowOrigin: true })
 
 window.FARMA.displayFlashMessages = ->
   toastr.options =

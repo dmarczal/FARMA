@@ -1,0 +1,12 @@
+<nav class="clearfix">
+
+  <%= link_to("FARMA", root_path, class: "brand-logo", id: "logo-container") %>
+
+  <ul id="button_links_user" class="hide-on-med-and-down right">
+    <li><%= render 'layouts/teacher/navbar/user_toggle' %></li>
+    <li><%= render 'layouts/teacher/navbar/profile_dropdown' %></li>
+  </ul>
+
+  <%= render 'layouts/teacher/sidebar' %>
+
+</nav>

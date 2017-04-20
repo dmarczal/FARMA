@@ -13,7 +13,7 @@ $(document).on 'turbolinks:load', ->
 
 window.FARMA.reloadMaterilizeEffects = ->
   Waves.displayEffect() # reinitialize wave effect on button
-  $('.dropdown-button').dropdown() # reinitialize dropdown
+  $('.dropdown-button').dropdown({ belowOrigin: true }) # reinitialize dropdown
   # Materialize.updateTextFields() # reinitialize form label
   $('input[autofocus]').siblings('label, i').addClass('active')
   $('.button-collapse').sideNav() # reinitialize nav-mobile
