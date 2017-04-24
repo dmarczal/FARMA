@@ -2,9 +2,4 @@ $('#contact_form').html("<%= j render partial: 'home/form_contact_us' %>");
 
 Materialize.updateTextFields();
 
-<% unless flash.empty? %>
-  <% flash.each do |f| %>
-    <% type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'info') %>
-    toastr['<%= type %>']('<%= f[1] %>');
-  <% end %>
-<% end %>
+$('body').append("<%= j render partial: 'shared/flash_messages' %>");

@@ -1,10 +1,16 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/*************************************************************
+* General styles
+**************************************************************/
+body {
+  background-color: $palletewhite;
+}
 
-/*
+a {
+  @extend .text-green;
+}
+/*************************************************************
 * Home page styles
-* ______________________________*/
+**************************************************************/
 #home-page {
   h1, h4 {
     margin-bottom: 0.2em;
@@ -26,7 +32,6 @@
       width: 100%;
     }
   }
-
 
   .top-container {
     min-height: 655px;
@@ -62,6 +67,9 @@
   }
 }
 
+/*************************************************************
+* Home page navbar
+**************************************************************/
 nav#home-page-navbar {
   background-color: $palletewhite;
   transition: box-shadow 0.4s;
@@ -190,9 +198,9 @@ nav#home-page-navbar.active {
 }
 
 
-/*
-* Responsive design for home page
-* _______________________________________________*/
+/*************************************************************
+*  Responsive design for home page
+**************************************************************/
 @media only screen and (max-width : 992px) {
   #home-page {
     .parallax-container .section {
@@ -218,14 +226,18 @@ nav#home-page-navbar.active {
 }
 
 
-/*
+/*************************************************************
 * Area for research the home page
-* _______________________________________________*/
+**************************************************************/
 #home-page-researchs {
   padding-top: 200px;
   padding-bottom: 200px;
 
-  img{
+  li {
+    background-color: #fff;
+  }
+
+  img {
     width: 150px;
     float: left;
   }
@@ -312,6 +324,10 @@ nav#home-page-navbar.active {
       font-size: small;
     }
   }
+  
+  .reference {
+    padding-top: 25px;
+  }
 
   .icon-arrow {
     position: absolute;
@@ -328,10 +344,10 @@ nav#home-page-navbar.active {
 
 }
 
-/*
-* Area for awards the home page
-* _______________________________________________*/
 
+/*************************************************************
+* Area for awards the home page
+**************************************************************/
 #home-page-awards {
   padding-top: 200px;
   padding-bottom: 400px;
@@ -360,15 +376,53 @@ nav#home-page-navbar.active {
     }
   }
 }
+/*************************************************************
+* Home sidebar
+**************************************************************/
+#home-sidebar {
+  position: fixed;
+  right: 2%;
+  top: 10%;
+  z-index: 200;
 
-.gradient-white {
-  background: rgba($palletewhite,1);
-  background: -moz-linear-gradient(top, rgba($palletewhite,1) 0%, rgba($palletewhite,1) 8%, rgba($palletewhite,0.69) 28%, rgba($palletewhite,0) 51%, rgba($palletewhite,0.69) 74%, rgba($palletewhite,1) 88%, rgba($palletewhite,1) 100%);
-  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba($palletewhite,1)), color-stop(8%, rgba($palletewhite,1)), color-stop(28%, rgba($palletewhite,0.69)), color-stop(51%, rgba($palletewhite,0)), color-stop(74%, rgba($palletewhite,0.69)));
-  background: -webkit-linear-gradient(top, rgba($palletewhite,1) 0%, rgba($palletewhite,1) 8%, rgba($palletewhite,0.69) 28%, rgba($palletewhite,0) 51%, rgba($palletewhite,0.69) 74%, rgba($palletewhite,1) 88%, rgba($palletewhite,1) 100%);
-  background: -o-linear-gradient(top, rgba($palletewhite,1) 0%, rgba($palletewhite,1) 8%, rgba($palletewhite,0.69) 28%, rgba($palletewhite,0) 51%, rgba($palletewhite,0.69) 74%, rgba($palletewhite,1) 88%, rgba($palletewhite,1) 100%);
-  background: -ms-linear-gradient(top, rgba($palletewhite,1) 0%, rgba($palletewhite,1) 8%, rgba($palletewhite,0.69) 28%, rgba($palletewhite,0) 51%, rgba($palletewhite,0.69) 74%, rgba($palletewhite,1) 88%, rgba($palletewhite,1) 100%);
-  background: linear-gradient(to bottom, rgba($palletewhite,1) 0%, rgba($palletewhite,1) 8%, rgba($palletewhite,0.69) 28%, rgba($palletewhite,0) 51%, rgba($palletewhite,0.69) 74%, rgba($palletewhite,1) 88%, rgba($palletewhite,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#edeeef', endColorstr='#edeeef', GradientType=0 );
-  opacity: 1.5;
+  li {
+    padding-bottom: 10%;
+  }
+
+  li:hover a {
+    color: #00d055;
+  }
+
+  a {
+    color: black;
+    font-size: 30px;
+    padding: 5px;
+  }
+
+  .active {
+    border-right: 5px solid #00d055;
+  }
+}
+
+.backdrop {
+  background-color: rgba(255,255,255,0);
+}
+
+.material-tooltip span{
+  color: black;
+  font-size: 24px;
+}
+
+/*************************************************************
+* Change background color of autofill fields
+**************************************************************/
+input:-webkit-autofill {
+	&,
+	&:hover,
+	&:focus,
+	&:active {
+		-webkit-box-shadow: inset 0 0 0 500px #2F373F !important;
+    -webkit-text-fill-color: #fff !important;
+    transition: background-color 5000s ease-in-out 0s;
+	}
 }

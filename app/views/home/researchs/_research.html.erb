@@ -27,11 +27,11 @@
       <%= research[:abstract] %>
     </p>
 
-    <span class="right">
-      <a href="<%= research[:link] %>" class="right ">Ler o trabalho completo<i class="mdi-hardware-keyboard-tab left"></i></a>
-    </span>
+    <div class="clearfix">
+      <a href="<%= research[:link] %>" class="right">Ler o trabalho completo</a>
+    </div>
 
-    <p>
+    <p class="reference">
         <%= raw research[:ref] %>
     </p>
   </article>
