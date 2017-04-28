@@ -2,22 +2,22 @@
 //= require jquery_ujs
 //= require turbolinks
 
-// gems
+// Gems
 //--------------------
 //= require materialize-sprockets
 
 
-// vendors
+// Vendors
 //--------------------
 //= require toastr.min
 
 
-// config files
+// Config files
 //--------------------
 //= require config/namespace
 //= require config/toastr
 //= require config/materialize
 
 
-// app files
+// App files
 //--------------------

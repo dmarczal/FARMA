@@ -1,6 +1,7 @@
 /*************************************************************
-* Vertical and horizontal align
-**************************************************************/
+/* Vertical and horizontal align, bette to align a div in entire
+/* page
+/**************************************************************/
 
 html, body {
   height: 100%;
@@ -20,4 +21,18 @@ html, body {
 .horizontal-centering {
   width: 50%;
   margin: auto;
+}
+
+/*************************************************************
+/* Vertical using table
+/* font: http://vanseodesign.com/css/vertical-centering/
+/*************************************************************/
+
+.vertical-align-table-parent {
+  display: table;
+}
+
+.vertical-align-table-child {
+  display: table-cell;
+  vertical-align: middle;
 }

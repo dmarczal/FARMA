@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def after_sign_in_path_for(resource)
-    resource.is_a?(Admin) ? admin_path : choose_workspace_path
+    resource.is_a?(Admin) ? admin_path : workspace_path
   end
 
   def after_sign_out_path_for(resource)
@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
 protected
 
   def layout_by_resource
-    return "devise/users_options" if devise_controller?
+    return "devise/session" if devise_controller?
 
     "application"
   end

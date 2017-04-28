@@ -1,7 +1,21 @@
-@import "lib/materialize";
+/*************************************************************
+/* Configurations
+/**************************************************************/
+@import "config/materialize_base";
 
-@import "devise/login";
+/*************************************************************
+/* Vendors stylesheets
+/**************************************************************/
+@import "toastr.min";
 
-.toast-message {
-  word-break: normal;
-}
+/*************************************************************
+/* Custom and bugs fix from materialize
+/**************************************************************/
+@import "customizations/materialize.scss";
+@import "customizations/toastr.scss";
+
+/*************************************************************
+/* Apps stylesheets
+/**************************************************************/
+@import "session.scss";
+
