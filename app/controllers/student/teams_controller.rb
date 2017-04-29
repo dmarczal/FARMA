@@ -1,4 +1,4 @@
-class Student::TeamsController < Student::ApplicationController
+class Student::TeamsController < Student::StudentApplicationController
   def index
     @teams = Team.all.includes :user
   end
@@ -20,6 +20,7 @@ class Student::TeamsController < Student::ApplicationController
     end
   end
 
+  # TODO: Review this looks wrong
   def registered
     @teams = current_user.teams.all.includes :user
   end

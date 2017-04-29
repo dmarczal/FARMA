@@ -45,4 +45,37 @@ module ApplicationHelper
       return text_truncated + ' ' + link_plus + script
     end
   end
+
+  def namespace_name
+    path = controller_path.split('/')
+    path.second ? path.first : nil
+  end
+
+  def switch_workspace_checked_when_student
+    return 'checked' if namespace_name.eql?('student')
+  end
+
+  def split_in_columns(**options, &block)
+    collection = options[:collection]
+    per_row = options[:per_row]
+
+    css_class = "col s#{12/per_row}"
+    html = ""
+
+    collection.each_with_index do |obj, index|
+      if ((index+1 % per_row) == 0)
+        html += content_tag(:div, class: 'row') do
+          content_tag(:div, class: css_class) do
+            block.call(obj)
+          end
+        end
+      else
+        html +=  content_tag(:div, class: css_class) do
+          block.call(obj)
+        end
+      end
+    end
+
+    raw(html)
+  end
 end

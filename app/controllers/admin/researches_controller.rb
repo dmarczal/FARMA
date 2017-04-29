@@ -1,7 +1,5 @@
-class Admin::ResearchesController < ApplicationController
+class Admin::ResearchesController < Admin::AdminApplicationController
   before_action :set_admin_research, only: [:show, :edit, :update, :destroy]
-
-  layout 'layouts/admin/application'
 
   # GET /admin/researches
   # GET /admin/researches.json

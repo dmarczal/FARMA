@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: :registrations }
 
   devise_scope :user do
-    get '/choose_workspace' => 'dashboard#choose_workspace'
+    get '/workspace' => 'workspace#choose'
   end
 
   #################################### Admin Layout ###########################################

@@ -27,7 +27,7 @@ $secondary-color: color("green", "darken-1") !default;
 @import "materialize/components/roboto";
 @import "materialize/components/typography";
 @import "materialize/components/cards";
-@import "materialize/components/toast";
+//@import "materialize/components/toast";
 @import "materialize/components/tabs";
 @import "materialize/components/tooltip";
 @import "materialize/components/buttons";
@@ -50,5 +50,5 @@ $secondary-color: color("green", "darken-1") !default;
 
 // SHARED IMPORT
 @import "variables_and_functions";
-@import "toastr";
+@import "toastr.min";
 @import "custom";

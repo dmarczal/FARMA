@@ -11,14 +11,14 @@
 // about supported directives.
 //
 //= require jquery
-//= require toastr
 //= require jquery_ujs
 //= require turbolinks
+//= require toastr.min
 //= require materialize-sprockets
 //= require jquery-hotkeys
 //= require_tree ../view_lo/
 //= require ckeditor/init
-//= require ckeditor/functions_ck
+//= require ckeditor/farma_ckeditor_functions
 //= require ckeditor/config
 //= require_tree ../lib/
 //= require view_lo/los

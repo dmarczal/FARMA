@@ -1,0 +1,20 @@
+/*************************************************************
+* sidebar
+**************************************************************/
+
+div.sidebar {
+
+	ul {
+		li , li a {
+			color: $palletegrey;
+		}
+
+		li.active a {
+			color: $palletegreen;
+		}
+
+		li:hover {
+			background-color: $palletewhite;
+		}
+	}
+}

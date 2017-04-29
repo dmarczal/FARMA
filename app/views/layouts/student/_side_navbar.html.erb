@@ -1,0 +1,20 @@
+<div class="sidebar" >
+  <ul class="list">
+
+    <%= active_link_to student_path, wrap_tag: :li, active: :exclusive do %>
+      Dashboard <i class="fa fa-home" aria-hidden="true"></i>
+    <% end %>
+
+    <div class="divider col s12"></div>
+
+    <%= active_link_to student_teams_path, wrap_tag: :li do %>
+      Turmas<i class="fa fa-folder" aria-hidden="true"></i>
+    <% end %>
+
+    <%= active_link_to student_registered_teams_path, wrap_tag: :li do %>
+      Turmas matriculadas<i class="fa fa-folder" aria-hidden="true"></i>
+    <% end %>
+
+  </ul>
+</div>
+

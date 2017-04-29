@@ -1,53 +1,27 @@
-<ul id='links_user' class='dropdown-content'>
-  <li class="clearfix">
-    <%= link_to(edit_user_registration_path) do %>
-      <i class="mdi-social-person left"></i> Perfil
-  <% end %>
+<ul id='dropdown_admin' class='dropdown-content'>
+  <li>
+    <%= link_to("#") do %>
+      Perfil <i class="fa fa-user" aria-hidden="true"></i>
+    <% end %>
   </li>
-  <li class="clearfix">
+  <li>
     <%= link_to(destroy_admin_session_path, method: :delete) do %>
-      <i class="mdi-action-exit-to-app left"></i> Sair
-  <% end %>
+      Sair <i class="fa fa-sign-out" aria-hidden="true"></i>
+    <% end %>
   </li>
 </ul>
 
-<nav class="clearfix">
-  <div id="button-panel" class="left center hide-on-med-and-down">
-    <i class="material-icons">menu</i>
-  </div>
-
-  <%= link_to("FARMA", root_path, class: "brand-logo", id: "logo-container") %>
-
-  <ul id="button_links_user" class="hide-on-med-and-down right">
-    <!-- Dropdown Trigger -->
-    <li class="">
-      <a class="dropdown-button waves-effect waves-light clearfix" href="#!" data-activates="links_user">
-        <%= current_admin.name %><i id="drop-down" class="material-icons right">arrow_drop_down</i>
-        <%= image_tag current_admin.avatar, class: "circle img-user left" %>
-      </a>
-    </li>
-  </ul>
-
-  <ul id="nav-mobile" class="side-nav">
-    <li class="clearfix">
-      <%= image_tag current_admin.avatar, class: "circle", id: "img-user" %>
-      <h3 class="center"><%= current_admin.name %></h3>
-    </li>
-
-    <li class="clearfix">
-      <%= link_to(admin_path) do %>
-        <i class="mdi-action-home left"></i> Dashboard
-      <% end %>
-    </li>
-
-    <li class="clearfix">
-      <%= link_to(admin_researches_path) do %>
-        <i class="mdi-action-list left"></i> Pesquisas
-      <% end %>
-    </li>
-  </ul>
-
-  <a href="#" data-activates="nav-mobile" class="button-collapse">
-    <i class="material-icons">menu</i>
-  </a>
+<nav>
+    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo">FARMA</a>
+      <ul class="right hide-on-med-and-down">
+        <!-- Dropdown Trigger -->
+        <li class="user-profile">
+          <a class="dropdown-button" href="#!" data-activates="dropdown_admin">
+            <%= image_tag current_admin.avatar, class: "circle responsive-img" %>
+            <%= current_admin.name %> <i class="fa fa-caret-down fa-5" aria-hidden="true"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
 </nav>
