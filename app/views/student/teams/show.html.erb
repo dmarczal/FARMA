@@ -1,7 +1,9 @@
 <article>
-  <header>
-    <h3>Turma <%= @team.name %></h3>
+  <header class="center">
+    <h1>Turma <%= @team.name %></h1>
   </header>
 
-  <%= render @los %>
+  <%= split_in_columns(collection: @los, per_row: 3) do |lo|%>
+    <%= render 'student/los/lo', lo: lo %>
+  <% end %>
 </article>

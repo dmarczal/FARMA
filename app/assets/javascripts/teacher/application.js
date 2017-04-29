@@ -18,7 +18,7 @@
 //= require jquery-hotkeys
 //= require teacher/loads
 //= require ckeditor/init
-//= require ckeditor/functions_ck
+//= require ckeditor/farma_ckeditor_functions
 //= require ckeditor/config
 //= require handlebars
 //= require_tree ../lib/keyboard

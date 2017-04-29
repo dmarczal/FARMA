@@ -1,58 +1,101 @@
 /*************************************************************
-* navbar
-**************************************************************/
- .user-profile > a img {
+/* navbar
+/*************************************************************/
+.user-profile > a img {
+  float: left;
+  width: 34px;
+  height: 34px;
+  margin: 13px 8px 0 0;
+}
+
+.navbar-fixed {
+  a.dropdown-button {
+    height: 65px;
+
+    i {
+      font-size: 20px;
+      margin-left: 5px;
+    }
+  }
+
+  .dropdown-content li > a > i {
+    height: inherit;
+    line-height: inherit;
     float: left;
-    width: 34px;
-    height: 34px;
-    margin: 13px 8px 0 0;
+    margin-right: 10px;
+    width: 15px;
+  }
 }
 
 /*************************************************************
-* sidebar
-**************************************************************/
+/* sidebar
+/*************************************************************/
 
 div.sidebar {
-	position: fixed;
-	overflow: hidden;
+  position: fixed;
+  overflow: hidden;
 
-	ul {
-		padding: 0;
-		width: 200px;
+  ul {
+    padding: 0;
+    width: 200px;
 
-		li {
-			padding: 10px;
-			clear: both;
+    li {
+      padding: 10px;
+      clear: both;
 
-			i {
-				float: right;
-				margin-left: 10px;
-			}
-		}
-	}
+      i {
+        float: right;
+        line-height: inherit;
+      }
+    }
+  }
 }
 
 .main-content:before {
-   	content: '';
-    position: absolute;
-    height: 55%;
-    top: 20%;
-    border-left-width: 1px;
-	border-left-style: solid;
- }
+  content: '';
+  position: absolute;
+  height: 55%;
+  top: 20%;
+  border-left-width: 1px;
+  border-left-style: solid;
+}
 
- .main-content .content {
- 	margin-left: 15px;
- }
+.main-content .content {
+  margin-left: 15px;
+}
+
+.show-hidden-sidebar-button i {
+  float: none !important;
+  margin-left: 15px;
+}
 
 /*************************************************************
-* Page header
-**************************************************************/
+/* Page header
+/*************************************************************/
 .page-header {
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
 
-	h1, h2, h3, h4, h5, h6 {
-		margin-bottom: 0.008rem;
-	}
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0.008rem;
+  }
+}
+
+
+/*************************************************************
+/* Switch workspace
+/*************************************************************/
+
+.switch-workspace {
+  padding: 0 5px;
+  label,
+  label:active,
+  label input[type=checkbox]:checked + .lever:after,
+  label input[type=checkbox]:checked + .lever:active {
+    color: $palletewhite;
+  }
+  label .lever,
+  label input[type=checkbox]:checked + .lever {
+    background-color: #101519;
+  }
 }

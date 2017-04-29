@@ -1,10 +1,11 @@
 <% provide(:title, "Turmas matriculadas") %>
-<article class="teams row">
-  <header class="center col s12">
-    <h4>Turmas matriculadas</h4>
+
+<article>
+  <header class="center">
+    <h1>Turmas matriculadas</h1>
   </header>
 
-  <div class="col s12">
-    <%= render @teams %>
-  </div>
+  <%= split_in_columns(collection: @teams, per_row: 3) do |team|%>
+    <%= render 'team', team: team %>
+  <% end %>
 </article>

@@ -1,28 +1,19 @@
 <div class="sidebar" >
   <ul class="list">
 
-    <li <%= active_class :dashboard %> >
-      <%= link_to(admin_path) do %>
-        Dashboard
-        <i class="mdi-action-home"></i>
-      <% end %>
-    </li>
-    
-    <li <%= active_class_for_links :researches %> >
-      <%= link_to(admin_researches_path) do %>
-        Pesquisas 
-        <i class="tiny material-icons">file_folder</i>
-      <% end %>
-    </li>
+    <%= active_link_to admin_path, wrap_tag: :li, active: :exclusive do %>
+      Dashboard <i class="fa fa-home" aria-hidden="true"></i>
+    <% end %>
 
     <div class="divider col s12"></div>
 
-    <li>
-      <%= link_to "#" do %>
-          Equipe
-          <i class="tiny material-icons">file_folder</i> 
-      <% end %>
-    </li>
+    <%= active_link_to admin_researches_path, wrap_tag: :li do %>
+      Pesquisas<i class="fa fa-folder" aria-hidden="true"></i>
+    <% end %>
+
+    <%= active_link_to '#', wrap_tag: :li, active: 'false' do %>
+      Equipe<i class="fa fa-folder" aria-hidden="true"></i>
+    <% end %>
 
   </ul>
 </div>
