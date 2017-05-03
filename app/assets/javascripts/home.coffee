@@ -2,16 +2,32 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-window.FARMA.navBarFixed = ->
+$(document).on 'turbolinks:load', ->
+  FARMA.navBarFixed()
+  FARMA.loadMouseOverOnCard()
+  FARMA.researchIcon()
+  FARMA.sidebarScrollSpy()
+  FARMA.tabbedResearchs()
+
+FARMA.reloadMaterilizeEffects = ->
+  Waves.displayEffect() # reinitialize wave effect on button
+  $('.dropdown-button').dropdown() # reinitialize dropdown
+  # Materialize.updateTextFields() # reinitialize form label
+  $('input[autofocus]').siblings('label, i').addClass('active')
+  $('.button-collapse').sideNav() # reinitialize nav-mobile
+  $('.parallax').parallax() # reinitialize parallax
+  $('.slider').slider()
+
+FARMA.navBarFixed = ->
   $(window).scroll ->
     if $(this).scrollTop() > 0
       $('img.logo').addClass 'nav-bar-fixed'
-      $('#home-page-navbar').addClass 'active'
+      $('#home-page-navba').addClass 'active'
     else
       $('img.logo').removeClass 'nav-bar-fixed'
       $('#home-page-navbar').removeClass 'active'
 
-window.FARMA.loadMouseOverOnCard = ->
+FARMA.loadMouseOverOnCard = ->
   $("#home-page-team .card").mouseenter (e) ->
     if $(@).find('> .card-reveal').length
       if $(e.target).is($('.card .activator')) || $(e.target).is($('.card .activator i'))
@@ -33,18 +49,18 @@ window.FARMA.loadMouseOverOnCard = ->
        complete: ->
           $(this).css({ display: 'none'})
 
-window.FARMA.researchIcon = ->
+FARMA.researchIcon = ->
   $('#home-page-researchs .collapsible-header').click (e)->
     $('#home-page-researchs .icon-arrow i').html('keyboard_arrow_down')
 
     unless ($(@).hasClass('active'))
       $(@).find('i').html('keyboard_arrow_up')
 
-window.FARMA.sidebarScrollSpy = ->
+FARMA.sidebarScrollSpy = ->
   $('.scrollspy').scrollSpy({scrollOffset: 600})
   $('.tooltipped').tooltip({delay: 20})
 
-window.FARMA.tabbedResearchs = ->
+FARMA.tabbedResearchs = ->
   $('ul.tabs').tabs();
   $('.show-less').hide()
   $('.show-more').on 'click', ->

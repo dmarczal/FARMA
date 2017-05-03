@@ -1,13 +1,15 @@
-<article id="los-content" class="row">
-  <header class="center col s9 offset-l2">
-    <h3><%= @lo.name %></h3>
-  </header>
+<%= render @content %>
 
-  <div>
-    <%= render 'lo_panel' %>
-  </div>
+<%= javascript_tag do %>
+  <%= render "update_bars.js.erb" %>
+<% end %>
 
-  <div id="contents" class="col s9 z-depth-1 offset-l2">
-    <%= render @content %>
-  </div>
-</article>
+<%= javascript_tag type: "text/x-mathjax-config" do %>
+    MathJax.Hub.Config({
+      showProcessingMessages: false,
+      jax: ["input/TeX", "output/SVG"],
+      SVG: {
+        scale: 150
+      }
+    });
+<% end %>

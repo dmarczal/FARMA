@@ -1,19 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= full_title(yield(:title), 'Farma Admin') %></title>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title><%= full_title(yield(:title), 'FARMA Administrativo') %></title>
 
-  <%= stylesheet_link_tag    'admin/application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'admin/application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'admin/application', media: 'all', 'data-turbolinks-track' => "reload" %>
+  <%= javascript_include_tag 'admin/application', 'data-turbolinks-track' => "reload" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body id="<%= controller_name %>-<%= action_name %>">
 
   <%= render 'shared/flash_messages'  %>
 
-  <div class="container">
-     <%= yield %>
+  <div class="navbar-fixed">
+    <%= render 'layouts/admin/navbar' %>
+  </div>
+
+  <div id="<%= controller_name %>-<%= action_name %>" class="row">
+
+    <div class="col m2 l2">
+      <%= render 'layouts/admin/side_navbar' %>
+    </div>
+
+    <div class="main-content col m10 l10">
+        <div class="content white">
+          <%= yield %>
+        </div>
+    </div>
+
   </div>
 
 </body>

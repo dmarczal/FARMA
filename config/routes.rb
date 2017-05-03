@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: :registrations }
 
   devise_scope :user do
-    get '/choose_workspace' => 'dashboard#choose_workspace'
+    get '/workspace' => 'workspace#choose'
   end
 
   #################################### Admin Layout ###########################################
@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   # Routes for admin
   namespace :admin do
     get '/' => 'dashboard#index'
+    resources :researches
   end
 
   #################################### Default Layout ###########################################
@@ -32,12 +33,7 @@ Rails.application.routes.draw do
     get '/' => 'dashboard#index'
 
     #routes for teams (get: [index, new, show], post: create)
-    resources :teams, only: [:index, :new, :create, :show] do
-      get '/add-los' => 'teams#list_add_los'
-      post '/add-los' => 'teams#add_los'
-
-      get '/los/:id' => 'teams#lo', as: :lo
-    end
+    resources :teams, except: [:edit, :update]
 
     #routes for los (get: [index, new, edit], post: create, delete: destroy, put: update)
     resources :los do
@@ -69,8 +65,6 @@ Rails.application.routes.draw do
     resources :teams, only: [:index, :show, :create]
 
     get '/registered-teams' => 'teams#registered'
-
-    resources :los
   end
 
   #################################### view lo Layout ###########################################
@@ -82,5 +76,4 @@ Rails.application.routes.draw do
 
     get 'team/:team_id/questions/:question_id/tips/:id' => 'tips#show', as: 'tip'
   end
-
 end

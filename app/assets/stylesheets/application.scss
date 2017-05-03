@@ -1,6 +1,30 @@
-@import "lib/materialize";
+/*************************************************************
+* Configurations
+**************************************************************/
+@import "config/materialize_base";
+@import "materialize/components/dropdown";
+@import "materialize/components/slider";
+@import "materialize/components/carousel";
+@import "materialize/components/tooltip";
+@import "materialize/components/cards";
+@import "materialize/components/collapsible";
+@import "materialize/components/buttons";
+@import "materialize/components/waves";
+@import "materialize/components/tabs";
 
+
+/*************************************************************
+* Vendors stylesheets
+**************************************************************/
+@import "toastr.min";
+
+/*************************************************************
+* Custom and bugs fix from materialize
+**************************************************************/
+@import "customizations/materialize.scss";
+@import "customizations/toastr.scss";
+
+/*************************************************************
+* Apps stylesheets
+**************************************************************/
 @import "home";
-@import 'home-sidebar';
-@import "los";
-@import "custom";

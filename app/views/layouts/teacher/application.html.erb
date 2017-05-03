@@ -5,8 +5,8 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="//cdn.materialdesignicons.com/1.7.12/css/materialdesignicons.min.css" rel="stylesheet">
 
-  <%= stylesheet_link_tag    'teacher/application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'teacher/application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'teacher/application', media: 'all', 'data-turbolinks-track' => "reload" %>
+  <%= javascript_include_tag 'teacher/application', 'data-turbolinks-track' => "reload" %>
 
   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.2-latest/MathJax.js?config=TeX-AMS_HTML"></script>
 
@@ -15,7 +15,7 @@
       showProcessingMessages: false,
       jax: ["input/TeX", "output/SVG"],
       SVG: {
-        scale: 100
+        scale: 150
       }
     });
   </script>
@@ -27,7 +27,7 @@
    <%= render 'shared/flash_messages'  %>
 
   <div class="navbar-fixed nav-dashboard">
-    <%= render 'layouts/teacher/navbar' %>
+    <%= render 'layouts/teacher/navbar/navbar' %>
   </div>
 
   <main id="main-teacher" class="row">

@@ -1,34 +1,41 @@
 ruby '2.2.3'
 source 'https://rubygems.org'
 
-gem 'rails',        '4.2.5'
-gem 'sass-rails',   '5.0.2'
+git_source(:github) do |repo_name|
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  "https://github.com/#{repo_name}.git"
+end
+
+gem 'rails',        '5.0.2'
+gem 'puma',         '3.4.0'
+gem 'sass-rails',   '5.0.6'
 gem 'uglifier',     '2.5.3'
-gem 'coffee-rails', '4.1.0'
-gem 'jquery-rails', '4.0.3'
-gem 'turbolinks',   '2.3.0'
-gem 'jbuilder',     '2.2.3'
+gem 'coffee-rails', '4.2.1'
+gem 'jquery-rails', '4.3.1'
+gem 'turbolinks',   '~> 5.0.0'
+gem 'jbuilder',     '2.4.1'
 gem 'sdoc',         '0.4.0', group: :doc
 
-gem 'pg',           '0.17.1'
-gem 'devise',       '3.5.1'
-gem 'simple_form'
-gem 'materialize-sass', '0.97.3' # https://github.com/mkhairi/materialize-sass
-gem 'toastr-rails'     # http://www.benkirane.ch/rails-4-toastrjs-notifications/
-gem 'rails-i18n', '~> 4.0.0' # For 4.x
+gem 'pg',           '0.20.0'
+gem 'devise',       '4.2.1'
+gem 'simple_form',  '~> 3.4'
+gem 'materialize-sass', '0.98.2' # https://github.com/mkhairi/materialize-sass
+gem 'rails-i18n', '~> 5.0.0' # For 5.x
 gem 'math_engine'
 
-gem 'paperclip', '~> 4.3'
+gem 'paperclip', '~> 5.0.0'
 gem 'ckeditor', '~> 4.1' #https://github.com/galetahub/ckeditor
 gem 'breadcrumbs_on_rails' #https://github.com/weppos/breadcrumbs_on_rails
 gem 'active_link_to', '~> 1.0', '>= 1.0.3'
-gem 'jquery_handlebars-rails'
+# gem 'jquery_handlebars-rails'
+gem 'handlebars_assets'
 gem 'jquery-hotkeys-rails'
+# gem 'asciidoctor'
+gem 'codemirror-rails' # TODO: CHECK WHERE IT IS USED
 
 group :development do
-  gem 'thin'
   gem 'populator',  '1.0.0'
-  gem 'web-console',  '~> 3.0'
+  gem 'web-console',  '~> 3.4'
   gem 'byebug',       '3.4.0'
   gem 'guard-rails', require: false
   gem 'guard-rspec', require: false

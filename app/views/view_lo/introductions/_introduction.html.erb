@@ -1,5 +1,10 @@
-<h1 class="center"><%= introduction.title %></h1>
+<article class="z-depth-1 white">
+  <header>
+    <span class="grey-text lighten-1">Itrodução <%= introduction.index %></span>
+    <h3><%= introduction.title %></h3>
+  </header>
 
-<div class="content">
-  <%= introduction.content.html_safe %>
-</div>
+  <div class="content">
+    <%= introduction.content.html_safe %>
+  </div>
+</article>

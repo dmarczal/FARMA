@@ -16,6 +16,16 @@ class Teacher::ExercisesController < Teacher::ApplicationController
     @exercise = @lo.exercises.new
   end
 
+  def create
+    @exercise = @lo.exercises.new(exercise_params)
+    if @exercise.save
+      redirect_to [:teacher, @lo, @exercise]
+    else
+      flash.now[:error] = "Existem dados incorretos."
+      render :new
+    end
+  end
+
   def edit
     add_breadcrumb "Editar Exercício", edit_teacher_lo_exercise_path(@lo, @exercise)
   end
@@ -26,16 +36,6 @@ class Teacher::ExercisesController < Teacher::ApplicationController
     else
       flash.now[:error] = "Existem dados incorretos."
       render :edit
-    end
-  end
-
-  def create
-    @exercise = @lo.exercises.new(exercise_params)
-    if @exercise.save
-      redirect_to teacher_lo_path(@lo)
-    else
-      flash.now[:error] = "Existem dados incorretos."
-      render :new
     end
   end
 

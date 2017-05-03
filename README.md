@@ -14,7 +14,7 @@ postgresql-contrib
 
 ##Instalação
 
-1. Clone o repositório do projeto utilizando o comando 
+1. Clone o repositório do projeto utilizando o comando
 
     * `git clone https://dmarczal@bitbucket.org/farma-reborned/farma.git`
 

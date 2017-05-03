@@ -49,16 +49,9 @@
     margin-right: 10px;
   }
 
-  #drop-down {
-    margin-top: 18px;
-  }
   .dropdown-content li > a, .dropdown-content li > span{
     color: $palleteblue;
   }
-}
-
-#links_user {
-  top: 64px !important;
 }
 
 /*
@@ -96,10 +89,6 @@
   width: 50px;
   height: 0;
   cursor: pointer;
-}
-
-#button-panel i {//____ icon the button ative painel
-  margin-top: 20px;
 }
 
 .panel-list-divider {

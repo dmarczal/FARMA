@@ -2,11 +2,13 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 window.FARMA.slideQuestion = (button_clicked)->
+  console.log button_clicked
   div_id = '#' + $(button_clicked).attr('data-target')
   $(button_clicked).toggleClass 'active'
   $(div_id).slideToggle()
-  
-  window.FARMA.keyboardPanel(div_id)
+  $(document).on "click", ".box-response", ->
+    $(@).hide
+    window.FARMA.Keyboard.preLoad($(@).attr('data-id'))
 
 window.FARMA.toggleNewQuestion = ->
   $('#box-new-question').slideToggle(1000)

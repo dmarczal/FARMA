@@ -1,0 +1,12 @@
+<div class="keys" id="default-keys">
+  <!-- operators and other keys -->
+  {{#each keys}}
+   {{> partials/_element }}
+  {{/each}}
+</div>
+
+<div class="keys" id="more">
+  {{#each specialKeys}}
+    {{> partials/_element }}
+  {{/each}}
+</div>

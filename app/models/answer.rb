@@ -27,6 +27,11 @@ class Answer < ActiveRecord::Base
   def set_correct
     comparison = MathComparison::Comparison.new(correct_answer: question.correct_answer,precision: question.precision, cmas_order: question.cmas_order)
     self.correct = comparison.right_response?(response)
+
+    unless team.nil?
+      progress = team.progress_lo.find_or_create_by(user_id: user_id, team_id: team_id, lo_id: question.exercise.lo_id)
+      progress.previewed_an_exercise self
+    end
   end
 
   def set_attempt_number

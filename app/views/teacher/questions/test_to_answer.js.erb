@@ -6,3 +6,5 @@ $('#test-response-<%= @question.id %> .response').html('<%= @answer.response %>'
 
 $('#test-response-<%= @question.id %> .box-response').removeClass('invalid').removeClass('valid');
 $('#test-response-<%= @question.id %> .box-response').addClass('<%= @class_correct %>');
+
+$("#keyboard-panel-<%= @question.id %>").data("tries","<%= @tries %>")

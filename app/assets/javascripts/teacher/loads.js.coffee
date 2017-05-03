@@ -3,7 +3,7 @@ $(document).ready ->
 
 # https://github.com/mkhairi/materialize-sass/issues/63
 # Fixed materialize because turbolinks
-$(document).on 'page:change', ->
+$(document).on 'turbolinks:load', ->
   window.FARMA.reloadMaterilizeEffects()
   window.FARMA.toggleVerticalMenu()
   window.FARMA.modalOpen()
@@ -13,20 +13,21 @@ $(document).on 'page:change', ->
   window.FARMA.imagePreview()
   window.FARMA.requestFormTip()
 
-$(document).on 'page:update', ->
-  MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+# $(document).on 'page:update', ->
+#   MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
 
 window.FARMA = {}
 
 window.FARMA.reloadMaterilizeEffects = ->
   Waves.displayEffect() # reinitialize wave effect on button
-  $('.dropdown-button').dropdown() # reinitialize dropdown
+  $('.dropdown-button').dropdown({ belowOrigin: true }) # reinitialize dropdown
   # reinitialize form label
   Materialize.updateTextFields()
   $('input[autofocus]').siblings('label, i').addClass('active')
   $('.tooltipped').tooltip({delay: 200})
   $('.button-collapse').sideNav() # reinitialize nav-mobile
-  $('.modal-trigger').leanModal()
+  $('.modal-trigger').modal()
+  $('select').material_select()
 
 window.FARMA.displayFlashMessages = ->
   toastr.options =

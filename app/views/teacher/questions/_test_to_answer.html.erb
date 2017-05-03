@@ -1,7 +1,7 @@
 <div id="test-response-<%= @question.id %>" class="col s12 row">
   <div class="col m4 s12 row">
     <div class="border">
-      <div class="box-response center col s12">
+      <div class="box-response center col s12" data-id="<%= @question.id %>">
         <span class="response">Testar Resposta</span>
       </div>
     </div>
@@ -12,7 +12,12 @@
     </div>
   </div>
 
-  <form id="keyboard-form-<%= @question.id %>" class="col s12" action="<%= @action %>" method="POST" data-remote="true">
-    <div id="keyboard-panel-<%= @question.id %>"></div>
+  <form id="response-form-<%= @question.id %>" tries="<%= @tips_count %>" class="col s12" action="<%= @action %>" method="POST" data-remote="true">
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="question_<%= @question.id %>_response" class="response" type="hidden" data-storage="" value="" name="answer[response]">
+        <div id="keyboard-panel-<%= @question.id %>" class="keyboard-area" data-tries="0" data-storage=""></div>
+      </div>
+    </div>
   </form>
 </div>

@@ -4,6 +4,7 @@
 
   <div id="box-textarea" class="col s9">
     <%= f.input :description, as: :textarea %>
+    <%= f.association :tags, as: :mult_select, name: "Selecione as tags" %>
   </div>
 
   <div id="box-image-preview" class="col s3">

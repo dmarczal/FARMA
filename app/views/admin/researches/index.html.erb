@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Todas as Pesquisas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Referência</th>
+      <th>Resumo</th>
+      <th>Link</th>
+      <th>Tipo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_researches.each do |admin_research| %>
+      <tr>
+        <td><%= link_to admin_research.title, admin_research %></td>
+        <td><%= admin_research.ref %></td>
+        <td><%= admin_research.abstract %></td>
+        <td><%= admin_research.link %></td>
+        <td><%= admin_research.kind %></td>
+        <td><%= link_to 'Editar', edit_admin_research_path(admin_research) %></td>
+        <td><%= link_to 'Apagar', admin_research, method: :delete, data: { confirm: 'Deseja apagar a pesquisa?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nova Pesquisa', new_admin_research_path %>

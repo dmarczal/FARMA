@@ -1,31 +1,22 @@
-<div class="card-team col s3 center red lighten-2">
-  <div class="title">
-    <h5><%= team.name %></h5>
-
-    <%= image_tag team.user.avatar.url, class: "circle", id: "img-user-team" %>
-
-    </br><span><%= team.user.name %></span>
+<div class="card">
+  <div class="card-image">
+    <%= image_tag team.user.avatar.url, class: "circle" %>
   </div>
 
-  <div class="created-at">
-    <span><%= team.created_at %></span>
+  <div class="card-content center">
+    <span class="card-title"><%= team.name %></span>
+    <% unless current_user.registered?(team) %>
+      <%= simple_form_for(:register, url: student_teams_path, method: :post) do |f| %>
+        <%= f.input :code, placeholder: "Insira a chave", class: "form-control string", label: false %>
+        <%= f.submit 'Registrar-se', class: 'btn btn-primary' %>
+      <% end %>
+    <% end %>
   </div>
-
-  <% if current_page? action: 'index' %>
-    <div class="registration">
-      <form action="/student/teams" method="post">
-        <div class="row">
-          <div class="input-field col s12">
-            <input type="hidden" name="id" value="<%= team.id %>">
-            <input id="code" name="code" type="text">
-            <label for="code">Insira a chave</label>
-
-            <button type="submit">INSCREVER-SE</button>
-          </div>
-        </div>
-      </form>
+  
+  <% if current_user.registered?(team) %>
+    <div class="card-action center">
+      <%= link_to "OAs da Turma", student_team_path(team) %>
     </div>
-  <% else %>
-   <%= link_to "OAs da Turma", student_team_path(team) %>
   <% end %>
+
 </div>

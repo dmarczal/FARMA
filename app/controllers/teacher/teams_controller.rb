@@ -12,38 +12,40 @@ class Teacher::TeamsController < Teacher::ApplicationController
 
   def new
     @team = current_user.my_teams.new
+    @los = current_user.los.all
   end
 
   def create
-    @team = current_user.my_teams.new team_params
+    data = team_params
+    los = data.delete(:los)
+    @team = current_user.my_teams.new data
 
     if @team.save
       flash.now[:notice] = "Questão #{@team.name} criada."
+
+      unless los.nil?
+        los.each do |lo|
+          @team.register_lo lo
+        end
+      end
+
       redirect_to teacher_teams_path
     else
       flash.now[:error] = "Existem dados incorretos."
+      @los = current_user.los.all
       render :new
     end
   end
 
-  def list_add_los
-    @team = current_user.my_teams.find params[:team_id]
-    @los = current_user.los.all
-  end
+  def destroy
+    @team = current_user.my_teams.find params[:id]
+    @team.destroy
 
-  def add_los
-    team = current_user.my_teams.find params[:team_id]
-    lo_team = team.los_teams.new add_los_params
-    lo_team.save
+    redirect_to teacher_teams_path
   end
 
   private
-
   def team_params
-    params.require(:team).permit(:name, :code)
-  end
-
-  def add_los_params
-    params.require(:los).permit(:lo_id)
+    params.require(:team).permit(:name, :code, los: [])
   end
 end

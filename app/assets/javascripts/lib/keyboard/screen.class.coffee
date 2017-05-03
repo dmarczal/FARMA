@@ -10,13 +10,10 @@ class window.FARMA.Screen
   addToJax: (key, what, where) ->
     newTex = @expressionMerge(@getScreenTex(where), what)
     newValue = @getResponseValue(where) + key
-    console.log newTex
     if window.FARMA.Validator.isNumeric(newTex)
-      $("#keyboard-#{where}-screen").addClass('valid-expression')
-      $("#keyboard-#{where}-screen").removeClass('invalid-expression')
+      @switchClass(where, true)
     else
-      $("#keyboard-#{where}-screen").addClass('invalid-expression')
-      $("#keyboard-#{where}-screen").removeClass('valid-expression')
+      @switchClass(where, false)
     @updateInputsWith(newValue, newTex, where)
     @renderTex(newTex, where)
 
@@ -24,7 +21,7 @@ class window.FARMA.Screen
     $("#keyboard-#{where}-screen").val()
 
   getResponseValue: (where) ->
-    $("#response-#{where}").attr("data-storage")
+    $("#keyboard-panel-#{where}").attr("data-storage")
 
   cleanScreen: (id) ->
     @updateInputsWith("", "", id)
@@ -33,6 +30,10 @@ class window.FARMA.Screen
     $("#keyboard-#{id} .jax").removeClass('invalid-expression')
     $("#keyboard-#{id}-screen").removeClass('invalid-expression')
     $("#keyboard-#{id}-screen").removeClass('valid-expression')
+
+  chop: (id) ->
+    actual = @getScreenTex(id)
+    return actual.slice(0, (actual.length - 1))
 
   renderTex: (expression, where) ->
     MathJax.Hub.Queue(["Typeset", MathJax.Hub])
@@ -45,7 +46,7 @@ class window.FARMA.Screen
 
   expressionMerge: (oldValue, newValue) ->
     if @recognizeMatrix(oldValue)
-      return oldValue.split("\\end{matrix}").join("#{newValue}\\end{matrix}")
+      return oldValue.split("\n\\end{matrix}").join("#{newValue}\n\\end{matrix}")
     if @recognizeBrackets(oldValue)
       return oldValue.replace "}", newValue + "}"
     oldValue + newValue
@@ -60,7 +61,14 @@ class window.FARMA.Screen
 
   updateInputsWith: (newValue, newTex, where) ->
     $("#keyboard-#{where}-screen").val(newTex)
-    $("#response-#{where}").attr("data-storage", newValue)
-    console.log(newValue)
+    $("#keyboard-panel-#{where}").attr("data-storage", newValue)
     if window.FARMA.Validator.isNumeric(newValue)
       $("#response-#{where}").val(newValue)
+
+  switchClass: (where, state) ->
+    if (state)
+      $("#keyboard-#{where}-screen").addClass('valid-expression')
+      $("#keyboard-#{where}-screen").removeClass('invalid-expression')
+    else
+      $("#keyboard-#{where}-screen").addClass('invalid-expression')
+      $("#keyboard-#{where}-screen").removeClass('valid-expression')

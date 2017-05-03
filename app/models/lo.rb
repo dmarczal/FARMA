@@ -3,6 +3,9 @@ class Lo < ActiveRecord::Base
   has_many :introductions, dependent: :destroy
   has_many :exercises, dependent: :destroy
   has_many :teams
+  has_many :progress_lo
+  has_and_belongs_to_many :tags
+
   has_attached_file :image, :styles => {:thumb => '200x200!'},
                       default_url: "home/oa.png"
 
@@ -10,7 +13,15 @@ class Lo < ActiveRecord::Base
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   def content_by_position(index)
-    content = contents[index.to_i - 1]
+    contents[index.to_i - 1]
+  end
+
+  def update_los_teams
+    los_progress = Progress::lo.find_by lo_id: self.id
+
+    los_progress.each do |lo_progress|
+      lo_progress.recalc
+    end
   end
 
   # Mescla de introduções e exercícios
@@ -19,10 +30,13 @@ class Lo < ActiveRecord::Base
 
     exercises = self.exercises.order(:position).includes :questions
     introductions = self.introductions.order :position
+    exercises = define_index_method_for_questions exercises
 
     @contents = exercises + introductions
+    @contents = @contents.sort {|a, b| a.position <=> b.position}
     define_index_method_for_contents
-    @contents.sort {|a, b| a.position <=> b.position}
+
+    @contents
   end
 
   private
@@ -47,5 +61,26 @@ class Lo < ActiveRecord::Base
         content.index= e
       end
     end
+  end
+
+  def define_index_method_for_questions(exercises)
+    exercises.each do |exercise|
+      q = 0
+
+      exercise.questions.each do |question|
+        def question.index
+          @index_q
+        end
+
+        def question.index=(index)
+          @index_q = index
+        end
+
+        q += 1
+        question.index= q
+      end
+    end
+
+    exercises
   end
 end

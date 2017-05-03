@@ -1,0 +1,20 @@
+#devise-page, #workspace-page {
+  background-image: image_url('shared/farma-03.jpg');
+  background-size: cover;
+  background-position: top;
+  background-color: $palletegreen;
+  background-blend-mode: darken;
+
+  .brand-logo {
+      width: 5%;
+      margin: 5px;
+  }
+
+  .card-panel {
+    margin-bottom: 10px;
+  }
+
+  .main-content {
+    margin-top: 100px;
+  }
+}

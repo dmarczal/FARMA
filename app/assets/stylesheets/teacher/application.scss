@@ -1,3 +1,6 @@
+@import "codemirror";
+@import "codemirror/themes/material";
+
 @import "lib/materialize";
 @import "lib/keyboard";
 
@@ -6,4 +9,4 @@
 @import "teacher/exercises";
 @import "teacher/questions";
 @import "teacher/tips";
-@import "teacher/teams"
+@import "teacher/teams";

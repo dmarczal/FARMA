@@ -1,0 +1,62 @@
+<div id="keyboard-{{id}}" class="keyboard">
+
+  <div class="top">
+    <button type="button" class="btn key waves-effect waves-light clear" data-value="C">Limpar</button>
+    <div class="jax" id="MathOutput-{{id}}">$${}$$</div>
+    <button type="submit" class="btn key waves-effect waves-light submit" data-value="send">Enviar<i class="material-icons right">send</i></button>
+  </div>
+
+  <div class="clearfix" id="board">
+
+    <div id="tries">{{tries}}</div>
+
+    <div class="keys" id="default-keys">
+      <div id="operators">
+        {{#each operators}}
+          {{> partials/_element }}
+        {{/each}}
+      </div>
+      <div id="keys">
+        {{#each keys}}
+          {{> partials/_element }}
+        {{/each}}
+      </div>
+    </div>
+
+    <div id="special-keys">
+
+      <div id="separator"></div>
+
+      <div class="modifiers">
+        <ul>
+          <li data-id="functions-keys">FUNÇÕES</li>
+          <li data-id="matrix-keys">MATRIZES</li>
+          <li data-id="trig-keys">TRIGONOMETRIA</li>
+        </ul>
+        <div id="advanced-keys">
+          <div id="functions-keys">
+            {{#each functions}}
+              {{> partials/_advanced}}
+            {{/each}}
+          </div>
+          <div id="matrix-keys" hidden>
+            {{#each matrix}}
+              {{> partials/_advanced}}
+            {{/each}}
+          </div>
+          <div id="trig-keys" hidden>
+            {{#each trig}}
+              {{> partials/_advanced}}
+            {{/each}}
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="show-direct-input"><></div>
+
+  <div class="direct-input hide">
+    <textarea id="keyboard-{{id}}-screen" class="screen" value="" placeholder="Fórmulas LaTeX"></textarea>
+  </div>

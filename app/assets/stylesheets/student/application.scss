@@ -1,3 +1,32 @@
-@import "lib/materialize";
+/*************************************************************
+* Vendors
+**************************************************************/
+@import 'font-awesome'; // http://fontawesome.io/icons/
 
-@import "student/teams";
+/*************************************************************
+* Configurations
+**************************************************************/
+@import "config/materialize_base";
+@import "materialize/components/dropdown";
+@import "materialize/components/tooltip";
+@import "materialize/components/cards";
+@import "materialize/components/buttons";
+@import "materialize/components/waves";
+
+
+/*************************************************************
+* Vendors stylesheets
+**************************************************************/
+@import "toastr.min";
+
+/*************************************************************
+* Custom and bugs fix from materialize
+**************************************************************/
+@import "customizations/materialize.scss";
+@import "customizations/toastr.scss";
+
+/*************************************************************
+* Apps stylesheets
+**************************************************************/
+@import "shared/layout";
+@import "student/colors";

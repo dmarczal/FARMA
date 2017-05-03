@@ -1,20 +1,19 @@
 $(document).ready ->
   window.FARMA.displayFlashMessages()
-  window.FARMA.keyboardPanel()
+  window.FARMA.showKeyboard()
 
 # https://github.com/mkhairi/materialize-sass/issues/63
 # Fixed materialize because turbolinks
-$(document).on 'page:change', ->
+$(document).on 'turbolinks:load', ->
   window.FARMA.reloadMaterilizeEffects()
-
-$(document).on 'page:update', ->
-  MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+  window.FARMA.navBarFixed()
 
 window.FARMA = {}
 
 window.FARMA.reloadMaterilizeEffects = ->
   Waves.displayEffect() # reinitialize wave effect on button
   Materialize.updateTextFields() # reinitialize form label
+  $('.dropdown-button').dropdown({ belowOrigin: true })
 
 window.FARMA.displayFlashMessages = ->
   toastr.options =
@@ -30,9 +29,3 @@ window.FARMA.displayFlashMessages = ->
     "hideEasing": "linear",
     "showMethod": "fadeIn",
     "hideMethod": "fadeOut"
-
-window.FARMA.keyboardPanel = ->
-  $(document).on 'click', '.box-response', ->
-    id = $(@).data('id')
-    new window.FARMA.Keyboard(id)
-    $(@).hide()

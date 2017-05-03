@@ -11,19 +11,21 @@
 // about supported directives.
 //
 //= require jquery
-//= require toastr
 //= require jquery_ujs
 //= require turbolinks
+//= require toastr.min
 //= require materialize-sprockets
-//= require jquery-handlebars
 //= require jquery-hotkeys
 //= require teacher/loads
 //= require ckeditor/init
-//= require ckeditor/functions_ck
+//= require ckeditor/farma_ckeditor_functions
 //= require ckeditor/config
-//= require_tree ../lib/
+//= require handlebars
+//= require_tree ../lib/keyboard
 //= require teacher/utils
 //= require teacher/exercises
 //= require teacher/questions
 //= require teacher/tips
 //= require teacher/los
+//= require codemirror
+//= require codemirror/modes/stex

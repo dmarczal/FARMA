@@ -1,0 +1,22 @@
+<div id="button-panel" class="left center hide-on-med-and-down" data-activates="nav-mobile">
+  <i class="material-icons">menu</i>
+</div>
+
+<ul id="nav-mobile" class="side-nav">
+  <li class="clearfix">
+    <%= image_tag current_user.avatar.url(:medium), class: "circle", id: "img-user" %>
+    <h3 class="center"><%= current_user.name %></h3>
+  </li>
+
+  <li class="clearfix">
+    <%= link_to(teacher_path) do %>
+      <i class="mdi-action-home left"></i> Dashboard
+    <% end %>
+  </li>
+
+  <li class="clearfix">
+    <%= link_to(teacher_los_path) do %>
+      <i class="mdi-action-list left"></i> Meus OAs
+    <% end %>
+  </li>
+</ul>

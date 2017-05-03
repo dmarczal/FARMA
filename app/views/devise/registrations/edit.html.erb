@@ -1,18 +1,14 @@
-<% provide(:title, "Editar perfil") %>
-<% provide(:sub_title, "Atualize seus dados, preenchendo os campos abaixo") %>
+<div class="col l6 s12 offset-l3">
+  <div class="card-panel hoverable">
+    <div class="row">
+      <div class="col s12 center">
+        <h2 class="header gray-text2">Editar perfil</h2>
+        <p class="gray-text2">Atualize seus dados, preenchendo os campos abaixo</p>
+      </div>
+    </div>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, :multipart => true }) do |f| %>
-
-    <%= f.input :email, required: true, autofocus: true %>
-
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
-
-    <%= f.input :password, autocomplete: "off", hint: "deixe em branco se você não quiser alterá-la", required: false %>
-    <%= f.input :password_confirmation, required: false %>
-    <%= f.input :current_password, hint: "a senha atual é necessária para confirmar as alterações", required: true %>
-    <%= f.input :avatar, as: :file_materialize %>
-
-    <%= f.button :submit_materialize, "Atualizar Dados", cancel: root_path %>
-<% end %>
+    <div class="row">
+      <%= render 'form' %>
+    </div>
+  </div>
+</div>

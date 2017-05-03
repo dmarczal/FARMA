@@ -1,0 +1,20 @@
+<!-- Dropdown trigger -->
+<a class="dropdown-button waves-effect waves-light clearfix" data-activates="links_user">
+  <%= image_tag current_user.avatar.url(:thumb), class: "circle img-user left" %>
+  <%= current_user.name %>
+  <i id="dd-arrow" class="material-icons right">arrow_drop_down</i>
+</a>
+
+<!-- Dropdown content -->
+<ul id='links_user' class='dropdown-content'>
+  <li class="clearfix">
+    <%= link_to(edit_user_registration_path) do %>
+      <i class="mdi-social-person left"></i> Perfil
+  <% end %>
+  </li>
+  <li class="clearfix">
+    <%= link_to(destroy_user_session_path, method: :delete) do %>
+      <i class="mdi-action-exit-to-app left"></i> Sair
+  <% end %>
+  </li>
+</ul>
