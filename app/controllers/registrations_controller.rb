@@ -9,11 +9,6 @@ class RegistrationsController < Devise::RegistrationsController
   def layout_by_resource
     return "layouts/devise/session" if (action_name == 'new' || action_name == 'create')
 
-    last_module = /[a-zA-Z0-9]\/(.*)/.match(request.referer)
-    last_module = last_module.nil? ? '' : last_module[1]
-
-    if action_name == 'edit'
-      "#{last_module}/application"
-    end
+    "layouts/#{current_area}/application"
   end
 end

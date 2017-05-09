@@ -1,4 +1,4 @@
-class Teacher::LosController < Teacher::ApplicationController
+class Teacher::LosController < Teacher::TeacherApplicationController
   include FindModels
 
   before_action :find_lo, only: [:show, :edit, :update, :destroy]

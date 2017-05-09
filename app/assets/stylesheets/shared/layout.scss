@@ -99,3 +99,19 @@ div.sidebar {
     background-color: #101519;
   }
 }
+
+/*************************************************************
+/* Form layout
+/*************************************************************/
+
+.box-form {
+  position: relative;
+  padding: 20px;
+  margin-top: 30px;
+
+  .btn-cancel {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+}

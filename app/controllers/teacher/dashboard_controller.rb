@@ -1,4 +1,4 @@
-class Teacher::DashboardController < Teacher::ApplicationController
+class Teacher::DashboardController < Teacher::TeacherApplicationController
 
   def index
   end

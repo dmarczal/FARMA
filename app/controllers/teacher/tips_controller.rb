@@ -1,4 +1,4 @@
-class Teacher::TipsController < Teacher::ApplicationController
+class Teacher::TipsController < Teacher::TeacherApplicationController
   include FindModels
 
   before_action :find_tip, except: [:new, :create]

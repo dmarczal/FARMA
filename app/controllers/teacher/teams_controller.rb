@@ -1,4 +1,4 @@
-class Teacher::TeamsController < Teacher::ApplicationController
+class Teacher::TeamsController < Teacher::TeacherApplicationController
   add_breadcrumb 'Minhas Turmas', :teacher_teams_path
 
   def index

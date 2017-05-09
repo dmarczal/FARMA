@@ -11,13 +11,5 @@
     <%= f.input :current_password, hint: "a senha atual é necessária para confirmar as alterações", required: true %>
     <%= f.input :avatar, as: :file_materialize %>
 
-    <div id="box-btns">
-      <div class="col s5">
-        <%= link_to "Cancelar", workspace_path, class: "btn" %>
-      </div>
-
-      <div class="col s7">
-        <%= f.button :submit, "Atualizar Dados", class: "right col s10" %>
-      </div>
-    </div>
+    <%= f.button :submit_materialize, cancel: workspace_path %>
 <% end %>
