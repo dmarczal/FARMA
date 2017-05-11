@@ -25,6 +25,12 @@
     margin-right: 10px;
     width: 15px;
   }
+
+  img.logo {
+    height: 60px;
+    border: 1px solid black;
+    margin-top: 2px;
+  }
 }
 
 /*************************************************************
@@ -34,18 +40,43 @@
 div.sidebar {
   position: fixed;
   overflow: hidden;
+  background-color: white;
+  height: 100%;
 
   ul {
-    padding: 0;
+    padding: 20px 0;
     width: 200px;
 
+    li , li a {
+      color: $palletegrey2;
+    }
+
+    li.active {
+      border-left: 4px solid $palletegreen;
+      margin-left: 0;
+
+      a {
+  			color: $palletegreen;
+
+        i {
+          color: $palletegrey2;
+        }
+  		}
+    }
+
+		li:hover {
+			background-color: $palletewhite;
+		}
+
     li {
-      padding: 10px;
+      padding: 10px 20px;
       clear: both;
+      margin-left: 4px;
 
       i {
-        float: right;
+        float: left;
         line-height: inherit;
+        margin-right: 15px;
       }
     }
   }

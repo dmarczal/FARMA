@@ -1,20 +1,20 @@
 /*************************************************************
-* sidebar
+* Layout
+**************************************************************/
+body {
+	background-color: $palletewhite;
+}
+
+/*************************************************************
+* navbar
 **************************************************************/
 
-div.sidebar {
+div.navbar-fixed nav {
+	background-color: white;
 
 	ul {
-		li , li a {
-			color: $palletegrey;
-		}
-
-		li.active a {
-			color: $palletegreen;
-		}
-
-		li:hover {
-			background-color: $palletewhite;
+		li, li a, li label {
+			color: $palletegrey2;
 		}
 	}
 }

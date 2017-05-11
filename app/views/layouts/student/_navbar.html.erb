@@ -1,4 +1,4 @@
-<div class="navbar-fixed nav-dashboard">
+<div class="navbar-fixed">
 
   <ul id='dropdown_user' class='dropdown-content'>
     <li>
@@ -14,11 +14,9 @@
   </ul>
 
   <nav>
-    <a href="#!" class="brand-logo show-hidden-sidebar-button">
-      <i class="fa fa-bars" aria-hidden="true"></i>
-    </a>
-
-    <%= link_to "FARMA", root_path, class: "brand-logo center" %>
+    <%= link_to root_path, class: "brand-logo center" do %>
+        <%= image_tag "logos/logo-farma-white.png", class: 'logo' %>
+    <% end %>
 
     <ul id="button_links_user" class="hide-on-med-and-down right center">
       <li>
