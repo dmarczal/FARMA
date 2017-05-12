@@ -1,0 +1,23 @@
+/*************************************************************
+* Layout
+**************************************************************/
+body {
+	background-color: $palletewhite;
+}
+
+/*************************************************************
+* navbar
+**************************************************************/
+
+div.navbar-fixed nav {
+	background-color: $palleteblue2;
+
+	ul {
+		li, li a, li label {
+			color: white;
+		}
+	}
+	ul.dropdown-content li a {
+		color: $palletegrey2;
+	}
+}

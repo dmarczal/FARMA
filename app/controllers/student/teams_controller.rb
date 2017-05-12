@@ -1,4 +1,6 @@
 class Student::TeamsController < Student::StudentApplicationController
+  add_breadcrumb 'Turmas', :student_teams_path
+
   def index
     @teams = Team.all.includes :user
   end

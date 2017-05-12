@@ -1,0 +1,17 @@
+<div class="sidebar z-depth-2" >
+  <ul class="list">
+
+    <%= active_link_to teacher_path, wrap_tag: :li, active: :exclusive do %>
+      <i class="fa fa-home" aria-hidden="true"></i> Dashboard
+    <% end %>
+
+    <%= active_link_to teacher_los_path, wrap_tag: :li do %>
+      <i class="fa fa-folder" aria-hidden="true"></i> Meus OAs
+    <% end %>
+
+    <%= active_link_to teacher_teams_path, wrap_tag: :li do %>
+      <i class="fa fa-folder" aria-hidden="true"></i> Turmas
+    <% end %>
+
+  </ul>
+</div>

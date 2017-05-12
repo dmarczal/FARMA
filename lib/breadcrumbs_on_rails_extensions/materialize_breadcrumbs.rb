@@ -22,12 +22,14 @@ class MaterializeBreadcrumbs < BreadcrumbsOnRails::Breadcrumbs::Builder
     class_options = 'breadcrumb' + (name_truncated.eql?(name) ? '' : ' tooltipped')
 
     if current
-      content = @context.content_tag :span, class: class_options, 'data-position' => 'bottom',
+      content = @context.content_tag :span, class: class_options,
+                                            'data-position' => 'bottom',
                                             'data-tooltip' => name do
         name_truncated
       end
     else
-      content = @context.link_to name_truncated, compute_path(element), class: class_options,
+      content = @context.link_to name_truncated, compute_path(element),
+                                 class: class_options,
                                  'data-position' => 'bottom', 'data-tooltip' => 'name'
     end
 

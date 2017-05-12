@@ -58,7 +58,7 @@ h4 {
 
 h5 {
     font-size: .82rem; // 1.64
-    margin: .41rem 0 .328rem 0; // .82 .656  
+    margin: .41rem 0 .328rem 0; // .82 .656
 }
 
 h6 {
@@ -103,7 +103,7 @@ h6 {
 }
 
 /*************************************************************
-* Form constumizations 
+* Form constumizations
 **************************************************************/
 .help-block {
   display: block;
@@ -168,4 +168,13 @@ form {
 
 a.btn-cancel {
   margin-left: 10px;
+}
+
+/*************************************************************
+* Modal constumizations
+**************************************************************/
+
+.modal {
+	text-align: justify;
+	word-wrap: break-word;
 }

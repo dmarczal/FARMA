@@ -1,9 +1,14 @@
-<article>
-  <div class="z-depth-1 box-form">
-    <header class="center">
-      <h5>Nova Turma</h5>
-    </header>
+<% provide :title, "Nova Turma" %>
 
+<div class="card-panel hoverable box-form">
+ <div class="row">
+   <div class="col s12 center">
+     <h2 class="header gray-text2">Nova Turma</h2>
+     <p class="gray-text2">Preencha os dados da turma</p>
+   </div>
+ </div>
+
+ <div class="row ">
    <%= render 'form' %>
-  </div>
-</article>
+ </div>
+</div>

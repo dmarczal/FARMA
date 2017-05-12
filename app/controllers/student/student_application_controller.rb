@@ -3,6 +3,8 @@ class Student::StudentApplicationController < ::ApplicationController
   before_action :authenticate_user!
   before_action :area=
 
+  add_breadcrumb 'Início', :student_path
+
   protected
 
   def area=

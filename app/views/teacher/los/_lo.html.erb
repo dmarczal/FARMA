@@ -1,40 +1,29 @@
-<div class="card col s3">
- <div class="card-image waves-effect waves-block waves-light">
-  <%= image_tag lo.image.url(:thumb), class: "activator image-lo responsive-img"%>
- </div>
+<div class="card">
+  <div class="card-head hoverable" data-card="#card-<%= lo.id %>">
+    <%= image_tag lo.image.url(:thumb), class: "responsive-img"%>
 
- <div class="card-content">
-  <span class="activator grey-text text-darken-4">
-   <i class="material-icons right">more_vert</i>
-  </span>
-  <p class="card-title hide-on-med-and-down" >
-   <%= truncate_and_set_tooltip(lo.name, length: 10) %>
-  </p>
- </div>
+    <div class="card-text z-depth-3 center">
+      <span> <%= truncate_and_set_tooltip(lo.name, length: 10) %> </span>
+    </div>
+  </div>
 
- <div class="card-reveal">
-  <span class="card-title grey-text text-darken-4 clearfix">
-   <i class="material-icons right">close</i>
-   <%= truncate_and_set_tooltip(lo.name, length: 10) %>
-  </span>
+  <div id="card-<%= lo.id %>" class="card-content hoverable">
+    <div class="center-align"><%= truncate_and_set_tooltip(lo.name, length: 10) %></div>
+    <div class="lo-description">
+      <p><%= truncate_and_set_popup(lo.name, lo.description, length: 70, separator: ' ') %></p>
+    </div>
+    <span class="close"><i class="fa fa-times" aria-hidden="true"></i></span>
 
-  <%= truncate_and_set_popup(lo.name, lo.description, length: 180, separator: ' ') %>
+    <%= link_to [:teacher, lo], class: 'lo-content' do %>
+      <%= fa_icon "file" %>
+    <% end %>
 
-  <%= link_to teacher_lo_path(lo), method: :delete, data: { confirm: 'tem certeza disso?' } do %>
-   <i class="material-icons link_card delete small tooltipped" data-position="top" data-tooltip="Remover">
-    delete
-   </i>
-  <% end %>
-  <%= link_to edit_teacher_lo_path(lo) do %>
-   <i class="material-icons link_card update small tooltipped" data-position="top" data-tooltip="Editar">
-    mode_edit
-   </i>
-  <% end %>
-  <%= link_to teacher_lo_path(lo) do %>
-   <i class="material-icons link_card show small tooltipped" data-position="top" data-tooltip="Conteúdos do OA">
-    note_add
-   </i>
-  <% end %>
- </div>
+    <%= link_to edit_teacher_lo_path(lo), class: 'lo-edit' do %>
+      <%= fa_icon "pencil" %>
+    <% end %>
 
+    <%= link_to [:teacher, lo], class: 'lo-delete', method: :delete do %>
+      <%= fa_icon "trash" %>
+    <% end %>
+  </div>
 </div>

@@ -116,6 +116,8 @@ GEM
     faker (1.3.0)
       i18n (~> 0.5)
     ffi (1.9.18)
+    font-awesome-rails (4.7.0.2)
+      railties (>= 3.2, < 5.2)
     formatador (0.2.5)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
@@ -333,6 +335,7 @@ DEPENDENCIES
   devise (= 4.2.1)
   factory_girl
   faker (= 1.3.0)
+  font-awesome-rails
   guard-rails
   guard-rspec
   handlebars_assets

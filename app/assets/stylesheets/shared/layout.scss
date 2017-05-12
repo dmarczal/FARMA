@@ -28,7 +28,6 @@
 
   img.logo {
     height: 60px;
-    border: 1px solid black;
     margin-top: 2px;
   }
 }
@@ -80,6 +79,10 @@ div.sidebar {
       }
     }
   }
+}
+
+.col.s2.box-sidebar{
+  padding: 0;
 }
 
 .main-content:before {
@@ -144,5 +147,129 @@ div.sidebar {
     position: absolute;
     top: 5px;
     right: 5px;
+    color: $palletegreen;
+  }
+}
+
+/*************************************************************
+/* Form image preview
+/*************************************************************/
+
+#box-image-preview .box-image {
+  position: relative;
+  height: 170px;
+  width: 220px;
+  background-color: #EDEEEF;
+
+  .text-box {
+    padding: 40px 20px 0 20px;
+  }
+
+  img {
+    display: none;
+    height: 170px;
+    width: 220px;
+  }
+
+  img.active {
+    display: block;
+  }
+
+  .file {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+/*************************************************************
+/* breadcrumbs layout
+/*************************************************************/
+.nav-breadcrumbs {
+  span.breadcrumb {
+    color: $palletegreen;
+  }
+
+  a.breadcrumb {
+    color: $palletegrey2;
+  }
+  .breadcrumb:before {
+    color: $palletegreen;
+  }
+}
+
+/*************************************************************
+/* card layout
+/*************************************************************/
+
+.card {
+  width: 200px;
+  float: left;
+  margin: 10px 20px;
+
+  .card-head {
+    position: relative;
+    height: 200px;
+
+    .card-text {
+      position: absolute;
+      left: 0;
+      top: 40%;
+      width: 100%;
+      background-color: $palleteblue2;
+      color: white;
+    }
+  }
+
+  .card-content {
+    position: relative;
+    height: 200px;
+    padding-top: 5px;
+    margin-top: 20px;
+    background-color: $palleteblue2;
+    color: white;
+    display: none;
+
+    .lo-description p {
+      margin: 10px 20px;
+      text-align: justify;
+      word-wrap: break-word;
+
+      .modal-trigger {
+        margin-left: 10px;
+      }
+    }
+
+    .close {
+      position: absolute;
+      cursor: pointer;
+      top: 5px;
+      right: 5px;
+    }
+
+    a {
+      color: white;
+      position: absolute;
+    }
+
+    a.lo-content {
+      bottom: 5px;
+      left: 20px;
+    }
+
+    a.lo-edit {
+      position: absolute;
+      bottom: 5px;
+      left: 95px;
+    }
+
+    a.lo-delete {
+      position: absolute;
+      bottom: 5px;
+      right: 20px;
+    }
   }
 }

@@ -1,31 +1,28 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
-// listed below.
-//
-// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
-// or any plugin's vendor/assets/javascripts directory can be referenced here using a relative path.
-//
-// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
-// compiled file.
-//
-// Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
-// about supported directives.
-//
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require toastr.min
+
+// Gems
+//--------------------
 //= require materialize-sprockets
-//= require jquery-hotkeys
-//= require teacher/loads
+
+
+// Vendors
+//--------------------
+//= require toastr.min
+
+
+// Config files
+//--------------------
+//= require config/namespace
+//= require config/toastr
+//= require config/materialize
+
+
+// App files
+//--------------------
 //= require ckeditor/init
 //= require ckeditor/farma_ckeditor_functions
 //= require ckeditor/config
-//= require handlebars
-//= require_tree ../lib/keyboard
-//= require teacher/utils
-//= require teacher/exercises
-//= require teacher/questions
-//= require teacher/tips
-//= require teacher/los
-//= require codemirror
-//= require codemirror/modes/stex
+
+//= require teacher/events

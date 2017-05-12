@@ -24,34 +24,25 @@
 </head>
 <body>
 
-   <%= render 'shared/flash_messages'  %>
+  <%= render 'shared/flash_messages'  %>
 
-  <div class="navbar-fixed nav-dashboard">
-    <%= render 'layouts/teacher/navbar/navbar' %>
-  </div>
+  <%= render 'layouts/teacher/navbar' %>
 
-  <main id="main-teacher" class="row">
+  <div class="row">
 
-    <div id="panel" class="col l2 row active hide-on-med-and-down">
-      <%= render 'layouts/teacher/panel' %>
+    <div class="col s2 box-sidebar">
+      <%= render 'layouts/teacher/side_navbar' %>
     </div>
 
-    <div id="container">
-      <div id="content-teacher" class="col m12 l9 offset-l2 row">
+    <div class="col s10">
+      <%= render_breadcrumbs :builder => ::MaterializeBreadcrumbs, class: 'nav-breadcrumbs z-depth-0 transparent' %>
+      <div class="divider"></div>
 
-        <header id="header-teacher">
-          <%= render_breadcrumbs :builder => ::MaterializeBreadcrumbs, class: 'nav-breadcrumbs z-depth-0' %>
-          <div class="divider col s12"></div>
-        </header>
-
-        <div class="content white">
-          <%= yield %>
-        </div>
-
+      <div class="content">
+        <%= yield %>
       </div>
     </div>
-
-  </main>
+  </div>
 
 </body>
 </html>

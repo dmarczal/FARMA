@@ -1,12 +1,31 @@
-@import "codemirror";
-@import "codemirror/themes/material";
+/*************************************************************
+* Vendors
+**************************************************************/
+@import 'font-awesome'; // http://fontawesome.io/icons/
 
-@import "lib/materialize";
-@import "lib/keyboard";
+/*************************************************************
+* Configurations
+**************************************************************/
+@import "config/materialize_base";
+@import "materialize/components/dropdown";
+@import "materialize/components/tooltip";
+@import "materialize/components/buttons";
+@import "materialize/components/waves";
+@import "materialize/components/modal";
 
-@import "teacher/custom";
-@import "teacher/los";
-@import "teacher/exercises";
-@import "teacher/questions";
-@import "teacher/tips";
-@import "teacher/teams";
+/*************************************************************
+* Vendors stylesheets
+**************************************************************/
+@import "toastr.min";
+
+/*************************************************************
+* Custom and bugs fix from materialize
+**************************************************************/
+@import "customizations/materialize.scss";
+@import "customizations/toastr.scss";
+
+/*************************************************************
+* Apps stylesheets
+**************************************************************/
+@import "shared/layout";
+@import "teacher/colors";
