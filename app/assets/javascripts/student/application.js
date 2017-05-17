@@ -25,4 +25,5 @@
 //= require ckeditor/farma_ckeditor_functions
 //= require ckeditor/config
 
+//= require shared/events
 //= require student/events

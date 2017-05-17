@@ -1,3 +1,380 @@
 /*************************************************************
 *  Layout
 **************************************************************/
+
+
+/*************************************************************
+/* los index styles - card lo
+/*************************************************************/
+
+.card {
+  float: left;
+  width: 200px;
+  margin: 10px 20px;
+
+  .card-head {
+    position: relative;
+    height: 200px;
+
+    .card-text {
+      position: absolute;
+      left: 0;
+      top: 40%;
+      width: 100%;
+      background-color: $palleteblue2;
+      color: white;
+    }
+  }
+
+  .card-content {
+    position: relative;
+    height: 200px;
+    padding-top: 5px;
+    margin-top: 20px;
+    background-color: $palleteblue2;
+    color: white;
+    display: none;
+
+    .lo-description p {
+      margin: 10px 20px;
+      text-align: justify;
+      word-wrap: break-word;
+
+      .modal-trigger {
+        margin-left: 10px;
+      }
+    }
+
+    .close {
+      position: absolute;
+      cursor: pointer;
+      top: 5px;
+      right: 5px;
+    }
+
+    a {
+      color: white;
+      position: absolute;
+    }
+
+    a.lo-content {
+      bottom: 5px;
+      left: 20px;
+    }
+
+    a.lo-edit {
+      position: absolute;
+      bottom: 5px;
+      left: 95px;
+    }
+
+    a.lo-delete {
+      position: absolute;
+      bottom: 5px;
+      right: 20px;
+    }
+  }
+}
+
+/*************************************************************
+/* lo show styles - list content los
+/*************************************************************/
+
+#list-content-los {
+  padding: 0;
+}
+
+#list-content-los li {
+  padding: 10px 10px;
+}
+
+#show-questions {
+  margin: 10px 0;
+  a {
+    color: #039be5;
+  }
+}
+
+.box-form {
+  h5{
+    color: #9E9E9E;
+  }
+  .image_preview {
+    background-color: #00D055;
+    color: white;
+  }
+  .file_preview.active{
+    border: none;
+  }
+  textarea.materialize-textarea{
+    font-size: 14pt;
+  }
+  input[type=text]{
+    font-size: 14pt;
+  }
+}
+
+/*************************************************************
+/* lo show styles - Introduction
+/*************************************************************/
+#new_introduction button.btn,
+#new_exercise button.btn {
+  margin-top: 10px;
+}
+
+/*************************************************************
+/* Questions styles - list-questions
+/*************************************************************/
+
+#questions_list.collection{
+  .collection-item{
+    background-color: #00E676;
+  i{
+    color: #1B5E20;
+  }
+}
+}
+
+.collection-item {
+
+  padding: 20px 0 0 0 !important;
+  position: relative;
+
+  header {
+    height: 57px;
+  }
+
+  a.left {
+    margin-left: 56%;
+  }
+
+  .ajax-question-box {
+    display: none;
+    background-color: $palletewhite;
+    margin: 0;
+    padding: 30px 20px;
+    color: $palleteblack;
+      .btn{
+        i{
+          color: $palleteblack;
+          opacity: 0.75;
+        }
+      }
+
+  }
+
+  .box-question-content {
+    border-color: transparent;
+  }
+  .title{
+    color: palleteblack;
+    padding-left: 15px;
+    p{
+      font-size: 12pt;
+      margin-left: 35px;
+    }
+    .exercise{
+      color: $palletelightpink;
+    }
+    .introduction{
+      color: $palletepurple;
+    }
+  }
+
+  .show-question {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+  }
+
+  .show-question.active {
+    -ms-transform: rotate(90deg);     /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+    transform: rotate(90deg);
+  }
+
+  .title-question {
+    position: absolute;
+    left: 8%;
+    top: 20px;
+    color: white;
+  }
+
+  .questions-2-show{
+    span{
+      color: red;
+    }
+  }
+
+  .questions_list{
+    height: 22px;
+  }
+  .padding{
+    padding-top: 40px;
+    padding-left: 20px;
+  }
+}
+
+.to-move {
+  height: 36px;
+  cursor: image-url("cursor_move.png"), default;
+}
+
+#box-links-question {
+  margin-bottom: 0;
+  position: relative;
+  bottom: 15px;
+}
+
+#questions_list {
+  border: 1px solid transparent;
+  padding: 0;
+}
+
+#box-form-question {
+  display: none;
+}
+
+#box-new-question {
+  display: none;
+  height: 850px;
+  border: 1px solid #d1d1d1;
+}
+
+.btn-cancel {
+  cursor: pointer;
+}
+
+.box-new-tip {
+  display: none;
+  height: 800px;
+}
+
+/*************************************************************
+/* Question show styles - question content
+/*************************************************************/
+
+.box-question-content {
+  padding: 2% 2% !important;
+  margin: 1% 0 1% 4%;
+}
+
+#article-tips {
+
+  header{
+    h5{
+      opacity: 0.75;
+    }
+  }
+  i{
+    color: $palleteblack;
+  }
+
+  .divider {
+    margin-bottom: 20px;
+  }
+
+}
+
+#questions_list li.collection-item {
+  border-left: 12px solid green;
+  border-bottom: 5px solid green;
+}
+
+/*************************************************************
+/* Question show styles - box response
+/*************************************************************/
+ .box-response {
+   cursor: pointer;
+   position: relative;
+   border: 5px solid #757575;
+   padding-top: 25px !important;
+   margin: 20px 0;
+   height: 80px;
+ }
+
+ .box-response.valid {
+   border: 5px solid #43a047;
+ }
+
+ .box-response.invalid {
+   border: 5px solid #e53935;
+ }
+
+ /*************************************************************
+ /* Question show styles - Tips styles
+ /*************************************************************/
+
+ li.box-tip {
+   margin: 5px 0;
+   border-radius: 5px;
+   padding: 5px;
+
+   .text-multiply{
+     opacity: 0.75;
+   }
+
+   .box-tip-content {
+   }
+   span{
+     .col{
+       .s12{
+         margin-right: -590px;
+       }
+     }
+   }
+ }
+
+ .box-show-tips {
+   position: relative;
+   padding-top: 15px;
+   border: 1px solid #d1d1d1;
+   height: 250px;
+   padding-left: 0 !important;
+   padding-right: 0 !important;
+
+   .col {
+     padding-left: 0 ;
+     padding-right: 0 ;
+   }
+
+   i {
+     margin-top: 70px;
+   }
+
+   p {
+     margin-bottom: 20px;
+   }
+
+   .box-bottom {
+     position: absolute;
+     bottom: 0;
+   }
+ }
+
+ /*************************************************************
+ /* Team index styles - Team
+ /*************************************************************/
+
+ .card-team {
+   position: relative;
+   margin-left: 60px;
+   border-radius: 10px;
+   padding: 40px 0 !important;
+
+   .title {
+     margin-bottom: 20px;
+   }
+
+   .material-icons {
+     position: absolute;
+     top: 0;
+     right: 0;
+
+     color: black;
+   }
+ }
+
+ #form-add-lo {
+   margin-left: 50px;
+ }
