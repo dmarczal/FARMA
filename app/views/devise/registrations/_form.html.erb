@@ -11,5 +11,5 @@
     <%= f.input :current_password, hint: "a senha atual é necessária para confirmar as alterações", required: true %>
     <%= f.input :avatar, as: :file_materialize %>
 
-    <%= f.button :submit_materialize, cancel: workspace_path %>
+    <%= f.button :submit_materialize, cancel: :back %>
 <% end %>

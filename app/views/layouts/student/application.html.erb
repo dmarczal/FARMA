@@ -24,8 +24,12 @@
       </div>
 
       <div id="main-content" class="col s10 push-s2">
-        <%= render_breadcrumbs :builder => ::MaterializeBreadcrumbs, class: 'nav-breadcrumbs z-depth-0 transparent' %>
-        <div class="divider"></div>
+        <% if controller_name != "registrations" %>
+          <%= render_breadcrumbs :builder => ::MaterializeBreadcrumbs,
+                                 class: 'nav-breadcrumbs z-depth-0 transparent' %>
+          
+          <div class="divider"></div>
+        <% end %>
 
         <div class="content">
           <%= yield %>
