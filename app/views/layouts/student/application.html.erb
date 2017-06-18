@@ -19,14 +19,14 @@
 
     <div class="row">
 
-      <div class="col s2 box-sidebar">
+      <div id="box-sidebar" class="col s2">
         <%= render 'layouts/student/side_navbar' %>
       </div>
 
-      <div class="col s10">
+      <div id="main-content" class="col s10 push-s2">
         <%= render_breadcrumbs :builder => ::MaterializeBreadcrumbs, class: 'nav-breadcrumbs z-depth-0 transparent' %>
         <div class="divider"></div>
-        
+
         <div class="content">
           <%= yield %>
         </div>

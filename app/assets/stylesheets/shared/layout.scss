@@ -37,9 +37,8 @@
 /*************************************************************/
 
 div.sidebar {
-  position: fixed;
+  // position: fixed;
   overflow: hidden;
-  background-color: white;
   height: 100%;
 
   ul {
@@ -80,10 +79,6 @@ div.sidebar {
   }
 }
 
-.col.s2.box-sidebar{
-  padding: 0;
-}
-
 .main-content:before {
   content: '';
   position: absolute;
@@ -100,6 +95,20 @@ div.sidebar {
 .show-hidden-sidebar-button i {
   float: none !important;
   margin-left: 15px;
+}
+
+/********* Layout fixed sidebar************************/
+
+#main-content {
+  height: 100%;
+  overflow: auto;
+}
+
+#box-sidebar {
+  position: fixed;
+  background-color: white;
+  height: 100%;
+  padding: 0;
 }
 
 /*************************************************************
