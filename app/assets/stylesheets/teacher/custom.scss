@@ -2,79 +2,65 @@
 *  Layout
 **************************************************************/
 
-
 /*************************************************************
 /* los index styles - card lo
 /*************************************************************/
 
-.card {
-  float: left;
-  width: 200px;
-  margin: 10px 20px;
-
-  .card-head {
+  #los .card {
+    width: 200px;
+    margin-left: 20px;
+    float: left;
     position: relative;
-    height: 200px;
 
-    .card-text {
+    .card-content {
       position: absolute;
-      left: 0;
-      top: 40%;
+      top: 85px;
       width: 100%;
-      background-color: $palleteblue2;
+      z-index: 1;
+      padding: 0;
       color: white;
-    }
-  }
+      background-color: $palleteblue2;
 
-  .card-content {
-    position: relative;
-    height: 200px;
-    padding-top: 5px;
-    margin-top: 20px;
-    background-color: $palleteblue2;
-    color: white;
-    display: none;
-
-    .lo-description p {
-      margin: 10px 20px;
-      text-align: justify;
-      word-wrap: break-word;
-
-      .modal-trigger {
-        margin-left: 10px;
+      .card-title {
+          margin: 0;
       }
     }
 
-    .close {
-      position: absolute;
-      cursor: pointer;
-      top: 5px;
-      right: 5px;
-    }
-
-    a {
+    .card-reveal {
+      padding: 0;
+      background-color: $palleteblue2;
       color: white;
-      position: absolute;
-    }
 
-    a.lo-content {
-      bottom: 5px;
-      left: 20px;
-    }
+      i.close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        color: white;
+      }
 
-    a.lo-edit {
-      position: absolute;
-      bottom: 5px;
-      left: 95px;
-    }
+      p.content {
+        margin: 10px;
+        text-align: left;
+      }
 
-    a.lo-delete {
-      position: absolute;
-      bottom: 5px;
-      right: 20px;
+      .card-title p {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 20px;
+        color: white;
+      }
+
+      .actions {
+        position: absolute;
+        bottom: 4px;
+        color: white;
+      }
+
+      .destroy { right: 20px; }
+      .edit { right: 90px; }
+      .show { left: 20px; }
     }
   }
-}
 
 /*************************************************************
 /* lo show styles - list content los

@@ -25,6 +25,7 @@ class Teacher::LosController < Teacher::TeacherApplicationController
   def create #create new lo (post)
     @lo = current_user.los.new(lo_params)
     if @lo.save
+      flash[:error] = "Criado com sucesso"
       redirect_to teacher_lo_path(@lo)
     else
       flash.now[:error] = "Existem dados incorretos."
@@ -34,6 +35,7 @@ class Teacher::LosController < Teacher::TeacherApplicationController
 
   def update # (put)
     if @lo.update(lo_params)
+      flash[:error] = "Editado com sucesso"
       redirect_to teacher_los_path
     else
       flash.now[:error] = "Existem dados incorretos."
@@ -42,7 +44,13 @@ class Teacher::LosController < Teacher::TeacherApplicationController
   end
 
   def destroy # delete lo
-    @lo.destroy
+    begin
+      @lo.destroy
+    rescue Exception => e
+      puts e.message
+      flash[:error] = "Esse Oa está em uma turma"
+    end
+
     redirect_to teacher_los_path
   end
 

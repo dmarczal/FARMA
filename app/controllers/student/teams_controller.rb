@@ -8,6 +8,8 @@ class Student::TeamsController < Student::StudentApplicationController
   def show
     @team = Team.find params[:id]
     @los = @team.los.all
+
+    add_breadcrumb @team.name, student_team_path(@team)
   end
 
   def create
