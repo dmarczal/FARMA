@@ -10,14 +10,8 @@ class Team < ActiveRecord::Base
 
   validates :name, :code, presence: true
 
-
-  def to_register?(user_id, key)
-    if key == code
-      user_team = users_teams.new user_id: user_id
-      return user_team.save
-    end
-
-    false
+  def correct_code?(code)
+    self.code == code
   end
 
   def register_lo(lo)

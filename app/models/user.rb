@@ -18,4 +18,15 @@ class User < ActiveRecord::Base
   def registered?(team)
     teams.find_by id: team.id
   end
+
+  def register(params)
+    team = Team.find params[:id]
+
+    if team.correct_code? params[:code]
+      teams << team
+      return true
+    end
+
+    false
+  end
 end

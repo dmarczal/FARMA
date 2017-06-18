@@ -3,7 +3,5 @@
     <h1>Turma <%= @team.name %></h1>
   </header>
 
-  <%= split_in_columns(collection: @los, per_row: 3) do |lo|%>
-    <%= render 'student/los/lo', lo: lo %>
-  <% end %>
+  <%= render @los %>
 </article>

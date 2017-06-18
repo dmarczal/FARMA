@@ -7,15 +7,16 @@
     <span class="card-title"><%= team.name %></span>
     <% unless current_user.registered?(team) %>
       <%= simple_form_for(:register, url: student_teams_path, method: :post) do |f| %>
+        <%= f.input :id, as: :hidden, input_html: {value: team.id} %>
         <%= f.input :code, placeholder: "Insira a chave", class: "form-control string", label: false %>
         <%= f.submit 'Registrar-se', class: 'btn btn-primary' %>
       <% end %>
     <% end %>
   </div>
-  
+
   <% if current_user.registered?(team) %>
     <div class="card-action center">
-      <%= link_to "OAs da Turma", student_team_path(team) %>
+      <%= link_to "Ver Turma", student_team_path(team) %>
     </div>
   <% end %>
 

@@ -1,1 +1,31 @@
+/*************************************************************
+* card-lo - show team
+**************************************************************/
 
+.card-lo {
+  background-color: white;
+  margin-bottom: 20px;
+  padding: 0 !important;
+
+  .card-content {
+      padding: 20px 30px 10px 30px;
+      height: 100%;
+
+      h4, p {
+        margin: 0;
+        text-align: justify;
+        color: $palletegrey2;
+      }
+  }
+
+  .card-image {
+    padding: 0;
+    height: 174.86px;
+  }
+
+  .card-progress {
+    height: 100%;
+    padding-left: 30px;
+    padding-top: 30px;
+  }
+}

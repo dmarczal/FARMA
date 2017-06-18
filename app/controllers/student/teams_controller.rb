@@ -11,19 +11,21 @@ class Student::TeamsController < Student::StudentApplicationController
   end
 
   def create
-    team = Team.find params[:id]
-
-    if team.to_register?(current_user.id, params[:code])
-      flash.now[:success] = "Registro feito."
-      redirect_to student_team_path(team)
+    if current_user.register params_to_register
+      flash[:success] = "Registro feito."
+      redirect_to student_team_path(params_to_register[:id])
     else
-      flash.now[:error] = "Chave incorreta."
+      flash[:error] = "Chave incorreta."
       redirect_to student_teams_path
     end
   end
 
-  # TODO: Review this looks wrong
   def registered
     @teams = current_user.teams.all.includes :user
   end
+
+  private
+    def params_to_register
+      params.require(:register).permit(:code, :id)
+    end
 end

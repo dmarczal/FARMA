@@ -1,15 +1,22 @@
-<div class="card">
-  <div class="card-image">
-    <%= image_tag lo.image.url(:thumb), class: "activator image-lo responsive-img"%>
-  </div>
-  <div class="card-content">
-    <span class="card-title">
-      <%= truncate_and_set_tooltip(lo.name, length: 10) %>
-    </span>
+<div class="row">
+  <div class="card-lo z-depth-1 clearfix col s12">
+    <div class="card-image col s2">
+      <%= image_tag lo.image(:thumb), class: 'responsive-img' %>
+    </div>
 
-    <%= truncate_and_set_popup(lo.name, lo.description, length: 180, separator: ' ') %>
-  </div>
-  <div class="card-action">
-    <%= link_to 'Visualizar OA', view_lo_page_path(@team.id, lo.id, '1') %>
+    <div class="card-content left-align col s8">
+      <h4 class="title"><%= lo.name %></h4>
+      <p class=""><%= truncate_and_set_popup(lo.name, lo.description, length: 400, separator: ' ') %></p>
+    </div>
+
+    <div class="card-progress col s2">
+      <div class="circle-bar c100 p25 orange-c">
+        <span>25%</span>
+        <div class="slice">
+          <div class="bar"></div>
+          <div class="fill"></div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
