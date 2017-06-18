@@ -6,26 +6,45 @@
   background-color: white;
   margin-bottom: 20px;
   padding: 0 !important;
+  height: 13.56vw;
 
   .card-content {
-      padding: 20px 30px 10px 30px;
-      height: 100%;
+    position: relative;
+    height: 100%;
+    padding: 20px 30px 10px 30px;
 
-      h4, p {
-        margin: 0;
-        text-align: justify;
-        color: $palletegrey2;
-      }
+    h4, p {
+      margin: 0;
+      text-align: justify;
+      color: $palletegrey2;
+    }
+
+    p {
+      font-size: 0.9em;
+    }
+
+    p.last-view {
+      position: absolute;
+      bottom: 0;
+      color: $palletegrey3;
+    }
   }
 
   .card-image {
     padding: 0;
-    height: 174.86px;
+    height: 100%;
+
+    img {
+      height: 100%;
+    }
   }
 
   .card-progress {
-    height: 100%;
-    padding-left: 30px;
-    padding-top: 30px;
+    padding-left: 2.859430401%; //30*100/1049.160
+    padding-top: 2vw;
+
+    .circle-bar {
+       font-size: 10vw; //1286 * 1/100
+    }
   }
 }
