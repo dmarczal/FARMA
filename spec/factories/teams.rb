@@ -3,6 +3,6 @@ FactoryGirl.define do
     name     {Faker::Name.name}
     code    {'12345'}
 
-    user
+    user  { }
   end
 end

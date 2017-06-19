@@ -33,7 +33,7 @@ class Lo < ActiveRecord::Base
     exercises = define_index_method_for_questions exercises
 
     @contents = exercises + introductions
-    @contents = @contents.sort {|a, b| a.position <=> b.position}
+    @contents = @contents.sort_by { |o| o.position }
     define_index_method_for_contents
 
     @contents
