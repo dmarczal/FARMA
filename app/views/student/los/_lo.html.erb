@@ -1,7 +1,9 @@
 <div class="row">
   <div class="card-lo z-depth-1 clearfix col s12">
     <div class="card-image col s2">
-      <%= image_tag lo.image(:thumb), class: 'responsive-img' %>
+      <%= link_to student_team_lo_path(@team, lo) do %>
+        <%= image_tag lo.image(:thumb), class: 'responsive-img' %>
+      <% end %>
     </div>
 
     <div class="card-content left-align col s8">

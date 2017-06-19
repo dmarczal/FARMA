@@ -1,31 +1,45 @@
-<%= render "layouts/view_lo/navbar_dropdowns/links_user" %>
-<%= render "layouts/view_lo/navbar_dropdowns/process" %>
+<div class="navbar-fixed">
+  <%= render 'layouts/view_lo/navbar_partials/user_dropdown' %>
+  <%= render 'layouts/view_lo/navbar_partials/progress_dropdown' %>
 
-<nav class="grey lighten-5">
-  <div class="nav-wrapper">
-    <%= link_to image_tag("logos/logo-farma-black.png", class: "brand-logo"), root_path %>
-
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-
-      <li id="my-process" class="dropdown-button waves-effect waves-light" data-activates="process">
-        <div class="box-process-bar">
-          <div class="text center">
-            <span class="grey-text lighten-1">Meu rendimento</span>
-          </div>
-          <div class="bar grey lighten-1">
-            <div class="preview-bar teal lighten-1"></div>
-            <div class="process-bar green accent-4"></div>
-          </div>
+  <nav>
+    <ul class="left">
+      <li>
+        <div id="active-sidebar" class="center">
+          <%= fa_icon "bars 2x" %>
         </div>
       </li>
 
-      <!-- Dropdown Trigger -->
+      <li id="nav-lo-name">
+        <%= truncate_and_set_tooltip(@lo.name, length: 10) %>
+      </li>
+    </ul>
+
+    <%= link_to root_path, class: "brand-logo center" do %>
+        <%= image_tag "logos/logo-farma-gray.png", class: 'logo' %>
+    <% end %>
+
+    <ul id="button_links_user" class="right">
+
       <li>
-        <a class="dropdown-button waves-effect waves-light clearfix grey-text lighten-1" href="#!" data-activates="links_user">
-          <%= current_user.name %><i id="drop-down" class="material-icons right">arrow_drop_down</i>
-          <%= image_tag current_user.avatar.url(:thumb), class: "circle img-user left" %>
+        <a id="progress-lo-bar" class="dropdown-button center" href="#!" data-activates="dropdown_progress">
+          <span>Meu rendimento</span>
+
+          <div class="bar">
+            <div class="progress-bar"></div>
+            <div class="view-bar"></div>
+          </div>
+        </a>
+      </li>
+
+      <!-- Dropdown Trigger -->
+      <li class="user-profile">
+        <a class="dropdown-button" href="#!" data-activates="dropdown_user">
+          <%= image_tag current_user.avatar.url(:thumb), class: "circle responsive-img" %>
+          <%= current_user.name %> <i class="fa fa-caret-down fa-5" aria-hidden="true"></i>
         </a>
       </li>
     </ul>
-  </div>
-</nav>
+  </nav>
+
+</div>

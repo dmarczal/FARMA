@@ -48,3 +48,70 @@
     }
   }
 }
+
+
+/*__________________________________VIEW LO ___________________________________________________________*/
+
+/**************************************************************/
+/********************** NAVBAR ********************************/
+/**************************************************************/
+
+#active-sidebar {
+  width: 8.33333vw; //col s2
+  padding-top: 5px;
+  cursor: pointer;
+}
+
+#nav-lo-name {
+  margin-left: 20px;
+  p { margin: 0; }
+}
+
+/**************************************************************/
+/********************** progress bar **************************/
+/**************************************************************/
+
+#progress-lo-bar {
+  width: 220px;
+  position: relative;
+
+  div.bar {
+    position: absolute;
+    width: 200px;
+    height: 5px;
+    background-color: $palletegrey3;
+    bottom: 18px;
+    left: 10px;
+    border-radius: 10px;
+
+    .progress-bar {
+      float: left;
+      height: 100%;
+      width: 60%;
+      background-color: $palletegreen;
+      border-radius: 10px;
+    }
+
+    .view-bar {
+      height: 100%;
+      width: 80%;
+      background-color: #9feabe;
+      border-radius: 10px;
+    }
+  }
+}
+
+
+/**************************************************************/
+/********************** side_navbar****************************/
+/**************************************************************/
+
+#exit {
+  width: 100%;
+  padding: 10px 0;
+  height: 50px;
+  position: absolute;
+  bottom: 64px;
+  background-color: $palletegreen2;
+  color: $palletegrey2;
+}

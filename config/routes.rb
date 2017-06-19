@@ -62,18 +62,11 @@ Rails.application.routes.draw do
     get '/' => 'dashboard#index'
 
     #routes for teams (get: [index, new], post: create)
-    resources :teams, only: [:index, :show, :create]
+    resources :teams, only: [:index, :show, :create] do
+      
+      resources :los, only: :show
+    end
 
     get '/registered-teams' => 'teams#registered'
-  end
-
-  #################################### view lo Layout ###########################################
-
-  namespace :view_lo do
-    get 'teams/:team_id/los/:lo_id/pages/:page' => 'los#page', as: 'page'
-
-    post 'teams/:team_id/los/:lo_id/exercises/:exercise_id/questions/:question_id/create' => 'answers#create', as: 'answer'
-
-    get 'team/:team_id/questions/:question_id/tips/:id' => 'tips#show', as: 'tip'
   end
 end
