@@ -63,8 +63,8 @@ Rails.application.routes.draw do
 
     #routes for teams (get: [index, new], post: create)
     resources :teams, only: [:index, :show, :create] do
-      
-      resources :los, only: :show
+
+      get '/los/:id/page/:page' => 'los#show', as: :lo
     end
 
     get '/registered-teams' => 'teams#registered'

@@ -1,12 +1,8 @@
 <div class="sidebar z-depth-2">
   <ul class="list close">
-    <%= active_link_to student_team_lo_path(@team, @lo), wrap_tag: :li, active: :exclusive do %>
-      <i class="material-icons">text_format</i>
-    <% end %>
 
-    <%= active_link_to student_team_lo_path(@team, 2), wrap_tag: :li, active: :exclusive do %>
-      <i class="material-icons">format_list_bulleted</i>
-    <% end %>
+    <%= render partial: 'layouts/view_lo/sidebar_li', collection: @lo.contents %>
+    
   </ul>
 
   <%= link_to student_path, class: 'center', id: 'exit' do %>

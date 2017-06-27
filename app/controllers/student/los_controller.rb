@@ -5,6 +5,7 @@ class Student::LosController < Student::StudentApplicationController
 
   def show
     @lo = @team.los.find params[:id]
+    @page = params[:page].to_i
   end
 
   private

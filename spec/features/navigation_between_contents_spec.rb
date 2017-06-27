@@ -14,25 +14,23 @@ RSpec.feature "NavigationBetweenContents", type: :feature do
   let!(:team) { create(:team, user: teacher) }
   let(:introduction_icon) { 'text_format' }
   let(:exercise_icon) { 'format_list_bulleted' }
+  let(:contents) { lo.contents }
+
+  before do
+    sing_in student
+    student.register id: team.id, code: team.code
+    team.los_teams.create(lo_id: lo.id)
+    set_positions
+
+    visit student_team_lo_path(team, lo, 1)
+  end
 
   describe 'sidebar' do
-    let(:contents) { lo.contents }
-
-    before do
-      sing_in student
-      student.register id: team.id, code: team.code
-      team.los_teams.create(lo_id: lo.id)
-      set_positions
-
-      visit student_team_lo_path(team, lo)
-    end
-
     it 'Should include the quantity of contents' do
       expect(page.all('.list li').size).to eq contents.size
     end
 
     it 'Should list the introductions and exercises in order' do
-      contents = lo.contents
       index = 0
 
       page.all('.list li').each do |content|
@@ -40,10 +38,13 @@ RSpec.feature "NavigationBetweenContents", type: :feature do
         index += 1
 
         expect(content).to have_content(icon)
-        expect(page).to have_link(nil, href: student_team_lo_path(team, lo, page: index + 1))
+        expect(page).to have_link(nil, href: student_team_lo_path(team, lo, page: index))
       end
     end
+  end
 
+  it "Should show correct content" do
+    expect(page).to have_content(introduction1.title)
   end
 
   def set_positions
@@ -58,5 +59,4 @@ RSpec.feature "NavigationBetweenContents", type: :feature do
     exercise3.position = 5.second.from_now.to_i
     exercise3.save
   end
-
 end
