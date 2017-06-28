@@ -12,4 +12,12 @@ module ViewLo::LosHelper
       capture(&block)
     end
   end
+
+  def exec_if_the_page_exists(list, page)
+    return yield if page_exists?(list, page)
+  end
+
+  def page_exists?(list, page)
+    page > 0 && page <= list.length
+  end
 end

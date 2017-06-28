@@ -2,10 +2,10 @@
   <ul class="list close">
 
     <%= render partial: 'layouts/view_lo/sidebar_li', collection: @lo.contents %>
-    
+
   </ul>
 
-  <%= link_to student_path, class: 'center', id: 'exit' do %>
+  <%= link_to student_team_path(@team), class: 'center', id: 'exit' do %>
     <%= fa_icon "sign-out 2x" %>
   <% end %>
 </div>
