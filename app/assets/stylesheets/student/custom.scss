@@ -83,8 +83,9 @@
 /********************** progress bar **************************/
 /**************************************************************/
 
-#progress-lo-bar {
-  width: 220px;
+a.progress-lo-bar {
+  width: 280px;
+  height: 100%;
   position: relative;
 
   div.bar {
@@ -93,23 +94,48 @@
     height: 5px;
     background-color: $palletegrey3;
     bottom: 18px;
-    left: 10px;
+    left: 35px;
     border-radius: 10px;
 
     .progress-bar {
       float: left;
       height: 100%;
-      width: 60%;
+      width: 0;
       background-color: $palletegreen;
       border-radius: 10px;
     }
 
     .view-bar {
       height: 100%;
-      width: 80%;
+      width: 0;
       background-color: #9feabe;
       border-radius: 10px;
     }
+  }
+}
+
+/****************  dropdown progress lo *******************************/
+
+#dropdown_progress {
+  li.bar-description {
+    padding: 8px 0 0 25px;
+  }
+
+  li {
+    height: 65px;
+
+    i, span, p {
+      margin: 0;
+      padding: 0;
+      color: $palletegrey3;
+    }
+
+    a:hover { background: none; }
+    p { font-size: 12px;}
+    span { font-size: 15px;}
+    i { margin-right: 5px;}
+    i.progress-desc { color: $palletegreen; }
+    i.view-desc { color: #9feabe; }
   }
 }
 
