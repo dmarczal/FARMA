@@ -2,7 +2,9 @@ class Student::TeamsController < Student::StudentApplicationController
   add_breadcrumb 'Turmas', :student_teams_path
 
   def index
-    @teams = Team.all.includes :user
+    @registered_teams = current_user.teams.where(opened: true)
+    @open_teams = Team.opened_and_not_registered(current_user)
+    @close_teams = current_user.teams.where(opened: false)
   end
 
   def show

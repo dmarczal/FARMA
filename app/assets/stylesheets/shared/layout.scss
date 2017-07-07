@@ -97,6 +97,49 @@ div.sidebar {
   margin-left: 15px;
 }
 
+/******************** Dropdown sidebar ************************/
+div.sidebar li.dropdown:hover {
+  background-color: white;
+}
+
+div.sidebar li {
+  i.more { display: block;}
+  i.less { display: none;}
+}
+
+div.sidebar li.active {
+  i.more { display: none;}
+  i.less { display: block;}
+}
+
+div.sidebar li.dropdown {
+  display: none;
+
+  ul {
+    padding: 0;
+
+    li {
+      width: 100%;
+      border: none;
+      float: left;
+
+      div {
+        width: 10px;
+        height: 10px;
+        margin-top: 5px;
+        border-radius: 50px;
+        margin-right: 15px;
+      }
+    }
+
+    li.active {
+      div {
+        background-color: $palletegreen;
+      }
+    }
+  }
+}
+
 /**************** Layout fixed sidebar ************************/
 
 #main-content {

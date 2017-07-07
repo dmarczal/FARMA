@@ -1,5 +1,11 @@
 $(document).on 'turbolinks:load', ->
   FARMA.barsUpdate()
+  FARMA.changeTitleTeam()
+
+FARMA.changeTitleTeam = ->
+  $('#teams .tab a').click ->
+    title = $(@).text()
+    $('#teams header h1').text("Turmas #{title}")
 
 FARMA.barsUpdate = ->
   if $('div.bar').length > 0

@@ -1,6 +1,50 @@
-/*************************************************************
-* card-lo - show team
-**************************************************************/
+/**************************************************************/
+/****************** tabs - index teams ************************/
+/**************************************************************/
+
+ul.tabs {
+    background: none;
+    overflow: hidden;
+}
+
+/**************************************************************/
+/****************** team - index teams ************************/
+/**************************************************************/
+
+div.team {
+  padding: 0 20px;
+
+  div.card {
+    div.card-content {
+      padding: 10px 0 0 0;
+      color: $palletegrey2 !important;
+    }
+
+    div.card-content.information { margin-bottom: 50px;}
+
+    div.card-action {
+      background-color: $palletegreen2;
+
+      a {
+        color: $palletegrey2 !important;
+      }
+    }
+
+    div.card-image {
+        width: 100px;
+        margin: 20px auto;
+        margin-bottom: 0;
+
+        img {
+          border-radius: 50% !important;
+        }
+    }
+  }
+}
+
+/**************************************************************/
+/****************** card-lo - show team ***********************/
+/**************************************************************/
 
 .card-lo {
   background-color: white;

@@ -5,8 +5,33 @@
       <i class="fa fa-home" aria-hidden="true"></i> Dashboard
     <% end %>
 
-    <%= active_link_to student_teams_path, wrap_tag: :li do %>
-      <i class="fa fa-folder" aria-hidden="true"></i> Turmas
+    <li id="dropdown-teams">
+      <%= link_to '#teams', class: 'dropdown-sidebar' do %>
+        <i class="material-icons tiny">group_work</i> Turma
+        <i class="material-icons tiny right more">expand_more</i>
+        <i class="material-icons tiny right less">expand_less</i>
+      <% end %>
+    </li>
+
+    <li id="teams" class="dropdown" data-dropdown="#dropdown-teams">
+      <ul class="clearfix">
+
+        <%= active_link_to student_teams_path, wrap_tag: :li, active: :exclusive do %>
+          <div class="left"></div>
+          <span class="left">Abertas</span>
+        <% end %>
+
+        <li>
+          <%= link_to '#' do %>
+            <div class="left"></div>
+            <span class="left">Matriculadas</span>
+          <% end %>
+        </li>
+      </ul>
+    </li>
+
+    <%= active_link_to root_path , wrap_tag: :li, active: :exclusive do %>
+      <i class="fa fa-home" aria-hidden="true"></i> Home
     <% end %>
 
   </ul>
