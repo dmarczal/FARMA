@@ -16,6 +16,8 @@ class Team < ActiveRecord::Base
     joins(:users_teams).where('"teams"."opened" = ? AND "users_teams"."user_id" != ?', '1', user.id)
   }
 
+  scope :opened, -> { where(opened: true) }
+
   def correct_code?(code)
     self.code == code
   end

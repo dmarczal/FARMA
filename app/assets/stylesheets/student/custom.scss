@@ -22,11 +22,33 @@ div.team {
 
     div.card-content.information { margin-bottom: 50px;}
 
+/****************** card-action (registered)*******************/
+
     div.card-action {
       background-color: $palletegreen2;
 
       a {
-        color: $palletegrey2 !important;
+        color: $palletegrey2;
+      }
+    }
+
+/************** card-action (not registered)*******************/
+
+    div.card-action.box-form {
+      background-color: inherit;
+      border: none;
+      padding: 0 0 15px 0;
+
+      div.input-field {
+        width: 230px;
+        margin: 0 auto;
+
+        label {text-align: center;}
+      }
+
+      button.btn {
+        color: $palletegrey2;
+        border-radius: 30px;
       }
     }
 
