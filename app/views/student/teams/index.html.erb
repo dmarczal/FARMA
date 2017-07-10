@@ -6,7 +6,11 @@
   </header>
   <div class="row">
     <form id="find-teams" class="col s6 offset-s3 form-find">
-      <input id="first_name" type="text">
+      <div class="input-form">
+        <input id="first_name" type="text">
+      </div>
+
+      <i class="material-icons small" >search</i>
     </form>
 
     <%= split_in_columns(per_row: 3, collection: @teams) do %>

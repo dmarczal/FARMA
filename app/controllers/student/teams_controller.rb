@@ -1,7 +1,7 @@
 class Student::TeamsController < Student::StudentApplicationController
-  add_breadcrumb 'Turmas', :student_teams_path
 
   def index
+    add_breadcrumb 'Turmas Abertas', :student_teams_path
     @teams = Team.opened
   end
 
@@ -23,7 +23,10 @@ class Student::TeamsController < Student::StudentApplicationController
   end
 
   def registered
-    @teams = current_user.teams.all.includes :user
+    add_breadcrumb 'Turmas Matriculadas', student_registered_teams_path
+
+    @opened_teams = current_user.teams.opened
+    @closed_teams = current_user.teams.closed
   end
 
   private

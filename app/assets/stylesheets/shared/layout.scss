@@ -258,3 +258,32 @@ div.sidebar li.dropdown {
 .card-panel {
   background-color: white;
 }
+
+/*************************************************************
+/* Form Find
+/*************************************************************/
+
+form.form-find {
+  position: relative;
+  margin-bottom: 40px;
+
+  input[type=text], input[type=text]:focus {
+    border: none !important;
+    box-shadow: none !important;
+    text-align: center;
+    margin: 0;
+  }
+
+  div.input-form {
+    background-color: white;
+    border-radius: 30px;
+    padding: 0 40px;
+  }
+
+  i.material-icons {
+    position: absolute;
+    top: 7px;
+    right: 20px;
+    color: $palletegrey2;
+  }
+}
