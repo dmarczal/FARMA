@@ -13,9 +13,8 @@
       <i class="material-icons small" >search</i>
     </form>
 
-    <%= split_in_columns(per_row: 3, collection: @teams) do %>
-      <%= render @teams %>
+    <%= split_in_columns(per_row: 3, collection: @teams) do |team| %>
+      <%= render team %>
     <% end %>
   </div>
-
 </article>

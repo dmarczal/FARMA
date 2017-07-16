@@ -3,16 +3,13 @@
     <div class="card-content center">
       <span class="card-title"><%= team.name %></span>
     </div>
-
     <div class="card-image">
       <%= image_tag team.user.avatar.url, class: "responsive-img" %>
     </div>
-
     <div class="card-content information center">
       <p><%= team.user.name %></p>
       <p><%= I18n.l team.created_at, :format => :short %></p>
     </div>
-
     <% if current_user.registered?(team) %>
       <div class="card-action center">
         <%= link_to "Visualizar conteúdo", student_team_path(team) %>
@@ -24,10 +21,9 @@
             <input id="first_name" type="text" class="validate">
             <label for="first_name">Insira a chave</label>
           </div>
-
           <button type="submit" class="waves-effect waves-light btn white" name="button">inscrever-se</button>
         </form>
+      </div>
     <% end %>
-
   </div>
 </div>

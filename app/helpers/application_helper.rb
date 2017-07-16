@@ -57,6 +57,8 @@ module ApplicationHelper
 
   def split_in_columns(**options, &block)
     collection = options[:collection]
+    return if collection.nil?
+    
     per_row = options[:per_row]
 
     css_class = "col s#{12/per_row}"
@@ -70,7 +72,7 @@ module ApplicationHelper
           end
         end
       else
-        html +=  content_tag(:div, class: css_class) do
+        html += content_tag(:div, class: css_class) do
           block.call(obj)
         end
       end

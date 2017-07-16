@@ -14,15 +14,15 @@
 
     <div class="row">
       <div id="opened_teams" class="col s12">
-        <%= split_in_columns(per_row: 3, collection: @opened_teams) do %>
-          <%= render @opened_teams %>
+        <%= split_in_columns(per_row: 3, collection: @opened_teams) do |team| %>
+          <%= render team %>
         <% end %>
       </div>
     </div>
 
     <div id="closed_teams" class="col s12">
-      <%= split_in_columns(per_row: 3, collection: @closed_teams) do %>
-        <%= render @closed_teams %>
+      <%= split_in_columns(per_row: 3, collection: @closed_team) do |team| %>
+        <%= render team %>
       <% end %>
     </div>
   </div>

@@ -16,22 +16,15 @@ class Teacher::TeamsController < Teacher::TeacherApplicationController
   end
 
   def create
-    data = team_params
-    los = data.delete(:los)
-    @team = current_user.my_teams.new data
+    team_service = Teacher::TeamService.new()
+    team_service.build_team team_params, current_user
 
-    if @team.save
-      flash.now[:notice] = "Questão #{@team.name} criada."
-
-      unless los.nil?
-        los.each do |lo|
-          @team.register_lo lo
-        end
-      end
-
-      redirect_to teacher_teams_path
+    if team_service.save_team
+      flash[:notice] = "Turma #{team_service.team.name} criada."
+      redirect_to teacher_team_path(team_service.team)
     else
-      flash.now[:error] = "Existem dados incorretos."
+      flash.now[:error] = "Erro ao criar a turma"
+      @team = team_service.team
       @los = current_user.los.all
       render :new
     end
