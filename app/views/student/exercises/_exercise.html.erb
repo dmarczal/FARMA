@@ -1,1 +1,6 @@
-<%= exercise.title %>
+<div class="exercise-header">
+  <span>Introdução <%= exercise.index %></span>
+  <h2 class="title"><%= exercise.title %></h2>
+
+  <%= exercise.content.html_safe %>
+</div>

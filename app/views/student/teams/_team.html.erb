@@ -16,13 +16,15 @@
       </div>
     <% else %>
       <div class="card-action center box-form ">
-        <form>
+        <%= form_for :register, html: {id: "register_form_#{team.id}"} do |f| %>
           <div class="input-field">
-            <input id="first_name" type="text" class="validate">
-            <label for="first_name">Insira a chave</label>
+            <%= f.hidden_field :id, value: team.id %>
+            <%= f.text_field :code %>
+            <label for="register_code" class="center_align">Insira a chave</label>
           </div>
-          <button type="submit" class="waves-effect waves-light btn white" name="button">inscrever-se</button>
-        </form>
+
+          <%= f.submit 'inscrever-se', :class => 'waves-effect waves-light btn white' %>
+        <% end %>
       </div>
     <% end %>
   </div>

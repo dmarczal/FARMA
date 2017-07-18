@@ -20,7 +20,7 @@
           <span class="left">Abertas</span>
         <% end %>
 
-        <%= active_link_to student_registered_teams_path, wrap_tag: :li, active: :exclusive do %>
+        <%= active_link_to student_registered_teams_path, wrap_tag: :li, active: [['student/teams'], ['registered', 'show']] do %>
           <div class="left"></div>
           <span class="left">Matriculadas</span>
         <% end %>

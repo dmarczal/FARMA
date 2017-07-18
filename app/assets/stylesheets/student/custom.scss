@@ -42,12 +42,13 @@ div.team {
       div.input-field {
         width: 230px;
         margin: 0 auto;
-
-        label {text-align: center;}
       }
 
-      button.btn {
+      input[type=submit] {
         color: $palletegrey2;
+      }
+      
+      i.btn {
         border-radius: 30px;
       }
     }
