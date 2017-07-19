@@ -29,6 +29,11 @@ class Student::TeamsController < Student::StudentApplicationController
     @closed_teams = current_user.teams.closed
   end
 
+  def find_teams
+    @teams = Team.find_with_like(team.name).opened
+    render json: @teams
+  end
+
   private
     def params_to_register
       params.require(:register).permit(:code, :id)

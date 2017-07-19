@@ -13,6 +13,7 @@ class Team < ActiveRecord::Base
   # scopes
   scope :opened, -> { where(opened: true) }
   scope :closed, -> { where(opened: false) }
+  scope :find_with_like, ->(query) { where('name LIKE ?', "%#{query}%") }
   # scopes-end
 
   def correct_code?(code)
