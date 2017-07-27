@@ -67,6 +67,7 @@ Rails.application.routes.draw do
       get '/los/:id/page/:page' => 'los#show', as: :lo
     end
 
+    get '/find_teams' => 'teams#find_teams'
     get '/registered-teams' => 'teams#registered'
   end
 end

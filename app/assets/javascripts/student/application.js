@@ -26,4 +26,5 @@
 //= require ckeditor/config
 
 //= require shared/events
+//= require student/functions
 //= require student/events

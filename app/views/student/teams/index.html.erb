@@ -7,14 +7,17 @@
   <div class="row">
     <form id="find-teams" class="col s6 offset-s3 form-find">
       <div class="input-form">
-        <input id="first_name" type="text">
+        <input name="query" type="text" />
       </div>
 
-      <i class="material-icons small" >search</i>
+      <button type="submit"><i class="material-icons small" >search</i></button>
     </form>
 
-    <%= split_in_columns(per_row: 3, collection: @teams) do |team| %>
-      <%= render team %>
-    <% end %>
+    <div id="box-teams">
+      <%= split_in_columns(per_row: 3, collection: @teams) do |team| %>
+        <%= render team %>
+      <% end %>
+    </div>
+
   </div>
 </article>

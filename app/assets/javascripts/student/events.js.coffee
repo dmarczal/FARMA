@@ -1,6 +1,7 @@
 $(document).on 'turbolinks:load', ->
   FARMA.barsUpdate()
   FARMA.changeTitleTeam()
+  FARMA.findForTeamWhenOnChange()
 
 FARMA.changeTitleTeam = ->
   $('#teams .tab a').click ->
@@ -21,3 +22,9 @@ FARMA.setbars = ->
 
   $('.progress-bar').width(progressWidth)
   $('.view-bar').width(viewWidth)
+
+FARMA.findForTeamWhenOnChange = ->
+  $('#find-teams').submit (event)->
+    event.preventDefault()
+    query = $(@).serializeArray()[0]
+    FARMA.findTeams(query.value)

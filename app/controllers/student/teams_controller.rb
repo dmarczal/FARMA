@@ -30,8 +30,8 @@ class Student::TeamsController < Student::StudentApplicationController
   end
 
   def find_teams
-    @teams = Team.find_with_like(team.name).opened
-    render json: @teams
+    teams = Team.find_with_like(params[:query]).opened
+    render json: Student::TeamService.build_json_teams(teams, current_user, form_authenticity_token)
   end
 
   private

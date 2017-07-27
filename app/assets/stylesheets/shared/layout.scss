@@ -281,9 +281,14 @@ form.form-find {
   }
 
   i.material-icons {
-    position: absolute;
-    top: 7px;
-    right: 20px;
     color: $palletegrey2;
+  }
+
+  button[type=submit] {
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    background: transparent;
+    border: none;
   }
 }
