@@ -2,7 +2,7 @@
   <div class="card-lo z-depth-1 clearfix col s12">
     <div class="card-image col s2">
       <%= link_to student_team_lo_path(@team, lo, 1) do %>
-        <%= image_tag lo.image(:thumb), class: 'responsive-img' %>
+        <%= image_tag lo.image.url , class: 'responsive-img' %>
       <% end %>
     </div>
 

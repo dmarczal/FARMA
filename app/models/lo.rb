@@ -6,11 +6,9 @@ class Lo < ActiveRecord::Base
   has_many :progress_lo
   has_and_belongs_to_many :tags
 
-  has_attached_file :image, :styles => {:thumb => '200x200!'},
-                      default_url: "home/oa.png"
+  mount_uploader :image, ImageUploader
 
   validates :name, :description, :user, presence: true
-  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   def content_by_position(index)
     contents[index.to_i - 1]

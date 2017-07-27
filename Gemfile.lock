@@ -81,6 +81,10 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    carrierwave (1.1.0)
+      activemodel (>= 4.0.0)
+      activesupport (>= 4.0.0)
+      mime-types (>= 1.16)
     ckeditor (4.2.2)
       cocaine
       orm_adapter (~> 0.5.0)
@@ -173,6 +177,7 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
     mimemagic (0.3.2)
+    mini_magick (4.8.0)
     mini_portile2 (2.1.0)
     minitest (5.10.1)
     multi_json (1.12.1)
@@ -328,6 +333,7 @@ DEPENDENCIES
   capistrano-rails
   capistrano-rvm
   capybara
+  carrierwave (~> 1.0)
   ckeditor (~> 4.1)
   codemirror-rails
   coffee-rails (= 4.2.1)
@@ -344,6 +350,7 @@ DEPENDENCIES
   jquery-rails (= 4.3.1)
   materialize-sass (= 0.98.2)
   math_engine
+  mini_magick
   paperclip (~> 5.0.0)
   pg (= 0.20.0)
   populator (= 1.0.0)
@@ -364,4 +371,4 @@ RUBY VERSION
    ruby 2.2.3p173
 
 BUNDLED WITH
-   1.14.6
+   1.15.1

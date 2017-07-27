@@ -4,19 +4,22 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  mount_uploader :avatar, AvatarUploader
+
   has_many :los
   has_many :answers
   has_many :users_teams
   has_many :teams, through: :users_teams
   has_many :my_teams, class_name: "Team"
 
-  has_attached_file :avatar, :styles => {:thumb => "55x55^", :medium => "400x400^"}, default_url: "missing.png"
-
   validates :name, presence: true
-  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   def registered?(team)
-    teams.find_by id: team.id
+    !teams.find_by(id: team.id).nil?
+  end
+
+  def avatar_url(type)
+    avatar.url(type)
   end
 
   def register(params)

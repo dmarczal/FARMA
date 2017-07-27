@@ -23,8 +23,10 @@ gem 'materialize-sass', '0.98.2' # https://github.com/mkhairi/materialize-sass
 gem 'rails-i18n', '~> 5.0.0' # For 5.x
 gem 'math_engine'
 
-gem "font-awesome-rails"
-gem 'paperclip', '~> 5.0.0'
+gem 'font-awesome-rails'
+gem 'carrierwave', '~> 1.0'
+gem "mini_magick"
+# gem 'paperclip', '~> 5.0.0'
 gem 'ckeditor', '~> 4.1' #https://github.com/galetahub/ckeditor
 gem 'breadcrumbs_on_rails' #https://github.com/weppos/breadcrumbs_on_rails
 gem 'active_link_to', '~> 1.0', '>= 1.0.3'
