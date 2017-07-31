@@ -12,7 +12,7 @@ class Question < ActiveRecord::Base
     @answers_to_show ||= answers.where(user_id: user, team_id: team)
   end
 
-  def tips_to_show(options = [])
+  def tips_to_show(options = {})
     return @tips unless @tips.nil?
 
     if options[:tips_count].nil?

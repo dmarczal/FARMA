@@ -47,7 +47,7 @@ div.team {
       input[type=submit] {
         color: $palletegrey2;
       }
-      
+
       i.btn {
         border-radius: 30px;
       }
@@ -238,10 +238,46 @@ div.paper-sheet {
   background-color: white;
   width: 100%;
   margin: 40px 0;
-  padding: 30px 50px;
+  padding: 30px 10px 30px 50px;
   color: $palletegrey2;
 
   p {
     text-align: justify;
   }
+
+  i.btn-icon {
+    cursor: pointer;
+  }
+
+  i.material-icons.active.btn-icon {
+    color: #ffd600;
+  }
+}
+
+/**************************************************************/
+/********************* exercise-header ************************/
+/**************************************************************/
+
+div.exercise-header {
+  background-color: $palletegreen2;
+}
+
+div.tips.paper-sheet {
+  padding: 5px 15px;
+
+  i.material-icons {
+    margin: 0 5px 0 0;
+  }
+
+  div.tip {
+    background-color: $palletegreen2;
+    padding: 2px 5px;
+    margin: 10px 0;
+    max-height: 300px;
+    overflow: auto;
+  }
+}
+
+div.tips {
+  display: none;
 }

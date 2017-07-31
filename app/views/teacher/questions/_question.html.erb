@@ -11,7 +11,7 @@
       <span class="title-question"><%= question.title %></span>
     </header>
 
-   <div id="box-links-question" class="right">
+   <div class="right box-links-question">
       <ul>
         <li>
           <%= link_to edit_teacher_lo_exercise_question_path(@lo, @exercise, question),
@@ -34,5 +34,4 @@
 
   <div class="divider col s12"></div>
   <div id="question-<%= question.id %>-show" class="col s12 row ajax-question-box"></div>
-
 </li>

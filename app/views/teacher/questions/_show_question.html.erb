@@ -16,7 +16,7 @@
 
  <%= render 'test_to_answer' %>
 
-<article id="article-tips">
+<article class="article-tips col s12">
   <header class="col s12">
     <span class="color-amber"><i class="material-icons">lightbulb_outline</i> Dicas</span>
   </header>
@@ -24,15 +24,14 @@
   <div class="right">
     <%= link_to 'Nova Dica',
                 new_teacher_lo_exercise_question_tip_path(@lo, @exercise, @question),
-                class: 'btn new-tip-btn',
+                class: 'btn new-tip-btn btn-flat white tips black-text',
                 'data-id' => @question.id,
-                class: 'btn-flat white tips black-text',
                 remote: true %>
   </div>
 
   <div id="box-new-tips-for-<%= @question.id %>" class="box-new-tip"></div>
 
-  <ul id="list-tips" class="col s12 row">
+  <ul id="list-tips-<%= @question.id %>" class="col s12 row">
     <%= render @tips %>
   </ul>
 

@@ -9,6 +9,7 @@ $(document).on 'turbolinks:load', ->
   FARMA.imagePreview()
   # FARMA.toggleVerticalMenu() Remove toggle sidebar because it's useless
 
+
 ###################################################################################################
 ################################## Toggle card - Lo  ##############################################
 ###################################################################################################
@@ -64,11 +65,14 @@ FARMA.requestEditQuestion = ->
 ###################################################################################################
 
 FARMA.requestFormTip = ->
-  $('#content-teacher').on 'click', '.new-tip-btn', ->
+  $('#main-content').on 'click', '.new-tip-btn', ->
+    $(@).hide()
     FARMA.toggleBoxNewTip '#box-new-tips-for-' + $(this).attr('data-id')
 
-  $('#content-teacher').on 'click', '.close-tip', ->
-    FARMA.toggleBoxNewTip '#box-new-tips-for-' + $(this).attr('data-id')
+  $('#main-content').on 'click', '.close-tip', ->
+    id = $(this).attr('data-id')
+    $("#question-#{id}-show .new-tip-btn").show()
+    FARMA.toggleBoxNewTip '#box-new-tips-for-' + id
 
 # ###################################################################################################
 # ################################## Toggle card ####################################################

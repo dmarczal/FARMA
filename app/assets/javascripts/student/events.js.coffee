@@ -2,6 +2,13 @@ $(document).on 'turbolinks:load', ->
   FARMA.barsUpdate()
   FARMA.changeTitleTeam()
   FARMA.findForTeamWhenOnChange()
+  FARMA.toggleTips()
+
+FARMA.toggleTips = ->
+  $('.btn-icon').click ->
+    id = $(@).data('id')
+    $(@).toggleClass('active')
+    $("#tips-#{id}").fadeToggle()
 
 FARMA.changeTitleTeam = ->
   $('#teams .tab a').click ->

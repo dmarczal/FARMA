@@ -6,61 +6,61 @@
 /* los index styles - card lo
 /*************************************************************/
 
-  #los .card {
-    width: 200px;
-    margin-left: 20px;
-    float: left;
-    position: relative;
+#los .card {
+  width: 200px;
+  margin-left: 20px;
+  float: left;
+  position: relative;
 
-    .card-content {
-      position: absolute;
-      top: 85px;
-      width: 100%;
-      z-index: 1;
-      padding: 0;
-      color: white;
-      background-color: $palleteblue2;
+  .card-content {
+    position: absolute;
+    top: 85px;
+    width: 100%;
+    z-index: 1;
+    padding: 0;
+    color: white;
+    background-color: $palleteblue2;
 
-      .card-title {
-          margin: 0;
-      }
-    }
-
-    .card-reveal {
-      padding: 0;
-      background-color: $palleteblue2;
-      color: white;
-
-      i.close {
-        position: absolute;
-        top: 0;
-        right: 0;
-        color: white;
-      }
-
-      p.content {
-        margin: 10px;
-        text-align: left;
-      }
-
-      .card-title p {
-        margin-top: 10px;
-        margin-bottom: 10px;
-        font-size: 20px;
-        color: white;
-      }
-
-      .actions {
-        position: absolute;
-        bottom: 4px;
-        color: white;
-      }
-
-      .destroy { right: 20px; }
-      .edit { right: 90px; }
-      .show { left: 20px; }
+    .card-title {
+        margin: 0;
     }
   }
+
+  .card-reveal {
+    padding: 0;
+    background-color: $palleteblue2;
+    color: white;
+
+    i.close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      color: white;
+    }
+
+    p.content {
+      margin: 10px;
+      text-align: left;
+    }
+
+    .card-title p {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      font-size: 20px;
+      color: white;
+    }
+
+    .actions {
+      position: absolute;
+      bottom: 4px;
+      color: white;
+    }
+
+    .destroy { right: 20px; }
+    .edit { right: 90px; }
+    .show { left: 20px; }
+  }
+}
 
 /*************************************************************
 /* lo show styles - list content los
@@ -206,7 +206,7 @@
   cursor: image-url("cursor_move.png"), default;
 }
 
-#box-links-question {
+.box-links-question {
   margin-bottom: 0;
   position: relative;
   bottom: 15px;
@@ -233,7 +233,6 @@
 
 .box-new-tip {
   display: none;
-  height: 800px;
 }
 
 /*************************************************************
@@ -245,7 +244,7 @@
   margin: 1% 0 1% 4%;
 }
 
-#article-tips {
+article.article-tips {
 
   header{
     h5{

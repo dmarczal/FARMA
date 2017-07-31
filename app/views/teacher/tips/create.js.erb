@@ -1,5 +1,6 @@
 <% unless @tip.errors.any? %>
-  $("#list-tips").append('<%= j render(partial: "teacher/tips/tip", locals:  {tip: @tip}) %>');
+  $("#list-tips-<%= @question.id %>").append('<%= j render(partial: "teacher/tips/tip", locals:  {tip: @tip}) %>');
+  $("#question-<%= @question.id %>-show a.new-tip-btn").show()
   window.FARMA.toggleBoxNewTip("#box-new-tips-for-<%= @question.id %>");
 <% end %>
 

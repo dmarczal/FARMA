@@ -1,5 +1,5 @@
 <%= render 'shared/flash_messages'  %>
-
+<div class="box-form">
   <%= simple_form_for([:teacher, @lo, @exercise, @question, @tip],
                       html: {class: 'col s12'}, remote: true) do |f| %>
 

@@ -1,6 +1,8 @@
-<div class="exercise-header">
-  <span>Introdução <%= exercise.index %></span>
+<div class="exercise-header paper-sheet z-depth-1">
+  <span>Exercise <%= exercise.index %></span>
   <h2 class="title"><%= exercise.title %></h2>
 
   <%= exercise.content.html_safe %>
 </div>
+
+<%= render exercise.questions %>
