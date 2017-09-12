@@ -1,4 +1,4 @@
-ruby '2.2.3'
+ruby '2.4.1'
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
@@ -6,25 +6,24 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'rails',        '5.0.2'
-gem 'puma',         '3.4.0'
-gem 'sass-rails',   '5.0.6'
-gem 'uglifier',     '2.5.3'
-gem 'coffee-rails', '4.2.1'
-gem 'jquery-rails', '4.3.1'
-gem 'turbolinks',   '~> 5.0.0'
-gem 'jbuilder',     '2.4.1'
+gem 'rails',        '~> 5.1.2'
+gem 'puma',         '~> 3.9.1'
+gem 'sass-rails',   '~> 5.0.6'
+gem 'uglifier',     '>= 3.2'
+gem 'coffee-rails', '~> 4.2.1'
+gem 'jquery-rails', '~> 4.3.1'
+gem 'turbolinks',   '~> 5.0.1'
 gem 'sdoc',         '0.4.0', group: :doc
 
-gem 'pg',           '0.20.0'
-gem 'devise',       '4.2.1'
-gem 'simple_form',  '~> 3.4'
-gem 'materialize-sass', '0.98.2' # https://github.com/mkhairi/materialize-sass
+gem 'pg',           '~> 0.20.0'
+gem 'devise'
+gem 'simple_form'
+gem 'materialize-sass', '~> 0.98.2' # https://github.com/mkhairi/materialize-sass
 gem 'rails-i18n', '~> 5.0.0' # For 5.x
 gem 'math_engine'
 
 gem 'font-awesome-rails'
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', '~> 1.0.0'
 gem "mini_magick"
 gem 'ckeditor', '~> 4.1' #https://github.com/galetahub/ckeditor
 gem 'breadcrumbs_on_rails' #https://github.com/weppos/breadcrumbs_on_rails
