@@ -12,6 +12,10 @@
   float: left;
   position: relative;
 
+  .activator {
+    cursor: pointer;
+  }
+
   .card-content {
     position: absolute;
     top: 85px;
@@ -19,15 +23,24 @@
     z-index: 1;
     padding: 0;
     color: white;
-    background-color: $palleteblue2;
+    text-shadow: 2px 2px #000;
+    top:0px;
+    background: rgba(0, 0, 0, 0.35);
+    height: 100%;
 
     .card-title {
         margin: 0;
+        padding: 10px;
+        font-size: 18px;
+        position: relative;
+        top: 50%;
+        -webkit-transform: translateY(-55%);
+        transform: translateY(-55%);
     }
   }
 
   .card-reveal {
-    padding: 0;
+    padding: 5px;
     background-color: $palleteblue2;
     color: white;
 
@@ -36,11 +49,13 @@
       top: 0;
       right: 0;
       color: white;
+      font-size: medium;
     }
 
     p.content {
       margin: 10px;
       text-align: left;
+      font-size: small;
     }
 
     .card-title p {

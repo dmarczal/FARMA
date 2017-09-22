@@ -2,25 +2,28 @@
    <div class="card-image waves-effect waves-block waves-light">
      <%= image_tag lo.image.url , class: "responsive-img activator"%>
    </div>
-   <div class="card-content center-align">
-      <span class="card-title"><%= truncate_and_set_tooltip(lo.name, length: 10) %></span>
+   <div class="card-content center-align activator">
+      <span class="card-title"><%= truncate_and_set_tooltip(lo.name, length: 22) %></span>
    </div>
    <div class="card-reveal">
      <span class="card-title grey-text text-darken-4 center-align">
-       <%= truncate_and_set_tooltip(lo.name, length: 10) %>
+       <%= truncate_and_set_tooltip(lo.name, length: 20) %>
        <i class="material-icons right close">close</i>
      </span>
-     <p class="content"><%= truncate_and_set_popup(lo.name, lo.description, length: 70, separator: ' ') %></p>
+     <p class="content"><%= truncate_and_set_popup(lo.name, lo.description, length: 100, separator: ' ') %></p>
 
-     <%= link_to [:teacher, lo], class: 'actions destroy',method: :delete do %>
+     <%= link_to [:teacher, lo], class: 'actions destroy tooltipped', method: :delete,
+       "data-position" => "bottom", "data-delay" => "50", "data-tooltip"=>"Remover" do %>
         <%= fa_icon "trash" %>
      <% end %>
 
-     <%= link_to edit_teacher_lo_path(lo), class: 'actions edit' do %>
+     <%= link_to edit_teacher_lo_path(lo), class: 'actions edit tooltipped',
+       "data-position" => "bottom", "data-delay" => "50", "data-tooltip"=>"Editar" do %>
         <%= fa_icon "pencil" %>
      <% end %>
 
-     <%= link_to [:teacher, lo], class: 'actions show' do %>
+     <%= link_to [:teacher, lo], class: 'actions show tooltipped',
+       "data-position" => "bottom", "data-delay" => "50", "data-tooltip"=>"Visualizar" do %>
         <%= fa_icon "file" %>
      <% end %>
    </div>

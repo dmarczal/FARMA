@@ -7,6 +7,7 @@ $(document).on 'turbolinks:load', ->
   FARMA.silentSubmit()
   FARMA.closeNewQuestion()
   FARMA.imagePreview()
+  FARMA.mouseOverOnCard("#los-index .card")
   # FARMA.toggleVerticalMenu() Remove toggle sidebar because it's useless
 
 

@@ -1,5 +1,8 @@
 #devise-page, #workspace-page {
-  background-image: image_url('shared/farma-session-background.png');
+  background: image_url('shared/farma-session-background.png') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
   background-position: top;
   background-color: $palletegreen;

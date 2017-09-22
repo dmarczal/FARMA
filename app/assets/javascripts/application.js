@@ -21,4 +21,5 @@
 
 // App files
 //--------------------
+//= require shared/events
 //= require home

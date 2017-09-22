@@ -1,6 +1,8 @@
 <%= simple_form_for([:teacher ,@lo], html: {multipart: true}) do |f| %>
 
-  <%= f.input :name, autofocus: true %>
+  <div class="col s12">
+    <%= f.input :name, autofocus: true %>
+  </div>
 
   <div id="box-textarea" class="col s9">
     <%= f.input :description, as: :textarea %>
