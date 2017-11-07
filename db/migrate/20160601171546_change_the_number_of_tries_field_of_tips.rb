@@ -1,4 +1,4 @@
-class ChangeTheNumberOfTriesFieldOfTips < ActiveRecord::Migration
+class ChangeTheNumberOfTriesFieldOfTips < ActiveRecord::Migration[5.0]
   def up
     remove_column :tips, :number_of_tries
   end

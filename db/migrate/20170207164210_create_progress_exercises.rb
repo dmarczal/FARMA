@@ -1,4 +1,4 @@
-class CreateProgressExercises < ActiveRecord::Migration
+class CreateProgressExercises < ActiveRecord::Migration[5.0]
   def change
     create_table :progress_exercises do |t|
       t.references :team, index: true, foreign_key: true

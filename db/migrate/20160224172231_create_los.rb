@@ -1,4 +1,4 @@
-class CreateLos < ActiveRecord::Migration
+class CreateLos < ActiveRecord::Migration[5.0]
   def change
     create_table :los do |t|
       t.string :name, null: false, default: ""
