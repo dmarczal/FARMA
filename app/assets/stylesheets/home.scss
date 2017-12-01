@@ -8,6 +8,7 @@ body {
 a {
   @extend .text-green;
 }
+
 /*************************************************************
 * Home page styles
 **************************************************************/
@@ -164,7 +165,6 @@ nav#home-page-navbar.active {
   }
 }
 
-
 #home-page-goal {
   @extend .gradient-white;
   min-height: 150px;
@@ -177,7 +177,6 @@ nav#home-page-navbar.active {
 }
 
 #home-page-team {
-  //padding-bottom: 400px;
   .card .card-reveal{
     background-color: $palletegreen;
     opacity: 0.9;
@@ -197,7 +196,7 @@ nav#home-page-navbar.active {
 #home-page-footer {
   background-color: $palleteblue;
   color: #FFF;
-  margin-top: -4px;
+  padding-bottom: 100px;
 }
 
 #home-page-navbar {
@@ -205,41 +204,10 @@ nav#home-page-navbar.active {
   position: fixed;
 }
 
-
-/*************************************************************
-*  Responsive design for home page
-**************************************************************/
-@media only screen and (max-width : 992px) {
-  #home-page {
-    .parallax-container .section {
-      top: 72%;
-    }
-  }
-  #parallax-banner .section {
-    top: 10%;
-  }
-}
-
-@media only screen and (max-width : 600px) {
-  #parallax-banner .section {
-    top: 0;
-  }
-}
-
-
-.login-panel {
-  background-image: url('shared/farma-03.jpg');
-  background-color: $palletegreen;
-  background-blend-mode: darken;
-}
-
-
 /*************************************************************
 * Area for research the home page
 **************************************************************/
 #home-page-researchs {
-  //padding-top: 200px;
-  //padding-bottom: 200px;
 
   li {
     background-color: #fff;
@@ -349,7 +317,6 @@ nav#home-page-navbar.active {
       width: 150px;
     }
   }
-
 }
 
 
@@ -357,9 +324,6 @@ nav#home-page-navbar.active {
 * Area for awards the home page
 **************************************************************/
 #home-page-awards {
-  //padding-top: 200px;
-  //padding-bottom: 400px;
-
   .img-icon{
     width: 60px;
   }
@@ -433,4 +397,24 @@ input:-webkit-autofill {
     -webkit-text-fill-color: #fff !important;
     transition: background-color 5000s ease-in-out 0s;
 	}
+}
+
+/*************************************************************
+*  Responsive design for home page
+**************************************************************/
+@media only screen and (max-width : 992px) {
+  #home-page {
+    .parallax-container .section {
+      top: 72%;
+    }
+  }
+  #parallax-banner .section {
+    top: 10%;
+  }
+}
+
+@media only screen and (max-width : 600px) {
+  #parallax-banner .section {
+    top: 0;
+  }
 }
