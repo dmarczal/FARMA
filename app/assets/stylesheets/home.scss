@@ -86,12 +86,17 @@ nav#home-page-navbar {
   }
 }
 
+
 nav#home-page-navbar.active {
   -webkit-box-shadow: 3px 3px 5px 7px rgba(0,0,0,0.19);
   -moz-box-shadow: 3px 3px 5px 7px rgba(0,0,0,0.19);
   box-shadow: 3px 3px 5px 7px rgba(0,0,0,0.19);
 }
 
+
+/*************************************************************
+* Home page sections
+**************************************************************/
 #parallax-banner {
 
   @extend .gradient-white;
@@ -147,13 +152,16 @@ nav#home-page-navbar.active {
 }
 
 #home-page-subjects {
-  @extend .gradient-white;
+  min-height: 480px;
 
   .item-size {
     width: 150px;
   }
 
-  // item-size:hover { @include scale(1.1); }
+  .row {
+    padding-top: 50px;
+    padding-bottom: 25px;
+  }
 }
 
 
@@ -169,7 +177,7 @@ nav#home-page-navbar.active {
 }
 
 #home-page-team {
-  padding-bottom: 400px;
+  //padding-bottom: 400px;
   .card .card-reveal{
     background-color: $palletegreen;
     opacity: 0.9;
@@ -230,8 +238,8 @@ nav#home-page-navbar.active {
 * Area for research the home page
 **************************************************************/
 #home-page-researchs {
-  padding-top: 200px;
-  padding-bottom: 200px;
+  //padding-top: 200px;
+  //padding-bottom: 200px;
 
   li {
     background-color: #fff;
@@ -349,8 +357,8 @@ nav#home-page-navbar.active {
 * Area for awards the home page
 **************************************************************/
 #home-page-awards {
-  padding-top: 200px;
-  padding-bottom: 400px;
+  //padding-top: 200px;
+  //padding-bottom: 400px;
 
   .img-icon{
     width: 60px;

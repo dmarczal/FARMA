@@ -1,4 +1,4 @@
-class CreateLosTeams < ActiveRecord::Migration
+class CreateLosTeams < ActiveRecord::Migration[5.0]
   def change
     create_table :los_teams do |t|
       t.references :lo, index: true, foreign_key: true

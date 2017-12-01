@@ -1,4 +1,4 @@
-class CreateTipsCounts < ActiveRecord::Migration
+class CreateTipsCounts < ActiveRecord::Migration[5.0]
   def change
     create_table :tips_counts do |t|
       t.integer :tries

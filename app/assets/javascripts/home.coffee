@@ -38,7 +38,7 @@ FARMA.researchIcon = ->
       $(@).find('i').html('keyboard_arrow_up')
 
 FARMA.sidebarScrollSpy = ->
-  $('.scrollspy').scrollSpy({scrollOffset: 600})
+  $('.scrollspy').scrollSpy({scrollOffset: 63})
   $('.tooltipped').tooltip({delay: 20})
 
 FARMA.tabbedResearchs = ->

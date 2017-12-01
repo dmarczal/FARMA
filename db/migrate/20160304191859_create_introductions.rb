@@ -1,4 +1,4 @@
-class CreateIntroductions < ActiveRecord::Migration
+class CreateIntroductions < ActiveRecord::Migration[5.0]
   def change
     create_table :introductions do |t|
       t.string :title, null: false

@@ -1,4 +1,4 @@
-class CreateUsersTeams < ActiveRecord::Migration
+class CreateUsersTeams < ActiveRecord::Migration[5.0]
   def change
     create_table :users_teams do |t|
       t.references :user, index: true, foreign_key: true
