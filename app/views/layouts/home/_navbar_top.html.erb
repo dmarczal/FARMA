@@ -1,27 +1,24 @@
 <!-- Dropdown Structure -->
 <ul id="dropdown-user" class="dropdown-content">
  <% if user_signed_in? %>
+   
   <li>
-
    <%= link_to(teacher_path) do %>
-    <i class="mdi-action-home left"></i> Dashboard
+     <i class="fa fa-home" aria-hidden="true"></i> Dashboard
    <% end %>
-
   </li>
 
   <li>
 
    <%= link_to(edit_user_registration_path) do %>
-    <i class="material-icons left">person</i> Perfil
+    <i class="fa fa-user" aria-hidden="true"></i> Perfil
    <% end %>
 
   </li>
   <li>
-
-   <%= link_to(destroy_user_session_path, method: :delete) do %>
-    <i class="material-icons left">exit_to_app</i> Sair
-   <% end %>
-
+    <%= link_to(destroy_user_session_path, method: :delete) do %>
+      <i class="fa fa-sign-out" aria-hidden="true"></i> Sair
+    <% end %>
   </li>
  <% end %>
 </ul>
@@ -38,16 +35,18 @@
 
     <% if user_signed_in? %>
        <ul class="right hide-on-med-and-down"> <!-- Dropdown Trigger -->
-        <li>
+         <li>
          <a class="dropdown-button" href="#!" data-activates="dropdown-user">
-          <%= current_user.name %><i class="material-icons right">arrow_drop_down</i>
+           <%= current_user.name %>
+           <i class="fa fa-caret-down fa-5" aria-hidden="true"></i>
          </a>
         </li>
        </ul>
     <% else %>
       <ul class="right hide-on-med-and-down">
         <%= link_to(new_user_session_path) do %>
-          <i class="material-icons left">account_circle</i> Entrar
+          <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+          Entrar
         <% end %>
       </ul>
     <% end %>
