@@ -2,7 +2,6 @@ require "rails_helper"
 
 RSpec.describe Admin::ResearchesController, type: :routing do
   describe "routing" do
-
     it "routes to #index" do
       expect(:get => "/admin/researches").to route_to("admin/researches#index")
     end
@@ -34,6 +33,5 @@ RSpec.describe Admin::ResearchesController, type: :routing do
     it "routes to #destroy" do
       expect(:delete => "/admin/researches/1").to route_to("admin/researches#destroy", :id => "1")
     end
-
   end
 end
