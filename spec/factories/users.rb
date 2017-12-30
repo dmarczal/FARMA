@@ -1,5 +1,4 @@
-# This will guess the User class
-FactoryGirl.define do
+FactoryBot.define do
   factory :user do
     name                  { Faker::Internet.name }
     email                 { Faker::Internet.email }

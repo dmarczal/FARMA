@@ -51,14 +51,10 @@ group :development, :test do
   gem 'spring',       '1.1.3'
   gem 'faker',        '1.3.0'
   gem 'better_errors'
-  gem 'factory_girl'
+  gem 'factory_bot_rails'
   gem 'simplecov'
   gem 'rspec-rails',  '~> 3.0' # https://github.com/rspec/rspec-rails
   gem 'capybara'               # https://github.com/jnicklas/capybara
-end
-
-group :test do
-  gem 'database_cleaner'
 end
 
 group :production do
