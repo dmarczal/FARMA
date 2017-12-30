@@ -26,3 +26,4 @@ Ignore Spring files.
 .DS_Store
 
 public/ckeditor_assets/*
+.env
