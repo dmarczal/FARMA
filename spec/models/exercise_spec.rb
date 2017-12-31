@@ -1,22 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Exercise, type: :model do
-
-  before do
-    @user = FactoryGirl.create(:user_actived)
-    @lo = FactoryGirl.create(:lo, user: @user)
-    @exercise = FactoryGirl.create(:exercise, lo: @lo)
+  describe 'relationship' do
+    it { is_expected.to belong_to(:lo) }
+    it { is_expected.to have_many(:questions) }
+    it { is_expected.to have_and_belong_to_many(:tags) }
   end
 
-  context "invalid attributes" do
-    it "should not be save in the table with null title"do
-      @exercise.title = ''
-      expect(@exercise.save).to eq false
-    end
-
-    it "should not be save in the table with null content"do
-      @exercise.content = ''
-      expect(@exercise.save).to eq false
-    end
+  describe 'validates' do
+    it { is_expected.to validate_presence_of(:lo) }
   end
 end
