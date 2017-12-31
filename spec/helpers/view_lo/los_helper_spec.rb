@@ -1,37 +1,31 @@
 require 'rails_helper'
 
 RSpec.describe ViewLo::LosHelper, type: :helper do
+  let(:list) { [1, 2, 3, 4] }
 
-  it 'should be exec block' do
-    list = [1, 2, 3, 4]
-    command = false
+  before { @command = false }
 
+  it 'exec the block' do
     exec_if_the_page_exists(list, 2) do
-      command = true
+      @command = true
     end
 
-    expect(command).to eq true
+    expect(@command).to be_truthy
   end
 
-  it 'should be not exec block' do
-    list = [1, 2, 3, 4]
-    command = false
-
+  it 'does not exec the block' do
     exec_if_the_page_exists(list, 0) do
-      command = true
+      @command = true
     end
 
-    expect(command).to eq false
+    expect(@command).to be_falsey
   end
 
-  it 'should be not exec block' do
-    list = [1, 2, 3, 4]
-    command = false
-
+  it 'does not exec the block' do
     exec_if_the_page_exists(list, 5) do
-      command = true
+      @command = true
     end
 
-    expect(command).to eq false
+    expect(@command).to be_falsey
   end
 end
