@@ -1,41 +1,27 @@
 require 'rails_helper'
 
 RSpec.describe Teacher::TeamService, type: :service do
-  let!(:user) { create(:user_actived) }
-  let!(:los) do
-    los_objs = create_list(:lo, 5)
-    los_ids = []
+  let(:user) { create(:user, :actived) }
+  let(:los) { create_list(:lo, 5).map(&:id) }
+  let(:team_los_params) { attributes_for(:team).merge({ los: los }) }
+  let(:team_service) { Teacher::TeamService.new }
 
-    los_objs.each do |lo|
-      los_ids << lo.id
-    end
-
-    los_ids
-  end
-
-  it 'should create a new team' do
-    team_service = Teacher::TeamService.new
+  it 'creates new team' do
     team_service.build_team(attributes_for(:team), user)
 
-    expect(team_service.team).to_not eq nil
+    expect(team_service.team).to be_is_a(Team)
   end
 
-  it 'should save the team' do
-    team_service = Teacher::TeamService.new
+  it 'saves the team' do
     team_service.build_team(attributes_for(:team), user)
 
-    expect(team_service.save_team).to eq true
-    expect(team_service.team.id).to_not eq nil
+    expect(team_service.save_team).to be_truthy
   end
 
-  it 'should relate to objects' do
-    team_service = Teacher::TeamService.new
-    attrs = attributes_for(:team)
-    attrs[:los] = los
-    team_service.build_team(attrs, user)
+  it 'relates to los' do
+    team_service.build_team(team_los_params, user)
 
-    expect(team_service.save_team).to eq true
-    expect(team_service.team.los).to_not eq []
+    expect(team_service.save_team).to be_truthy
+    expect(team_service.team.los).to_not be_empty
   end
-
 end
