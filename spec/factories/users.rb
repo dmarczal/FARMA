@@ -5,7 +5,7 @@ FactoryBot.define do
     password              { 12345678 }
     password_confirmation { 12345678 }
 
-    factory :user_actived do
+    trait :actived do
       confirmed_at Time.now
     end
   end
