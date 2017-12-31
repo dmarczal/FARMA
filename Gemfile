@@ -56,5 +56,9 @@ group :development, :test do
   gem 'capybara'               # https://github.com/jnicklas/capybara
 end
 
+group :test do
+  gem 'shoulda-matchers', '~> 3.1'
+end
+
 group :production do
 end
