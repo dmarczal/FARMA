@@ -23,7 +23,6 @@ gem 'rails-i18n', '~> 5.0.0' # For 5.x
 gem 'math_engine'
 
 gem 'font-awesome-rails'
-gem 'carrierwave', '~> 1.1.0'
 gem "mini_magick"
 gem 'ckeditor', '~> 4.1' #https://github.com/galetahub/ckeditor
 gem 'breadcrumbs_on_rails' #https://github.com/weppos/breadcrumbs_on_rails

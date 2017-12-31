@@ -6,8 +6,6 @@ class Lo < ActiveRecord::Base
   has_many :progress_lo
   has_and_belongs_to_many :tags
 
-  mount_uploader :image, ImageUploader
-
   validates :name, :description, :user, presence: true
 
   def content_by_position(index)
