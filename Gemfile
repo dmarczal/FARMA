@@ -58,6 +58,7 @@ end
 
 group :test do
   gem 'shoulda-matchers', '~> 3.1'
+  gem 'temping'
 end
 
 group :production do
