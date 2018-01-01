@@ -1,26 +1,19 @@
 require 'rails_helper'
 
 RSpec.describe Tip, type: :model do
-  before do
-    @user = FactoryGirl.create(:user_actived)
-    @lo = FactoryGirl.create(:lo, user: @user)
-    @exercise = FactoryGirl.create(:exercise, lo: @lo)
-    @question = FactoryGirl.create(:question, exercise: @exercise)
+  subject { build(:tip) }
+
+  describe 'relationship' do
+    it { is_expected.to belong_to(:question) }
   end
 
-  context "create as new questions" do
+  describe 'validates' do
+    it { is_expected.to validate_presence_of(:content) }
+    it { is_expected.to validate_presence_of(:number_of_tries) }
+    it { is_expected.to validate_numericality_of(:number_of_tries).
+                                                is_greater_than(0).
+                                                only_integer }
 
-    it "create a new question" do
-      expect{
-        FactoryGirl.create(:tip, question: @question)
-      }.to change(Tip,:count).by(1)
-    end
-
-  end
-
-  it "dont save question" do
-    tip = FactoryGirl.create(:tip, question: @question)
-    tip.content = nil
-    expect(tip.save).to eq false
+    it { is_expected.to validate_uniqueness_of(:number_of_tries).scoped_to(:question_id) }
   end
 end
