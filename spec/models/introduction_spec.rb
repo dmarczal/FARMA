@@ -1,22 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Introduction, type: :model do
-  before do
-    @user = FactoryGirl.create(:user_actived)
-    @lo = FactoryGirl.create(:lo, user: @user)
-    @intro = FactoryGirl.create(:introduction, lo: @lo)
+  describe 'relationship' do
+    it { is_expected.to belong_to(:lo) }
+    it { is_expected.to have_many(:progress_introductions).class_name('Progress::Introduction') }
+    it { is_expected.to have_and_belong_to_many(:tags) }
   end
 
-  context "invalid attributes" do
-    it "should not be save in the table with null title"do
-      @intro.title = ''
-      expect(@intro.save).to eq false
-    end
-
-    it "should not be save in the table with null content"do
-      @intro.content = ''
-      expect(@intro.save).to eq false
-    end
+  describe 'validates' do
+    it { is_expected.to validate_presence_of(:lo) }
   end
-
 end
