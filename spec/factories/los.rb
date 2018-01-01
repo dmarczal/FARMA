@@ -3,7 +3,7 @@ FactoryBot.define do
     name                  { Faker::Internet.name }
     description           { Faker::Internet.email }
 
-    user
+    user { create(:user, :actived) }
   end
 
   factory :invalid_lo, parent: :lo do
