@@ -1,0 +1,1 @@
+class DummiesController < ActionController::Base ; end

@@ -13,8 +13,8 @@ Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
-  config.include Devise::TestHelpers, type: :controller
-  config.include Devise::TestHelpers, type: :request
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Devise::Test::ControllerHelpers, type: :request
 
   config.include Devise::Test::IntegrationHelpers, type: :feature
   config.include ActionView::Helpers::TextHelper, type: :feature
@@ -23,3 +23,5 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
 end
+
+RSpec::Matchers.define_negated_matcher :not_include, :include
