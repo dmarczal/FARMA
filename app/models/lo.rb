@@ -8,6 +8,12 @@ class Lo < ActiveRecord::Base
 
   validates :name, :description, :user, presence: true
 
+  def destroy
+    return false unless teams.empty?
+    
+    super
+  end
+
   def content_by_position(index)
     contents[index.to_i - 1]
   end
