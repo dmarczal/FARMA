@@ -4,6 +4,7 @@ describe 'Exercise features' do
   let(:user) { create(:user, :actived) }
   let(:lo) { create(:lo, user: user) }
   let(:exercise) { create(:exercise, lo: lo) }
+  let(:breadcrumbs) { page.all('.breadcrumb').map { |breadcrumb| breadcrumb.text } }
 
   before { sign_in user }
 
@@ -15,23 +16,13 @@ describe 'Exercise features' do
     end
   end
 
-  describe '#new' do
-    it 'display the "New Exercise"' do
-      visit(new_teacher_lo_exercise_path(lo))
-
-      expect(page).to have_content 'Novo Exercício'
-    end
-  end
-
-  describe '#edit' do  
-    it 'display the "Edit Exercise"' do
-      visit(edit_teacher_lo_exercise_path(lo, exercise))
-
-      expect(page).to have_content truncate("Editar Exercício", length: 25)
-    end
-  end
-
   describe '#create' do
+    before { visit(new_teacher_lo_exercise_path(lo)) }
+
+    it 'display breadcrumbs' do 
+      expect(breadcrumbs).to eq ['Início', 'Meus OAs', "OA #{lo.name}", 'Novo Exercício']
+    end
+
     context 'when all parameters sent are valid' do
       let(:params) { 
         {
@@ -41,11 +32,21 @@ describe 'Exercise features' do
       }
 
       it 'creates a new exercise' do
-        visit(new_teacher_lo_exercise_path(lo))
-
         expect{
           fill_in_form '.simple_form', params
         }.to change(Exercise,:count).by 1
+      end
+
+      it 'redirect to exercise path' do
+        fill_in_form '.simple_form', params
+
+        expect(page.current_path).to eq teacher_lo_exercise_path(lo, Exercise.last)
+      end
+
+      it 'display the exercise title' do 
+        fill_in_form '.simple_form', params
+
+        expect(page).to have_content 'test'
       end
     end
 
@@ -70,6 +71,10 @@ describe 'Exercise features' do
   describe '#update' do
     before { visit(edit_teacher_lo_exercise_path(lo, exercise)) }
 
+    it 'display breadcrumbs' do 
+      expect(breadcrumbs).to eq ['Início', 'Meus OAs', "OA #{lo.name}", 'Editar Exercício']
+    end
+
     context 'when all parameters sent are valid' do
       let(:params) { 
         {
@@ -84,6 +89,18 @@ describe 'Exercise features' do
         exercise.reload
   
         expect(exercise.as_json).to include({'title' => 'test', 'content' => 'test'})
+      end
+
+      it 'redirect to exercise path' do
+        fill_in_form '.simple_form', params
+
+        expect(page.current_path).to eq teacher_lo_exercise_path(lo, exercise)
+      end
+
+      it 'display the exercise title' do 
+        fill_in_form '.simple_form', params
+
+        expect(page).to have_content 'test'
       end
     end
 

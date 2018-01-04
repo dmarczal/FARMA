@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :lo do
-    name                  { Faker::Internet.name }
-    description           { Faker::Internet.email }
+    name        { Faker::StarWars.character }
+    description { Faker::StarWars.quote }
 
     user { create(:user, :actived) }
   end
