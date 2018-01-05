@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170727205227) do
+ActiveRecord::Schema.define(version: 20180105223449) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -118,7 +118,6 @@ ActiveRecord::Schema.define(version: 20170727205227) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image"
     t.index ["user_id"], name: "index_los_on_user_id"
   end
 
@@ -134,6 +133,17 @@ ActiveRecord::Schema.define(version: 20170727205227) do
     t.datetime "updated_at", null: false
     t.index ["lo_id"], name: "index_los_teams_on_lo_id"
     t.index ["team_id"], name: "index_los_teams_on_team_id"
+  end
+
+  create_table "pictures", force: :cascade do |t|
+    t.string "image_id"
+    t.string "image_filename"
+    t.string "image_content_size"
+    t.string "profile_image_content_type"
+    t.integer "subject_id"
+    t.string "subject_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "progress_exercises", id: :serial, force: :cascade do |t|
@@ -199,7 +209,6 @@ ActiveRecord::Schema.define(version: 20170727205227) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "opened"
-    t.string "image"
     t.index ["user_id"], name: "index_teams_on_user_id"
   end
 
@@ -242,7 +251,6 @@ ActiveRecord::Schema.define(version: 20170727205227) do
     t.string "unconfirmed_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
