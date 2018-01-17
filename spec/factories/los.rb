@@ -1,10 +1,9 @@
-# This will guess the User class
-FactoryGirl.define do
+FactoryBot.define do
   factory :lo do
     name                  { Faker::Internet.name }
     description           { Faker::Internet.email }
 
-    user
+    user { create(:user, :actived) }
   end
 
   factory :invalid_lo, parent: :lo do

@@ -1,18 +1,19 @@
 require 'rails_helper'
 
-describe "the signin process" do
-  include FormHelpers
+describe 'the signin process' do
+  let!(:user) { create(:user, :actived) }
+  let(:params) {
+    {
+      'user_email' => user.email,
+      'user_password' => user.password
+    }
+  }
 
-  before :each do
-    @user = FactoryGirl.create(:user_actived)
-  end
-
-  it "signs me in" do
+  it 'signs me in' do
     visit new_user_session_path
 
-    filds = {'user_email' => @user.email,'user_password' => @user.password}
-    fill_in_form filds, ".simple_form"
+    fill_in_form '.simple_form', params
 
-    expect(page.current_path).to eq choose_workspace_path
+    expect(page.current_path).to eq workspace_path
   end
 end

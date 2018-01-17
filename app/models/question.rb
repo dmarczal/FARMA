@@ -8,23 +8,43 @@ class Question < ActiveRecord::Base
 
   validates :correct_answer, presence: true
 
-  def answered(user, team)
-    @answers_to_show ||= answers.where(user_id: user, team_id: team)
+  delegate :user, to: :exercise
+
+  def answered(team = nil)
+    @_answers ||= if team.nil?
+                    answers.where(user_id: user, team_id: nil)
+                  else
+                    answers.where(user_id: user, team_id: team.id)
+                  end
   end
 
-  def tips_to_show(options = {})
-    return @tips unless @tips.nil?
+  def visualized?(team = nil)
+    !answered(team).empty?
+  end
 
-    if options[:tips_count].nil?
-      tips_count = tips_counts.where(user_id: options[:user], team_id: options[:team], question_id: self)
+  def completed?(team = nil)
+    answered(team).exists?(correct: true)
+  end
 
-      unless tips_count[0].nil?
-        options[:tips_count] = tips_count[0].tries
-      else
-        return nil
-      end
-    end
+  def tips_to_show(user:, team:, tips_count:)
+    @_tips ||=  if tips_count.nil?
+                  tips.where("number_of_tries <= ?", [tries]) unless have_a_try?
+                else
+                  tips.where("number_of_tries <= ?", [tips_count])
+                end
+  end
 
-    return @tips ||= tips.where("number_of_tries <= #{options[:tips_count]}")
+  private
+
+  def have_a_try?
+    !first_tip.nil?
+  end
+
+  def tries
+    @_tries = first_tip.tries
+  end
+
+  def first_tip
+    @_tip ||= tips_counts.where(user_id: user.id, team_id: team.id).first
   end
 end

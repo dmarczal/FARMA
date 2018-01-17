@@ -1,62 +1,68 @@
 require 'rails_helper'
 
 RSpec.describe Question, type: :model do
-  before do
-    @user = FactoryGirl.create(:user_actived)
-    @lo = FactoryGirl.create(:lo, user: @user)
-    @exercise = FactoryGirl.create(:exercise, lo: @lo)
+  describe 'relationship' do
+    it { is_expected.to belong_to(:exercise).counter_cache(true)}
+    it { is_expected.to have_many(:tips).dependent(:destroy) }
+    it { is_expected.to have_many(:answers).dependent(:destroy) }
+    it { is_expected.to have_many(:tips_counts).dependent(:destroy) }
   end
 
-  context "create as new questions" do
-
-    it "create a new question" do
-      expect{
-        question = FactoryGirl.create(:question, exercise: @exercise)
-      }.to change(Question,:count).by(1)
-    end
-
-    it "questions couter" do
-      question1 = FactoryGirl.create(:question, exercise: @exercise)
-      question2 = FactoryGirl.create(:question, exercise: @exercise)
-      expect(@exercise.questions_count).to eq 2
-    end
-  end
-
-  it "dont save question" do
-    question = FactoryGirl.create(:question, exercise: @exercise)
-    question.title = nil
-    expect(question.save).to eq false
+  describe 'validates' do
+    it { is_expected.to validate_presence_of(:correct_answer) }
   end
 
   context 'Content completion' do
+    subject { create(:question, correct_answer: '10') }
+
+    let(:lo) { subject.exercise.lo }
+    let!(:user) { subject.user }
+    let(:team) { create(:team, user: user) }
+    let(:student) { create(:user, :actived) }
+
     before do
-      @user = FactoryGirl.create(:user_actived)
-      @lo = FactoryGirl.create(:lo, user: @user)
-      @exercise = FactoryGirl.create(:exercise, lo: @lo)
-      @question = FactoryGirl.create(:question, exercise: @exercise, correct_answer: '10')
-
-      @team = FactoryGirl.create(:team, user: @user)
-      user_team = @team.users_teams.new user_id: @user.id
-      user_team.save
-
-      lo_team = @team.los_teams.new lo_id: @lo.id
-      lo_team.save
+      team.users << student
+      team.los << lo
     end
 
-    it 'Should have visualized but not completed' do
-      answer = @question.answers.new user_id: @user.id, response: '5', team_id: @team.id
-      answer.save
+    context "when it's incorrect answer" do
+      context 'when has team' do
+        before { subject.answers.create user_id: user.id, response: '5', team_id: team.id }
 
-      expect(@question.visualized).to eq true
-      expect(@question.completed).to eq false
+        it { is_expected.to be_visualized(team) }
+        it { is_expected.to_not be_completed(team) }
+        it { is_expected.to_not be_visualized }
+        it { is_expected.to_not be_completed }
+      end
+
+      context 'when there is no team' do
+        before { subject.answers.create user_id: user.id, response: '5' }
+
+        it { is_expected.to_not be_visualized(team) }
+        it { is_expected.to_not be_completed(team) }
+        it { is_expected.to be_visualized }
+        it { is_expected.to_not be_completed }
+      end
     end
 
-    it 'Should have visualized and completed' do
-      answer = @question.answers.new user_id: @user.id, response: '10', team_id: @team.id
-      answer.save
+    context "when it's correct answer" do
+      context 'when has team' do
+        before { subject.answers.create user_id: user.id, response: '10', team_id: team.id }
 
-      expect(@question.visualized).to eq true
-      expect(@question.completed).to eq false
+        it { is_expected.to be_visualized(team) }
+        it { is_expected.to be_completed(team) }
+        it { is_expected.to_not be_visualized }
+        it { is_expected.to_not be_completed }
+      end
+
+      context 'when there is no team' do
+        before { subject.answers.create user_id: user.id, response: '10' }
+
+        it { is_expected.to_not be_visualized(team) }
+        it { is_expected.to_not be_completed(team) }
+        it { is_expected.to be_visualized }
+        it { is_expected.to be_completed }
+      end
     end
   end
 end

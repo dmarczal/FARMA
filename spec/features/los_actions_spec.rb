@@ -1,109 +1,114 @@
 require 'rails_helper'
 
-describe "lo methods" do
-  include FormHelpers
+describe "Lo features" do
+  let(:user) { create(:user, :actived) }
+  let(:lo) { create(:lo, user: user) }
 
-  before :each do
-    @user = FactoryGirl.create(:user_actived)
-    sing_in @user
-  end
+  before { sign_in user }
 
-  describe "POST create" do
-    before :each do
-      visit new_teacher_lo_path
-    end
+  describe "#create" do
+    before { visit new_teacher_lo_path }
 
-    context 'with valid attributes' do
-      before :each do
-        @filds = {'lo_name' => 'test','lo_description' => 'test'}
+    context 'when all parameters sent are valid' do
+      let(:params) {
+        {
+          'lo_name' => 'test',
+          'lo_description' => 'test'
+        }
+      }
+
+      it 'redirect to lo path' do
+        fill_in_form '.simple_form', params
+
+        expect(page.current_path).to eq teacher_lo_path(Lo.last)
       end
 
-      it "should redirect to teacher_los_path after create the new lo" do
-        fill_in_form @filds, ".simple_form"
-        expect(page.current_path).to eq teacher_los_path
+      it 'display the lo name on los list' do 
+        fill_in_form '.simple_form', params
+
         expect(page).to have_content 'test'
       end
 
-      it "should add one new lo" do
+      it 'creates new lo' do
         expect{
-          fill_in_form @filds, ".simple_form"
+          fill_in_form '.simple_form', params
         }.to change(Lo,:count).by 1
       end
     end
 
-    context 'with invalid attributes' do
-      it 'should not add one new lo' do
-        @filds = {'lo_name' => nil,'lo_description' => 'test'}
+    context 'when one or more parameters sent are invalid' do
+      let(:params) {
+        {
+          'lo_name' => nil,
+          'lo_description' => 'test'
+        }
+      }
 
+      it 'will not create a lo' do
         expect{
-          fill_in_form @filds, ".simple_form"
+          fill_in_form '.simple_form', params
         }.to_not change(Lo,:count)
       end
     end
   end
 
-  describe "PUT update" do
-    before :each do
-      @lo = FactoryGirl.create(:lo, user: @user)
-      visit teacher_los_path
-      @filds = {'lo_name' => 'test','lo_description' => 'test-description'}
+  describe "#update" do
+    before do 
+      visit edit_teacher_lo_path(lo)
+      fill_in_form '.simple_form', params
     end
 
-    context 'whith valid attributes' do
-      before :each do
-        find("a[href='#{edit_teacher_lo_path(@lo)}']").click
-        expect(page.current_path).to eq edit_teacher_lo_path(@lo)
-        fill_in_form @filds, '.simple_form'
-      end
+    context 'when all parameters sent are valid' do
+      let(:params) {
+        {
+          'lo_name' => 'test',
+          'lo_description' => 'test-description'
+        }
+      }
 
-      it 'should redirect to teacher_los_path after update the lo' do
+      it 'redirect to teacher_los_path' do
         expect(page.current_path).to eq teacher_los_path
       end
 
-      it 'should update the attributes the lo' do
-        expect(page).to have_content 'test'
-        expect(page).to have_content 'test-description'
+      it 'display the name and description updated' do
+        expect(page).to have_content('test') && 
+                        have_content('test-description')
       end
     end
 
-    context 'whith invalid attributes' do
-      before :each do
-        @filds = {'lo_name' => nil,'lo_description' => 'test-description'}
-        find("a[href='#{edit_teacher_lo_path(@lo)}']").click
-        expect(page.current_path).to eq edit_teacher_lo_path(@lo)
-        fill_in_form @filds, '.simple_form'
-      end
+    context 'when one or more parameters sent are invalid' do
+      let(:params) {
+        {
+          'lo_name' => nil,
+          'lo_description' => 'test-description'
+        }
+      }
 
-      it 'should render de workspace_lo_path after try update the lo' do
-        expect(page.current_path).to eq teacher_lo_path(@lo)
-      end
-
-      it 'should not update the attributes the lo' do
+      it 'does not display the new description' do
         visit teacher_los_path
-        expect(page).to have_content @lo.name
-        expect(page).to have_content @lo.description
+
+        expect(page).to_not have_content 'test-description'
       end
     end
   end
 
-  describe 'manipulate lo' do
-    before :each do
-      @lo = FactoryGirl.create(:lo, user: @user)
+  describe '#show' do
+    let!(:introduction) { create(:introduction, lo: lo) }
+    let!(:exercise) { create(:exercise, lo: lo) }
+
+    it 'display the lo contents' do
+      visit teacher_lo_path(lo)
+
+      expect(page).to have_content(introduction.title) &&
+                      have_content(exercise.title)
     end
+  end
 
-    it 'show contents' do
-      introduction = FactoryGirl.create(:introduction, lo: @lo)
-      exercise = FactoryGirl.create(:exercise, lo: @lo)
+  describe '#delete' do
+    it 'deletes the lo' do
+      page.driver.submit :delete, teacher_lo_path(lo), {}
 
-      visit teacher_lo_path(@lo)
-      expect(page).to have_content introduction.title
-      expect(page).to have_content exercise.title
-    end
-
-    it 'delete lo' do
-      page.driver.submit :delete, teacher_lo_path(@lo), {}
-
-      expect(Lo.exists?(@lo.id)).to eq false
+      expect(Lo).to_not be_exists(lo.id)
     end
   end
 end

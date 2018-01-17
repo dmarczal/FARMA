@@ -2,11 +2,9 @@ class Lo < ActiveRecord::Base
   belongs_to :user
   has_many :introductions, dependent: :destroy
   has_many :exercises, dependent: :destroy
-  has_many :teams
-  has_many :progress_lo
+  has_many :progress_los, dependent: :destroy, class_name: 'Progress::Lo'
   has_and_belongs_to_many :tags
-
-  mount_uploader :image, ImageUploader
+  has_and_belongs_to_many :teams
 
   validates :name, :description, :user, presence: true
 

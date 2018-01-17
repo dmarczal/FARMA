@@ -23,7 +23,6 @@ gem 'rails-i18n', '~> 5.0.0' # For 5.x
 gem 'math_engine'
 
 gem 'font-awesome-rails'
-gem 'carrierwave', '~> 1.0.0'
 gem "mini_magick"
 gem 'ckeditor', '~> 4.1' #https://github.com/galetahub/ckeditor
 gem 'breadcrumbs_on_rails' #https://github.com/weppos/breadcrumbs_on_rails
@@ -51,14 +50,15 @@ group :development, :test do
   gem 'spring',       '1.1.3'
   gem 'faker',        '1.3.0'
   gem 'better_errors'
-  gem 'factory_girl'
+  gem 'factory_bot_rails'
   gem 'simplecov'
   gem 'rspec-rails',  '~> 3.0' # https://github.com/rspec/rspec-rails
   gem 'capybara'               # https://github.com/jnicklas/capybara
 end
 
 group :test do
-  gem 'database_cleaner'
+  gem 'shoulda-matchers', '~> 3.1'
+  gem 'temping'
 end
 
 group :production do

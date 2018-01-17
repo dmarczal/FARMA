@@ -4,8 +4,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  mount_uploader :avatar, AvatarUploader
-
   has_many :los
   has_many :answers
   has_many :users_teams
@@ -16,10 +14,6 @@ class User < ActiveRecord::Base
 
   def registered?(team)
     !teams.find_by(id: team.id).nil?
-  end
-
-  def avatar_url(type)
-    avatar.url(type)
   end
 
   def register(params)
