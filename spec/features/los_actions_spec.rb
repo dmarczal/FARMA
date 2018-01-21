@@ -8,7 +8,7 @@ describe 'Lo features', type: :feature do
   before { sign_in user }
 
   describe '#index' do 
-    let(:los) { create_list(:lo, 5, user: user) }
+    let!(:los) { create_list(:lo, 5, user: user) }
     
     before { visit teacher_los_path }
 
