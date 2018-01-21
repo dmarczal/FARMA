@@ -12,6 +12,7 @@ class Teacher::TeamsController < Teacher::TeacherApplicationController
 
   def new
     @team = current_user.my_teams.new
+    @team.build_image
     @los = current_user.los.all
   end
 

@@ -4,6 +4,11 @@
   <%= f.input :code %>
   <%= f.input :los,as: :mult_select, collection: @los, name: "Selecione os objetos que deseja adicionar" %>
 
-  <%= f.button :submit_materialize, cancel: teacher_teams_path %>
+  <div id="box-image-preview" class="col s4 offset-s8">
+    <%= f.simple_fields_for :image do |image| %>
+      <%= image.input :image, as: :image_preview, direct: true %>
+    <% end %>
+  </div>
 
+  <%= f.button :submit_materialize, cancel: teacher_teams_path %>
 <% end %>

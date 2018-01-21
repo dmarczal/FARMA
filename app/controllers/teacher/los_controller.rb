@@ -17,6 +17,7 @@ class Teacher::LosController < Teacher::TeacherApplicationController
     add_breadcrumb "Novo OA", new_teacher_lo_path
 
     @lo = current_user.los.new
+    @lo.build_image
   end
 
   def edit
@@ -54,6 +55,6 @@ class Teacher::LosController < Teacher::TeacherApplicationController
   private
 
   def lo_params
-    params.require(:lo).permit(:name, :description, :image)
+    params.require(:lo).permit :name, :description, image_attributes: [:image]
   end
 end

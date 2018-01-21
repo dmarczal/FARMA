@@ -6,7 +6,10 @@ class Team < ActiveRecord::Base
   has_many :tips_counts, dependent: :destroy
   has_many :answers, dependent: :destroy
   has_many :progress_lo, class_name: "Progress::Lo"
+  has_one  :image, class_name: "Picture", as: :subject
   belongs_to :user
+
+  accepts_nested_attributes_for :image
 
   validates :name, :code, presence: true
 

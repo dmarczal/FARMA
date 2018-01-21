@@ -6,12 +6,11 @@
 
   <div id="box-textarea" class="col s9">
     <%= f.input :description, as: :textarea %>
-    <%= f.association :tags, as: :mult_select, name: "Selecione as tags" %>
   </div>
 
-  <div id="box-image-preview" class="col s3">
-    <%= f.input :image, as: :image_preview %>
-  </div>
+  <%= f.simple_fields_for :image do |image| %>
+    <%= image.input :image, as: :file_materialize, direct: true %>
+  <% end %>
 
   <%= f.button :submit_materialize, cancel: teacher_los_path %>
 

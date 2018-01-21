@@ -9,14 +9,11 @@
 #</div>
 # To use: <%= f.input :image, as: :file_materialize %>
 class FileMaterializeInput < SimpleForm::Inputs::Base
-
   def input(wrapper_options)
-
     template.content_tag(:div, {class: 'file-field input-field'}) do
       template.concat button_file
       template.concat text_file
     end
-
   end
 
   def label(wrapper_options)
@@ -37,10 +34,10 @@ class FileMaterializeInput < SimpleForm::Inputs::Base
   end
 
   def span_tag
-    translated_name = object.class.human_attribute_name(attribute_name)
+    options[:field_name] ||= object.class.human_attribute_name(attribute_name)
+    
     template.content_tag(:span) do
-      translated_name
+      options[:field_name]
     end
   end
-
 end

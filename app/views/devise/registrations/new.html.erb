@@ -8,7 +8,10 @@
   <%= f.input :email %>
   <%= f.input :password, placeholder: minimum_placeholder %>
   <%= f.input :password_confirmation %>
-  <%= f.input :avatar, as: :file_materialize %>
+  
+  <%= f.simple_fields_for :avatar do |avatar| %>
+    <%= avatar.input :image, as: :file_materialize, direct: true, field_name: 'avatar' %>
+  <% end %>
 
   <%= f.button :submit_materialize, "Registrar-se" %>
 

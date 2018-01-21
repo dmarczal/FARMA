@@ -313,9 +313,6 @@ article.article-tips {
    .text-multiply{
      opacity: 0.75;
    }
-
-   .box-tip-content {
-   }
    span{
      .col{
        .s12{
@@ -356,24 +353,27 @@ article.article-tips {
  /* Team index styles - Team
  /*************************************************************/
 
- .card-team {
-   position: relative;
-   margin-left: 60px;
-   border-radius: 10px;
-   padding: 40px 0 !important;
+#new_team {
+  margin-bottom: 0; 
+}
 
-   .title {
-     margin-bottom: 20px;
-   }
+.card-team {
+  position: relative;
+  margin-left: 60px;
+  border-radius: 10px;
+  padding: 40px 0 !important;
 
-   .material-icons {
-     position: absolute;
-     top: 0;
-     right: 0;
+  .title {
+    margin-bottom: 20px;
+  }
 
-     color: black;
-   }
- }
+  .material-icons {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: black;
+  }
+}
 
  #form-add-lo {
    margin-left: 50px;
