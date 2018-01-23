@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :question do
     title       {Faker::Name.name}
     content     {Faker::Name.name}

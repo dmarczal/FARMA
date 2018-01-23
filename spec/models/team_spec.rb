@@ -1,26 +1,33 @@
 require 'rails_helper'
 
 RSpec.describe Team, type: :model do
-  let!(:user) { create(:user_actived) }
-  let!(:team) { create(:team, user: user) }
-  let!(:team2) { create(:team, user: user) }
-  let!(:student) { create(:user_actived) }
+  let(:team) { create(:team) }
+  let(:team2) { create(:team) }
+  let(:student) { create(:user, :actived) }
 
-  it 'Should only register once' do
+  context 'only register once' do
+    it 'raise a RecordInvalid error' do
       student.register(code: '12345', id: team.id)
 
-      expect{student.register(code: '12345', id: team.id)}.to raise_error(ActiveRecord::RecordInvalid)
+      expect{ 
+        student.register(code: '12345', id: team.id)
+      }.to raise_error(ActiveRecord::RecordInvalid)
+    end
   end
 
-  it 'Should find with like query' do
-    expect(Team.find_with_like(team.name)).to include team
-    expect(Team.find_with_like(team.name).size).to eq 1
-  end
+  describe 'scopes' do
+    subject { Team.find_with_like(team.name) }
 
-  it 'Should find with like query only opened' do
-    team.opened = false
-    team.save
-    expect(Team.find_with_like(team.name).opened).not_to include team
-  end
+    it { is_expected.to include team }
+    
+    it 'returns just one team' do
+      expect(subject.size).to eq(1)
+    end
 
+    it 'returns team opened' do
+      team.update(opened: false)
+      
+      expect(subject.opened).to_not include team
+    end
+  end
 end
