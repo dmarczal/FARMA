@@ -9,6 +9,7 @@ class Teacher::LosController < Teacher::TeacherApplicationController
 
   def show
     add_breadcrumb "OA #{@lo.name}", teacher_lo_path(@lo)
+    
     @contents = @lo.contents
   end
 
@@ -22,40 +23,37 @@ class Teacher::LosController < Teacher::TeacherApplicationController
     add_breadcrumb "Editar #{@lo.name}", edit_teacher_lo_path(@lo)
   end
 
-  def create #create new lo (post)
+  def create
     @lo = current_user.los.new(lo_params)
+
     if @lo.save
-      flash[:error] = "Criado com sucesso"
-      redirect_to teacher_lo_path(@lo)
+      redirect_to teacher_lo_path(@lo), flash: { success: 'OA criado com sucesso.' }
     else
-      flash.now[:error] = "Existem dados incorretos."
+      flash.now[:error] = 'Existem dados incorretos.'
       render :new
     end
   end
 
-  def update # (put)
+  def update
     if @lo.update(lo_params)
-      flash[:error] = "Editado com sucesso"
-      redirect_to teacher_los_path
+      redirect_to teacher_los_path, flash: { success: 'OA editado com sucesso.' }
     else
-      flash.now[:error] = "Existem dados incorretos."
+      flash.now[:error] = 'Existem dados incorretos.'
       render :edit
     end
   end
 
-  def destroy # delete lo
-    begin
-      @lo.destroy
-    rescue Exception => e
-      puts e.message
-      flash[:error] = "Esse Oa está em uma turma"
+  def destroy
+    if @lo.destroy
+      redirect_to teacher_los_path, flash: { success: 'Oa excluído com sucesso' }
+    else 
+      redirect_to teacher_los_path, flash: { error: 'Esse Oa está em uma turma' }
     end
-
-    redirect_to teacher_los_path
   end
 
   private
-    def lo_params
-      params.require(:lo).permit(:name, :description, :image)
-    end
+
+  def lo_params
+    params.require(:lo).permit(:name, :description, :image)
+  end
 end

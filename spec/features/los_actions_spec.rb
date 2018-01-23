@@ -1,13 +1,34 @@
 require 'rails_helper'
 
-describe "Lo features" do
+describe 'Lo features', type: :feature do
   let(:user) { create(:user, :actived) }
-  let(:lo) { create(:lo, user: user) }
+  let!(:lo) { create(:lo, user: user) }
+  let(:breadcrumbs) { page.all('.breadcrumb').map { |breadcrumb| breadcrumb.text } }
 
   before { sign_in user }
 
+  describe '#index' do 
+    let(:los) { create_list(:lo, 5, user: user) }
+    
+    before { visit teacher_los_path }
+
+    it 'display the all los' do 
+      los.each do |lo|
+        expect(page).to have_content lo.name
+      end 
+    end
+
+    it 'display breadcrumbs' do 
+      expect(breadcrumbs).to eq ['Início', 'Meus OAs']
+    end
+  end
+
   describe "#create" do
     before { visit new_teacher_lo_path }
+
+    it 'display breadcrumbs' do 
+      expect(breadcrumbs).to eq ['Início', 'Meus OAs', 'Novo OA']
+    end
 
     context 'when all parameters sent are valid' do
       let(:params) {
@@ -53,9 +74,10 @@ describe "Lo features" do
   end
 
   describe "#update" do
-    before do 
-      visit edit_teacher_lo_path(lo)
-      fill_in_form '.simple_form', params
+    before { visit edit_teacher_lo_path(lo) }
+
+    it 'display breadcrumbs' do 
+      expect(breadcrumbs).to eq ['Início', 'Meus OAs', "Editar #{lo.name}"]
     end
 
     context 'when all parameters sent are valid' do
@@ -65,6 +87,8 @@ describe "Lo features" do
           'lo_description' => 'test-description'
         }
       }
+
+      before { fill_in_form '.simple_form', params }
 
       it 'redirect to teacher_los_path' do
         expect(page.current_path).to eq teacher_los_path
@@ -85,6 +109,7 @@ describe "Lo features" do
       }
 
       it 'does not display the new description' do
+        fill_in_form '.simple_form', params
         visit teacher_los_path
 
         expect(page).to_not have_content 'test-description'
@@ -96,19 +121,37 @@ describe "Lo features" do
     let!(:introduction) { create(:introduction, lo: lo) }
     let!(:exercise) { create(:exercise, lo: lo) }
 
-    it 'display the lo contents' do
-      visit teacher_lo_path(lo)
+    before { visit teacher_lo_path(lo) }
 
+    it 'display breadcrumbs' do 
+      expect(breadcrumbs).to eq ['Início', 'Meus OAs', "OA #{lo.name}"]
+    end
+
+    it 'display the lo contents' do
       expect(page).to have_content(introduction.title) &&
                       have_content(exercise.title)
     end
   end
 
   describe '#delete' do
+    before { visit teacher_los_path }
+
     it 'deletes the lo' do
-      page.driver.submit :delete, teacher_lo_path(lo), {}
+      page.find('.destroy').click
 
       expect(Lo).to_not be_exists(lo.id)
+    end
+
+    context 'when the lo is in a team' do
+      let(:team) { create(:team) }
+
+      before { team.los << lo }
+
+      it 'does not deletes the lo' do 
+        page.find('.destroy').click
+        
+        expect(Lo).to be_exists(lo.id)
+      end
     end
   end
 end

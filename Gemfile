@@ -48,7 +48,7 @@ end
 group :development, :test do
   gem 'dotenv-rails'
   gem 'spring',       '1.1.3'
-  gem 'faker',        '1.3.0'
+  gem 'faker'
   gem 'better_errors'
   gem 'factory_bot_rails'
   gem 'simplecov'
