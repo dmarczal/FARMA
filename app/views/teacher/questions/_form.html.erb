@@ -9,6 +9,6 @@
   <%= f.button :submit_materialize %>
 
   <a class='btn-cancel <%= @class %>' data-id='<%= @question.id %>'>
-    <i class="material-icons">clear</i>
+    <%= fa_icon('times', 'aria-hidden': true, class: 'fa-6') %>
   </a>
 <% end %>

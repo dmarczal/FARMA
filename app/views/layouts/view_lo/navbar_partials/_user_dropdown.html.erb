@@ -1,12 +1,12 @@
 <ul id='dropdown_user' class='dropdown-content'>
   <li>
     <%= link_to(edit_user_registration_path) do %>
-      Perfil <i class="fa fa-user" aria-hidden="true"></i>
+      Perfil <%= fa_icon('user', 'aria-hidden': true) %>
     <% end %>
   </li>
   <li>
     <%= link_to(destroy_user_session_path, method: :delete) do %>
-      Sair <i class="fa fa-sign-out" aria-hidden="true"></i>
+      Sair <%= fa_icon('sign-out', 'aria-hidden': true) %>
     <% end %>
   </li>
 </ul>

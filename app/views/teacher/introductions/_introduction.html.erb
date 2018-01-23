@@ -7,12 +7,12 @@
 
   <div class="col s3">
     <%= link_to(edit_teacher_lo_introduction_path(@lo, introduction), class: 'left') do%>
-    <i class="material-icons">mode_edit</i>
+      <%= fa_icon('pencil', 'aria-hidden': true) %>
     <% end %>
 
     <%= link_to([:teacher, @lo, introduction], method: :delete, class: 'right',
     data: { confirm: 'tem certeza disso?' }) do%>
-    <i class="material-icons">delete</i>
+      <%= fa_icon('trash', 'aria-hidden': true) %>
     <% end %>
   </div>
 
