@@ -28,7 +28,7 @@
             <% exec_if_the_page_exists(@lo.contents, @page - 1) do %>
               <%= link_to student_team_lo_path(@team, @lo, @page - 1),
                           class: 'btn-floating btn-large waves-effect waves-light' do %>
-                <i class="material-icons">keyboard_arrow_left</i>
+                <%= fa_icon 'angle-left' %>
               <% end %>
             <% end %>
           </div>
@@ -41,7 +41,7 @@
             <% exec_if_the_page_exists(@lo.contents, @page + 1) do %>
               <%= link_to student_team_lo_path(@team, @lo, @page + 1),
                           class: 'btn-floating btn-large waves-effect waves-light' do %>
-                <i class="material-icons">keyboard_arrow_right</i>
+                <%= fa_icon 'angle-right' %>
               <% end %>
             <% end %>
           </div>

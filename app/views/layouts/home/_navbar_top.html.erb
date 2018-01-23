@@ -1,25 +1,26 @@
 <!-- Dropdown Structure -->
 <ul id="dropdown-user" class="dropdown-content">
  <% if user_signed_in? %>
-   
+
   <li>
-   <%= link_to(teacher_path) do %>
-     <i class="fa fa-home" aria-hidden="true"></i> Dashboard
-   <% end %>
+    <%= link_to(teacher_path) do %>
+      <%= fa_icon('home', 'aria-hidden': true) %> Dashboard
+    <% end %>
   </li>
 
   <li>
 
    <%= link_to(edit_user_registration_path) do %>
-    <i class="fa fa-user" aria-hidden="true"></i> Perfil
+      <%= fa_icon('user', 'aria-hidden': true) %> Perfil
    <% end %>
 
   </li>
   <li>
     <%= link_to(destroy_user_session_path, method: :delete) do %>
-      <i class="fa fa-sign-out" aria-hidden="true"></i> Sair
+      <%= fa_icon('sign-out', 'aria-hidden': true) %> Sair
     <% end %>
   </li>
+
  <% end %>
 </ul>
 
@@ -38,14 +39,14 @@
          <li>
          <a class="dropdown-button" href="#!" data-activates="dropdown-user">
            <%= current_user.name %>
-           <i class="fa fa-caret-down fa-5" aria-hidden="true"></i>
+           <%= fa_icon('caret-down fa-5', 'aria-hidden': true) %>
          </a>
         </li>
        </ul>
     <% else %>
       <ul class="right hide-on-med-and-down">
         <%= link_to(new_user_session_path) do %>
-          <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+          <%= fa_icon('user-circle-o', 'aria-hidden': true) %>
           Entrar
         <% end %>
       </ul>

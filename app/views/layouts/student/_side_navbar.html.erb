@@ -2,14 +2,14 @@
   <ul class="list">
 
     <%= active_link_to student_path, wrap_tag: :li, active: :exclusive do %>
-      <i class="fa fa-home" aria-hidden="true"></i> Dashboard
+      <%= fa_icon('home', 'aria-hidden': true) %> Dashboard
     <% end %>
 
     <li id="dropdown-teams">
       <%= link_to '#teams', class: 'dropdown-sidebar' do %>
-        <i class="material-icons tiny">group_work</i> Turma
-        <i class="material-icons tiny right more">expand_more</i>
-        <i class="material-icons tiny right less">expand_less</i>
+        <%= fa_icon('bars', 'aria-hidden': true) %> Turma
+        <%= fa_icon('caret-down', 'aria-hidden': true, class: 'right more') %>
+        <%= fa_icon('caret-up', 'aria-hidden': true, class: 'right less') %> 
       <% end %>
     </li>
 

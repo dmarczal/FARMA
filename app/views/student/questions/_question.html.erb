@@ -2,7 +2,7 @@
   <div class="col s8">
     <div class="paper-sheet z-depth-1">
       <% if question.tips_to_show(user: current_user, team: @team) %>
-        <i class="material-icons right btn-icon" data-id="<%= question.id %>">lightbulb_outline</i>
+        <%= fa_icon 'list', 'data-id': question.id, class: 'right btn-icon' %>
       <% end %>
       <span>Passo <%= question.index %></span>
       <h2 class="title"><%= question.title %></h2>
@@ -15,7 +15,7 @@
   <div class="col s4">
     <% if question.tips_to_show(user: current_user, team: @team) %>
       <div id="tips-<%= question.id %>" class="paper-sheet z-depth-1 tips">
-        <h4 class="title center-align"><i class="material-icons">lightbulb_outline</i>Dicas</h4>
+        <h4 class="title center-align"><%= fa_icon 'list', text: 'Dicas' %></h4>
         <%= render question.tips_to_show(user: current_user, team: @team) %>
       </div>
     <% end %>

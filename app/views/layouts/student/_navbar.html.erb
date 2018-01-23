@@ -3,12 +3,12 @@
   <ul id='dropdown_user' class='dropdown-content'>
     <li>
       <%= link_to(edit_user_registration_path) do %>
-        Perfil <i class="fa fa-user" aria-hidden="true"></i>
+        Perfil <%= fa_icon('user', 'aria-hidden': true) %>
       <% end %>
     </li>
     <li>
       <%= link_to(destroy_user_session_path, method: :delete) do %>
-        Sair <i class="fa fa-sign-out" aria-hidden="true"></i>
+        Sair <%= fa_icon('sign-out', 'aria-hidden': true) %>
       <% end %>
     </li>
   </ul>
@@ -34,7 +34,7 @@
       <li class="user-profile">
         <a class="dropdown-button" href="#!" data-activates="dropdown_user">
           <%= image_tag current_user.avatar.small.url, class: "circle responsive-img" %>
-          <%= current_user.name %> <i class="fa fa-caret-down fa-5" aria-hidden="true"></i>
+          <%= current_user.name %> <%= fa_icon('caret-down', 'aria-hidden': true) %>
         </a>
       </li>
     </ul>
