@@ -47,7 +47,7 @@ RSpec.describe Teacher::LosController, type: :controller do
       end
 
       it 'returns the error message after try update' do
-        post :create, params: params.merge({id: lo.id})
+        put :update, params: params.merge({id: lo.id})
         
         expect(flash[:error]).to eq 'Existem dados incorretos.'
       end

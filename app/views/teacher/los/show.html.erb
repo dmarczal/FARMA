@@ -2,21 +2,21 @@
 
 <div class="fixed-action-btn vertical" >
   <a class="btn-floating btn-large pink-red">
-    <i class="large material-icons">mode_edit</i>
+    <%= fa_icon('pencil', 'aria-hidden': true, class: 'fa-1') %>
   </a>
 
   <ul>
     <li>
       <%= link_to(new_teacher_lo_exercise_path(@lo), class: 'btn-floating light-pink-color tooltipped',
       'data-position' => 'left', 'data-tooltip' => 'Criar um novo exercicio') do%>
-      <i class="material-icons">format_list_bulleted</i>
+      <%= fa_icon('list', 'aria-hidden': true, class: 'fa-1') %>
       <% end %>
     </li>
 
     <li>
       <%= link_to(new_teacher_lo_introduction_path(@lo), class: 'btn-floating purple-color tooltipped',
       'data-position' => 'left', 'data-tooltip' => 'Criar uma nova introdução') do%>
-      <i class="material-icons">text_format</i>
+        <%= fa_icon('font', 'aria-hidden': true, class: 'fa-1') %>
       <% end %>
     </li>
   </ul>
