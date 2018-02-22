@@ -1,28 +1,44 @@
 <div id="home-sidebar">
   <ul class="nav navbar-nav section table-of-contents">
     <li>
-      <%= link_to "format_align_center", "#parallax-banner", class: "material-icons large tooltipped", "data-position" => 'left', "data-tooltip" => "Sobre a Ferramenta" %>
+      <%= link_to fa_icon('align-center', text: raw('&nbsp')), "#parallax-banner",
+        class: "large tooltipped",
+        "data-position" => 'left', "data-tooltip" => "Sobre a Ferramenta" %>
     </li>
     <li>
-      <%= link_to "chrome_reader_mode", "#home-page-slider", class: "material-icons large tooltipped", "data-position" => 'left', "data-tooltip" => "Mais informações" %>
+      <%= link_to fa_icon('book', text: raw('&nbsp')), "#home-page-slider",
+        class: "large tooltipped",
+        "data-position" => 'left', "data-tooltip" => "Mais informações" %>
     </li>
     <li>
-      <%= link_to "language", "#home-page-subjects", class: "material-icons large tooltipped", "data-position" => 'left', "data-tooltip" => "Conteúdos abordados" %>
+      <%= link_to fa_icon('globe', text: raw('&nbsp')), "#home-page-subjects",
+        class: "large tooltipped",
+        "data-position" => 'left', "data-tooltip" => "Conteúdos abordados" %>
     </li>
     <li>
-      <%= link_to "people", "#home-page-team", class: "material-icons large tooltipped", "data-position" => 'left', "data-tooltip" => "Equipe de desenvolvimento" %>
+      <%= link_to fa_icon('group', text: raw('&nbsp')), "#home-page-team",
+        class: "large tooltipped", "data-position" => 'left',
+        "data-tooltip" => "Equipe de desenvolvimento" %>
     </li>
     <li>
-      <%= link_to "add_circle", "#home-page-goal", class: "material-icons large tooltipped", "data-position" => 'left', "data-tooltip" => "Objetivos da FARMA" %>
+      <%= link_to fa_icon('bullseye', text: raw('&nbsp')), "#home-page-goal",
+        class: "large tooltipped",
+        "data-position" => 'left', "data-tooltip" => "Objetivos da FARMA" %>
     </li>
     <li>
-      <%= link_to "school", "#home-page-researchs", class: "material-icons large tooltipped", "data-position" => 'left', "data-tooltip" => "Pesquisas relacionadas" %>
+      <%= link_to fa_icon('graduation-cap', text: raw('&nbsp')),
+        "#home-page-researchs", class: "large tooltipped",
+        "data-position" => 'left', "data-tooltip" => "Pesquisas relacionadas" %>
     </li>
     <li>
-      <%= link_to "grade", "#home-page-awards", class: "material-icons large tooltipped", "data-position" => 'left', "data-tooltip" => "Prêmios conquistados" %>
+      <%= link_to fa_icon('star', text: raw('&nbsp')), "#home-page-awards",
+        class: "large tooltipped",
+        "data-position" => 'left', "data-tooltip" => "Prêmios conquistados" %>
     </li>
     <li>
-      <%= link_to "message", "#home-page-contact", class: "material-icons large tooltipped", "data-position" => 'left', "data-tooltip" => "Contato" %>
+      <%= link_to fa_icon('comments', text: raw('&nbsp')), "#home-page-contact",
+        class: "large tooltipped", "data-position" => 'left',
+        "data-tooltip" => "Contato" %>
     </li>
   </ul>
 </div>

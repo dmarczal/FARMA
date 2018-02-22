@@ -14,22 +14,22 @@ class Teacher::IntroductionsController < Teacher::TeacherApplicationController
     add_breadcrumb "Editar Introdução", new_teacher_lo_introduction_path(@lo, @title)
   end
 
-  def update
-    if @introduction.update(introduction_params)
-      redirect_to teacher_lo_path(@lo)
-    else
-      flash.now[:error] = "Existem dados incorretos."
-      render :edit
-    end
-  end
-
   def create
     @introduction = @lo.introductions.new(introduction_params)
     if @introduction.save
-      redirect_to teacher_lo_path(@lo)
+      redirect_to [:teacher, @lo, @introduction], flash: { success: 'Introdução criada com sucesso.' }
     else
       flash.now[:error] = "Existem dados incorretos."
       render :new
+    end
+  end
+
+  def update
+    if @introduction.update(introduction_params)
+      redirect_to [:teacher, @lo, @introduction], flash: { success: 'Introdução editada com sucesso.' }
+    else
+      flash.now[:error] = "Existem dados incorretos."
+      render :edit
     end
   end
 
@@ -39,12 +39,13 @@ class Teacher::IntroductionsController < Teacher::TeacherApplicationController
   end
 
   private
-    def introduction_params
-      params.require(:introduction).permit(:title, :content)
-    end
-
-    def find_introduction
-      find_lo
-      @introduction = @lo.introductions.find(params[:id])
-    end
+ 
+  def introduction_params
+    params.require(:introduction).permit(:title, :content)
+  end
+ 
+  def find_introduction
+    find_lo
+    @introduction = @lo.introductions.find(params[:id])
+  end
 end

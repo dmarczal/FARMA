@@ -18,7 +18,7 @@
    <div class="card-reveal">
      <span class="card-title grey-text text-darken-4 center-align">
        <%= truncate_and_set_tooltip(lo.name, length: 20) %>
-       <i class="material-icons right close">close</i>
+       <%= fa_icon 'close', class: 'right close' %>
      </span>
      <p class="content"><%= truncate_and_set_popup(lo.name, lo.description, length: 100, separator: ' ') %></p>
 

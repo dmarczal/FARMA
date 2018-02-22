@@ -2,17 +2,17 @@
   <ul class="list">
 
     <%= active_link_to admin_path, wrap_tag: :li, active: :exclusive do %>
-      Dashboard <i class="fa fa-home" aria-hidden="true"></i>
+      Dashboard <%= fa_icon('home', 'aria-hidden': true) %>
     <% end %>
 
     <div class="divider col s12"></div>
 
     <%= active_link_to admin_researches_path, wrap_tag: :li do %>
-      Pesquisas<i class="fa fa-folder" aria-hidden="true"></i>
+      Pesquisas <%= fa_icon('folder', 'aria-hidden': true) %>
     <% end %>
 
     <%= active_link_to '#', wrap_tag: :li, active: 'false' do %>
-      Equipe<i class="fa fa-folder" aria-hidden="true"></i>
+      Equipe <%= fa_icon('folder', 'aria-hidden': true) %>
     <% end %>
 
   </ul>
