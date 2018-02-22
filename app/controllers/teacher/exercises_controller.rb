@@ -19,7 +19,7 @@ class Teacher::ExercisesController < Teacher::TeacherApplicationController
   def create
     @exercise = @lo.exercises.new(exercise_params)
     if @exercise.save
-      redirect_to [:teacher, @lo, @exercise]
+      redirect_to [:teacher, @lo, @exercise], flash: { success: 'Exercício criado com sucesso.' }
     else
       flash.now[:error] = "Existem dados incorretos."
       render :new
@@ -32,7 +32,7 @@ class Teacher::ExercisesController < Teacher::TeacherApplicationController
 
   def update
     if @exercise.update(exercise_params)
-      redirect_to teacher_lo_path(@lo)
+      redirect_to [:teacher, @lo, @exercise], flash: { success: 'Exercício editado com sucesso.' }
     else
       flash.now[:error] = "Existem dados incorretos."
       render :edit
