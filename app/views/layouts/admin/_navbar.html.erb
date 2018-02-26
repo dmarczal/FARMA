@@ -1,12 +1,12 @@
 <ul id='dropdown_admin' class='dropdown-content'>
   <li>
     <%= link_to("#") do %>
-      Perfil <i class="fa fa-user" aria-hidden="true"></i>
+      Perfil <%= fa_icon('user', 'aria-hidden': true) %>
     <% end %>
   </li>
   <li>
     <%= link_to(destroy_admin_session_path, method: :delete) do %>
-      Sair <i class="fa fa-sign-out" aria-hidden="true"></i>
+      Sair <%= fa_icon('sign-out', 'aria-hidden': true) %>
     <% end %>
   </li>
 </ul>
@@ -19,7 +19,7 @@
         <li class="user-profile">
           <a class="dropdown-button" href="#!" data-activates="dropdown_admin">
             <%= image_tag 'admin/user.jpeg', class: "circle responsive-img" %>
-            <%= current_admin.name %> <i class="fa fa-caret-down fa-5" aria-hidden="true"></i>
+            <%= current_admin.name %> <%= fa_icon('caret-down', 'aria-hidden': true) %>
           </a>
         </li>
       </ul>

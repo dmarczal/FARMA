@@ -11,11 +11,13 @@
 @import "materialize/components/buttons";
 @import "materialize/components/waves";
 @import "materialize/components/tabs";
+@import "materialize/components/modal";
 
 
 /*************************************************************
 * Vendors stylesheets
 **************************************************************/
+@import 'font-awesome'; // http://fontawesome.io/icons/
 @import "toastr.min";
 
 /*************************************************************

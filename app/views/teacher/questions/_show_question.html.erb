@@ -1,4 +1,6 @@
-<span class="col s12"><i class="material-icons">subject</i> Conteúdo</span>
+<span class="col s12">
+  <%= fa_icon('align-justify', 'aria-hidden': true, text: 'Conteúdo') %>
+</span>
 
 <div class="box-question-content col s11">
   <%= @question.content.html_safe %>
@@ -10,15 +12,18 @@
 </div>
 
 <div class="col s12">
-  <span class="left">Considerar Ordem:</span>
-  <p><%= @question.cmas_order ? "Sim" : "Não" %></p>
+  <span class="left">Considerar Ordem:
+    <%= @question.cmas_order ? "Sim" : "Não" %>
+  </span>
 </div>
 
  <%= render 'test_to_answer' %>
 
 <article class="article-tips col s12">
   <header class="col s12">
-    <span class="color-amber"><i class="material-icons">lightbulb_outline</i> Dicas</span>
+    <span class="color-amber">
+      <%= fa_icon('lightbulb-o', 'aria-hidden': true, text: 'Dicas') %>
+    </span>
   </header>
 
   <div class="right">

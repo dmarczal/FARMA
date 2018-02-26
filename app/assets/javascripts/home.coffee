@@ -32,10 +32,12 @@ FARMA.loadMouseOverOnCard = ->
 
 FARMA.researchIcon = ->
   $('#home-page-researchs .collapsible-header').click (e)->
-    $('#home-page-researchs .icon-arrow i').html('keyboard_arrow_down')
+    $('#home-page-researchs .icon-arrow i').removeClass('fa-angle-up')
+    $('#home-page-researchs .icon-arrow i').addClass('fa-angle-down')
 
     unless ($(@).hasClass('active'))
-      $(@).find('i').html('keyboard_arrow_up')
+      $(@).find('i').removeClass('fa-angle-down')
+      $(@).find('i').addClass('fa-angle-up')
 
 FARMA.sidebarScrollSpy = ->
   $('.scrollspy').scrollSpy({scrollOffset: 63})

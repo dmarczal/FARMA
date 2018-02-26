@@ -14,7 +14,7 @@
 <body id="home-page">
 
   <header>
-    <%= render 'layouts/home/navbar_top' %>
+    <%= render 'layouts/home/navbar_top' if controller_name.eql? 'home' %>
 
     <%= render 'shared/flash_messages'  %>
   </header>
@@ -23,7 +23,7 @@
      <%= yield %>
   </main>
 
-  <%= render 'layouts/home/footer' %>
+  <%= render 'layouts/home/footer' if controller_name.eql? 'home' %>
 
 </body>
 </html>

@@ -1,11 +1,11 @@
 <div class="card col s3">
   <div class="card-image waves-effect waves-block waves-light">
-    <%= image_tag lo.image.url(:thumb), class: "activator responsive-img"%>
+    <%= image_tag lo.image.url , class: "responsive-img activator"%>
   </div>
 
   <div class="card-content">
     <span class="activator grey-text text-darken-4">
-     <i class="material-icons right">more_vert</i>
+      <%= fa_icon 'ellipsis-v', class: :right %>
     </span>
     <p class="card-title hide-on-med-and-down" >
      <%= truncate_and_set_tooltip(lo.name, length: 10) %>
@@ -14,7 +14,7 @@
 
   <div class="card-reveal">
     <span class="card-title grey-text text-darken-4 clearfix">
-       <i class="material-icons right">close</i>
+       <%= fa_icon 'close' %>
        <%= truncate_and_set_tooltip(lo.name, length: 10) %>
     </span>
 
@@ -22,6 +22,6 @@
   </div>
 
   <div class="card-action">
-    <%= link_to 'LO', view_lo_page_path(lo.id, '1') %>
+    <%= link_to 'LO', '#' %>
   </div>
 </div>

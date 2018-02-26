@@ -5,14 +5,14 @@
   <div class="col s1">
     <%= link_to edit_teacher_lo_exercise_question_tip_path(@lo, @exercise, @question, tip),
                 class: 'left', remote: true do %>
-      <i class="material-icons">mode_edit</i>
+      <%= fa_icon('pencil', 'aria-hidden': true) %>
     <% end %>
 
     <%= link_to teacher_lo_exercise_question_tip_path(@lo, @exercise, @question, tip),
                 method: :delete,
                 data: { confirm: 'tem certeza disso?' },
                 class: 'right' do %>
-      <i class="material-icons">clear</i>
+      <%= fa_icon('times', 'aria-hidden': true) %>
     <% end %>
   </div>
 

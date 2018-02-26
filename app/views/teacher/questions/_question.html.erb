@@ -3,10 +3,8 @@
   <div class="col s12 row questions_list">
     <header class="left">
       <%= link_to teacher_lo_exercise_question_path(@lo, @exercise, question), remote: true do %>
-        <i id="show-question-<%= question.id %>"
-        class="show-question material-icons medium" data-target="question-<%= question.id %>-show">
-        keyboard_arrow_right
-      </i>
+        <%= fa_icon('arrow-right', 'aria-hidden': true, id: "show-question-#{question.id}",
+                    class: 'show-question', 'data-target': "question-#{question.id}-show") %>
       <% end %>
       <span class="title-question"><%= question.title %></span>
     </header>
@@ -17,7 +15,7 @@
           <%= link_to edit_teacher_lo_exercise_question_path(@lo, @exercise, question),
                   class: 'tooltipped', 'data-position' => 'left', remote: true,
                   'data-tooltip' => "Editar a questão" do %>
-            <i class="material-icons edit-question" data-id="<%= question.id %>">mode_edit</i>
+            <%= fa_icon('pencil', 'aria-hidden': true, 'data-id': question.id) %>
           <% end %>
         </li>
 
@@ -25,7 +23,7 @@
           <%= link_to [:teacher, @lo, @exercise, question], method: :delete,
                       data: { confirm: 'tem certeza disso?' }, class: 'tooltipped',
                       'data-position' => 'left', 'data-tooltip' => "Deletar a questão" do %>
-              <i class="material-icons">delete</i>
+              <%= fa_icon('trash', 'aria-hidden': true) %>
           <% end %>
         </li>
       </ul>
