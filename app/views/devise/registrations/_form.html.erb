@@ -9,7 +9,10 @@
     <%= f.input :password, autocomplete: "off", hint: "deixe em branco se você não quiser alterá-la", required: false %>
     <%= f.input :password_confirmation, required: false %>
     <%= f.input :current_password, hint: "a senha atual é necessária para confirmar as alterações", required: true %>
-    <%= f.input :avatar, as: :file_materialize %>
+    
+    <%= f.fields_for :avatar do |avatar_f| %>
+      <%= avatar_f.attachment_field :image, as: :file_materialize, direct: true %>
+    <% end %>
 
     <%= f.button :submit_materialize, cancel: :back %>
 <% end %>

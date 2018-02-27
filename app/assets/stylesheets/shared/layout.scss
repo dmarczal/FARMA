@@ -206,32 +206,40 @@ div.sidebar li.dropdown {
 /* Form image preview
 /*************************************************************/
 
-#box-image-preview .box-image {
-  position: relative;
-  height: 170px;
-  width: 100%;
+#box-image-preview {
+  margin-bottom: 20px;
 
-  .text-box {
-    padding: 40px 10px 0 10px;
-  }
+  .image_preview {
+    padding: 0;
+  }  
 
-  img {
-    display: none;
-    height: 100%;
+  .box-image {
+    position: relative;
+    height: 170px;
     width: 100%;
-  }
 
-  img.active {
-    display: block;
-  }
+    .text-box {
+      padding: 40px 10px 0 10px;
+    }
 
-  .file {
-    opacity: 0;
-    position: absolute;
-    top: -5px;
-    left: 0;
-    height: 100%;
-    width: 100%;
+    img {
+      display: none;
+      height: 100%;
+      width: 100%;
+    }
+
+    img.active {
+      display: block;
+    }
+
+    input[type=file] {
+      opacity: 0;
+      position: absolute;
+      top: -5px;
+      left: 0;
+      height: 100%;
+      width: 100%;
+    }
   }
 }
 

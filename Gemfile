@@ -30,6 +30,9 @@ gem 'active_link_to', '~> 1.0', '>= 1.0.3'
 gem 'handlebars_assets'
 gem 'jquery-hotkeys-rails'
 gem 'codemirror-rails' # TODO: CHECK WHERE IT IS USED
+gem 'refile', require: 'refile/rails', github: 'refile/refile'
+gem 'refile-mini_magick'
+gem "refile-s3"
 
 group :development do
   gem 'populator',  '1.0.0'
@@ -57,8 +60,8 @@ group :development, :test do
 end
 
 group :test do
+  gem 'database_cleaner'
   gem 'shoulda-matchers', '~> 3.1'
-  gem 'temping'
 end
 
 group :production do

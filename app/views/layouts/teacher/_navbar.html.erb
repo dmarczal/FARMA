@@ -33,7 +33,13 @@
       <!-- Dropdown Trigger -->
       <li class="user-profile">
         <a class="dropdown-button" href="#!" data-activates="dropdown_user">
-          <%= image_tag current_user.avatar.small.url , class: "circle responsive-img" %>
+          <%= attachment_image_tag current_user.avatar, 
+                                   :image, 
+                                   :fill, 
+                                   34, 
+                                   34,
+                                   fallback: "default-avatar.png",
+                                   class: "circle responsive-img" %>
           <%= current_user.name %> <%= fa_icon('caret-down', 'aria-hidden': true) %>
         </a>
       </li>

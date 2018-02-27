@@ -1,9 +1,19 @@
 <div class="card">
    <div class="card-image waves-effect waves-block waves-light">
-      <!-- image lo -->
+      <%= attachment_image_tag lo.image, 
+                               :image, 
+                               :fill, 
+                               200, 
+                               200,
+                               fallback: "default-image.png",
+                               class: "circle responsive-img" %>
    </div>
    <div class="card-content center-align activator">
-      <span class="card-title"><%= truncate_and_set_tooltip(lo.name, length: 22) %></span>
+      <span class="card-title">
+        <strong>
+          <%= truncate_and_set_tooltip(lo.name, length: 22) %>
+        </strong>
+      </span>
    </div>
    <div class="card-reveal">
      <span class="card-title grey-text text-darken-4 center-align">

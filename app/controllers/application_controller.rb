@@ -26,7 +26,12 @@ protected
 
   def configure_permitted_parameters
    devise_parameter_sanitizer.permit(:sign_up) do |user_params|
-     user_params.permit(:name, :email, :name, :short_description, :biography, :password, :password_confirmation, :remember_me, :avatar)
+     user_params.permit(:name, 
+                        :email, 
+                        :password, 
+                        :password_confirmation, 
+                        :remember_me,
+                         avatar_attributes: [:image])
    end
 
    devise_parameter_sanitizer.permit(:account_update) do |user_params|
