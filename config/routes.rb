@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   # Routes for admin
   namespace :admin do
     get '/' => 'dashboard#index'
+    resources :research_categories
     resources :researches
   end
 

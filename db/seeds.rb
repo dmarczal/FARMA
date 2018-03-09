@@ -6,6 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Admin.create!(email: 'admin@farma.educacional.mat.br',
-              password: '12345678', password_confirmation: '12345678')
+Admin.create_with(password: '12345678').find_or_create_by!(email: 'admin@farma.educacional.mat.br')
+
+%w(Artigos Poster TCC Mestrado Doutorado).each do |name|
+  Admin::ResearchCategory.find_or_create_by!(name: name)
+end
 

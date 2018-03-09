@@ -12,4 +12,10 @@ class Admin::AdminApplicationController < ::ApplicationController
   def area=
     cookies[:farma_area] = "admin"
   end
+
+  def strip_params(_params)
+    _params.each do |k, v|
+      v.strip!
+    end
+  end
 end
