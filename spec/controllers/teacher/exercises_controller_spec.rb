@@ -21,13 +21,13 @@ RSpec.describe Teacher::ExercisesController, type: :controller do
 
       it 'returns the success message after create' do
         post :create, params: params
-        
+
         expect(flash[:success]).to eq 'Exercício criado com sucesso.'
       end
 
       it 'returns the success message after update' do
         put :update, params: params.merge({id: exercise.id})
-        
+
         expect(flash[:success]).to eq 'Exercício editado com sucesso.'
       end
     end
@@ -45,13 +45,13 @@ RSpec.describe Teacher::ExercisesController, type: :controller do
 
       it 'returns the error message after try create' do
         post :create, params: params
-        
+
         expect(flash[:error]).to eq 'Existem dados incorretos.'
       end
 
       it 'returns the error message after try update' do
         put :update, params: params.merge({id: exercise.id})
-        
+
         expect(flash[:error]).to eq 'Existem dados incorretos.'
       end
     end

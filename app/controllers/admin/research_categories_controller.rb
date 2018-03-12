@@ -18,6 +18,19 @@ class Admin::ResearchCategoriesController < Admin::AdminApplicationController
     end
   end
 
+  def edit
+    @category = Admin::ResearchCategory.find(params[:id])
+  end
+
+  def update
+    @category = Admin::ResearchCategory.find(params[:id])
+    if @category.update_attributes(category_params)
+      redirect_to admin_research_categories_path, flash: { success: 'Categoria de pesquisa atualizada com sucesso.' }
+    else
+      flash.now[:error] = 'Existem dados incorretos.'
+      render :edit
+    end
+  end
 
   def destroy
      @category = Admin::ResearchCategory.find(params[:id])

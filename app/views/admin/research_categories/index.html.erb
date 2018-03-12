@@ -24,9 +24,13 @@
         <%= link_to category, data: { confirm: 'Tem certeza?' }, class: 'actions destroy tooltipped', method: :delete,
             "data-position" => "bottom", "data-delay" => "50", "data-tooltip"=>"Remover" do %>
           <%= fa_icon "trash" %>
-       </td> 
-     <% end %>
-    </tr>
+        <% end %>
+        <%= link_to edit_admin_research_category_path(category), class: 'actions edit tooltipped',
+            "data-position" => "bottom", "data-delay" => "50", "data-tooltip"=>"Editar" do %>
+          <%= fa_icon "edit" %>
+        <% end %>
+      </td>
+   </tr>
   <% end %>
   </tbody>
 </table>

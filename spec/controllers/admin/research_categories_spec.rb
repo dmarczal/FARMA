@@ -56,4 +56,13 @@ RSpec.describe Admin::ResearchCategoriesController, type: :controller do
       end
     end
   end
+
+  describe '#destroy' do
+    it 'returns the sucess message after destroy a research category' do
+      category = create(:admin_research_category)
+
+      delete :destroy, params: {id: category.id}
+      expect(flash[:success]).to eq 'Categoria de pesquisa removida com sucesso.'
+    end
+  end
 end
