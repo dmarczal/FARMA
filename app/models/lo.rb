@@ -13,7 +13,7 @@ class Lo < ActiveRecord::Base
 
   def destroy
     return false unless teams.empty?
-    
+
     super
   end
 

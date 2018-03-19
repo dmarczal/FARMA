@@ -77,10 +77,21 @@ describe 'Admin Research Categories features', type: :feature do
         expect(page.current_path).to eq admin_research_category_path(@category)
       end
 
-      it 'display the error message' do
+      it 'display the error message when the input is empty' do
         within('div.admin_research_category_name') do
           expect(page).to have_content('não pode ficar em branco')
         end
+      end
+    end
+
+    it 'display the error message when the name is already taken' do
+      category = create(:admin_research_category)
+      params = { admin_research_category_name: category.name}
+
+      fill_in_form '.simple_form', params
+
+      within('div.admin_research_category_name') do
+        expect(page).to have_content('já está em uso')
       end
     end
 

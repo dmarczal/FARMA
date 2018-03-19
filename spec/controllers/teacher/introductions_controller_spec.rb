@@ -21,13 +21,13 @@ RSpec.describe Teacher::IntroductionsController, type: :controller do
 
       it 'returns the success message after create' do
         post :create, params: params
-        
+
         expect(flash[:success]).to eq 'Introdução criada com sucesso.'
       end
 
       it 'returns the success message after update' do
         put :update, params: params.merge({id: introduction.id})
-        
+
         expect(flash[:success]).to eq 'Introdução editada com sucesso.'
       end
     end
@@ -45,13 +45,13 @@ RSpec.describe Teacher::IntroductionsController, type: :controller do
 
       it 'returns the error message after try create' do
         post :create, params: params
-        
+
         expect(flash[:error]).to eq 'Existem dados incorretos.'
       end
 
       it 'returns the error message after try update' do
         put :update, params: params.merge({id: introduction.id})
-        
+
         expect(flash[:error]).to eq 'Existem dados incorretos.'
       end
     end

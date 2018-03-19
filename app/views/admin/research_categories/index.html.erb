@@ -1,12 +1,14 @@
 <header class="page-header">
-	<h1>Categorias de Pesquisa</h1>
+  <h1>Categorias de Pesquisa</h1>
 </header>
 
 <div class="fixed-action-btn">
- <%= link_to(new_admin_research_category_path, class: 'btn-floating btn-large pink-red tooltipped',
-  'data-position' => 'left', 'data-tooltip' => 'Criar uma nova categoria de pesquisa') do %>
-  <%= fa_icon "plus" %>
- <% end %>
+  <%= link_to(new_admin_research_category_path,
+              class: 'btn-floating btn-large pink-red tooltipped',
+              'data-position' => 'left',
+              'data-tooltip' => 'Criar uma nova categoria de pesquisa') do %>
+     <%= fa_icon "plus" %>
+  <% end %>
 </div>
 
 <table class="bordered striped">
@@ -17,20 +19,20 @@
   </thead>
 
   <tbody>
-   <% @categories.each do |category| %>
-    <tr>
-      <td><%= category.name %></td>
-      <td>
-        <%= link_to category, data: { confirm: 'Tem certeza?' }, class: 'actions destroy tooltipped', method: :delete,
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= category.name %></td>
+        <td class="right">
+          <%= link_to category, data: { confirm: 'Tem certeza?' }, class: 'actions destroy tooltipped', method: :delete,
             "data-position" => "bottom", "data-delay" => "50", "data-tooltip"=>"Remover" do %>
-          <%= fa_icon "trash" %>
-        <% end %>
-        <%= link_to edit_admin_research_category_path(category), class: 'actions edit tooltipped',
+            <%= fa_icon "trash" %>
+          <% end %>
+          <%= link_to edit_admin_research_category_path(category), class: 'actions edit tooltipped',
             "data-position" => "bottom", "data-delay" => "50", "data-tooltip"=>"Editar" do %>
-          <%= fa_icon "edit" %>
-        <% end %>
-      </td>
-   </tr>
-  <% end %>
+            <%= fa_icon "edit" %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
