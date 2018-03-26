@@ -1,34 +1,38 @@
-<p id="notice"><%= notice %></p>
+<header class="page-header">
+  <h1>Pesquisas</h1>
+</header>
 
-<h1>Todas as Pesquisas</h1>
+<div class="fixed-action-btn">
+  <%= link_to(new_admin_research_path,
+              class: 'btn-floating btn-large pink-red tooltipped',
+              'data-position' => 'left',
+              'data-tooltip' => 'Criar uma nova categoria de pesquisa') do %>
+     <%= fa_icon "plus" %>
+  <% end %>
+</div>
 
-<table>
+<table class="bordered striped">
   <thead>
     <tr>
-      <th>Título</th>
-      <th>Referência</th>
-      <th>Resumo</th>
-      <th>Link</th>
-      <th>Tipo</th>
-      <th colspan="3"></th>
+      <th>Title</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @admin_researches.each do |admin_research| %>
+    <% @researches.each do |research| %>
       <tr>
-        <td><%= link_to admin_research.title, admin_research %></td>
-        <td><%= admin_research.ref %></td>
-        <td><%= admin_research.abstract %></td>
-        <td><%= admin_research.link %></td>
-        <td><%= admin_research.kind %></td>
-        <td><%= link_to 'Editar', edit_admin_research_path(admin_research) %></td>
-        <td><%= link_to 'Apagar', admin_research, method: :delete, data: { confirm: 'Deseja apagar a pesquisa?' } %></td>
+        <td><%= research.title %></td>
+        <td class="right">
+          <%= link_to research, data: { confirm: 'Tem certeza?' }, class: 'actions destroy tooltipped', method: :delete,
+            "data-position" => "bottom", "data-delay" => "50", "data-tooltip"=>"Remover" do %>
+            <%= fa_icon "trash" %>
+          <% end %>
+          <%= link_to edit_admin_research_category_path(category), class: 'actions edit tooltipped',
+            "data-position" => "bottom", "data-delay" => "50", "data-tooltip"=>"Editar" do %>
+            <%= fa_icon "edit" %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'Nova Pesquisa', new_admin_research_path %>
