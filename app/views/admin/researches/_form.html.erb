@@ -1,15 +1,10 @@
-<%= simple_form_for(@admin_research) do |f| %>
-  <%= f.error_notification %>
+<%= simple_form_for(@research) do |f| %>
 
-  <div class="form-inputs">
     <%= f.input :title %>
     <%= f.input :ref %>
     <%= f.input :abstract %>
     <%= f.input :link %>
-    <%= f.input :kind %>
-  </div>
+    <%= f.input :kind%>
+    <%= f.button :submit_materialize, cancel: admin_research_categories_path %>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
 <% end %>
