@@ -58,3 +58,11 @@ Incentivar a remediação de erros.
 Permitir mobilidade educacional.
 
 Promover avaliação formativa.
+
+## Contribute or Install / Contribuir ou Instalar
+
+* [Visit Wiki / Visite Wiki](https://github.com/Bartiechen/FARMA/wiki)
+
+## Copyright
+
+  FARMA está cobre a [licença do MIT](http://opensource.org/licenses/MIT).
