@@ -1,62 +1,60 @@
-#FARMA
+# FARMA
 
 Ferramenta de Autoria para a Remediação de erros com Mobilidade na Aprendizagem.
 
-##Pré-requisitos
+Authoring Tool for Remediation of Errors with Mobility in Learning.
 
-```
-nodejs
-libpq-dev
-postgresql
-postgresql-contrib
+## Objetivos da FARMA / Objectives of FARMA
 
-```
+ **English**
+ 
+ To allow the construction of OAs* for the teaching of mathematics by lay teachers in programming.
+ 
+ Provide an environment for building mathematical OAs* that is easy to use.
+ 
+ *OAs - Learning Objects
 
-##Instalação
+**Português** 
 
-1. Clone o repositório do projeto utilizando o comando
+ Permitir a construção de OAs* para o ensino da matemática por professores leigos em programação.
+ 
+ Proporcionar um ambiente para construção de OAs* matemáticos que seja de fácil utilização.
 
-    * `git clone https://dmarczal@bitbucket.org/farma-reborned/farma.git`
+ *OAs - Objetos de Apredizagem
+ 
+### Encourage the use of error as a form of learning through the possibilities of:
 
-2. Instalar as gems necessárias
+The teacher can analyze the mistakes and correctness of the learners.
 
-    * Executar  `gem install bundler`
-    * Executar  `bundle install`
+The teacher and / or apprentice go back to the mistakes and the correct answers.
 
-3. Configure as váriaveis de ambiente
+Allow remote exchange of messages between teachers and learners about errors and correctness.
 
-```
-    export GMAIL_USERNAME=username
-    export GMAIL_PASSWORD=senha
+Monitor the performance of the apprentice through the use of OAs.
 
-    export FARMA_DATABASE_USERNAME=username
-    export FARMA_DATABASE_PASSWORD=senha
-```
+Encourage the gradual development of the apprentice's abstraction capacity.
 
-4. Crie banco e as tabelas do banco de dados
+Encourage the remediation of errors.
 
-    * Executar `bundle exec rake db:create`
-    * Executar `bundle exec rake db:migrate`
+Enable educational mobility.
 
-5. Criar as páginas Sobre e Contato
+Promote formative evaluation.
 
-    * Executar o comando `bundle exec rake db:seed`
+ 
+### Incentivar o uso do erro como uma forma de aprendizagem, por meio das possibilidades de:
 
-6. Levante o servidor e acesse a aplicação
+Do professor poder analisar os erros e acertos dos aprendizes.
 
-    * Execute `thin start`
-    * Acesse a [FARMA](http://localhost:3000)
+Do professor e/ou aprendiz retroceder aos erros e acertos.
 
-##Documentação
+Permitir a troca remota de mensagens entre professores e aprendizes sobre erros e acertos.
 
-##Suporte
+Monitorar o desempenho do aprendiz pelo uso de OAs.
 
-##Contribua
+Incentivar o desenvolvimento gradual da capacidade de abstração do aprendiz.
 
-  Para contribuir com o projeto use o sistema de Pull Request
+Incentivar a remediação de erros.
 
-##Contribuidores
+Permitir mobilidade educacional.
 
-##Copyright
-
-  FARMA está cobre a [licença do MIT](http://opensource.org/licenses/MIT).
+Promover avaliação formativa.
