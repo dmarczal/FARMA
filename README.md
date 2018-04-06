@@ -61,7 +61,7 @@ Promover avaliação formativa.
 
 ## Contribute or Install / Contribuir ou Instalar
 
-* [Visit Wiki / Visite Wiki](https://github.com/Bartiechen/FARMA/wiki)
+* [Visit Wiki / Visite Wiki](https://github.com/dmarczal/FARMA)
 
 ## Copyright
 
