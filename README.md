@@ -1,12 +1,13 @@
+### [Versão em Português](README-PTBR.md)
+
 # FARMA
 
 Ferramenta de Autoria para a Remediação de erros com Mobilidade na Aprendizagem.
 
 Authoring Tool for Remediation of Errors with Mobility in Learning.
 
-## Objetivos da FARMA / Objectives of FARMA
+## Objectives of FARMA
 
- **English**
  
  To allow the construction of OAs* for the teaching of mathematics by lay teachers in programming.
  
@@ -14,13 +15,7 @@ Authoring Tool for Remediation of Errors with Mobility in Learning.
  
  *OAs - Learning Objects
 
-**Português** 
 
- Permitir a construção de OAs* para o ensino da matemática por professores leigos em programação.
- 
- Proporcionar um ambiente para construção de OAs* matemáticos que seja de fácil utilização.
-
- *OAs - Objetos de Apredizagem
  
 ### Encourage the use of error as a form of learning through the possibilities of:
 
@@ -40,29 +35,11 @@ Enable educational mobility.
 
 Promote formative evaluation.
 
- 
-### Incentivar o uso do erro como uma forma de aprendizagem, por meio das possibilidades de:
 
-Do professor poder analisar os erros e acertos dos aprendizes.
+## Contribute or Install 
 
-Do professor e/ou aprendiz retroceder aos erros e acertos.
-
-Permitir a troca remota de mensagens entre professores e aprendizes sobre erros e acertos.
-
-Monitorar o desempenho do aprendiz pelo uso de OAs.
-
-Incentivar o desenvolvimento gradual da capacidade de abstração do aprendiz.
-
-Incentivar a remediação de erros.
-
-Permitir mobilidade educacional.
-
-Promover avaliação formativa.
-
-## Contribute or Install / Contribuir ou Instalar
-
-* [Visit Wiki / Visite Wiki](https://github.com/Bartiechen/FARMA/wiki)
+* [Visit Wiki](https://github.com/dmarczal/FARMA/wiki)
 
 ## Copyright
 
-  FARMA está cobre a [licença do MIT](http://opensource.org/licenses/MIT).
+  FARMA is covered [MIT License](http://opensource.org/licenses/MIT).
