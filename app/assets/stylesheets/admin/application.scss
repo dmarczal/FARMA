@@ -8,6 +8,10 @@
 * Configurations
 **************************************************************/
 @import "config/materialize_base";
+@import "materialize/components/date_picker/default.scss";
+@import "materialize/components/date_picker/default.date.scss";
+@import "materialize/components/date_picker/default.time.scss";
+
 @import "materialize/components/dropdown";
 @import "lib/variables_and_functions";
 
@@ -28,3 +32,4 @@
 @import "shared/layout";
 @import "admin/colors";
 @import "admin/custom";
+@import "admin/developers";

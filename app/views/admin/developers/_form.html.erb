@@ -1,0 +1,62 @@
+<%= simple_form_for @developer do |f| %>
+
+<div class="row">
+  <div class="col s5">
+    <%= f.input :name, label: 'Nome', autofocus: true %>
+  </div>
+  <div class="col s5">
+    <%= f.input :function, label: 'Cargo' %>
+  </div>
+  <div class="col s5">
+    <%= f.input :institution, label: 'Instituição' %>
+  </div>
+  <div class="col s5">
+    <%= f.input :link %>
+  </div>
+</div>
+
+  <div class="row">    
+    <div class="col l12">
+      <%= f.input :active, label: 'Desenvolvedor está ativo no projeto?', boolean_style: :inline %>
+    </div>
+  </div>
+
+
+
+
+  <div class="row">
+    <div class="col l6">
+      <div class="row">
+        <div class="col s7"> 
+          <%= f.input :start_on_project, as: :string, label: 'Entrou no projeto',  input_html: { class: 'datepicker' } %>
+        </div>
+
+      <div class="col s7" id="date_leave_project">
+        <%= f.input :leave_project, as: :string, label: 'Saiu do projeto',  input_html: { class: 'datepicker' } %>
+      </div>
+
+      <div class="col s7 file-field input-field">
+        <div class="btn waves-effect waves-light">
+        <span>Avatar</span>
+          <%= f.attachment_field :profile_image, class: 'photo_upload' %>
+        </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row"> 
+      <div class="col l6">
+        <div class="col s4">
+          <%= image_tag attachment_url(@developer, :profile_image, :fill, 50, 50, format: "jpg", fallback: "default-avatar"), :class => 'responsive-img form-image hidden image_to_upload' %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  
+  <%= f.button :button, 'Confirmar', class: 'right', cancel: admin_developers_path  %>
+
+<% end %>

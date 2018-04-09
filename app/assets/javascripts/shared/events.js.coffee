@@ -2,6 +2,8 @@ $(document).on 'turbolinks:load', ->
   FARMA.materializeSwitchEvent()
   FARMA.toggleDropdown()
   FARMA.activeDropdown()
+  FARMA.datePicker();
+
 
 ######################################
 # Change page when click on swith
@@ -60,3 +62,26 @@ FARMA.mouseOverOnCard = (selector) ->
        easing: 'easeInOutQuad',
        complete: ->
           $(this).css({ display: 'none'})
+
+######################################
+# Portuguese DatePicker materialize 
+######################################
+
+FARMA.datePicker = ->
+  $('.datepicker').pickadate
+    selectMonths: true
+    selectYears: 15
+    labelMonthNext: 'Próximo mês'
+    labelMonthPrev: 'Último mês'
+    labelMonthSelect: 'Selecione o mês'
+    labelYearSelect: 'Selecione o ano'
+    monthsFull: [ 'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro' ]
+    monthsShort: [ 'Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez' ]
+    weekdaysFull: [ 'Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado' ]
+    weekdaysShort: [ 'Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab' ]
+    weekdaysLetter: [ 'D', 'S', 'T', 'Q', 'Q', 'S', 'S' ]
+    today: 'Hoje'
+    clear: 'Limpar'
+    close: 'Pronto'
+    format: 'dd/mm/yyyy'
+

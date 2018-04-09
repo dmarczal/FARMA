@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   namespace :admin do
     get '/' => 'dashboard#index'
     resources :researches
+    resources :developers
+
   end
 
   #################################### Default Layout ###########################################
@@ -23,6 +25,7 @@ Rails.application.routes.draw do
   # Routes for home
   root to: "home#index"
   resources :contacts, only: :create
+  get '/team' => 'home#team'
 
   # Routes for los
   resources :los, only: [:index]
