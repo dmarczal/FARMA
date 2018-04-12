@@ -6,7 +6,7 @@ Read this in other languages: [Portuguese Brazil](README-PTBR.md)
 Nowadays the technology is essencial to the process of teaching and learning and one of the prominent approaches is the use of Learning Objects. Seeing that, the research developed a web authoring tool to Learning Objects, which allows the manipulation of the error records in the teaching practice through retroaction mechanism that allows going back to the context of correct and wrongs interactions of apprentices. Thus, it is argued that the storage, visualization, manipulation, and retrieval of errors records and also correct interaction of the learners can bring benefits for teaching and learning.
 
 ### Objective
-Allowing teachers that doesn't know how to programming create Learning Objects (LO) to teaching mathematics concepts. Also it provides a mecanism to review a context of the learners' errors and provide feedback to these errors. So, FARMA encourage the user of the error as a method to learning.
+Allowing teachers that doesn't know how to programming create Learning Objects (LO) to teaching mathematics concepts. Also it provides a mecanism to review a context of the learners' errors and provide feedback to these errors. So, FARMA encourage to use errors as a method to learning.
 
 ### FARMA Possibilities
 * The teacher can analyze the students' errors.
@@ -17,6 +17,7 @@ Allowing teachers that doesn't know how to programming create Learning Objects (
 * Encourage the remediation of errors.
 * Enable educational mobility.
 * Promote formative evaluation.
+
 ### Try FARMA
 Getting start with FARMA through its [online version](http://farma-reborn.educacional.mat.br/)
 
