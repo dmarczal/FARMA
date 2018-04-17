@@ -18,6 +18,21 @@
 }
 
 .form-image{
-	width: 300px;
-	height: 300px;
+    width: 300px;
+    min-height: 300px;
 }
+
+.developer-decoration{
+	white-space: nowrap;
+	table-layout:fixed;
+	word-wrap:break-word;
+}
+
+.developer-decoration p{
+	list-style: none;
+	color: black;
+	white-space: nowrap;
+	table-layout:fixed;
+	word-wrap:break-word;
+}
+

@@ -14,6 +14,10 @@
       short: "%d de %B de %Y, %H:%M"
       small: "%d/%m/%Y, %H:%M"
     pm: ''
+  date:
+    formats:
+      default: "%d/%m/%Y"
+      long: "%d de %B de %Y"
   activerecord:
       models:
         user:

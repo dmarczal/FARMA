@@ -9,14 +9,12 @@
    <div class="col s12 m4">
      <div class="card hoverable">
        <div class="card-image waves-effect waves-block waves-light">
-         <%= image_tag attachment_url(dev, :profile_image, :fill, 299, 299, format: "jpg", fallback: "default-avatar"), :class => 'circle index-img activator' %>
-
+         <%= image_tag attachment_url(dev, :profile_image, :fill, 300, 300, format: "jpg", fallback: "default-avatar"), :class => 'circle index-img activator' %>
        </div>
-
        <div class="card-reveal">
          <span class="card-title white-text">
-           <h5> <%= dev.name %></h5>
-           <h6>  <%= dev.function %></h6>
+           <h5> <%= dev.name %> </h5>
+           <h6> <%= dev.function %> </h6>
          </span>
          <p>
           <%= dev.institution %>
@@ -27,4 +25,12 @@
    </div>
   <% end %>
  </div>
+ 
+ <div class="center move-btn">
+ <%= link_to "Outros desenvolvedores", team_path, class: "waves-effect waves-light btn-large tooltipped",
+   "data-position" => "bottom", "data-delay" => "50",
+   "data-tooltip" => "Ver todos os desenvolvedores que participaram do farma" %>
+</div>
+
 </section>
+

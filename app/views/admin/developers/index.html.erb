@@ -14,11 +14,8 @@
 <table class="highlight responsive-table">
   <thead>
     <tr>
-      <th></th>
       <th>Nome</th>
       <th>Função</th>
-      <th>Instituição</th>
-      <th>Link</th>
       <th>Ativo</th>
       <th colspan="3"></th>
     </tr>
@@ -29,28 +26,24 @@
       <tr>
         <td>
           <%= link_to(admin_developer_path(dev)) do %>
+          <div class="developer-decoration">
+            
             <%= image_tag attachment_url(dev, :profile_image, :fill, 50, 50, format: "jpg", fallback: "default-avatar"), :class => 'circle responsive-img index-image' %>
+            
+            <p><%= dev.name %></p>
+        
+          </div>
           <% end %>
         </td>
-        <td><%= dev.name %></td>
-        <td><%= dev.function %></td>
-        <td><%= dev.institution %></td>
-        <td><%= link_to dev.link, "http://#{dev.link}" %></td>
-        
+
+        <td><p><%= dev.function %></p></td>
+       
         <td>
         <% if dev.active == true %>
-        Ativo
+        <p>Ativo</p>
         <% else %>
-        Inativo
+        <p>Inativo</p>
         <% end %>
-        </td>
-
-        <td><%= dev.start_on_project %></td>
-
-        <td>
-          <%= link_to(admin_developer_path(dev)) do %>
-          <%= fa_icon "user", class: 'small' %>
-          <% end %>
         </td>
 
         <td>

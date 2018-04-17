@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   # Routes for home
   root to: "home#index"
   resources :contacts, only: :create
-  get '/team' => 'home#team'
+  get '/team' => 'team#index'
 
   # Routes for los
   resources :los, only: [:index]
