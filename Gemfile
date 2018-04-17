@@ -34,6 +34,7 @@ gem 'codemirror-rails' # TODO: CHECK WHERE IT IS USED
 gem 'refile', require: 'refile/rails', github: 'refile/refile'
 gem 'refile-mini_magick'
 gem "refile-s3"
+gem 'active_model_serializers', '~> 0.10.0'
 
 group :development do
   gem 'populator',  '1.0.0'
