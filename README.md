@@ -1,62 +1,31 @@
-#FARMA
+Read this in other languages: [Portuguese Brazil](README-PTBR.md)
 
-Ferramenta de Autoria para a Remediação de erros com Mobilidade na Aprendizagem.
+## FARMA
+ **Authoring Tool for Remediation of Errors with Mobile in Learning.**
 
-##Pré-requisitos
+Nowadays the technology is essencial to the process of teaching and learning and one of the prominent approaches is the use of Learning Objects. Seeing that, the research developed a web authoring tool to Learning Objects, which allows the manipulation of the error records in the teaching practice through retroaction mechanism that allows going back to the context of correct and wrongs interactions of apprentices. Thus, it is argued that the storage, visualization, manipulation, and retrieval of errors records and also correct interaction of the learners can bring benefits for teaching and learning.
 
-```
-nodejs
-libpq-dev
-postgresql
-postgresql-contrib
+### Objective
+Allowing teachers that doesn't know how to programming create Learning Objects (LO) to teaching mathematics concepts. Also it provides a mecanism to review a context of the learners' errors and provide feedback to these errors. So, FARMA encourage to use errors as a method to learning.
 
-```
+### FARMA Possibilities
+* The teacher can analyze the students' errors.
+* The teacher and the learning can go back to the error and try it again.
+* Allow remote exchange of messages between teachers and learners about the wrong and correct answers.
+* Allow to monitor the learners'performance through the use of LO.
+* Encourage the gradual development of the learner's abstraction capacity.
+* Encourage the remediation of errors.
+* Enable educational mobility.
+* Promote formative evaluation.
 
-##Instalação
+### Try FARMA
+Getting start with FARMA through its [online version](http://farma-reborn.educacional.mat.br/)
 
-1. Clone o repositório do projeto utilizando o comando
+### Run locally
+To download and install FARMA follow the WIKI [How to Install](https://github.com/dmarczal/FARMA/wiki)
 
-    * `git clone https://dmarczal@bitbucket.org/farma-reborned/farma.git`
+### Contribute
+We hope that you will consider contributing to Devise. Please read this short overview for some information about [how to get started](https://github.com/dmarczal/FARMA/wiki/How-to-contribute)
 
-2. Instalar as gems necessárias
-
-    * Executar  `gem install bundler`
-    * Executar  `bundle install`
-
-3. Configure as váriaveis de ambiente
-
-```
-    export GMAIL_USERNAME=username
-    export GMAIL_PASSWORD=senha
-
-    export FARMA_DATABASE_USERNAME=username
-    export FARMA_DATABASE_PASSWORD=senha
-```
-
-4. Crie banco e as tabelas do banco de dados
-
-    * Executar `bundle exec rake db:create`
-    * Executar `bundle exec rake db:migrate`
-
-5. Criar as páginas Sobre e Contato
-
-    * Executar o comando `bundle exec rake db:seed`
-
-6. Levante o servidor e acesse a aplicação
-
-    * Execute `thin start`
-    * Acesse a [FARMA](http://localhost:3000)
-
-##Documentação
-
-##Suporte
-
-##Contribua
-
-  Para contribuir com o projeto use o sistema de Pull Request
-
-##Contribuidores
-
-##Copyright
-
-  FARMA está cobre a [licença do MIT](http://opensource.org/licenses/MIT).
+### Copyright
+FARMA is covered [MIT License](https://opensource.org/licenses/MIT).
