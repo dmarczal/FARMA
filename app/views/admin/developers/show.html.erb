@@ -10,26 +10,19 @@
 	      <%= image_tag attachment_url(@developer, :profile_image, :fill, 300, 300, format: "jpg", fallback: "default-avatar"), :class => 'circle responsive-img profile-image' %>
 	    </div>
 	    <div class="col s10">
-	      <span class="black-text">
-	        
-			<h1>Name: <%= @developer.name %> </h1>
-
-			<h2>Função: <%= @developer.function %></h2>
-
-			<h2>Instituição: <%= @developer.institution %></h2>
-		
-			<% if @developer.active == true %>
-	        <h2>Ativo</h2>
-	        <% else %>
-	        <h2>Inativo</h2>
-	        <% end %>
-
-			<h2>Entrou no projeto: <%= l(@developer.start_on_project, format: :long) %></h2>
-
-			<% if @developer.leave_project? %>
-			<h2>Saiu do projeto: <%= l(@developer.leave_project, format: :long) %></h2>
-			<% end %>
-			
+	      <span class="black-text"> 
+					<h1>Name: <%= @developer.name %> </h1>
+					<h2>Função: <%= @developer.function %></h2>
+					<h2>Instituição: <%= @developer.institution %></h2>
+					<% if @developer.active == true %>
+						<h2>Ativo</h2>
+					<% else %>
+						<h2>Inativo</h2>
+					<% end %>
+					<h2>Entrou no projeto: <%= l(@developer.start_on_project, format: :long) %></h2>
+					<% if @developer.leave_project? %>
+						<h2>Saiu do projeto: <%= l(@developer.leave_project, format: :long) %></h2>
+					<% end %>
 	      </span>
 	    </div>
 	  </div>

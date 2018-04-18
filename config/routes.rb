@@ -17,7 +17,6 @@ Rails.application.routes.draw do
     get '/' => 'dashboard#index'
     resources :researches
     resources :developers
-
   end
 
   #################################### Default Layout ###########################################

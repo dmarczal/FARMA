@@ -1,7 +1,6 @@
 class Admin::DevelopersController < Admin::AdminApplicationController
 
   before_action :set_developer, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_admin!
 
   def index
     @developers = Admin::Developer.all.order(active: :desc).order(:start_on_project)

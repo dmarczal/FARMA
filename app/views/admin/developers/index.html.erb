@@ -7,8 +7,6 @@
   <% end %>
 </div>	
 
-<p id="notice"><%= notice %></p>
-
 <h1>Membros</h1>
 
 <table class="highlight responsive-table">
@@ -26,35 +24,28 @@
       <tr>
         <td>
           <%= link_to(admin_developer_path(dev)) do %>
-          <div class="developer-decoration">
-            
-            <%= image_tag attachment_url(dev, :profile_image, :fill, 50, 50, format: "jpg", fallback: "default-avatar"), :class => 'circle responsive-img index-image' %>
-            
+          <div class="developer-decoration">  
+            <%= image_tag attachment_url(dev, :profile_image, :fill, 50, 50, format: "jpg", fallback: "default-avatar"), :class => 'circle responsive-img index-image' %>   
             <p><%= dev.name %></p>
-        
           </div>
           <% end %>
         </td>
-
         <td><p><%= dev.function %></p></td>
-       
         <td>
-        <% if dev.active == true %>
-        <p>Ativo</p>
-        <% else %>
-        <p>Inativo</p>
-        <% end %>
-        </td>
-
-        <td>
-          <%= link_to(edit_admin_developer_path(dev)) do %>
-          <%= fa_icon "edit", class: 'small' %>
+          <% if dev.active == true %>
+            <p>Ativo</p>
+          <% else %>
+            <p>Inativo</p>
           <% end %>
         </td>
-        
+        <td>
+          <%= link_to(edit_admin_developer_path(dev)) do %>
+            <%= fa_icon "edit", class: 'small' %>
+          <% end %>
+        </td>       
         <td>
           <%= link_to(dev, method: :delete, data: { confirm: 'Deseja excluir esse desenvolvedor?' }) do %>
-          <%= fa_icon "trash", class: 'small' %>
+            <%= fa_icon "trash", class: 'small' %>
           <% end %>
         </td>
       </tr>
@@ -62,4 +53,3 @@
   </tbody>
 </table>
 
-<br>

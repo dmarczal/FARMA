@@ -53,7 +53,7 @@ RSpec.describe Admin::DevelopersController, type: :controller do
 
 				expect(flash[:success]).to eq 'Desenvolvedor adicionado com sucesso.'
 			end
-			
+			 
 		end
 
 		context 'when all parameters sent are valid except leave project and developer is no more active' do
