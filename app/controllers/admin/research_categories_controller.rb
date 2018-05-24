@@ -1,5 +1,4 @@
 class Admin::ResearchCategoriesController < Admin::AdminApplicationController
-
   def index
     @categories = Admin::ResearchCategory.all
   end
@@ -11,7 +10,8 @@ class Admin::ResearchCategoriesController < Admin::AdminApplicationController
   def create
     @category = Admin::ResearchCategory.new(category_params)
     if @category.save
-      redirect_to admin_research_categories_path, flash: { success: 'Categoria de pesquisa criada com sucesso.' }
+      redirect_to admin_research_categories_path, flash: { success:
+      'Categoria criada com sucesso.' }
     else
       flash.now[:error] = 'Existem dados incorretos.'
       render :new
@@ -25,7 +25,8 @@ class Admin::ResearchCategoriesController < Admin::AdminApplicationController
   def update
     @category = Admin::ResearchCategory.find(params[:id])
     if @category.update_attributes(category_params)
-      redirect_to admin_research_categories_path, flash: { success: 'Categoria de pesquisa atualizada com sucesso.' }
+      redirect_to admin_research_categories_path, flash: { success:
+      'Categoria atualizada com sucesso.' }
     else
       flash.now[:error] = 'Existem dados incorretos.'
       render :edit
@@ -33,9 +34,14 @@ class Admin::ResearchCategoriesController < Admin::AdminApplicationController
   end
 
   def destroy
-     @category = Admin::ResearchCategory.find(params[:id])
-     @category.destroy
-     redirect_to admin_research_categories_path, flash: { success: 'Categoria de pesquisa removida com sucesso.' }
+    @category = Admin::ResearchCategory.find(params[:id])
+    if @category.destroy
+      redirect_to admin_research_categories_path, flash: { success:
+        'Categoria removida com sucesso.' }
+    else
+      flash[:error] = 'Existem pesquisas cadastradas com esta categoria.'
+      redirect_to admin_research_categories_path
+    end
   end
 
   private
@@ -43,5 +49,4 @@ class Admin::ResearchCategoriesController < Admin::AdminApplicationController
   def category_params
     strip_params params.require(:admin_research_category).permit(:name)
   end
-
 end

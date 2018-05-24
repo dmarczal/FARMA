@@ -5,6 +5,8 @@ module Helpers
         fields.each do |field, val|
           fill_in field, with: val
         end
+
+        yield if block_given?
       end
 
       find(submit).click

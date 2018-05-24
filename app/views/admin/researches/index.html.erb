@@ -6,7 +6,7 @@
   <%= link_to(new_admin_research_path,
               class: 'btn-floating btn-large pink-red tooltipped',
               'data-position' => 'left',
-              'data-tooltip' => 'Criar uma nova categoria de pesquisa') do %>
+              'data-tooltip' => 'Cadastrar uma nova pesquisa') do %>
      <%= fa_icon "plus" %>
   <% end %>
 </div>
@@ -21,13 +21,17 @@
   <tbody>
     <% @researches.each do |research| %>
       <tr>
-        <td><%= research.title %></td>
+        <td>
+          <%= link_to admin_research_path(research) do %>
+          <%= research.title %>
+        <% end %>
+        </td>
         <td class="right">
           <%= link_to research, data: { confirm: 'Tem certeza?' }, class: 'actions destroy tooltipped', method: :delete,
             "data-position" => "bottom", "data-delay" => "50", "data-tooltip"=>"Remover" do %>
             <%= fa_icon "trash" %>
           <% end %>
-          <%= link_to edit_admin_research_category_path(category), class: 'actions edit tooltipped',
+          <%= link_to edit_admin_research_path(research), class: 'actions edit tooltipped',
             "data-position" => "bottom", "data-delay" => "50", "data-tooltip"=>"Editar" do %>
             <%= fa_icon "edit" %>
           <% end %>

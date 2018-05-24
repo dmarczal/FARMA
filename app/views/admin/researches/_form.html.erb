@@ -1,10 +1,25 @@
 <%= simple_form_for(@research) do |f| %>
 
-    <%= f.input :title %>
-    <%= f.input :ref %>
-    <%= f.input :abstract %>
-    <%= f.input :link %>
-    <%= f.input :kind%>
-    <%= f.button :submit_materialize, cancel: admin_research_categories_path %>
+<div class="col s12">
+  <%= f.input :title %>
+</div>
 
+<div id="box-textarea" class="col s12">
+  <%= f.input :ref, as: :textarea%>
+</div>
+
+<div id="box-textarea" class="col s12">
+  <%= f.input :abstract, as: :textarea %>
+</div>
+
+<div class="col s8">
+  <%= f.input :link %>
+</div>
+<div class="col s4">
+  <%= f.association :research_category%>
+</div>
+
+<div class="col s12">
+  <%= f.button :submit_materialize, cancel: admin_researches_path %>
+</div>
 <% end %>

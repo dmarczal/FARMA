@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col s10">
+    <div class="card darken-1">
+      <div class="card-content black-text">
+
+        <span class="card-title">Titulo </span>
+        <p>
+          <%= @research.title%>
+        </p>
+
+        <div class="divider col s12"></div>
+        <span class="card-title">Resumo</span>
+        <p>
+          <%= @research.abstract%>
+        </p>
+
+        <div class="divider col s12"></div>
+        <span class="card-title">Referências</span>
+        <p>
+          <%= @research.ref%>
+        </p>
+
+        <div class="divider col s12"></div>
+        <span class="card-title">Link</span>
+        <p>
+          <%= link_to @research.link do %>
+          <%= @research.link%>
+          <% end %>
+        </p>
+
+        <div class="divider col s12"></div>
+        <span class="card-title">Tipo</span>
+        <p>
+          <%=@research.research_category.name %>
+        </p>
+
+      </div>
+    </div>
+  </div>
+</div>

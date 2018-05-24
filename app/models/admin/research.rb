@@ -1,13 +1,7 @@
 class Admin::Research < ApplicationRecord
-    validates :title, :ref, :abstract, :link, :kind, presence: true
+  validates :title, :ref, :abstract, :link, presence: true
+  validates :research_category_id, presence: true
+  validates :title, :abstract, :link, uniqueness: { case_sensitive: false }
+  validates :link, format: URI.regexp(%w[http https])
+  belongs_to :research_category
 end
-
-#create_table "admin_researches", id: :serial, force: :cascade do |t|
-#  t.string "title"
-#  t.text "ref"
-#  t.text "abstract"
-#  t.string "link"
-#  t.string "kind"
-#  t.datetime "created_at", null: false
-#  t.datetime "updated_at", null: false
-#end
