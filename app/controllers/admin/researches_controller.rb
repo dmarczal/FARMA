@@ -3,7 +3,7 @@
 # your comment
 class Admin::ResearchesController < Admin::AdminApplicationController
   def index
-    @researches = Admin::Research.all
+    @researches = Admin::Research.order :title
   end
 
   def new

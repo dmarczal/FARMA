@@ -1,4 +1,5 @@
 'pt-BR':
+  invalid_url: 'Formato de link inválido. Verifique se há espaços em branco e se possui ( http ou https )'
   hello: 'Olá'
   views:
     show: "Mostrar"
@@ -66,7 +67,8 @@
           cmas_order: 'Considerar ordem das respostas'
           <<: *commons
         admin/research:
-          ref: 'Referência'
+          ref: 'Referências'
           abstract: 'Resumo'
-          kind: 'Tipo'
+          link: 'Endereço eletrônico'
+          research_category: 'Tipo'
           <<: *commons

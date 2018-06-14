@@ -80,4 +80,8 @@ module ApplicationHelper
 
     raw(html)
   end
+  
+  def humanize(kclass, attribute)
+    kclass.human_attribute_name attribute
+  end
 end
