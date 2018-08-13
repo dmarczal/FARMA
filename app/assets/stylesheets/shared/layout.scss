@@ -166,6 +166,34 @@ div.sidebar li.dropdown {
   }
 }
 
+/*************************************************************
+/* Align image with text
+/*************************************************************/
+.img-left-text-right {
+  img {
+    float: left;
+    margin-right: 10px;
+  }
+  span {
+    line-height: 50px;
+  }
+}
+
+.img-50 {
+  width: 50px;
+  height: 50px;
+}
+
+.img-100 {
+  width: 100px;
+  height: 100px;
+}
+
+.img-300 {
+  width: 300px;
+  height: 300px;
+}
+
 
 /*************************************************************
 /* Switch workspace
@@ -211,7 +239,7 @@ div.sidebar li.dropdown {
 
   .image_preview {
     padding: 0;
-  }  
+  }
 
   .box-image {
     position: relative;
@@ -256,6 +284,7 @@ div.sidebar li.dropdown {
   }
   .breadcrumb:before {
     color: $palletegreen;
+    //content: ' > ';
   }
 }
 

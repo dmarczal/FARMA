@@ -1,38 +1,30 @@
 <li class="collection-item col s12 row white">
  <div class="col s9 title">
   <i class="mdi-editor-format-list-bulleted left exercise"></i>
-  <span class="exercise"><%= "Exercicio " + exercise.index.to_s %></span>
+  <span class="exercise green-text"><%= "Exercicio " + exercise.index.to_s %></span>
   <p><%= exercise.title %></p>
  </div>
 
  <div class="col s3">
+
+  <%= fa_icon 'info', class: 'tooltipped left', 'data-position' => 'left', 'data-tooltip' => "Criado em #{l(exercise.created_at, format: :small)},
+  Última atualização em #{l(exercise.updated_at, format: :small)}" %>
+
+
   <%= link_to(edit_teacher_lo_exercise_path(@lo, exercise), class: 'left') do%>
     <%= fa_icon 'pencil' %>
   <% end %>
 
-  <%= link_to([:teacher, @lo, exercise], method: :delete, class: 'right', data: { confirm: 'tem certeza disso?' }) do%>
+  <%= link_to([:teacher, @lo, exercise], class: 'right', method: :delete, data: { confirm: 'tem certeza disso?' }) do%>
     <%= fa_icon 'trash' %>
   <% end %>
  </div>
 
- <div id="show-questions" class="col S1">
+ <div id="show-questions" class="col S1 right">
   <%= link_to([:teacher, @lo, exercise], class: 'btn-flat tooltipped',
    'data-position' => 'top', 'data-tooltip' => "Questões do exercício" ) do %>
    
    <%= fa_icon('arrow-right', 'aria-hidden': true, class: 'fa-1', text: 'Questões', right: true) %>
   <% end %>
  </div>
-
- <div class="col s6 right">
-  <span class="span-created-at right">
-   Criado em <%= l(exercise.created_at, format: :small) %>
-  </span>
-
-  <% if exercise.updated_at != exercise.created_at %>
-   <span class="span-created-at right">
-    Última atualização em <%= l(exercise.updated_at, format: :small) %>
-   </span>
-  <% end %>
- </div>
-
 </li>

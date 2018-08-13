@@ -1,0 +1,27 @@
+// Place all the styles related to the admin/developers controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.profile-image:hover {
+	transform: scale(2.5);
+	border-radius: 0;
+}
+
+.developer-decoration{
+	white-space: nowrap;
+	table-layout:fixed;
+	word-wrap:break-word;
+}
+
+.developer-decoration p{
+	list-style: none;
+	color: black;
+	white-space: nowrap;
+	table-layout:fixed;
+	word-wrap:break-word;
+}
+
+.blocking{
+	display: block;
+}
+

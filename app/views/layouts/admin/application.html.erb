@@ -22,12 +22,14 @@
     </div>
 
     <div class="main-content col m10 l10">
-        <div class="content white">
-          <%= yield %>
-        </div>
+      <div class="content white">
+        <%= render_breadcrumbs :builder => ::MaterializeBreadcrumbs,
+        class: 'nav-breadcrumbs z-depth-0 transparent'  %>
+
+        <div class="divider"></div>
+        <%= yield %>
+      </div>
     </div>
-
   </div>
-
 </body>
 </html>

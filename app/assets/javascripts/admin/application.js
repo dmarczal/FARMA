@@ -18,6 +18,7 @@
 //= require config/toastr
 //= require config/materialize
 
-
 // App files
 //--------------------
+//= require admin/events
+//= require shared/events
