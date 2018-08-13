@@ -1,0 +1,17 @@
+<div class="col s12 m4">
+  <div class="card hoverable">
+    <div class="card-image waves-effect waves-block waves-light">
+      <%= image_tag attachment_url(developer, :profile_image, fallback: "default-avatar"), :class => 'img-300 activator' %>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title white-text">
+        <h5> <%= developer.name %> </h5>
+        <h6> <%= developer.function %> </h6>
+      </span>
+      <p>
+       <%= developer.institution %>
+      </p>
+      <b><%= link_to 'SAIBA MAIS', developer.link, class: 'right' %></b>
+    </div>
+  </div>
+</div>

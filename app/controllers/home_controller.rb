@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def index
     @contact = Contact.new
-    @developers = Admin::Developer.where(active: true)
+    @developers = Admin::Developer.actives
   end
 
 end

@@ -13,8 +13,15 @@ pt-BR:
     error_notification:
       default_message: "Alguns erros foram encontrados, por favor verifique:"
     # Labels and hints examples
-    # labels:
-    #   password: 'Password'
+    labels:
+      defaults:
+        password: 'Senha'
+        name: 'Nome'
+        function: 'Função'
+        institution: 'Instituição'
+        active: 'Ativo'
+        start_on_project: 'Entrou no projeto'
+        leave_project: 'Saiu do projeto'
     #   user:
     #     new:
     #       email: 'E-mail para efetuar o sign in.'

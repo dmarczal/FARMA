@@ -1,5 +1,9 @@
 'pt-BR':
+  :true: 'Sim'
+  :false: 'Não'
   hello: 'Olá'
+  invalid_url: 'Url deve ser válida, adicione http ou https'
+  developers: 'Desenvolvedores'
   views:
     show: "Mostrar"
     edit: "Editar"
@@ -73,4 +77,11 @@
           ref: 'Referência'
           abstract: 'Resumo'
           kind: 'Tipo'
+          <<: *commons
+        admin/developer:
+          function: 'Função'
+          institution: 'Instituição'
+          active: 'Ativo'
+          start_on_project: 'Entrou no projeto'
+          leave_project: 'Saiu do projeto'
           <<: *commons

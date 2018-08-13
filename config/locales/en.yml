@@ -21,3 +21,5 @@
 
 en:
   hello: "Hello world"
+  invalid_url: 'Must be a valid url, verify http or https'
+  

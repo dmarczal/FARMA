@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20180402193127) do
     t.string "link"
     t.date "start_on_project"
     t.date "leave_project"
-    t.boolean "active"
+    t.boolean "active", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "profile_image_id"

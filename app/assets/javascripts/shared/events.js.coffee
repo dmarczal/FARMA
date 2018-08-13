@@ -3,6 +3,7 @@ $(document).on 'turbolinks:load', ->
   FARMA.toggleDropdown()
   FARMA.activeDropdown()
   FARMA.datePicker();
+  FARMA.imagePreview()
 
 
 ######################################
@@ -85,3 +86,37 @@ FARMA.datePicker = ->
     close: 'Pronto'
     format: 'dd/mm/yyyy'
 
+###################################################################################################
+# Image preview
+###################################################################################################
+
+# FARMA.imagePreview = ->
+#   readURL = (input)->
+#     if input.files && input.files[0]
+#       reader = new FileReader()
+#       reader.onload = (e) ->
+#         $('.file_preview').attr 'src', e.target.result
+#         $('.file_preview').addClass('active');
+#         $('.text-box').css('display','none');
+
+#       reader.readAsDataURL input.files[0]
+
+#   $("#image_preview").change ->
+#       readURL this
+
+FARMA.imagePreview = ->
+  # Display the image to be uploaded.
+  $('.file_preview').on 'change', (e) ->
+    readURL(this);
+
+  readURL = (input) ->
+    if (input.files && input.files[0])
+      reader = new FileReader()
+
+    reader.onload = (e) ->
+      $('#image_preview').attr('src', e.target.result).removeClass('hidden');
+      $swap = $('.swap')
+      if $swap
+        $swap.removeClass('hidden')
+
+    reader.readAsDataURL(input.files[0]);

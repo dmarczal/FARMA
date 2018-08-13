@@ -1,55 +1,47 @@
 <div class="fixed-action-btn">
   <%= link_to(new_admin_developer_path,
-              class: 'btn-floating btn-large tooltipped ',
-              'data-position' => 'left',
-              'data-tooltip' => 'Cadastrar um novo membro') do %>
-     <%= fa_icon "plus" %>
-  <% end %>
-</div>	
+    class: 'btn-floating btn-large tooltipped ',
+      'data-position' => 'left',
+      'data-tooltip' => 'Cadastrar um novo membro') do %>
+      <%= fa_icon "plus" %>
+      <% end %>
+    </div>
 
-<h1>Membros</h1>
+    <header class="page-header">
+      <h1>Membros</h1>
+    </header>
 
-<table class="highlight responsive-table">
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Função</th>
-      <th>Ativo</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @developers.each do |dev| %>
-      <tr>
-        <td>
-          <%= link_to(admin_developer_path(dev)) do %>
-          <div class="developer-decoration">  
-            <%= image_tag attachment_url(dev, :profile_image, :fill, 50, 50, format: "jpg", fallback: "default-avatar"), :class => 'circle responsive-img index-image' %>   
-            <p><%= dev.name %></p>
-          </div>
-          <% end %>
-        </td>
-        <td><p><%= dev.function %></p></td>
-        <td>
-          <% if dev.active == true %>
-            <p>Ativo</p>
-          <% else %>
-            <p>Inativo</p>
-          <% end %>
-        </td>
-        <td>
-          <%= link_to(edit_admin_developer_path(dev)) do %>
+    <table class="highlight responsive-table">
+      <thead>
+        <tr>
+          <th><%= humanize Admin::Developer, :name %></th>
+          <th><%= humanize Admin::Developer, :function %></th>
+          <th><%= humanize Admin::Developer, :active %></th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @developers.each do |dev| %>
+        <tr>
+          <td>
+            <%= link_to(admin_developer_path(dev)) do %>
+            <div class="img-left-text-right">
+              <%= image_tag attachment_url(dev, :profile_image, fallback: "default-avatar"), :class => 'circle img-50' %>
+              <span><%= dev.name %></span>
+            </div>
+            <% end %>
+          </td>
+          <td><p><%= dev.function %></p></td>
+          <td><p><%= humanize_boolean(dev.active?) %></p></td>
+          <td style="float: right; margin-right: 20px">
+            <%= link_to(edit_admin_developer_path(dev)) do %>
             <%= fa_icon "edit", class: 'small' %>
-          <% end %>
-        </td>       
-        <td>
-          <%= link_to(dev, method: :delete, data: { confirm: 'Deseja excluir esse desenvolvedor?' }) do %>
+            <% end %>
+            <%= link_to(dev, method: :delete, data: { confirm: 'Deseja excluir esse desenvolvedor?' }) do %>
             <%= fa_icon "trash", class: 'small' %>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>

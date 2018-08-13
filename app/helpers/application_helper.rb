@@ -80,4 +80,13 @@ module ApplicationHelper
 
     raw(html)
   end
+
+  def humanize_boolean(boolean)
+    I18n.t(boolean)
+  end
+
+  def humanize(kclass, attribute)
+    kclass.human_attribute_name attribute
+  end
+
 end

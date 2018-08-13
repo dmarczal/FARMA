@@ -4,22 +4,18 @@
 <%= link_to 'Voltar', :back, class: 'btn'  %>
 </div>
 
-
 <section id="home-page-team" class="section container box-1 scrollspy">
 <h4 class="center-align gray-text">
  Equipe de desenvolvimento
 </h4>
 <br>
-
 <div class="row">
  <% @active_developers.each do |dev| %>
   <div class="col s12 m4">
     <div class="card hoverable">
       <div class="card-image waves-effect waves-block waves-light">
-        <%= image_tag attachment_url(dev, :profile_image, :fill, 299, 299, format: "jpg", fallback: "default-avatar"), :class => 'circle index-img activator' %>
-
+        <%= image_tag attachment_url(dev, :profile_image, fallback: "default-avatar"), :class => 'circle img-300 activator' %>
       </div>
-
       <div class="card-reveal">
         <span class="card-title white-text">
           <h5> <%= dev.name %></h5>
@@ -28,7 +24,7 @@
         <p>
          <%= dev.institution %>
         </p>
-        <b><%= link_to 'SAIBA MAIS', "http://#{dev.link}", class: 'right' %></b>
+        <b><%= link_to 'SAIBA MAIS', dev.link, class: 'right' %></b>
       </div>
     </div>
   </div>
@@ -41,16 +37,13 @@
  Ex-Membros da equipe
 </h4>
 <br>
-
 <div class="row">
  <% @inavtive_developers.each do |dev| %>
   <div class="col s12 m4">
     <div class="card hoverable">
       <div class="card-image waves-effect waves-block waves-light">
-        <%= image_tag attachment_url(dev, :profile_image, :fill, 299, 299, format: "jpg", fallback: "default-avatar"), :class => 'circle index-img activator' %>
-
+        <%= image_tag attachment_url(dev, :profile_image, fallback: "default-avatar"), :class => 'circle index-img activator' %>
       </div>
-
       <div class="card-reveal">
         <span class="card-title white-text">
           <h5> <%= dev.name %></h5>
@@ -66,4 +59,3 @@
  <% end %>
 </div>
 </section>
-

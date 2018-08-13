@@ -7,7 +7,7 @@ class CreateAdminDevelopers < ActiveRecord::Migration[5.1]
       t.string :link
       t.date :start_on_project
       t.date :leave_project
-      t.boolean :active
+      t.boolean :active, default: false
 
       t.timestamps
     end

@@ -11,7 +11,7 @@ module ButtonComponents
         value ||= submit_default_value
 
         button = template.content_tag(:button, class: options[:class], type: 'submit') do
-          template.concat value
+          template.concat "#{value} "
           template.concat icon 'send'
         end
 
@@ -26,13 +26,13 @@ module ButtonComponents
     end
 
     def cancel_link(path)
-     template.link_to path, class: "btn-cancel" do
-       template.concat icon 'clear'
+     template.link_to path, class: "btn-cancel fa-2" do
+       template.concat icon 'close'
      end
     end
 
     def icon(icon_name)
-      "<i class='material-icons right'>#{icon_name}</i>".html_safe
+      "<i class=\"fa fa-#{icon_name}\"></i>".html_safe
     end
 end
 
