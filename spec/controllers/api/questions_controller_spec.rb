@@ -1,72 +1,84 @@
 require 'rails_helper'
-require 'pp'
 
 RSpec.describe API::QuestionsController, type: :controller do
+  let(:question) { questions.first }
+  let(:json_response) { JSON.parse(response.body) }
+  let(:exercise) { create(:exercise) }
+  let(:question_params) { attributes_for(:question) }
+  subject { response }
 
-  describe "GET 'index' " do
-    let!(:question) {FactoryBot.create_list(:question, 5)}
+  before { create_list(:question, 5) }
 
-    it "returns a successful 200 response" do
-      get :index, format: :json
-      expect(response).to be_success
-    end
+  describe "GET 'index'" do
+    before { get :index, format: :json }
+
+    it { is_expected.to be_success }
+    it { is_expected.to match_response_schema("question") }
 
     it "returns all the questions" do
-      get :index, format: :json
-      body = JSON.parse(response.body)
-      expect(body.size).to eq(5)
+      expect(json_response["data"].size).to eq(5)
     end
   end
 
-  describe "GET 'show' " do
-    let!(:question) {FactoryBot.create(:question)}
-    it "returns a successful 200 response" do
-      get :show, params: {id: question.id}, format: :json
-      expect(response).to be_success
-    end
+  describe "GET 'show'" do
+    context "when request was successful" do
+      before { get :show, params: {id: question.id}, format: :json }
 
-    it "returns data of an single question" do
-      get :show, params: {id: question.id}, format: :json
-      parsed_response = JSON.parse(response.body)
-      expect(parsed_response).to_not be_nil
-    end
-  end
+      it { is_expected.to be_success }
+      it { is_expected.to match_response_schema("question") }
 
-  describe "POST 'create' " do
-    let!(:exercise) {FactoryBot.create(:exercise)}
-    context "correct question format" do
-      it "returns a successful json string with success message" do
-        post :create, params: {title: "newstudent@example.com", content: "xxxxxx", correct_answer: 5, exercise_id: exercise.id}
-        expect(response).to be_success
-        parsed_response = JSON.parse(response.body)
-        expect(parsed_response['message']).to eq("newstudent@example.com criada com sucesso.")
+      it "returns the correct question" do
+        expect(json_response['id']).to eq question.id
       end
     end
 
-    context "incorrect question format" do
-      it "returns a error json string with error message" do
-        post :create, params: {title: "", content: "", correct_answer: "", exercise_id: exercise.id}
-        parsed_response = JSON.parse(response.body)
-        expect(parsed_response['message']).to eq("Erro ao criar a questão.")
-      end
+    context "when question not found" do
+      before { get :show, params: {id: 1000}, format: :json }
+
+      it { is_expected.to be_not_found }
+      it { is_expected.to match_response_schema("http_error") }
     end
   end
 
-  describe "PUT 'update' " do
-    let!(:question) {FactoryBot.create(:question)}
-    let!(:exercise) {FactoryBot.create(:exercise)}
-    it "return a error json string" do
-      put :update, params: {id: question.id, title: 'update', content: 'update', correct_answer: 1000, exercise_id: exercise.id}
-      parsed_response = JSON.parse(response.body)
-      pp parsed_response
-      expect(parsed_response['message']).to eq("update atualizada com sucesso.")
+  describe "POST 'create'" do
+    context "when the all parameters will be correct" do
+      before { post :create, params: question_params }
+
+      it { is_expected.to be_created }
+      it { is_expected.to match_response_schema("question") }
+
+      it "returns the created question" do
+        expect(json_response['data']['title']).to eq question_params[:title]
+      end
     end
 
-    it "return a successful json string" do
-      put :update, params: {id: question.id, title: '', content: '', correct_answer: "", exercise_id: exercise.id}
-      parsed_response = JSON.parse(response.body)
-      pp parsed_response
-      expect(parsed_response['message']).to eq("Erro ao atualizar a questão.")
+    context "when any of the parameters will be incorrect or missing" do
+      before { post :create, params: { exercise_id: exercise.id} }
+
+      it { is_expected.to be_bad_request }
+      it { is_expected.to match_response_schema("error") }
+    end
+  end
+
+  describe "PUT 'update'" do
+    let(:update_question_params) { question_params  }
+
+    context "when the all parameters will be correct" do
+      before { put :update, params: update_question_params }
+
+      it { is_expected.to be_created }
+      it { is_expected.to match_response_schema("question") }
+
+      it "returns the created question" do
+        expect(json_response['data']['title']).to eq question_params[:title]
+      end
+    end
+
+    context "when any of the parameters will be incorrect or missing" do
+      before { post :create, params: { id: question.id, title: '', content: '', correct_answer: "" } }
+
+      it { is_expected.to be_bad_request }
+      it { is_expected.to match_response_schema("error") }
     end
   end
 end

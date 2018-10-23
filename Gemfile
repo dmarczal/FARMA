@@ -64,6 +64,7 @@ end
 group :test do
   gem 'database_cleaner'
   gem 'shoulda-matchers', '~> 3.1'
+  gem 'json-schema', '~> 2.7'
 end
 
 group :production do
