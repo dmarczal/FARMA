@@ -16,7 +16,7 @@
         "data": {
             "description": "The response data",
             "type": "object",
-            "required": ["id", "title", "position", "content", "correct_answer", "precision", "exercise_id", "tips"],
+            "required": ["id", "title", "position", "content", "correct_answer", "precision", "exercise_id"],
             "properties": {
                 "id": { "type": "integer" },
                 "title": { "type": "string" },
@@ -24,8 +24,7 @@
                 "content": { "type": "string" },
                 "correct_answer": { "type": "string" },
                 "precision": { "type": ["integer", "null"] },
-                "exercise_id": { "type": "integer" },
-                "tips": { "type": "array" }
+                "exercise_id": { "type": "integer" }
             }
         }
     }

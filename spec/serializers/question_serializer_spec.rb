@@ -1,33 +1,19 @@
 require 'rails_helper'
 
 RSpec.describe QuestionSerializer, type: :serializer do
-  let(:question) {FactoryBot.build(:question)}
+  let(:question) {build_stubbed(:question)}
   let(:serializer) {described_class.new(question)}
   let(:serialization) {ActiveModelSerializers::Adapter.create(serializer)}
 
-  let(:subject) {JSON.parse(serialization.to_json)}
+  subject { serialization.serializable_hash }
 
-  it 'has an id that matches' do
-    expect(subject['id']).to eql(question.id)
-  end
-
-  it 'has a name that matches' do
-    expect(subject['title']).to eql(question.title)
-  end
-
-  it 'has a position that matches' do
-    expect(subject['position']).to eql(question.position)
-  end
-
-  it 'has a content that matches' do
-    expect(subject['content']).to eql(question.content)
-  end
-
-  it 'has a correct answer that matches' do
-    expect(subject['correct_answer']).to eql(question.correct_answer)
-  end
-
-  it 'has a precision that matches' do
-    expect(subject['precision']).to eql(question.precision)
-  end
+  it { is_expected.to include(id:             question.id) }
+  it { is_expected.to include(title:          question.title) }
+  it { is_expected.to include(position:       question.position) }
+  it { is_expected.to include(content:        question.content) }
+  it { is_expected.to include(correct_answer: question.correct_answer) }
+  it { is_expected.to include(precision:      question.precision) }
+  it { is_expected.to include(exercise_id:    question.exercise_id) }
+  it { is_expected.not_to include(created_at: question.created_at) }
+  it { is_expected.not_to include(updated_at: question.updated_at) }
 end
