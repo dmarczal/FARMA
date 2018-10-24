@@ -1,93 +1,93 @@
 class API::QuestionsController < ApplicationController
+  include APIResponses
+
+  before_action :find_exercise
   before_action :find_question, except: [:create, :index]
-  before_action :find_exercise, only: [:create]
+  before_action :set_data_type
+
+  rescue_from ActiveRecord::RecordNotFound do |exception|
+    if (@exercise.nil?)
+      self.data_type = 'O exercício não foi encontrado'
+    else
+      self.data_type = 'A questão não foi encontrada'
+    end
+
+    not_found_response
+  end
 
   def index
-    render json: Question.all
+    self.data_type = 'Question[]'
+    self.status_response = :ok
+    self.data = serializable_resource.new(@exercise.questions.all, each_serializer: QuestionSerializer)
+
+    json_response
   end
 
   def show
-    question = Question.find(params[:id])
-    render json: question
+    self.status_response = :ok
+    self.data = serializable_resource.new(@question, serializer: QuestionSerializer)
+
+    json_response
   end
 
   def create
     question = @exercise.questions.new(question_params)
+
     if question.save
-      render json: {
-          "type": "Question",
-          "message": question.title + " criada com sucesso.",
-          "data": {
-              "title": question.title
-          }}
+      self.status_response = :created
+      self.data = serializable_resource.new(question, serializer: QuestionSerializer)
+
+      json_response
     else
-      render json: {
-          "type": "Question",
-          "message": "Erro ao criar a questão.",
-          "data": {
-              "title": question.title
-          },
-          "error_data": {
-              "content": question.errors
-          }}
+      self.data_type = 'Bad request'
+      self.error = question.errors
+      self.status_response = :bad_request
+
+      bad_request_response
     end
   end
 
   def update
     if @question.update(question_params)
-      render json: {
-          "type": "Question",
-          "message": @question.title + " atualizada com sucesso.",
-          "data": {
-              "title": @question.title
-          }}
+      self.status_response = :created
+      self.data = serializable_resource.new(@question, serializer: QuestionSerializer)
+
+      json_response
     else
-      render json: {
-          "type": "Question",
-          "message": "Erro ao atualizar a questão.",
-          "data": {
-              "title": question.title
-          },
-          "error_data": {
-              "content": question.errors
-          }}
+      self.data_type = 'Bad request'
+      self.error = @question.errors
+      self.status_response = :bad_request
+
+      bad_request_response
     end
   end
 
   def destroy
-    if @question.destroy
-      render json: {
-          "type": "Question",
-          "message": "Questão deletada com sucesso"
-      }
-    else
-      render json: {
-          "type": "Question",
-          "message": "Erro ao deletar a questão.",
-          "data": {
-              "title": @question.title
-          },
-          "error_data": {
-              "content": @question.errors
-          }
-      }
-    end
+    title = @question.title
+    @question.destroy
+
+    self.data_type = 'Message'
+    self.data = "Questão #{title} deletada com sucesso"
+    self.status_response = :ok
+
+    json_response
   end
 
   private
 
   def question_params
-    params.permit(:title, :content, :correct_answer, :precision, :exercise_id)
+    params.permit(:title, :content, :correct_answer, :precision)
   end
 
   def find_question
-    @question = Question.find(params[:id])
-    @question.errors.add(:title, "não pode ser nulo")
-    @question.errors.add(:content, "não pode ser nulo")
-    @question.errors.add(:correct_answer, "não pode ser nulo")
+    @question = @exercise.questions.find(params[:id])
   end
 
   def find_exercise
     @exercise = Exercise.find(params[:exercise_id])
+  end
+
+  def set_data_type
+    self.data_type = 'Question'
   end
 end

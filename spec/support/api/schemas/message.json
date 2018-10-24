@@ -1,0 +1,21 @@
+{
+    "$id": "http://example.com/api/*",
+    "title": "Message response",
+    "description": "Only message response",
+    "type": "object",
+    "required": ["data", "status", "data_type"],
+    "properties": {
+        "data_type": {
+            "description": "Data type (Message)",
+            "type": "string"
+        },
+        "status": {
+            "description": "The http status from response",
+            "type": "string"
+        },
+        "data": {
+            "description": "The message reponse",
+            "type": "string"
+        }
+    }
+}

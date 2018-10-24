@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :question do
     title       {Faker::Name.name}
     content     {Faker::Name.name}
-    correct_answer {"5"}
+    correct_answer {"a*5 + b"}
 
     exercise
   end
