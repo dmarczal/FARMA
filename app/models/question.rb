@@ -6,7 +6,8 @@ class Question < ActiveRecord::Base
   has_many :answers, dependent: :destroy
   has_many :tips_counts, dependent: :destroy
 
-  validates :correct_answer, presence: true
+  validates :correct_answer, :title, :content, presence: true
+
 
   delegate :user, to: :exercise
 
@@ -27,11 +28,11 @@ class Question < ActiveRecord::Base
   end
 
   def tips_to_show(user:, team:, tips_count:)
-    @_tips ||=  if tips_count.nil?
-                  tips.where("number_of_tries <= ?", [tries]) unless have_a_try?
-                else
-                  tips.where("number_of_tries <= ?", [tips_count])
-                end
+    @_tips ||= if tips_count.nil?
+                 tips.where("number_of_tries <= ?", [tries]) unless have_a_try?
+               else
+                 tips.where("number_of_tries <= ?", [tips_count])
+               end
   end
 
   private

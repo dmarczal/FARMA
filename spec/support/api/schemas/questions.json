@@ -1,0 +1,37 @@
+{
+    "$id": "http://example.com/api/questions",
+    "title": "Questions",
+    "description": "Array with questions from exercise",
+    "type": "object",
+    "required": ["data", "data_type", "status"],
+    "properties": {
+        "data_type": {
+            "description": "The type of data from response (Question[])",
+            "type": "string"
+        },
+        "status": {
+            "description": "The http status from response",
+            "type": "string"
+        },
+        "data": {
+            "description": "The response data",
+            "type": "array",
+            "items": { "$ref": "#/definitions/question" }
+        }
+    },
+    "definitions": {
+        "question": {
+            "type": "object",
+            "required": ["id", "title", "position", "content", "correct_answer", "precision", "exercise_id"],
+            "properties": {
+                "id": { "type": "integer" },
+                "title": { "type": "string" },
+                "position": { "type": "integer" },
+                "content": { "type": "string" },
+                "correct_answer": { "type": "string" },
+                "precision": { "type": ["integer", "null"] },
+                "exercise_id": { "type": "integer" }
+            }
+        }
+    }
+}

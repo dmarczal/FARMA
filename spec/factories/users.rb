@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :user do
     name                  { Faker::Name.name }
-    email                 { "#{name.split(' ').first}@email.com" }
+    email                 { "#{name.gsub(' ', '.')}@email.com" }
     password              { 12345678 }
     password_confirmation { 12345678 }
 
@@ -10,4 +10,3 @@ FactoryBot.define do
     end
   end
 end
-

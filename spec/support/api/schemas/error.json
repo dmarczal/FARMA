@@ -1,0 +1,21 @@
+{
+    "$id": "http://example.com/api/*",
+    "title": "Http errors",
+    "description": "The response from http errors",
+    "type": "object",
+    "required": ["error_type", "status", "error"],
+    "properties": {
+        "error_type": {
+            "description": "The error type",
+            "type": "string"
+        },
+        "status": {
+            "description": "The http status from response",
+            "type": "string"
+        },
+        "error": {
+            "description": "The request error",
+            "type": "object"
+        }
+    }
+}
