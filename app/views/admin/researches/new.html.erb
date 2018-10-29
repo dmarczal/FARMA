@@ -10,3 +10,11 @@
    <%= render 'form'%>
  </div>
 </div>
+<div class="fixed-action-btn">
+<%= link_to(admin_researches_path,
+  class: 'btn-floating btn-large pink-red tooltipped',
+    'data-position' => 'left',
+    'data-tooltip' => 'Todas as pesquisas') do %>
+      <%= fa_icon("angle-double-left") %>
+      <% end %>
+    </div>

@@ -39,7 +39,7 @@ class Admin::ResearchCategoriesController < Admin::AdminApplicationController
       redirect_to admin_research_categories_path, flash: { success:
         'Categoria removida com sucesso.' }
     else
-      flash[:error] = 'Existem pesquisas cadastradas com esta categoria.'
+      flash[:error] = 'Não é permitdo remover uma categoria vinculada a uma ou mais pesquisas.'
       redirect_to admin_research_categories_path
     end
   end

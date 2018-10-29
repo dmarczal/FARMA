@@ -1,58 +1,73 @@
-<div class="row">
-  <div class="col s10">
-    <h2 class="header gray-text2" >
-      <%= humanize Admin::Research, :title %>
-    </h2>
-    <p>
-      <%= @research.title%>
-    </p>
+<section>
+  <header class="page-header">
+    <h1 class="header">Detalhes da pesquisa</h1>
+  </header>
 
-    <div class="divider col s12"></div>
-    <h2 class="header gray-text2">
-      <%= humanize Admin::Research, :research_category %>
-    </h2>
-    <p>
-      <%=@research.research_category.name %>
-    </p>
+  <div class="row">
+    <div class="col s10">
+      <h2 class="gray-text2" >
+        <%= humanize Admin::Research, :title %>
+      </h2>
+      <p>
+        <%= @research.title%>
+      </p>
 
-    <div class="divider col s12"></div>
-    <h2 class="header gray-text2">
-      <%= humanize Admin::Research, :abstract %>
-    </h2>
-    <p>
-      <%= @research.abstract%>
-    </p>
+      <div class="divider col s12"></div>
+      <h2 class="gray-text2">
+        <%= humanize Admin::Research, :research_category %>
+      </h2>
+      <p>
+        <%=@research.research_category.name %>
+      </p>
 
-    <div class="divider col s12"></div>
-    <h2 class="header gray-text2">
-      <%= humanize Admin::Research, :ref %>
-    </h2>
-    <p>
-      <%= @research.ref%>
-    </p>
+      <div class="divider col s12"></div>
+      <h2 class="gray-text2">
+        <%= humanize Admin::Research, :abstract %>
+      </h2>
+      <p>
+        <%= @research.abstract%>
+      </p>
 
-    <div class="divider col s12"></div>
-    <h2 class="header gray-text2">
-      <%= humanize Admin::Research, :link %>
-    </h2>
-    <p>
-      <%= link_to @research.link do %>
-      <%= @research.link%>
-      <% end %>
-    </p>
-    <div class="center move-btn">
-      <%= link_to "Editar", edit_admin_research_path(@research),
-        class: "btn-large tooltipped",
-        "data-position" => "left",
-        "data-tooltip" => "Editar" %>
+      <div class="divider col s12"></div>
+      <h2 class="gray-text2">
+        <%= humanize Admin::Research, :ref %>
+      </h2>
+      <p>
+        <%= @research.ref%>
+      </p>
+
+      <div class="divider col s12"></div>
+      <h2 class="gray-text2">
+        <%= humanize Admin::Research, :link %>
+      </h2>
+      <p>
+        <%= link_to @research.link do %>
+        <%= @research.link%>
+        <% end %>
+      </p>
     </div>
   </div>
-  <div class="fixed-action-btn">
-    <%= link_to(admin_researches_path,
-                class: 'btn-floating btn-large pink-red tooltipped',
-                'data-position' => 'left',
-                'data-tooltip' => 'Todas as pesquisas') do %>
-       <%= fa_icon "angle-double-left" %>
-    <% end %>
-  </div>
-</div>
+</section>
+
+<div class="fixed-action-btn vertical" >
+  <a class="btn-floating btn-large pink-red">
+    <%= fa_icon('ellipsis-v', 'aria-hidden': true, class: 'fa-1') %></a>
+  <ul>
+    <li>
+      <%= link_to(edit_admin_research_path(@research),
+      class: 'btn-floating btn-large pink-red tooltipped',
+        "data-position" => "left",
+        "data-tooltip" => "Editar") do %>
+        <%= fa_icon("edit") %>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to(admin_researches_path,
+          class: 'btn-floating btn-large pink-red tooltipped',
+            'data-position' => 'left',
+            'data-tooltip' => 'Todas as pesquisas') do %>
+            <%= fa_icon("angle-double-left") %>
+            <% end %>
+          </li>
+        </ul>
+      </div>

@@ -38,6 +38,9 @@
         admin/research:
             one: 'Pesquisa'
             other: 'Pesquisas'
+        admin/research_category:
+            one: 'Categoria de Pesquisa'
+            other: 'Categorias de Pesquisa'
       attributes:
         attribute_commons: &commons
           name: "Nome"
@@ -70,5 +73,7 @@
           ref: 'Referências'
           abstract: 'Resumo'
           link: 'Endereço eletrônico'
-          research_category: 'Tipo'
+          research_category: 'Categoria da Pesquisa'
+          <<: *commons
+        admin/research_category:
           <<: *commons

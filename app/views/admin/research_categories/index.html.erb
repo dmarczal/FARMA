@@ -2,14 +2,6 @@
   <h1>Categorias de Pesquisa</h1>
 </header>
 
-<div class="fixed-action-btn">
-  <%= link_to(new_admin_research_category_path,
-              class: 'btn-floating btn-large pink-red tooltipped',
-              'data-position' => 'left',
-              'data-tooltip' => 'Criar uma nova categoria de pesquisa') do %>
-     <%= fa_icon "plus" %>
-  <% end %>
-</div>
 
 <table class="bordered striped">
   <thead>
@@ -36,3 +28,12 @@
     <% end %>
   </tbody>
 </table>
+
+<div class="fixed-action-btn">
+  <%= link_to(new_admin_research_category_path,
+              class: 'btn-floating btn-large pink-red tooltipped',
+              'data-position' => 'left',
+              'data-tooltip' => 'Criar uma nova categoria de pesquisa') do %>
+     <%= fa_icon "plus" %>
+  <% end %>
+</div>

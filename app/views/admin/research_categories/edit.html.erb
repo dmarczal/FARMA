@@ -1,12 +1,21 @@
 <div class="card-panel hoverable box-form">
-   <div class="row">
-      <div class="col s12 center">
-         <h2 class="header gray-text2">Edição de categoria de pesquisa</h2>
-         <p class="gray-text2">Preencha o nome da categoria</p>
-      </div>
-   </div>
+  <div class="row">
+    <div class="col s12 center">
+      <h2 class="header">Edição de categoria de pesquisa</h2>
+      <p>Preencha o nome da categoria</p>
+    </div>
+  </div>
 
-   <div class="row ">
-      <%= render 'form' %>
-   </div>
+  <div class="row ">
+    <%= render 'form' %>
+  </div>
 </div>
+
+<div class="fixed-action-btn">
+<%= link_to(admin_research_categories_path,
+  class: 'btn-floating btn-large pink-red tooltipped',
+    'data-position' => 'left',
+    'data-tooltip' => 'Todas as categorias') do %>
+      <%= fa_icon("angle-double-left") %>
+      <% end %>
+    </div>

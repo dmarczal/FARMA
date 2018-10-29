@@ -6,7 +6,11 @@ class UrlValidator < ActiveModel::EachValidator
   # a URL may be technically well-formed but may
   # not actually be valid, so this checks for both.
   def url_valid?(url)
-    url = URI.parse(url) rescue false
-    url.kind_of?(URI::HTTP) || url.kind_of?(URI::HTTPS)
+    begin
+      uri = URI.parse(url)
+      Net::HTTP.get_response(uri).code == '200'
+    rescue
+      false
+    end
   end
 end
