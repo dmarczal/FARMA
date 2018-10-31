@@ -96,8 +96,11 @@
   }
 }
 
-.box-form {
-  h5{
+.question-form-component {
+  background-color: white;
+  padding: 20px;
+
+  h3 {
     color: #9E9E9E;
   }
   .image_preview {
@@ -354,7 +357,7 @@ article.article-tips {
  /*************************************************************/
 
 #new_team {
-  margin-bottom: 0; 
+  margin-bottom: 0;
 }
 
 .card-team {

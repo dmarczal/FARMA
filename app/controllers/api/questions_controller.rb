@@ -1,4 +1,4 @@
-class API::QuestionsController < ApplicationController
+class API::QuestionsController < ActionController::API
   include APIResponses
 
   before_action :find_exercise
@@ -31,6 +31,8 @@ class API::QuestionsController < ApplicationController
   end
 
   def create
+    puts question_params
+
     question = @exercise.questions.new(question_params)
 
     if question.save
