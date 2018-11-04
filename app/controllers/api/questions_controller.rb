@@ -1,7 +1,4 @@
-class API::QuestionsController < ActionController::API
-  include APIResponses
-
-  before_action :find_exercise
+class API::QuestionsController < API::ApplicationController
   before_action :find_question, except: [:create, :index]
   before_action :set_data_type
 
@@ -83,10 +80,6 @@ class API::QuestionsController < ActionController::API
 
   def find_question
     @question = @exercise.questions.find(params[:id])
-  end
-
-  def find_exercise
-    @exercise = Exercise.find(params[:exercise_id])
   end
 
   def set_data_type
