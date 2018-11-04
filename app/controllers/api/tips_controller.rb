@@ -1,6 +1,6 @@
 class API::TipsController < API::ApplicationController
   before_action :find_question
-  before_action :find_tip, only: :show
+  before_action :find_tip, except: [:create, :index]
 
   rescue_from ActiveRecord::RecordNotFound do |exception|
     if (@exercise.nil?)

@@ -14,37 +14,19 @@ const getError = (error) => {
   return '';
 }
 
-
 const Component = ({
-  title,
-  content,
-  correctAnswer,
-  precision,
-  onChangeTitle,
-  onChangeContent,
-  onChangeCorrectAnswer,
-  onChangePrecision,
-  onClick,
   errors,
-  actionText,
+  content,
+  numberOfTries,
+  onClick,
   onClose,
-  compRef,
+  actionText,
+  onChangeContent,
+  onChangeNumberOfTries,
 }) => (
-  <div className="question-form-component z-depth-3" ref={compRef}>
-    <h3 className="center-align">Nova Questão</h3>
+  <React.Fragment>
+    <h3 className="center-align">{actionText}</h3>
     <div className="row form">
-      <div className={`input-field col s12 ${classError(errors.title)}`}>
-        <input
-          id="question-title"
-          type="text"
-          className="validate"
-          value={title}
-          onChange={onChangeTitle}
-        />
-        <label htmlFor="question-title">Título</label>
-        {getError(errors.title)}
-      </div>
-
       <div className={`input-field col s12 ${classError(errors.content)}`}>
         <CKEditor
           editor={ ClassicEditor }
@@ -57,28 +39,16 @@ const Component = ({
         {getError(errors.content)}
       </div>
 
-      <div className={`input-field col s12 ${classError(errors.precision)}`}>
+      <div className={`input-field col s12 ${classError(errors.numberOfTries)}`}>
         <input
           id="question-precision"
           type="number"
           className="validate"
-          value={precision}
-          onChange={onChangePrecision}
+          value={numberOfTries}
+          onChange={onChangeNumberOfTries}
         />
         <label htmlFor="question-precision">Precisão</label>
-        {getError(errors.precision)}
-      </div>
-
-      <div className={`input-field col s12 ${classError(errors.correctAnswer)}`}>
-        <input
-          id="question-correct-answer"
-          type="text"
-          className="validate"
-          value={correctAnswer}
-          onChange={onChangeCorrectAnswer}
-        />
-        <label htmlFor="question-correct-answer">Resposta</label>
-        {getError(errors.correctAnswer)}
+        {getError(errors.numberOfTries)}
       </div>
 
       <div className="col l3 s6">
@@ -93,24 +63,21 @@ const Component = ({
         </button>
       </div>
     </div>
-  </div>
+  </React.Fragment>
 );
 
 Component.propTypes = {
-  title: PropTypes.string,
+  errors: PropTypes.object.isRequired,
   content: PropTypes.string,
-  correctAnswer: PropTypes.string,
-  precision: PropTypes.oneOfType([
+  numberOfTries: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
   ]),
-  onChangeTitle: PropTypes.func.isRequired,
-  onChangeContent: PropTypes.func.isRequired,
-  onChangeCorrectAnswer: PropTypes.func.isRequired,
-  onChangePrecision: PropTypes.func.isRequired,
   onClick: PropTypes.func.isRequired,
   onClose: PropTypes.func.isRequired,
-  errors: PropTypes.object.isRequired,
+  actionText: PropTypes.string.isRequired,
+  onChangeNumberOfTries: PropTypes.func.isRequired,
+  onChangeContent: PropTypes.func.isRequired,
 }
 
 export default Component;
