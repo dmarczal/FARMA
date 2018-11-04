@@ -1,4 +1,4 @@
-class API::QuestionsController < ApplicationController
+class API::QuestionsController < ActionController::API
   include APIResponses
 
   before_action :find_exercise
@@ -16,9 +16,11 @@ class API::QuestionsController < ApplicationController
   end
 
   def index
+    data = @exercise.questions.order(:position).all
+
     self.data_type = 'Question[]'
     self.status_response = :ok
-    self.data = serializable_resource.new(@exercise.questions.all, each_serializer: QuestionSerializer)
+    self.data = serializable_resource.new(data, each_serializer: QuestionSerializer)
 
     json_response
   end

@@ -96,8 +96,11 @@
   }
 }
 
-.box-form {
-  h5{
+.question-form-component {
+  background-color: white;
+  padding: 20px;
+
+  h3 {
     color: #9E9E9E;
   }
   .image_preview {
@@ -127,8 +130,37 @@
 /* Questions styles - list-questions
 /*************************************************************/
 
+.questions.collapsible li {
+  .collapsible-header {
+    padding-top: 10px;
+    cursor: auto;
+
+    h3 {
+      margin: 0;
+      color: $palletelightpink;
+    }
+
+    .row {
+      margin: 0;
+    }
+
+    .fa {
+      cursor: pointer;
+    }
+
+    .open-question {
+      margin: 0 48.6%;
+    }
+  }
+
+  .collapsible-body {
+    background-color: white;
+    padding: 10px 2rem;
+  }
+}
+
 #questions_list.collection{
-  .collection-item{
+  .collection-item {
     background-color: #00E676;
   i{
     color: #1B5E20;
@@ -184,7 +216,7 @@
 
   .show-question {
     position: absolute;
-    left: 0px;
+    left: 5px;
     top: 0px;
   }
 
@@ -210,6 +242,7 @@
   .questions_list{
     height: 22px;
   }
+
   .padding{
     padding-top: 40px;
     padding-left: 20px;
@@ -277,7 +310,7 @@ article.article-tips {
 }
 
 #questions_list li.collection-item {
-  border-left: 12px solid green;
+  border-left: 8px solid green;
   border-bottom: 5px solid green;
 }
 
@@ -354,7 +387,7 @@ article.article-tips {
  /*************************************************************/
 
 #new_team {
-  margin-bottom: 0; 
+  margin-bottom: 0;
 }
 
 .card-team {

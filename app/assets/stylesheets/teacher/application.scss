@@ -12,11 +12,14 @@
 @import "materialize/components/buttons";
 @import "materialize/components/waves";
 @import "materialize/components/modal";
+@import "materialize/components/collapsible";
+@import "lib/variables_and_functions";
 
 /*************************************************************
 * Vendors stylesheets
 **************************************************************/
 @import "toastr.min";
+@import "izitoast/dist/css/iziToast.min";
 
 /*************************************************************
 * Custom and bugs fix from materialize

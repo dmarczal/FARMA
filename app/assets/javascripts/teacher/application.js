@@ -18,14 +18,6 @@
 //= require config/toastr
 //= require config/materialize
 
-
-// App files
-//-----------------------
-//-- ckeditor initiation
-//= require ckeditor/init
-//= require ckeditor/farma_ckeditor_functions
-//= require ckeditor/config
-
 //-----------------------
 //= require shared/events
 //= require teacher/events
