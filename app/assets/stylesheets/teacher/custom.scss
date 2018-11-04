@@ -130,6 +130,11 @@
 /* Questions styles - list-questions
 /*************************************************************/
 
+.tips.collection .fa {
+  margin: 0 10px;
+  cursor: pointer;
+}
+
 .questions.collapsible li {
   .collapsible-header {
     padding-top: 10px;

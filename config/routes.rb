@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   namespace :api do
-    resources :questions, except: [:new, :edit]
+    resources :questions, except: [:new, :edit] do
+      resources :tips, except: [:new, :edit]
+    end
   end
 
   mount Ckeditor::Engine => '/ckeditor'

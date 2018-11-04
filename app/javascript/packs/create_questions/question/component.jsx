@@ -2,8 +2,27 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import renderHTML from 'react-render-html';
 
+import Tips from '../tips';
+import FormTip from '../form-tip';
+
 const renderPrecision = (precision) => {
   return precision ? (<span>Precisão: { precision }</span>) : '';
+}
+
+const renderTipForm = (
+  formTipOpen,
+  errors,
+  onClose,
+  onSubmitTip,
+  currentTip
+) => {
+  return formTipOpen ?
+    (<FormTip
+      errors={errors}
+      onClose={onClose}
+      onSubmitTip={onSubmitTip}
+      currentTip={currentTip}
+    />) : "";
 }
 
 const Component = ({
@@ -16,6 +35,15 @@ const Component = ({
   onDelete,
   onEdit,
   openForm,
+  tips,
+  formTipOpen,
+  onAddTip,
+  errors,
+  onClose,
+  onSubmitTip,
+  onRemoveTip,
+  onEditTip,
+  currentTip,
 }) => (
   <li>
     <div className="collapsible-header">
@@ -23,7 +51,7 @@ const Component = ({
         <div className="col s6">
           <h3>{ index } Passo</h3>
           { title }
-          </div>
+        </div>
         <div className="col s6">
           <div className="right">
             <i className="fa fa-trash" onClick={onDelete}></i>
@@ -42,11 +70,24 @@ const Component = ({
         </div>
       </div>
     </div>
-    <div className="collapsible-body">
+    <div className="collapsible-body clearfix">
+      <button className="waves-effect waves-light btn right" onClick={onAddTip}>Adicionar dica</button>
       { renderHTML(content) }
       { renderPrecision(precision) }
       <br />
       <span>Resposta correta: {correctAnswer}</span>
+      <Tips
+        tips={tips}
+        onRemove={onRemoveTip}
+        onEdit={onEditTip}
+      />
+      {renderTipForm(
+        formTipOpen,
+        errors,
+        onClose,
+        onSubmitTip,
+        currentTip
+      )}
     </div>
   </li>
 );
@@ -62,6 +103,15 @@ Component.propTypes = {
   onEdit: PropTypes.func.isRequired,
   onDelete: PropTypes.func.isRequired,
   openForm: PropTypes.bool.isRequired,
+  tips: PropTypes.array.isRequired,
+  onAddTip: PropTypes.func.isRequired,
+  formTipOpen: PropTypes.bool.isRequired,
+  errors: PropTypes.object.isRequired,
+  onClose: PropTypes.func.isRequired,
+  onSubmitTip:PropTypes.func.isRequired,
+  onRemoveTip: PropTypes.func.isRequired,
+  onEditTip: PropTypes.func.isRequired,
+  currentTip: PropTypes.object.isRequired,
 }
 
 export default Component;

@@ -181,7 +181,6 @@ class App extends React.Component {
   render() {
     return (
       <React.Fragment>
-        {this.formComponent()}
         <Questions
           questions={this.state.questions}
           exerciseId={this.props.exerciseId}
@@ -189,6 +188,7 @@ class App extends React.Component {
           onEdit={this.handleEditQuestion}
           openForm={this.state.openForm}
         />
+        {this.formComponent()}
         {this.btnComponent()}
       </React.Fragment>
     );
