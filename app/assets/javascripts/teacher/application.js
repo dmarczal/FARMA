@@ -18,7 +18,6 @@
 //= require config/toastr
 //= require config/materialize
 
-
 //-----------------------
 //= require shared/events
 //= require teacher/events

@@ -1,57 +1,68 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import iziToast from 'izitoast';
 
-import FormQuestion from '../form-question';
-import { postQuestion } from '../services/question_service';
+import Component from './component';
+import { deleteQuestion } from '../services/question_service';
 
 class Question extends React.Component {
-
   constructor(props) {
     super(props);
 
-    this.state = {
-      errors: {}
-    }
+    let { question } = this.props;
 
-    this.handleCreateQuestion = this.handleCreateQuestion.bind(this);
+    this.state = { question }
+    this.handleOpenContent = this.handleOpenContent.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
-  handleCreateQuestion(data) {
-    postQuestion(data).then(
-      (response) => {
-        let { data } = response;
+  handleOpenContent() {
+    $('.collapsible').collapsible('open', this.props.index);
+  }
 
-        iziToast.success({
-          title: 'Sucesso',
-          message: `Passo ${data.title} criado com sucesso`,
-          position: 'topRight',
-        });
-      },
-      (response) => {
-        let { error } = response;
+  handleDelete() {
+    let { exerciseId } = this.props;
+    let { question } = this.state;
 
-        iziToast.error({
-          title: 'Sucesso',
-          message: `Falha ao criar o passo`,
-          position: 'topRight',
-        });
+    deleteQuestion(exerciseId, question.id)
+      .then(
+        (response) => {
+          let { data } = response;
 
-        this.setState({errors: {...error, correctAnswer: error.correct_answer}});
-      }
-    )
+          iziToast.success({
+            title: 'Sucesso',
+            message: data,
+            position: 'topRight',
+          });
+
+          this.props.onRemove(this.props.index);
+        },
+        () => {
+          iziToast.error({
+            title: 'Erro',
+            message: `Falha ao deletar a questão`,
+            position: 'topRight',
+          });
+        }
+      );
   }
 
   render() {
     return (
-      <React.Fragment>
-        <FormQuestion
-          onClick={this.handleCreateQuestion}
-          errors={this.state.errors}
-        />
-        <p>questions</p>
-      </React.Fragment>
-    );
+      <Component
+        index={this.props.index + 1}
+        onOpenContent={this.handleOpenContent}
+        onDelete={this.handleDelete}
+        {...this.state.question}
+      />
+    )
   }
+}
+
+Question.propTypes = {
+  index: PropTypes.number.isRequired,
+  question: PropTypes.object.isRequired,
+  onRemove: PropTypes.func.isRequired,
 }
 
 export default Question;
