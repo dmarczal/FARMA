@@ -8,10 +8,10 @@ class FormQuestion extends React.Component {
     super(props);
 
     this.state = {
-      title: '',
-      content: '',
-      correctAnswer: '',
-      precision: '',
+      title: props.title,
+      content: props.content,
+      correctAnswer: props.correctAnswer,
+      precision: props.precision,
     }
 
     this.handleChangeTitle = this.handleChangeTitle.bind(this);
