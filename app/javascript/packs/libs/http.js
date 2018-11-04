@@ -16,12 +16,19 @@ export default class Http {
 
     if (body) config.body = JSON.stringify(body);
 
-    return fetch(path, config)
+    let fetchResponse = fetch(path, config)
       .then((response) => {
         if (response.status == 400) throw(response);
 
         return response.json();
       });
+
+    return new Promise ((resolve, reject) => {
+      fetchResponse.then(
+        (response) => resolve(response),
+        (error) => error.json().then((json) => reject(json))
+      );
+    });
   }
 
   get(path, options = {}) { return this.dispatch('get', path, null, options) }

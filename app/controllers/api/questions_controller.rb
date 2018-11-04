@@ -33,8 +33,6 @@ class API::QuestionsController < ActionController::API
   end
 
   def create
-    puts question_params
-
     question = @exercise.questions.new(question_params)
 
     if question.save

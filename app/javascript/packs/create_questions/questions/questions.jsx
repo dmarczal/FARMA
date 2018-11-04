@@ -20,6 +20,8 @@ class Questions extends React.Component {
             index={index}
             question={serializeQuestions(question)}
             onRemove={this.props.onRemove}
+            onEdit={this.props.onEdit}
+            openForm={this.props.openForm}
           />
         )}
       </ul>
@@ -30,6 +32,8 @@ class Questions extends React.Component {
 Questions.propTypes = {
   questions: PropTypes.array.isRequired,
   onRemove: PropTypes.func.isRequired,
+  onEdit: PropTypes.func.isRequired,
+  openForm: PropTypes.bool.isRequired,
 }
 
 export default Questions;

@@ -14,6 +14,8 @@ const Component = ({
   correctAnswer,
   onOpenContent,
   onDelete,
+  onEdit,
+  openForm,
 }) => (
   <li>
     <div className="collapsible-header">
@@ -26,9 +28,14 @@ const Component = ({
           <div className="right">
             <i className="fa fa-trash" onClick={onDelete}></i>
           </div>
-          <div className="right">
-            <i className="fa fa-pencil"></i>
-          </div>
+          {
+            !openForm ?
+              <div className="right">
+                <i className="fa fa-pencil" onClick={onEdit}></i>
+              </div>
+              :
+              ''
+          }
         </div>
         <div className="col s12">
           <i className="fa fa-chevron-down open-question" onClick={onOpenContent}></i>
@@ -52,6 +59,9 @@ Component.propTypes = {
   correctAnswer: PropTypes.string.isRequired,
   precision: PropTypes.number.isRequired,
   onOpenContent: PropTypes.func.isRequired,
+  onEdit: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
+  openForm: PropTypes.bool.isRequired,
 }
 
 export default Component;

@@ -14,6 +14,8 @@ class FormQuestion extends React.Component {
       precision: props.precision,
     }
 
+    this.componentRef = React.createRef();
+
     this.handleChangeTitle = this.handleChangeTitle.bind(this);
     this.handleChangeContent = this.handleChangeContent.bind(this);
     this.handleChangeCorrectAnswer = this.handleChangeCorrectAnswer.bind(this);
@@ -42,6 +44,35 @@ class FormQuestion extends React.Component {
     this.setState({ precision });
   }
 
+  componentDidMount() {
+    Materialize.updateTextFields();
+
+    if (!this.props.visible) {
+      $(this.componentRef).hide();
+    }
+  }
+
+  componentDidUpdate() {
+    Materialize.updateTextFields();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.visible !== this.props.visible) {
+      if (nextProps.visible) {
+        $(this.componentRef).slideDown();
+      } else {
+        $(this.componentRef).slideUp();
+      }
+    }
+
+    this.setState({
+      title: nextProps.title,
+      content: nextProps.content,
+      correctAnswer: nextProps.correctAnswer,
+      precision: nextProps.precision,
+    });
+  }
+
   render() {
     let { onClick } = this.props
 
@@ -57,6 +88,9 @@ class FormQuestion extends React.Component {
         onChangePrecision={this.handleChangePrecision}
         onClick={() => onClick(this.state)}
         errors={this.props.errors}
+        actionText={this.props.actionText}
+        onClose={this.props.onClose}
+        compRef={el => this.componentRef = el}
       />
     );
   }
@@ -65,6 +99,13 @@ class FormQuestion extends React.Component {
 FormQuestion.propTypes = {
   onClick: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired,
+  actionText: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  content: PropTypes.string,
+  correctAnswer: PropTypes.string,
+  precision: PropTypes.number,
+  actionText: PropTypes.string.isRequired,
+  onClose: PropTypes.func.isRequired,
 }
 
 export default FormQuestion;

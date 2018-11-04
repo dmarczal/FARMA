@@ -9,20 +9,21 @@ class Question extends React.Component {
   constructor(props) {
     super(props);
 
-    let { question } = this.props;
-
-    this.state = { question }
     this.handleOpenContent = this.handleOpenContent.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleOnEdit = this.handleOnEdit.bind(this);
   }
 
   handleOpenContent() {
     $('.collapsible').collapsible('open', this.props.index);
   }
 
+  handleOnEdit() {
+    this.props.onEdit(this.props.question, this.props.index);
+  }
+
   handleDelete() {
-    let { exerciseId } = this.props;
-    let { question } = this.state;
+    let { exerciseId, question } = this.props;
 
     deleteQuestion(exerciseId, question.id)
       .then(
@@ -53,7 +54,9 @@ class Question extends React.Component {
         index={this.props.index + 1}
         onOpenContent={this.handleOpenContent}
         onDelete={this.handleDelete}
-        {...this.state.question}
+        onEdit={this.handleOnEdit}
+        openForm={this.props.openForm}
+        {...this.props.question}
       />
     )
   }
@@ -63,6 +66,8 @@ Question.propTypes = {
   index: PropTypes.number.isRequired,
   question: PropTypes.object.isRequired,
   onRemove: PropTypes.func.isRequired,
+  onEdit: PropTypes.func.isRequired,
+  openForm: PropTypes.bool.isRequired,
 }
 
 export default Question;

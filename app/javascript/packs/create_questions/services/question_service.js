@@ -5,33 +5,22 @@ const QUESTION_PATH = (questionId, exerciseId) => `/api/questions/${questionId}?
 
 const http = new Http();
 
-export const serializeQuestions = function (data) {
+const serializeQuestions = function (data) {
   return { ...data, correct_answer: data.correctAnswer };
 }
 
-export const allQuestions = function (exerciseId) {
-  return new Promise((resolve, reject) => {
-    http.get(BASE_PATH(exerciseId)).then(
-      (response) => resolve(response),
-      (error) => error.json().then((json) => reject(json))
-    );
-  });
-}
+export const allQuestions = (exerciseId) => (
+  http.get(BASE_PATH(exerciseId))
+)
 
-export const deleteQuestion = function (exerciseId, questionId) {
-  return new Promise ((resolve, reject) => {
-    http.delete(QUESTION_PATH(questionId, exerciseId)).then(
-      (response) => resolve(response),
-      (error) => error.json().then((json) => reject(json))
-    );
-  });
-}
+export const deleteQuestion = (exerciseId, questionId) => (
+  http.delete(QUESTION_PATH(questionId, exerciseId))
+)
 
-export const postQuestion = function (data, exerciseId) {
-  return new Promise((resolve, reject) => {
-    http.post(BASE_PATH(exerciseId), serializeQuestions(data)).then(
-      (response) => resolve(response),
-      (error) => error.json().then((json) => reject(json))
-    );
-  });
-}
+export const postQuestion = (data, exerciseId) => (
+  http.post(BASE_PATH(exerciseId), serializeQuestions(data))
+)
+
+export const putQuestion = (data, exerciseId, questionId) => (
+  http.put(QUESTION_PATH(questionId, exerciseId), serializeQuestions(data))
+)

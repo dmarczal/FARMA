@@ -25,9 +25,12 @@ const Component = ({
   onChangeCorrectAnswer,
   onChangePrecision,
   onClick,
-  errors
+  errors,
+  actionText,
+  onClose,
+  compRef,
 }) => (
-  <div className="question-form-component z-depth-3">
+  <div className="question-form-component z-depth-3" ref={compRef}>
     <h3 className="center-align">Nova Questão</h3>
     <div className="row form">
       <div className={`input-field col s12 ${classError(errors.title)}`}>
@@ -78,9 +81,15 @@ const Component = ({
         {getError(errors.correctAnswer)}
       </div>
 
-      <div className="col s12">
+      <div className="col l3 s6">
         <button className="waves-effect waves-light btn" onClick={onClick}>
-          Cadastrar
+          {actionText}
+        </button>
+      </div>
+
+      <div className="col l3 s6">
+        <button className="waves-effect waves-light btn red" onClick={onClose}>
+          Cancelar
         </button>
       </div>
     </div>
@@ -91,12 +100,13 @@ Component.propTypes = {
   title: PropTypes.string,
   content: PropTypes.string,
   correctAnswer: PropTypes.string,
-  precision: PropTypes.string,
+  precision: PropTypes.number,
   onChangeTitle: PropTypes.func.isRequired,
   onChangeContent: PropTypes.func.isRequired,
   onChangeCorrectAnswer: PropTypes.func.isRequired,
   onChangePrecision: PropTypes.func.isRequired,
   onClick: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired,
 }
 
