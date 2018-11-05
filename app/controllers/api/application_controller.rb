@@ -1,5 +1,6 @@
 class API::ApplicationController < ActionController::API
   include APIResponses
+  include ActionController::Cookies
 
   before_action :find_exercise
 

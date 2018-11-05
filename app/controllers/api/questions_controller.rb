@@ -72,7 +72,61 @@ class API::QuestionsController < API::ApplicationController
     json_response
   end
 
+  def test_answer
+    answer = current_user.answers.new(
+      test: true,
+      question_id: @question.id,
+      response: params[:response]
+    )
+
+    tries = calc_tries
+
+    data = {
+      tries: tries,
+      answer: answer,
+    }
+
+    unless answer.correct
+      tips = tips(tries)
+      tip = tips.last
+
+      data[:tips] = tips
+      data[:tip] = tip
+    end
+
+    self.data_type = 'Answer'
+    self.data = data
+    self.status_response = :ok
+
+    json_response
+  end
+
+  def reset_tries
+    cookies.delete("count_responses_#{@question.id}")
+
+    self.data_type = 'No Content'
+    self.data = ''
+    self.status_response = :no_content
+
+    json_response
+  end
+
   private
+
+  def tips(tries)
+    @question.tips_to_show(tips_count: tries)
+  end
+
+  def calc_tries
+    if cookies["count_responses_#{@question.id}"].nil?
+      cookies["count_responses_#{@question.id}"] = 1
+      return 1
+    end
+
+    cookies["count_responses_#{@question.id}"] = cookies["count_responses_#{@question.id}"].to_i + 1
+
+    return cookies["count_responses_#{@question.id}"].to_i
+  end
 
   def question_params
     params.permit(:title, :content, :correct_answer, :precision)

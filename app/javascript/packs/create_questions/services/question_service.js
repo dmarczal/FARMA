@@ -1,7 +1,16 @@
 import Http from '../../libs/http';
 
-const BASE_PATH = (exerciseId) =>  `/api/questions?exercise_id=${exerciseId}`;
-const QUESTION_PATH = (questionId, exerciseId) => `/api/questions/${questionId}?exercise_id=${exerciseId}`;
+const BASE_PATH = (exerciseId) =>
+  `/api/questions?exercise_id=${exerciseId}`;
+
+const QUESTION_PATH = (questionId, exerciseId) =>
+  `/api/questions/${questionId}?exercise_id=${exerciseId}`;
+
+const ANSWER_PATH = (questionId, exerciseId) =>
+  `/api/questions/${questionId}/test_answer?exercise_id=${exerciseId}`;
+
+const RESET_TRIES_PATH = (questionId, exerciseId) =>
+  `/api/questions/${questionId}/reset_tries?exercise_id=${exerciseId}`;
 
 const http = new Http();
 
@@ -23,4 +32,12 @@ export const postQuestion = (data, exerciseId) => (
 
 export const putQuestion = (data, exerciseId, questionId) => (
   http.put(QUESTION_PATH(questionId, exerciseId), serializeQuestions(data))
+)
+
+export const testQuestion = (data, exerciseId, questionId) => (
+  http.post(ANSWER_PATH(questionId, exerciseId), data)
+)
+
+export const resetTries = (exerciseId, questionId) => (
+  http.post(RESET_TRIES_PATH(questionId, exerciseId))
 )
