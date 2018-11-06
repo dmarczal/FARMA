@@ -29,7 +29,7 @@ class Question < ActiveRecord::Base
 
   def tips_to_show(user: nil, team: nil, tips_count: nil)
     @_tips ||= if tips_count.nil?
-                 tips.where("number_of_tries <= ?", [tries]) unless have_a_try?(user, team)
+                 tips.where("number_of_tries <= ?", [tries(user, team)]) unless have_a_try?(user, team)
                else
                  tips.where("number_of_tries <= ?", [tips_count])
                end
@@ -41,7 +41,12 @@ class Question < ActiveRecord::Base
     !first_tip(user, team).nil?
   end
 
-  def tries
+  def tries(user, team)
+    return @_tries if @_tries
+
+    first_tip = first_tip(user, team)
+    return 0 if (first_tip.nil?)
+
     @_tries = first_tip.tries
   end
 

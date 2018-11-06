@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   namespace :api do
     post '/questions/:id/test_answer' => 'questions#test_answer'
     post '/questions/:id/reset_tries' => 'questions#reset_tries'
+    get '/team/:team_id/exercise/:exercise_id/load_student_questions' => 'questions#load_student_questions'
 
     resources :questions, except: [:new, :edit] do
       resources :tips, except: [:new, :edit]

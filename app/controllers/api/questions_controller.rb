@@ -1,5 +1,5 @@
 class API::QuestionsController < API::ApplicationController
-  before_action :find_question, except: [:create, :index]
+  before_action :find_question, except: [:create, :index, :load_student_questions]
   before_action :set_data_type
 
   rescue_from ActiveRecord::RecordNotFound do |exception|
@@ -72,6 +72,17 @@ class API::QuestionsController < API::ApplicationController
     json_response
   end
 
+  def load_student_questions
+    data = @exercise.questions.order(:position).all
+    data = data.map { |q| data_student_questions(q) }
+
+    self.data_type = 'Hash'
+    self.data = { questions: data, progress: progress_los }
+    self.status_response = :ok
+
+    json_response
+  end
+
   def test_answer
     answer = current_user.answers.new(
       test: true,
@@ -113,8 +124,34 @@ class API::QuestionsController < API::ApplicationController
 
   private
 
+  def progress_los
+    @progress_los ||= @exercise.lo.progress_los
+  end
+
+  def team
+    @team ||= current_user.teams.find(params[:team_id])
+  end
+
+  def answers(question)
+    @answers ||= Answer.where(user_id: current_user.id, question_id: question.id, team_id: team.id)
+  end
+
   def tips(tries)
     @question.tips_to_show(tips_count: tries)
+  end
+
+  def data_student_questions(question)
+    tips = question.tips_to_show(user: current_user, team: team)
+
+    {
+      tips: tips,
+      answers: answers(question),
+      question: {
+        id: question.id,
+        title: question.title,
+        content: question.content
+      }
+    }
   end
 
   def calc_tries
