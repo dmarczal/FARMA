@@ -61,6 +61,9 @@
           <<: *commons
         exercise:
           <<: *commons
+        team:
+          code: "Código"
+          <<: *commons
         question:
           correct_answer: 'Resposta correta'
           cmas_order: 'Considerar ordem das respostas'

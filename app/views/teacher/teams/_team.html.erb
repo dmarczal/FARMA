@@ -1,17 +1,17 @@
-<div class="card-team col s3 center red lighten-2">
-  <div class="title">
-    <h5><%= link_to team.name, teacher_team_path(team) %></h5>
-
-    <span><%= team.code %></span>
+<div class="team">
+  <div class="card">
+    <div class="card-content center">
+      <span class="card-title"><%= team.name %></span>
+    </div>
+    <div class="card-image">
+      <!-- user image -->
+    </div>
+    <div class="card-content information center">
+      <p><%= team.user.name %></p>
+      <p><%= I18n.l team.created_at, :format => :short %></p>
+    </div>
+    <div class="card-action center">
+      <%= link_to "Visualizar conteúdo", teacher_team_path(team) %>
+    </div>
   </div>
-
-  <div class="created-at">
-    <span><%= team.created_at %></span>
-  </div>
-
-  <%= link_to teacher_team_path(team), method: :delete do %>
-    <%= fa_icon('close', 'aria-hidden': true) %>
-  <% end %>
 </div>
-
-<div id="modal" class="modal"></div>

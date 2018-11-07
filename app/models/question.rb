@@ -27,9 +27,9 @@ class Question < ActiveRecord::Base
     answered(team).exists?(correct: true)
   end
 
-  def tips_to_show(user:, team:, tips_count:)
+  def tips_to_show(user: nil, team: nil, tips_count: nil)
     @_tips ||= if tips_count.nil?
-                 tips.where("number_of_tries <= ?", [tries]) unless have_a_try?
+                 tips.where("number_of_tries <= ?", [tries(user, team)]) if have_a_try?(user, team)
                else
                  tips.where("number_of_tries <= ?", [tips_count])
                end
@@ -37,15 +37,20 @@ class Question < ActiveRecord::Base
 
   private
 
-  def have_a_try?
-    !first_tip.nil?
+  def have_a_try?(user, team)
+    !first_tip(user, team).nil?
   end
 
-  def tries
+  def tries(user, team)
+    return @_tries if @_tries
+
+    first_tip = first_tip(user, team)
+    return 0 if (first_tip.nil?)
+
     @_tries = first_tip.tries
   end
 
-  def first_tip
-    @_tip ||= tips_counts.where(user_id: user.id, team_id: team.id).first
+  def first_tip(user, team)
+    @_tip ||= tips_counts.find_by(user_id: user.id, team_id: team.id)
   end
 end

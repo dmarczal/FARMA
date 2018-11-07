@@ -1,15 +1,10 @@
-<article>
-  <header class="center">
+<article id="los" class="col s12">
+
+  <header class="page-header">
     <h1><%= @team.name %></h5>
   </header>
-  <div class="divider"></div>
 
   <h4>Objetos de Aprendizagem</h4>
 
-  <ul>
-    <% @team.los.all.each do |lo| %>
-      <li><%= lo.name %></li>
-    <% end %>
-  </ul>
-
+  <%= render @team.los.all %>
 </article>

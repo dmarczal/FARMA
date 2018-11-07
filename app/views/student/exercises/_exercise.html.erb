@@ -5,4 +5,8 @@
   <%= exercise.content.html_safe %>
 </div>
 
-<%= render exercise.questions %>
+<div
+  id="react-exercise-app"
+  data-exercise-id="<%= exercise.id %>"
+  data-team-id="<%= @team.id %>"
+></div>

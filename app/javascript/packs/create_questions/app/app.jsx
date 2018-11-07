@@ -17,7 +17,7 @@ class App extends React.Component {
       title: '',
       content: '',
       correctAnswer: '',
-      precision: 1,
+      precision: '',
     }
 
     this.state = {
@@ -57,6 +57,7 @@ class App extends React.Component {
 
   handleEditQuestion(question, index) {
     this.setState({
+      errors: {},
       question,
       currentIndex: index,
       openForm: true,
@@ -64,7 +65,7 @@ class App extends React.Component {
   }
 
   handelNewQuestion() {
-    this.setState({ openForm: true });
+    this.setState({ openForm: true, question: this.newQuestion, errors: {} });
   }
 
   handleRemoveQuestion(indexRemove) {

@@ -1,7 +1,11 @@
 <%= simple_form_for([:teacher, @lo, @introduction], html: {class: 'col s12 row'}) do |f| %>
 
   <%= f.input :title, autofocus: true %>
-  <%= f.input :content, :as => :ckeditor %>
+
+  <div class="input-field col s12 introduction_content">
+    <div id="ckeditor-app" data-input-name="introduction[content]"></div>
+  </div>
+  <%= f.input :content, as: :hidden %>
 
   <%= f.button :submit_materialize, :cancel => teacher_lo_path(@lo) %>
 <% end %>

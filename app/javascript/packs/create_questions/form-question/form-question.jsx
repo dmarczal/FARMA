@@ -32,9 +32,7 @@ class FormQuestion extends React.Component {
     this.setState({ content });
   }
 
-  handleChangeCorrectAnswer(event) {
-    let correctAnswer = event.target.value;
-
+  handleChangeCorrectAnswer(correctAnswer) {
     this.setState({ correctAnswer });
   }
 
@@ -60,17 +58,17 @@ class FormQuestion extends React.Component {
     if (nextProps.visible !== this.props.visible) {
       if (nextProps.visible) {
         $(this.componentRef).slideDown();
+
+        this.setState({
+          title: nextProps.title,
+          content: nextProps.content,
+          correctAnswer: nextProps.correctAnswer,
+          precision: nextProps.precision,
+        });
       } else {
         $(this.componentRef).slideUp();
       }
     }
-
-    this.setState({
-      title: nextProps.title,
-      content: nextProps.content,
-      correctAnswer: nextProps.correctAnswer,
-      precision: nextProps.precision,
-    });
   }
 
   render() {
@@ -103,7 +101,10 @@ FormQuestion.propTypes = {
   title: PropTypes.string,
   content: PropTypes.string,
   correctAnswer: PropTypes.string,
-  precision: PropTypes.number,
+  precision: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
   actionText: PropTypes.string.isRequired,
   onClose: PropTypes.func.isRequired,
 }
