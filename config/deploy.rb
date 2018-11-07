@@ -40,7 +40,7 @@ set :format,        :pretty
 set :log_level,     :debug
 
 ## Linked Files & Directories (Default None):
-set :linked_files, %w{config/database.yml config/secrets.yml .env}
+set :linked_files, %w{config/database.yml config/secrets.yml}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
 
 namespace :puma do
@@ -74,14 +74,9 @@ namespace :deploy do
       execute :mkdir, "-p", "#{shared_path}/config"
 
       ask :db_pwd, 'default', echo: false
-      ask :access_key_id, 'default', echo: false
-      ask :secret_access_key, 'default', echo: false
-      ask :region, 'default', echo: false
-      ask :bucket, 'default', echo: false
 
       upload! database_contents, "#{shared_path}/config/database.yml"
       upload! secrets_contents, "#{shared_path}/config/secrets.yml"
-      upload! env_contents, "#{shared_path}/.env"
 
       if remote_file_exists?('/etc/nginx/sites-enabled/default')
         sudo :rm, '/etc/nginx/sites-enabled/default'
@@ -120,17 +115,6 @@ production:
   database: farma_production
 EOF
   StringIO.new(database)
-end
-
-def env_contents
-  env = <<-EOF
-NODE_ENV=production
-ACCESS_KEY_ID=#{fetch(:access_key_id)}
-SECRET_ACCESS_KEY=#{fetch(:secret_access_key)}
-REGION=#{fetch(:region)}
-BUCKET=#{fetch(:bucket)}
-EOF
-  StringIO.new(env)
 end
 
 def secrets_contents
