@@ -74,6 +74,10 @@ namespace :deploy do
       execute :mkdir, "-p", "#{shared_path}/config"
 
       ask :db_pwd, 'default', echo: false
+      ask :access_key_id, 'default', echo: false
+      ask :secret_access_key, 'default', echo: false
+      ask :region, 'default', echo: false
+      ask :bucket, 'default', echo: false
 
       upload! database_contents, "#{shared_path}/config/database.yml"
       upload! secrets_contents, "#{shared_path}/config/secrets.yml"
@@ -121,6 +125,10 @@ end
 def env_contents
   env = <<-EOF
 NODE_ENV=production
+ACCESS_KEY_ID=#{fetch(:access_key_id)}
+SECRET_ACCESS_KEY=#{fetch(:secret_access_key)}
+REGION=#{fetch(:region)}
+BUCKET=#{fetch(:bucket)}
 EOF
   StringIO.new(env)
 end
