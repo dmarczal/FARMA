@@ -77,6 +77,7 @@ namespace :deploy do
 
       upload! database_contents, "#{shared_path}/config/database.yml"
       upload! secrets_contents, "#{shared_path}/config/secrets.yml"
+      upload! env_contents, "#{shared_path}/.env"
 
       if remote_file_exists?('/etc/nginx/sites-enabled/default')
         sudo :rm, '/etc/nginx/sites-enabled/default'
@@ -85,7 +86,7 @@ namespace :deploy do
       sudo "ln -nfs /home/#{fetch(:user)}/apps/#{fetch(:application)}/current/config/nginx.conf /etc/nginx/sites-enabled/#{fetch(:application)}"
       sudo :service, :nginx, :reload
 
-      execute "PGPASSWORD=#{fetch(:db_pwd)} psql --user postgres -c 'create database bucketlist_production;'"
+      execute "PGPASSWORD=#{fetch(:db_pwd)} psql --user postgres -c 'create database farma_production;'"
     end
   end
 
@@ -112,9 +113,16 @@ production:
   username: postgres
   password: #{fetch(:db_pwd)}
   host: localhost
-  database: bucketlist_production
+  database: farma_production
 EOF
   StringIO.new(database)
+end
+
+def env_contents
+  env = <<-EOF
+NODE_ENV=production
+EOF
+  StringIO.new(env)
 end
 
 def secrets_contents
