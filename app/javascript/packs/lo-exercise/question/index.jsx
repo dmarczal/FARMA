@@ -4,6 +4,7 @@ import { Keyboard } from 'react-material-keyboard';
 import MathJax from 'react-mathjax';
 
 import { createAnswer } from '../services/question_service';
+import { format } from '../../libs/format-answer';
 
 class Question extends React.Component {
   constructor(props) {
@@ -79,7 +80,7 @@ class Question extends React.Component {
                 key={answer.id}
                 className={'collection-item ' + (answer.correct ? 'valid' : 'has-error')}
               >
-                <MathJax.Node formula={answer.response}/>
+                <MathJax.Node formula={format(answer.response)}/>
               </li>
             ))}
           </ul>
@@ -125,7 +126,7 @@ class Question extends React.Component {
           <div className={classAnswer}>
             <Keyboard
               onSubmit={this.handleSubmit}
-              value={response}
+              value={format(response)}
             />
           </div>
           {this.renderAnswers()}

@@ -6,6 +6,7 @@ import MathJax from 'react-mathjax';
 import Tips from '../tips';
 import FormTip from '../form-tip';
 import TestQuestion from '../test-question';
+import { format } from '../../libs/format-answer';
 
 const renderPrecision = (precision) => {
   return precision ? (<span>Precisão: { precision }</span>) : '';
@@ -81,7 +82,7 @@ const Component = ({
       <br />
       <span>Resposta correta</span>
       <MathJax.Provider>
-        <MathJax.Node formula={correctAnswer}/>
+        <MathJax.Node formula={format(correctAnswer)}/>
       </MathJax.Provider>
       <TestQuestion
         exerciseId={exerciseId}

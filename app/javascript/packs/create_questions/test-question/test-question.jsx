@@ -3,6 +3,7 @@ import { Keyboard } from 'react-material-keyboard';
 
 import { testQuestion } from '../services/question_service';
 import Tip from './tip';
+import { format } from '../../libs/format-answer';
 
 class TestQuestion extends React.Component {
   constructor(props) {
@@ -59,7 +60,7 @@ class TestQuestion extends React.Component {
         <div className={`col s12 l6 ${classError}`}>
           <Keyboard
             onSubmit={this.handleSubmit}
-            value={value}
+            value={format(value)}
             screenText="Clique aqui para testar a resposta"
           />
         </div>

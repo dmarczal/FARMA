@@ -4,6 +4,8 @@ import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { Keyboard } from 'react-material-keyboard';
 
+import { format } from '../../libs/format-answer';
+
 const isError = (error) => Array.isArray(error) && error.length > 0;
 const classError = (error) => isError(error) ? 'has-error' : '';
 
@@ -76,7 +78,7 @@ const Component = ({
         <Keyboard
           onSubmit={onChangeCorrectAnswer}
           screenText="Adicionar Resposta"
-          value={correctAnswer}
+          value={format(correctAnswer)}
         />
         {getError(errors.correctAnswer)}
       </div>
