@@ -44,10 +44,12 @@ group :development do
   gem 'guard-rspec', require: false
 
   gem 'capistrano',         require: false
+  gem 'sshkit-sudo',        require: false
   gem 'capistrano-rvm',     require: false
   gem 'capistrano-rails',   require: false
   gem 'capistrano-bundler', require: false
-  gem 'capistrano-passenger', require: false
+  gem 'capistrano3-puma',   require: false
+  gem 'capistrano-rails-db',require: false
 end
 
 group :development, :test do
