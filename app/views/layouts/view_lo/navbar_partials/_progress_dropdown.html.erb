@@ -4,27 +4,33 @@
       <span>Meu rendimento</span>
 
       <div class="bar">
-        <div class="progress-bar" data-percent="70"></div>
-        <div class="view-bar" data-percent="80"></div>
+        <div class="progress-bar" data-percent="<%= @lo.progress_percent(@team) %>"></div>
+        <div class="view-bar" data-percent="<%= @lo.preview_percent(@team) %>"></div>
       </div>
     </a>
   </li>
 
   <li class="bar-description clearfix">
     <%= fa_icon('check', 'aria-hidden': true, class: 'left') %>
-    <span class="left">70% do OA concluído</span></br>
+    <span id="progress_percent" class="left">
+      <span class="percent"><%= @lo.progress_percent(@team).round %></span>% do OA concluído
+    </span></br>
     <p>conteúdo respondido corretamente</p>
   </li>
 
   <li class="bar-description clearfix">
     <%= fa_icon('eye', 'aria-hidden': true, class: 'left view-desc') %>
-    <span class="left">80% do OA concluído</span></br>
+    <span id="preview_percent" class="left">
+      <span class="percent"><%= @lo.preview_percent(@team).round %></span>% do OA concluído
+    </span></br>
     <p>conteúdo respondido</p>
   </li>
 
   <li class="bar-description clearfix">
     <%= fa_icon('flag', 'aria-hidden': true, class: 'left') %>
-    <span class="left">20% do OA concluído</span></br>
+    <span id="not_answered" class="left">
+      <span class="percent"><%= (100 - @lo.preview_percent(@team)).round %></span>% do OA não concluído
+    </span></br>
     <p>conteúdo não respondido</p>
   </li>
 </ul>

@@ -4,10 +4,11 @@ export default class Http {
     this.fetchInit = {
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
       mode: 'cors',
       cache: 'default',
+      credentials: 'same-origin',
     }
   }
 

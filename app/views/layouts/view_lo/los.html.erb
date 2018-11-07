@@ -7,7 +7,7 @@
 
     <%= stylesheet_link_tag    'student/application', media: 'all', 'data-turbolinks-track' => "reload" %>
     <%= javascript_include_tag 'student/application', 'data-turbolinks-track' => "reload" %>
-    <%= javascript_pack_tag 'lo-exercise/react-app' %>
+    <%= javascript_pack_tag 'lo-exercise/react-app', 'data-turbolinks-track': 'reload', defer: true %>
 
     <%= csrf_meta_tags %>
   </head>

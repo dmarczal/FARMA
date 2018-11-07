@@ -76,11 +76,44 @@ class API::QuestionsController < API::ApplicationController
     data = @exercise.questions.order(:position).all
     data = data.map { |q| data_student_questions(q) }
 
-    self.data_type = 'Hash'
+    self.data_type = 'Array'
     self.data = { questions: data, progress: progress_los }
     self.status_response = :ok
 
     json_response
+  end
+
+  def create_answer
+    answer = current_user.answers.new(
+      question_id: @question.id,
+      response: params[:response],
+      team_id: team.id
+    )
+
+    unless answer.correct
+      tips_count = answer.question.tips_counts.new(
+        user_id: current_user.id,
+        team_id: team.id
+      )
+
+      tips_count = tips_count.save_or_update
+    end
+
+    if answer.save
+      tips = @question.tips_to_show(user: current_user, team: team) || []
+
+      self.data_type = 'Object'
+      self.data = { answer: answer, tips: tips, progress: progress_los }
+      self.status_response = :ok
+
+      json_response
+    else
+      self.data_type = 'Bad request'
+      self.error = answer.errors
+      self.status_response = :bad_request
+
+      bad_request_response
+    end
   end
 
   def test_answer
@@ -125,7 +158,7 @@ class API::QuestionsController < API::ApplicationController
   private
 
   def progress_los
-    @progress_los ||= @exercise.lo.progress_los
+    @progress_los ||= @exercise.lo.progress_los.find_by(team_id: team.id, user_id: current_user.id)
   end
 
   def team
@@ -133,7 +166,7 @@ class API::QuestionsController < API::ApplicationController
   end
 
   def answers(question)
-    @answers ||= Answer.where(user_id: current_user.id, question_id: question.id, team_id: team.id)
+    Answer.where(user_id: current_user.id, question_id: question.id, team_id: team.id).all
   end
 
   def tips(tries)
@@ -141,7 +174,7 @@ class API::QuestionsController < API::ApplicationController
   end
 
   def data_student_questions(question)
-    tips = question.tips_to_show(user: current_user, team: team)
+    tips = question.tips_to_show(user: current_user, team: team) || []
 
     {
       tips: tips,

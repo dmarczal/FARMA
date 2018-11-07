@@ -11,6 +11,46 @@ ul.tabs {
 /****************** team - index teams ************************/
 /**************************************************************/
 
+.fa.fa-lightbulb-o.active {
+  color: #ffee58;
+}
+
+.collection .collection-item.has-error:first-child {
+  border-top: 1px solid $palletered;
+}
+
+.collection .collection-item.has-error {
+  border-bottom: 1px solid $palletered;
+  border-left: 1px solid $palletered;
+  border-right: 1px solid $palletered;
+}
+
+.collection .collection-item.valid:first-child {
+  border-top: 1px solid $palletegreen2;
+}
+
+.collection .collection-item.valid {
+  border-bottom: 1px solid $palletegreen2;
+  border-left: 1px solid $palletegreen2;
+  border-right: 1px solid $palletegreen2;
+}
+
+.btn-floating.btn-large.answer-open {
+  position: absolute;
+  margin-top: -45px;
+}
+
+.collection.answers {
+  display: none;
+}
+
+.spinner {
+  display: block;
+  position: fixed;
+  left: 45%;
+  top: 45%;
+}
+
 div.team {
   padding: 0 20px;
 

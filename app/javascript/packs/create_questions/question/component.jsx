@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import renderHTML from 'react-render-html';
-import MathJax from 'react-mathjax2';
+import MathJax from 'react-mathjax';
 
 import Tips from '../tips';
 import FormTip from '../form-tip';
@@ -80,9 +80,9 @@ const Component = ({
       { renderPrecision(precision) }
       <br />
       <span>Resposta correta</span>
-      <MathJax.Context input='tex'>
-        <MathJax.Node>{correctAnswer}</MathJax.Node>
-      </MathJax.Context>
+      <MathJax.Provider>
+        <MathJax.Node formula={correctAnswer}/>
+      </MathJax.Provider>
       <TestQuestion
         exerciseId={exerciseId}
         questionId={questionId}

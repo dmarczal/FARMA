@@ -18,8 +18,8 @@
     </div>
 
     <div class="card-progress col s2">
-      <div class="circle-bar c100 p<%= lo.progress_percent(@team) %> orange-c">
-        <span><%= lo.progress_percent(@team) %>%</span>
+      <div class="circle-bar c100 p<%= lo.progress_percent(@team).round %> orange-c">
+        <span><%= lo.progress_percent(@team).round %>%</span>
         <div class="slice">
           <div class="bar"></div>
           <div class="fill"></div>

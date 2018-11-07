@@ -18,12 +18,17 @@ class Lo < ActiveRecord::Base
   end
 
   def progress_lo(team)
-    progress_los.find_by(team_id: team.id, user_id: user.id)
+    @progress_los ||= progress_los.find_by(team_id: team.id, user_id: user.id)
   end
 
   def progress_percent(team)
     progress = progress_lo(team)
     progress.nil? ? 0 : progress.progress_percent
+  end
+
+  def preview_percent(team)
+    progress = progress_lo(team)
+    progress.nil? ? 0 : progress.preview_percent
   end
 
   def content_by_position(index)
