@@ -7,7 +7,7 @@
 
   <%= stylesheet_link_tag    'teacher/application', media: 'all', 'data-turbolinks-track' => "reload" %>
   <%= javascript_include_tag 'teacher/application', 'data-turbolinks-track' => "reload" %>
-  <%= javascript_pack_tag 'create_questions/react-app' %>
+  <%= javascript_pack_tag 'app', 'data-turbolinks-track': 'reload', defer: true %>
 
   <%= csrf_meta_tags %>
 </head>

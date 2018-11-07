@@ -20,6 +20,7 @@ export default class Http {
     let fetchResponse = fetch(path, config)
       .then((response) => {
         if (response.status == 400) throw(response);
+        if (response.status == 204) return response;
 
         return response.json();
       });
@@ -27,7 +28,11 @@ export default class Http {
     return new Promise ((resolve, reject) => {
       fetchResponse.then(
         (response) => resolve(response),
-        (error) => error.json().then((json) => reject(json))
+        (error) => {
+          console.log(error);
+
+          return error.json().then((json) => reject(json))
+        }
       );
     });
   }

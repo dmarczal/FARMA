@@ -4,6 +4,8 @@ import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { Keyboard } from 'react-material-keyboard';
 
+require('@ckeditor/ckeditor5-build-classic/build/translations/pt-br');
+
 import { format } from '../../libs/format-answer';
 
 const isError = (error) => Array.isArray(error) && error.length > 0;
@@ -54,7 +56,11 @@ const Component = ({
           editor={ ClassicEditor }
           data={content}
           config={{
-            language: 'pt-br'
+            language: 'pt-br',
+            cloudServices: {
+              tokenUrl: 'https://35711.cke-cs.com/token/dev/dXY3KdXENvQaOivGvYxS2qs7ymMl6LE7pQa2XxQICgedXvl6HgfkJOhIlYJw',
+              uploadUrl: 'https://35711.cke-cs.com/easyimage/upload/'
+            }
           }}
           onChange={ ( event, editor ) => onChangeContent(editor.getData()) }
         />
