@@ -2,6 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { Keyboard } from 'react-material-keyboard';
+
+require('@ckeditor/ckeditor5-build-classic/build/translations/pt-br');
+
+import { format } from '../../libs/format-answer';
 
 const isError = (error) => Array.isArray(error) && error.length > 0;
 const classError = (error) => isError(error) ? 'has-error' : '';
@@ -46,11 +51,16 @@ const Component = ({
       </div>
 
       <div className={`input-field col s12 ${classError(errors.content)}`}>
+        <span className="label">Conteúdo</span>
         <CKEditor
           editor={ ClassicEditor }
           data={content}
           config={{
-            language: 'pt-br'
+            language: 'pt-br',
+            cloudServices: {
+              tokenUrl: 'https://35711.cke-cs.com/token/dev/dXY3KdXENvQaOivGvYxS2qs7ymMl6LE7pQa2XxQICgedXvl6HgfkJOhIlYJw',
+              uploadUrl: 'https://35711.cke-cs.com/easyimage/upload/'
+            }
           }}
           onChange={ ( event, editor ) => onChangeContent(editor.getData()) }
         />
@@ -69,17 +79,17 @@ const Component = ({
         {getError(errors.precision)}
       </div>
 
-      <div className={`input-field col s12 ${classError(errors.correctAnswer)}`}>
-        <input
-          id="question-correct-answer"
-          type="text"
-          className="validate"
-          value={correctAnswer}
-          onChange={onChangeCorrectAnswer}
+      <div className={`input-field col s6 ${classError(errors.correctAnswer)}`}>
+        <span className="label">Resposta corréta</span>
+        <Keyboard
+          onSubmit={onChangeCorrectAnswer}
+          screenText="Adicionar Resposta"
+          value={format(correctAnswer)}
         />
-        <label htmlFor="question-correct-answer">Resposta</label>
         {getError(errors.correctAnswer)}
       </div>
+
+      <div className="divider col s12"></div>
 
       <div className="col l3 s6">
         <button className="waves-effect waves-light btn" onClick={onClick}>

@@ -147,7 +147,7 @@ form, .form {
     margin-top: 10px;
   }
 
-  .has-error span {
+  .has-error span.help-block {
     color: $input-error-color;
   }
 
@@ -165,9 +165,21 @@ form, .form {
     top: -20px ;
   }
 
+  span.label {
+    color: #7D7B7A;
+  }
+
   .ck.ck-editor {
     margin-bottom: 20px;
   }
+}
+
+.valid #Keyboard {
+  border: solid 1px $palletegreen;
+}
+
+.has-error #Keyboard {
+  border: solid 1px $input-error-color;
 }
 
 a.btn-cancel {

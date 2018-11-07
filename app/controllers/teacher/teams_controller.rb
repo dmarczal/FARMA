@@ -40,6 +40,6 @@ class Teacher::TeamsController < Teacher::TeacherApplicationController
 
   private
   def team_params
-    params.require(:team).permit(:name, :code, los: [])
+    params.require(:team).permit(:name, :code, los: [], image_attributes: [:image])
   end
 end

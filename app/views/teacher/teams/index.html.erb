@@ -7,12 +7,15 @@
  <% end %>
 </div>
 
-<article class="teams row">
-  <header class="center col s12">
-    <h4>Turmas</h4>
+<article id="teams">
+  <header class="center">
+    <h1>Turmas</h1>
   </header>
-
-  <div class="col s12">
-    <%= render @teams %>
+  <div class="row">
+    <div id="box-teams">
+      <%= split_in_columns(per_row: 3, collection: @teams) do |team| %>
+        <%= render team %>
+      <% end %>
+    </div>
   </div>
 </article>

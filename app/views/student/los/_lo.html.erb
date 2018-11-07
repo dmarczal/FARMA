@@ -2,19 +2,24 @@
   <div class="card-lo z-depth-1 clearfix col s12">
     <div class="card-image col s2">
       <%= link_to student_team_lo_path(@team, lo, 1) do %>
-        <%= image_tag lo.image.url , class: 'responsive-img' %>
+        <%= attachment_image_tag lo.image,
+                                 :image,
+                                 :fill,
+                                 200,
+                                 200,
+                                 fallback: "default-image.png",
+                                 class: "responsive-img" %>
       <% end %>
     </div>
 
     <div class="card-content left-align col s8">
       <h4 class="title"><%= lo.name %></h4>
       <p class="description"><%= truncate_and_set_popup(lo.name, lo.description, length: 360, separator: ' ') %></p>
-      <p class="last-view">Ultima visualização em 23 de Agosto de 2017 às 22:36</p>
     </div>
 
     <div class="card-progress col s2">
-      <div class="circle-bar c100 p25 orange-c">
-        <span>25%</span>
+      <div class="circle-bar c100 p<%= lo.progress_percent(@team).round %> orange-c">
+        <span><%= lo.progress_percent(@team).round %>%</span>
         <div class="slice">
           <div class="bar"></div>
           <div class="fill"></div>

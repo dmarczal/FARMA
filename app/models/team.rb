@@ -5,7 +5,9 @@ class Team < ActiveRecord::Base
   has_many :users, through: :users_teams
   has_many :tips_counts, dependent: :destroy
   has_many :answers, dependent: :destroy
-  has_many :progress_lo, class_name: "Progress::Lo"
+  has_many :progress_lo, class_name: "Progress::Lo", dependent: :destroy
+  has_many :progress_introductions, class_name: "Progress::Introduction", dependent: :destroy
+  has_many :progress_exercises, class_name: "Progress::Exercise", dependent: :destroy
   has_one  :image, class_name: "Picture", as: :subject
   belongs_to :user
 

@@ -1,5 +1,5 @@
 class API::QuestionsController < API::ApplicationController
-  before_action :find_question, except: [:create, :index]
+  before_action :find_question, except: [:create, :index, :load_student_questions]
   before_action :set_data_type
 
   rescue_from ActiveRecord::RecordNotFound do |exception|
@@ -72,7 +72,131 @@ class API::QuestionsController < API::ApplicationController
     json_response
   end
 
+  def load_student_questions
+    data = @exercise.questions.order(:position).all
+    data = data.map { |q| data_student_questions(q) }
+
+    self.data_type = 'Array'
+    self.data = { questions: data, progress: progress_los }
+    self.status_response = :ok
+
+    json_response
+  end
+
+  def create_answer
+    answer = current_user.answers.new(
+      question_id: @question.id,
+      response: params[:response],
+      team_id: team.id
+    )
+
+    unless answer.correct
+      tips_count = answer.question.tips_counts.new(
+        user_id: current_user.id,
+        team_id: team.id
+      )
+
+      tips_count = tips_count.save_or_update
+    end
+
+    if answer.save
+      tips = @question.tips_to_show(user: current_user, team: team) || []
+
+      self.data_type = 'Object'
+      self.data = { answer: answer, tips: tips, progress: progress_los }
+      self.status_response = :ok
+
+      json_response
+    else
+      self.data_type = 'Bad request'
+      self.error = answer.errors
+      self.status_response = :bad_request
+
+      bad_request_response
+    end
+  end
+
+  def test_answer
+    answer = current_user.answers.new(
+      test: true,
+      question_id: @question.id,
+      response: params[:response]
+    )
+
+    tries = calc_tries
+
+    data = {
+      tries: tries,
+      answer: answer,
+    }
+
+    unless answer.correct
+      tips = tips(tries)
+      tip = tips.last
+
+      data[:tips] = tips
+      data[:tip] = tip
+    end
+
+    self.data_type = 'Answer'
+    self.data = data
+    self.status_response = :ok
+
+    json_response
+  end
+
+  def reset_tries
+    cookies.delete("count_responses_#{@question.id}")
+
+    self.data_type = 'No Content'
+    self.data = ''
+    self.status_response = :no_content
+
+    json_response
+  end
+
   private
+
+  def progress_los
+    @progress_los ||= @exercise.lo.progress_los.find_by(team_id: team.id, user_id: current_user.id)
+  end
+
+  def team
+    @team ||= current_user.teams.find(params[:team_id])
+  end
+
+  def answers(question)
+    Answer.where(user_id: current_user.id, question_id: question.id, team_id: team.id).all
+  end
+
+  def tips(tries)
+    @question.tips_to_show(tips_count: tries)
+  end
+
+  def data_student_questions(question)
+    tips = question.tips_to_show(user: current_user, team: team) || []
+
+    {
+      tips: tips,
+      answers: answers(question),
+      question: {
+        id: question.id,
+        title: question.title,
+        content: question.content
+      }
+    }
+  end
+
+  def calc_tries
+    if cookies["count_responses_#{@question.id}"].nil?
+      cookies["count_responses_#{@question.id}"] = 1
+      return 1
+    end
+
+    cookies["count_responses_#{@question.id}"] = cookies["count_responses_#{@question.id}"].to_i + 1
+
+    return cookies["count_responses_#{@question.id}"].to_i
+  end
 
   def question_params
     params.permit(:title, :content, :correct_answer, :precision)

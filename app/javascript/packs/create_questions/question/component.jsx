@@ -1,9 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import renderHTML from 'react-render-html';
+import MathJax from 'react-mathjax';
 
 import Tips from '../tips';
 import FormTip from '../form-tip';
+import TestQuestion from '../test-question';
+import { format } from '../../libs/format-answer';
 
 const renderPrecision = (precision) => {
   return precision ? (<span>Precisão: { precision }</span>) : '';
@@ -44,6 +47,8 @@ const Component = ({
   onRemoveTip,
   onEditTip,
   currentTip,
+  exerciseId,
+  questionId,
 }) => (
   <li>
     <div className="collapsible-header">
@@ -75,7 +80,14 @@ const Component = ({
       { renderHTML(content) }
       { renderPrecision(precision) }
       <br />
-      <span>Resposta correta: {correctAnswer}</span>
+      <span>Resposta correta</span>
+      <MathJax.Provider>
+        <MathJax.Node formula={format(correctAnswer)}/>
+      </MathJax.Provider>
+      <TestQuestion
+        exerciseId={exerciseId}
+        questionId={questionId}
+      />
       <Tips
         tips={tips}
         onRemove={onRemoveTip}
@@ -95,10 +107,10 @@ const Component = ({
 Component.propTypes = {
   index: PropTypes.number.isRequired,
   id: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired,
-  correctAnswer: PropTypes.string.isRequired,
-  precision: PropTypes.number.isRequired,
+  title: PropTypes.string,
+  content: PropTypes.string,
+  correctAnswer: PropTypes.string,
+  precision: PropTypes.number,
   onOpenContent: PropTypes.func.isRequired,
   onEdit: PropTypes.func.isRequired,
   onDelete: PropTypes.func.isRequired,

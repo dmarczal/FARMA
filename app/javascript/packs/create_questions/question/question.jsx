@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import iziToast from 'izitoast';
 
 import Component from './component';
-import { deleteQuestion } from '../services/question_service';
+import { deleteQuestion, resetTries } from '../services/question_service';
 import {
   postTip,
   allTips,
@@ -178,7 +178,10 @@ class Question extends React.Component {
   }
 
   handleOpenContent() {
+    let { exerciseId, question } = this.props;
+
     $('.collapsible').collapsible('open', this.props.index);
+    resetTries(exerciseId, question.id);
   }
 
   handleOnEdit() {
@@ -239,6 +242,8 @@ class Question extends React.Component {
       currentTip,
     } = this.state;
 
+    let { exerciseId, question } = this.props;
+
     return (
       <Component
         index={this.props.index + 1}
@@ -255,6 +260,8 @@ class Question extends React.Component {
         currentTip={currentTip}
         onEditTip={this.handeEditTip}
         onRemoveTip={this.handleDeleteTip}
+        exerciseId={exerciseId}
+        questionId={question.id}
         {...this.props.question}
       />
     )

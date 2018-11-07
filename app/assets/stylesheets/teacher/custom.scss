@@ -343,49 +343,18 @@ article.article-tips {
  /* Question show styles - Tips styles
  /*************************************************************/
 
- li.box-tip {
-   margin: 5px 0;
-   border-radius: 5px;
-   padding: 5px;
+.tips {
+  padding: 20px !important;
+  border-radius: 5px;
 
-   .text-multiply{
-     opacity: 0.75;
-   }
-   span{
-     .col{
-       .s12{
-         margin-right: -590px;
-       }
-     }
-   }
- }
-
- .box-show-tips {
-   position: relative;
-   padding-top: 15px;
-   border: 1px solid #d1d1d1;
-   height: 250px;
-   padding-left: 0 !important;
-   padding-right: 0 !important;
-
-   .col {
-     padding-left: 0 ;
-     padding-right: 0 ;
-   }
-
-   i {
-     margin-top: 70px;
-   }
-
-   p {
-     margin-bottom: 20px;
-   }
-
-   .box-bottom {
-     position: absolute;
-     bottom: 0;
-   }
- }
+  .tip {
+    padding: 10px;
+    margin: 15px 0;
+    width: 100%;
+    background-color: $palletegreen2;
+    border-radius: 5px;
+  }
+}
 
  /*************************************************************
  /* Team index styles - Team
@@ -395,21 +364,79 @@ article.article-tips {
   margin-bottom: 0;
 }
 
-.card-team {
-  position: relative;
-  margin-left: 60px;
-  border-radius: 10px;
-  padding: 40px 0 !important;
+/**************************************************************/
+/****************** tabs - index teams ************************/
+/**************************************************************/
 
-  .title {
-    margin-bottom: 20px;
-  }
+ul.tabs {
+  background: none;
+  overflow: hidden;
+}
 
-  .material-icons {
-    position: absolute;
-    top: 0;
-    right: 0;
-    color: black;
+/**************************************************************/
+/****************** team - index teams ************************/
+/**************************************************************/
+
+.fa.fa-lightbulb-o.active {
+  color: #ffee58;
+}
+
+.collection .collection-item.has-error:first-child {
+  border-top: 1px solid $palletered;
+}
+
+.collection .collection-item.has-error {
+  border-bottom: 1px solid $palletered;
+  border-left: 1px solid $palletered;
+  border-right: 1px solid $palletered;
+}
+
+.collection .collection-item.valid:first-child {
+  border-top: 1px solid $palletegreen2;
+}
+
+.collection .collection-item.valid {
+  border-bottom: 1px solid $palletegreen2;
+  border-left: 1px solid $palletegreen2;
+  border-right: 1px solid $palletegreen2;
+}
+
+.btn-floating.btn-large.answer-open {
+  position: absolute;
+  margin-top: -45px;
+}
+
+.collection.answers {
+  display: none;
+}
+
+.spinner {
+  display: block;
+  position: fixed;
+  left: 45%;
+  top: 45%;
+}
+
+div.team {
+  padding: 0 20px;
+
+  div.card {
+    div.card-content {
+      padding: 10px 0 0 0;
+      color: $palletegrey2 !important;
+    }
+
+    div.card-content.information { margin-bottom: 50px;}
+
+  /****************** card-action (registered)*******************/
+
+    div.card-action {
+      background-color: $palletegreen2;
+
+      a {
+        color: $palletegrey2;
+      }
+    }
   }
 }
 

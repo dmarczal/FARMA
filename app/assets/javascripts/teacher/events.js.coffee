@@ -131,5 +131,5 @@ FARMA.imagePreview = ->
 
       reader.readAsDataURL input.files[0]
 
-  $("#lo_image").change ->
+  $('input[type="file"]').change ->
       readURL this
