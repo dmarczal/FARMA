@@ -3,7 +3,7 @@ module Helpers
     def fill_in_form(form, fields, submit = '//button[type="submit"]')
       within(form) do
         fields.each do |field, val|
-          fill_in field, with: val
+          first("##{field}", visible: false).set val
         end
       end
 

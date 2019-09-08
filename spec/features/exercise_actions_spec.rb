@@ -19,12 +19,12 @@ describe 'Exercise features' do
   describe '#create' do
     before { visit(new_teacher_lo_exercise_path(lo)) }
 
-    it 'display breadcrumbs' do 
+    it 'display breadcrumbs' do
       expect(breadcrumbs).to eq ['Início', 'Meus OAs', "OA #{lo.name}", 'Novo Exercício']
     end
 
     context 'when all parameters sent are valid' do
-      let(:params) { 
+      let(:params) {
         {
           'exercise_title' => 'test',
           'exercise_content' => 'test'
@@ -43,7 +43,7 @@ describe 'Exercise features' do
         expect(page.current_path).to eq teacher_lo_exercise_path(lo, Exercise.last)
       end
 
-      it 'display the exercise title' do 
+      it 'display the exercise title' do
         fill_in_form '.simple_form', params
 
         expect(page).to have_content 'test'
@@ -51,7 +51,7 @@ describe 'Exercise features' do
     end
 
     context 'when one or more parameters sent are invalid' do
-      let(:params) { 
+      let(:params) {
         {
           'exercise_title' => nil,
           'exercise_content' => 'test'
@@ -60,7 +60,7 @@ describe 'Exercise features' do
 
       it 'does not create an exercise' do
         visit(new_teacher_lo_exercise_path(lo))
-  
+
         expect{
           fill_in_form '.simple_form', params
         }.to_not change(Exercise,:count)
@@ -71,12 +71,12 @@ describe 'Exercise features' do
   describe '#update' do
     before { visit(edit_teacher_lo_exercise_path(lo, exercise)) }
 
-    it 'display breadcrumbs' do 
+    it 'display breadcrumbs' do
       expect(breadcrumbs).to eq ['Início', 'Meus OAs', "OA #{lo.name}", 'Editar Exercício']
     end
 
     context 'when all parameters sent are valid' do
-      let(:params) { 
+      let(:params) {
         {
           'exercise_title' => 'test',
           'exercise_content' => 'test'
@@ -85,9 +85,9 @@ describe 'Exercise features' do
 
       it 'updates the exercise' do
         fill_in_form '.simple_form', params
-        
+
         exercise.reload
-  
+
         expect(exercise.as_json).to include({'title' => 'test', 'content' => 'test'})
       end
 
@@ -97,7 +97,7 @@ describe 'Exercise features' do
         expect(page.current_path).to eq teacher_lo_exercise_path(lo, exercise)
       end
 
-      it 'display the exercise title' do 
+      it 'display the exercise title' do
         fill_in_form '.simple_form', params
 
         expect(page).to have_content 'test'
@@ -105,7 +105,7 @@ describe 'Exercise features' do
     end
 
     context 'when one or more parameters sent are invalid' do
-      let(:params) { 
+      let(:params) {
         {
           'exercise_title' => nil,
           'exercise_content' => 'test'
@@ -115,7 +115,7 @@ describe 'Exercise features' do
       it 'does not updates the exercise' do
         fill_in_form '.simple_form', params
         exercise.reload
-  
+
         expect(exercise.as_json).to_not include({'title' => 'test', 'content' => 'test'})
       end
     end
@@ -124,7 +124,7 @@ describe 'Exercise features' do
   describe '#delete' do
     it 'deletes the exercise' do
       page.driver.submit :delete, teacher_lo_exercise_path(lo, exercise), {}
-  
+
       expect(Exercise).to_not be_exists(exercise.id)
     end
   end

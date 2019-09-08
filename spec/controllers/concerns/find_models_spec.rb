@@ -24,17 +24,17 @@ RSpec.describe DummiesController, type: :controller do
   let(:user) { lo.user }
   let(:json_response) { JSON.parse response.body }
 
-  before do 
-    routes.draw do 
+  before do
+    routes.draw do
       get 'dummies' => 'dummies#lo'
       get 'dummies' => 'dummies#exercise'
       get 'dummies' => 'dummies#question'
     end
 
-    sign_in user 
+    sign_in user
   end
 
-  describe 'find_lo' do 
+  describe 'find_lo' do
     let(:lo) { create(:lo) }
     let(:params) { { id: lo.id } }
 
@@ -45,17 +45,17 @@ RSpec.describe DummiesController, type: :controller do
 
     it 'returns the correct lo' do
       get :lo, params: params
-      
+
       expect(json_response).to eq JSON.parse(lo.to_json)
     end
   end
 
-  describe 'find_exercise' do 
+  describe 'find_exercise' do
     let(:exercise) { create(:exercise) }
     let(:lo) { exercise.lo }
 
-    let(:params) { 
-      { 
+    let(:params) {
+      {
         lo_id: lo.id,
         id: exercise.id
       }
@@ -69,18 +69,18 @@ RSpec.describe DummiesController, type: :controller do
 
     it 'returns the correct exercise' do
       get :exercise, params: params
-      
+
       expect(json_response).to eq JSON.parse(exercise.to_json)
     end
   end
 
-  describe 'find_question' do 
+  describe 'find_question' do
     let(:question) { create(:question) }
     let(:exercise) { question.exercise }
     let(:lo) { exercise.lo }
 
-    let(:params) { 
-      { 
+    let(:params) {
+      {
         lo_id: lo.id,
         exercise_id: exercise.id,
         id: question.id
@@ -95,8 +95,10 @@ RSpec.describe DummiesController, type: :controller do
 
     it 'returns the correct question' do
       get :question, params: params
-      
-      expect(json_response).to eq JSON.parse(question.to_json)
+
+      serialization = ActiveModelSerializers::SerializableResource.new(question)
+
+      expect(JSON.parse(serialization.to_json)).to eq json_response
     end
   end
 end
