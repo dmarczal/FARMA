@@ -17,7 +17,7 @@ class Teacher::IntroductionsController < Teacher::TeacherApplicationController
   def create
     @introduction = @lo.introductions.new(introduction_params)
     if @introduction.save
-      redirect_to [:teacher, @lo], flash: { success: 'Introdução criada com sucesso.' }
+      redirect_to [:teacher, @lo, @introduction], flash: { success: 'Introdução criada com sucesso.' }
     else
       flash.now[:error] = "Existem dados incorretos."
       render :new
@@ -26,7 +26,7 @@ class Teacher::IntroductionsController < Teacher::TeacherApplicationController
 
   def update
     if @introduction.update(introduction_params)
-      redirect_to [:teacher, @lo], flash: { success: 'Introdução editada com sucesso.' }
+      redirect_to [:teacher, @lo, @introduction], flash: { success: 'Introdução editada com sucesso.' }
     else
       flash.now[:error] = "Existem dados incorretos."
       render :edit
