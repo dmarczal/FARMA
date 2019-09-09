@@ -7,18 +7,18 @@ describe 'Lo features', type: :feature do
 
   before { sign_in user }
 
-  describe '#index' do 
+  describe '#index' do
     let!(:los) { create_list(:lo, 5, user: user) }
-    
+
     before { visit teacher_los_path }
 
-    it 'display the all los' do 
+    it 'display the all los' do
       los.each do |lo|
         expect(page).to have_content lo.name
-      end 
+      end
     end
 
-    it 'display breadcrumbs' do 
+    it 'display breadcrumbs' do
       expect(breadcrumbs).to eq ['Início', 'Meus OAs']
     end
   end
@@ -26,7 +26,7 @@ describe 'Lo features', type: :feature do
   describe "#create" do
     before { visit new_teacher_lo_path }
 
-    it 'display breadcrumbs' do 
+    it 'display breadcrumbs' do
       expect(breadcrumbs).to eq ['Início', 'Meus OAs', 'Novo OA']
     end
 
@@ -44,7 +44,7 @@ describe 'Lo features', type: :feature do
         expect(page.current_path).to eq teacher_lo_path(Lo.last)
       end
 
-      it 'display the lo name on los list' do 
+      it 'display the lo name on los list' do
         fill_in_form '.simple_form', params
 
         expect(page).to have_content 'test'
@@ -76,7 +76,7 @@ describe 'Lo features', type: :feature do
   describe "#update" do
     before { visit edit_teacher_lo_path(lo) }
 
-    it 'display breadcrumbs' do 
+    it 'display breadcrumbs' do
       expect(breadcrumbs).to eq ['Início', 'Meus OAs', "Editar #{lo.name}"]
     end
 
@@ -95,7 +95,7 @@ describe 'Lo features', type: :feature do
       end
 
       it 'display the name and description updated' do
-        expect(page).to have_content('test') && 
+        expect(page).to have_content('test') &&
                         have_content('test-description')
       end
     end
@@ -123,7 +123,7 @@ describe 'Lo features', type: :feature do
 
     before { visit teacher_lo_path(lo) }
 
-    it 'display breadcrumbs' do 
+    it 'display breadcrumbs' do
       expect(breadcrumbs).to eq ['Início', 'Meus OAs', "OA #{lo.name}"]
     end
 
@@ -147,9 +147,9 @@ describe 'Lo features', type: :feature do
 
       before { team.los << lo }
 
-      it 'does not deletes the lo' do 
+      it 'does not deletes the lo' do
         page.find('.destroy').click
-        
+
         expect(Lo).to be_exists(lo.id)
       end
     end

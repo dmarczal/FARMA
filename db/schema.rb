@@ -91,8 +91,8 @@ ActiveRecord::Schema.define(version: 20180105223449) do
   end
 
   create_table "exercises_tags", id: false, force: :cascade do |t|
-    t.bigint "tag_id", null: false
-    t.bigint "exercise_id", null: false
+    t.integer "tag_id", null: false
+    t.integer "exercise_id", null: false
   end
 
   create_table "introductions", id: :serial, force: :cascade do |t|
@@ -106,8 +106,8 @@ ActiveRecord::Schema.define(version: 20180105223449) do
   end
 
   create_table "introductions_tags", id: false, force: :cascade do |t|
-    t.bigint "tag_id", null: false
-    t.bigint "introduction_id", null: false
+    t.integer "tag_id", null: false
+    t.integer "introduction_id", null: false
   end
 
   create_table "los", id: :serial, force: :cascade do |t|
@@ -122,8 +122,8 @@ ActiveRecord::Schema.define(version: 20180105223449) do
   end
 
   create_table "los_tags", id: false, force: :cascade do |t|
-    t.bigint "tag_id", null: false
-    t.bigint "lo_id", null: false
+    t.integer "tag_id", null: false
+    t.integer "lo_id", null: false
   end
 
   create_table "los_teams", id: :serial, force: :cascade do |t|
