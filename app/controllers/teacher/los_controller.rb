@@ -9,7 +9,7 @@ class Teacher::LosController < Teacher::TeacherApplicationController
 
   def show
     add_breadcrumb "OA #{@lo.name}", teacher_lo_path(@lo)
-    
+
     @contents = @lo.contents
   end
 
@@ -47,7 +47,7 @@ class Teacher::LosController < Teacher::TeacherApplicationController
   def destroy
     if @lo.destroy
       redirect_to teacher_los_path, flash: { success: 'Oa excluído com sucesso' }
-    else 
+    else
       redirect_to teacher_los_path, flash: { error: 'Esse Oa está em uma turma' }
     end
   end
@@ -55,6 +55,9 @@ class Teacher::LosController < Teacher::TeacherApplicationController
   private
 
   def lo_params
-    params.require(:lo).permit :name, :description, image_attributes: [:image]
+    params.require(:lo).permit :name,
+                               :description,
+                               :available,
+                               image_attributes: [:image]
   end
 end

@@ -4,8 +4,12 @@
     <%= f.input :name, autofocus: true %>
   </div>
 
-  <div id="box-textarea" class="col s9">
+  <div id="box-textarea" class="col s12">
     <%= f.input :description, as: :textarea %>
+  </div>
+
+  <div class="col s12">
+    <%= f.input :available, as: :checkbox_materialize %>
   </div>
 
   <%= f.simple_fields_for :image do |image| %>

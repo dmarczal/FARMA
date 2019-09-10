@@ -7,6 +7,6 @@ FactoryBot.define do
   end
 
   factory :invalid_tip, parent: :question do
-    content                  nil
+    content  { nil }
   end
 end

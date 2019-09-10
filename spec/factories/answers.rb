@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :answer do
-    response  {"2"}
+    response  { "2" }
     question
     team
     user
