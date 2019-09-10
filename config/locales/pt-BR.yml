@@ -56,6 +56,7 @@
           <<: *commons
         lo:
           description: "Descrição"
+          available: "Disponível"
           <<: *commons
         introduction:
           <<: *commons

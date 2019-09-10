@@ -7,6 +7,6 @@ FactoryBot.define do
   end
 
   factory :invalid_lo, parent: :lo do
-    name                  nil
+    name   { nil }
   end
 end
