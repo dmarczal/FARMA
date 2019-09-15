@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190910002823) do
+ActiveRecord::Schema.define(version: 20190914213839) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,13 @@ ActiveRecord::Schema.define(version: 20190910002823) do
     t.index ["question_id"], name: "index_answers_on_question_id"
     t.index ["team_id"], name: "index_answers_on_team_id"
     t.index ["user_id"], name: "index_answers_on_user_id"
+  end
+
+  create_table "ck_images", force: :cascade do |t|
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_ck_images_on_user_id"
   end
 
   create_table "ckeditor_assets", id: :serial, force: :cascade do |t|
@@ -268,6 +275,7 @@ ActiveRecord::Schema.define(version: 20190910002823) do
   add_foreign_key "answers", "questions"
   add_foreign_key "answers", "teams"
   add_foreign_key "answers", "users"
+  add_foreign_key "ck_images", "users"
   add_foreign_key "los_teams", "los"
   add_foreign_key "los_teams", "teams"
   add_foreign_key "progress_exercises", "exercises"
