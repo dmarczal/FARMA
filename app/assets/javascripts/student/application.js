@@ -21,9 +21,6 @@
 
 // App files
 //--------------------
-//= require ckeditor/init
-//= require ckeditor/farma_ckeditor_functions
-//= require ckeditor/config
 
 //= require shared/events
 //= require student/functions

@@ -15,8 +15,6 @@ Rails.application.routes.draw do
     resources :gallery, only: :create
   end
 
-  mount Ckeditor::Engine => '/ckeditor'
-
   #################################### Devise Layout ###########################################
 
   devise_for :admins, controllers: { sessions: "admin/admins/sessions" }
