@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     resources :questions, except: [:new, :edit] do
       resources :tips, except: [:new, :edit]
     end
+
+    resources :gallery, only: :create
   end
 
   mount Ckeditor::Engine => '/ckeditor'

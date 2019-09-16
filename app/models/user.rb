@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_many :users_teams
   has_many :teams, through: :users_teams
   has_many :my_teams, class_name: 'Team'
+  has_many :ck_images, dependent: :destroy
   has_one  :avatar, class_name: 'Picture', as: :subject
 
   accepts_nested_attributes_for :avatar

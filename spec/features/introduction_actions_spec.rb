@@ -37,7 +37,7 @@ describe "Introduction features" do
         }.to change(Introduction,:count).by 1
       end
 
-      it 'display the introduction title' do 
+      it 'display the introduction title' do
         fill_in_form '.simple_form', params
 
         expect(page).to have_content 'test'
@@ -46,11 +46,11 @@ describe "Introduction features" do
       it 'redirect to introduction path' do
         fill_in_form '.simple_form', params
 
-        expect(page.current_path).to eq teacher_lo_introduction_path(lo, Introduction.last)
+        expect(page.current_path).to eq teacher_lo_path(lo)
       end
     end
 
-    
+
     context 'when one or more parameters sent are invalid' do
       let(:params) {
         {
@@ -61,7 +61,7 @@ describe "Introduction features" do
 
       it 'does not creates the introduction' do
         visit(new_teacher_lo_introduction_path(lo))
-  
+
         expect{
           fill_in_form '.simple_form', params
         }.to_not change(Introduction, :count)
@@ -77,7 +77,7 @@ describe "Introduction features" do
     end
 
     context 'when all parameters sent are valid' do
-      let(:params) { 
+      let(:params) {
         {
           'introduction_title' => 'test',
           'introduction_content' => 'test'
@@ -92,7 +92,7 @@ describe "Introduction features" do
         expect(introduction.as_json).to include({'title' => 'test', 'content' => 'test'})
       end
 
-      it 'display the introduction title' do 
+      it 'display the introduction title' do
         fill_in_form '.simple_form', params
 
         expect(page).to have_content 'test'
@@ -106,7 +106,7 @@ describe "Introduction features" do
     end
 
     context 'when one or more parameters sent are invalid' do
-      let(:params) { 
+      let(:params) {
         {
           'introduction_title' => nil,
           'introduction_content' => 'test'
@@ -126,7 +126,7 @@ describe "Introduction features" do
   describe '#delete' do
     it 'deletes the introduction' do
       page.driver.submit :delete, teacher_lo_introduction_path(lo, introduction), {}
-  
+
       expect(Introduction).to_not be_exists(introduction.id)
     end
 

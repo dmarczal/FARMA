@@ -9,11 +9,10 @@ const App = ({ inputName, content }) => (
     editor={ ClassicEditor }
     data={content}
     config={{
-      language: 'pt-br',
-      cloudServices: {
-        tokenUrl: 'https://35711.cke-cs.com/token/dev/dXY3KdXENvQaOivGvYxS2qs7ymMl6LE7pQa2XxQICgedXvl6HgfkJOhIlYJw',
-        uploadUrl: 'https://35711.cke-cs.com/easyimage/upload/'
-      }
+      ckfinder: {
+        uploadUrl: '/api/gallery'
+      },
+      language: 'pt-br'
     }}
     onChange={ ( event, editor ) => $(`[name="${inputName}"]`).val(editor.getData()) }
   />
