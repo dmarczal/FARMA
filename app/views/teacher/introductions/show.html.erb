@@ -1,0 +1,12 @@
+<% provide(:title, "Introdução #{@introduction.title}") %>
+
+<div class="container">
+  <article class="paper-sheet">
+    <header class="center">
+      <h2><%= @introduction.title %></h2>
+    </header>
+
+    <%= @introduction.content.html_safe %>
+  </article>
+</div>
+

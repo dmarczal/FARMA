@@ -15,11 +15,10 @@ Rails.application.config.assets.paths << Rails.root.join("app", "assets", "fonts
 
 Rails.application.config.assets.precompile += %w( admin/session.scss )
 Rails.application.config.assets.precompile += %w( admin/session.js )
-
-#TODO: Review
-Rails.application.config.assets.precompile += %w( admin/teacher/application.scss )
-Rails.application.config.assets.precompile += %w( admin/teacher/application.js )
-Rails.application.config.assets.precompile += %w( admin/student/application.scss )
-Rails.application.config.assets.precompile += %w( admin/student/application.js )
-Rails.application.config.assets.precompile += %w( admin/devise/application.scss )
-Rails.application.config.assets.precompile += %w( admin/devise/application.js )
+Rails.application.config.assets.precompile += %w( teacher/application.scss )
+Rails.application.config.assets.precompile += %w( teacher/application.js )
+Rails.application.config.assets.precompile += %w( student/application.scss )
+Rails.application.config.assets.precompile += %w( student/application.js )
+Rails.application.config.assets.precompile += %w( devise/application.scss )
+Rails.application.config.assets.precompile += %w( devise/application.js )
+Rails.application.config.assets.precompile += %w( mathjax/tex-svg.min.js )

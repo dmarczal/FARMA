@@ -2,7 +2,12 @@
   <div class="col s9 title">
     <i class="mdi-content-text-format left introduction"></i>
     <span class="introduction"><%= "Introdução " + introduction.index.to_s %></span>
-    <p><%= introduction.title %></p>
+    <p>
+      <%= link_to(
+        introduction.title,
+        teacher_lo_introduction_path(@lo, introduction)
+      ) %>
+    </p>
   </div>
 
   <div class="col s3">
