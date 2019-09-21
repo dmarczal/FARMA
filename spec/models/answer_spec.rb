@@ -7,11 +7,58 @@ RSpec.describe Answer, type: :model do
   let(:user)     { create(:user, :actived) }
 
   describe 'Create the answers' do
+    context 'when has precision' do
+      let(:question) { create(:question, correct_answer: '0.1234', precision: 2) }
+
+      it "is correct" do
+        answer = question.answers.new user_id: user.id, response: '0.1256'
+        expect(answer).to be_correct
+      end
+
+      it "is incorrect" do
+        answer = question.answers.new user_id: user.id, response: '0.1156'
+        expect(answer).not_to be_correct
+      end
+
+      it "is invalid" do
+        answer = question.answers.new user_id: user.id, response: 'x + 2'
+        expect(answer).not_to be_correct
+      end
+    end
+
+    context 'when precision is greater than decimal places' do
+      describe 'correct answer is less than' do
+        let(:question) { create(:question, correct_answer: '0.12', precision: 4) }
+
+        it "is incorrect" do
+          answer = question.answers.new user_id: user.id, response: '0.1256'
+          expect(answer).not_to be_correct
+        end
+
+        it "is incorrect" do
+          answer = question.answers.new user_id: user.id, response: '0.12'
+          expect(answer).to be_correct
+        end
+      end
+
+      describe 'response is less than' do
+        let(:question) { create(:question, correct_answer: '0.1242', precision: 4) }
+
+        it "is incorrect" do
+          answer = question.answers.new user_id: user.id, response: '0.12'
+          expect(answer).not_to be_correct
+        end
+
+        it "is incorrect" do
+          answer = question.answers.new user_id: user.id, response: '0.1242'
+          expect(answer).to be_correct
+        end
+      end
+    end
+
     context 'when only one user responds' do
-      it "it's correct" do
-        answer = question.answers.new user_id: user.id, response: '5'
-        answer.response= 10
-  
+      it "is correct" do
+        answer = question.answers.new user_id: user.id, response: '10'
         expect(answer).to be_correct
       end
 
