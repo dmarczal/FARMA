@@ -21,7 +21,7 @@ gem 'devise'
 gem 'simple_form'
 gem 'materialize-sass', '~> 0.98.2' # https://github.com/mkhairi/materialize-sass
 gem 'rails-i18n', '~> 5.0.0' # For 5.x
-gem 'math_engine'
+gem 'math-comparison', github: 'henroca/math-comparison'
 
 gem 'font-awesome-rails'
 gem "mini_magick"

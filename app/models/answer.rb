@@ -1,5 +1,5 @@
 class Answer < ActiveRecord::Base
-  include MathComparison
+  include Math::Comparison
 
   belongs_to :user
   belongs_to :question
@@ -25,8 +25,14 @@ class Answer < ActiveRecord::Base
 
   private
   def set_correct
-    comparison = MathComparison::Comparison.new(correct_answer: question.correct_answer,precision: question.precision, cmas_order: question.cmas_order)
-    self.correct = comparison.right_response?(response)
+    begin
+      correct_answer, response = prepare_responses
+      comparison = Comparator.make(correct_answer, response)
+
+      self.correct = comparison.equal?
+    rescue ArgumentError => exception
+      self.correct = false
+    end
 
     unless team.nil?
       progress = team.progress_lo.find_or_create_by(user_id: user_id, team_id: team_id, lo_id: question.exercise.lo_id)
@@ -48,5 +54,26 @@ class Answer < ActiveRecord::Base
     else
       self.attempt_number = last_answer.last.attempt_number + 1
     end
+  end
+
+  def prepare_responses
+    return [question.correct_answer, response] if question.precision.nil?
+
+    Float(response)
+    Float(question.correct_answer)
+    responses = []
+    responses.push slice_by_precision(question.correct_answer)
+    responses.push slice_by_precision(response)
+
+    responses
+  end
+
+  def slice_by_precision(math)
+    return math unless math.include? '.'
+
+    splited_response = math.split '.'
+    splited_response[1] = splited_response[1].slice 0, question.precision
+
+    splited_response.join('.')
   end
 end
