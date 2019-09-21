@@ -1,7 +1,0 @@
-<% if sidebar_li.is_a? Exercise %>
-  <%= render partial: '/layouts/view_lo/side_partials/li_exercise',
-                      locals: { li_exercise_counter: sidebar_li_counter } %>
-<% else %>
-  <%= render partial: '/layouts/view_lo/side_partials/li_introduction',
-                      locals: { li_introduction_counter: sidebar_li_counter } %>
-<% end %>

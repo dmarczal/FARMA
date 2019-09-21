@@ -46,7 +46,7 @@ describe "Introduction features" do
       it 'redirect to introduction path' do
         fill_in_form '.simple_form', params
 
-        expect(page.current_path).to eq teacher_lo_path(lo)
+        expect(page.current_path).to eq teacher_lo_introduction_path(lo, Introduction.last)
       end
     end
 

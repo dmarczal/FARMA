@@ -15,7 +15,6 @@ module Farma
     config.autoload_paths += %W(#{config.root}/lib/simple_form_extensions)
     config.autoload_paths += %W(#{config.root}/lib/breadcrumbs_on_rails_extensions)
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
-    config.assets.precompile += ["codemirror*", "codemirror/**/*"]
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.

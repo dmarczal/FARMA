@@ -25,12 +25,8 @@ gem 'math_engine'
 
 gem 'font-awesome-rails'
 gem "mini_magick"
-gem 'ckeditor', '~> 4.1' #https://github.com/galetahub/ckeditor
 gem 'breadcrumbs_on_rails' #https://github.com/weppos/breadcrumbs_on_rails
 gem 'active_link_to', '~> 1.0', '>= 1.0.3'
-gem 'handlebars_assets'
-gem 'jquery-hotkeys-rails'
-gem 'codemirror-rails' # TODO: CHECK WHERE IT IS USED
 gem 'refile', require: 'refile/rails', github: 'refile/refile'
 gem 'refile-mini_magick'
 gem "refile-s3"
