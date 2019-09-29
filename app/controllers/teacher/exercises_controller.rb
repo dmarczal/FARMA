@@ -5,7 +5,7 @@ class Teacher::ExercisesController < Teacher::TeacherApplicationController
   before_action :find_exercise, except: [:new, :create]
 
   def show
-    add_breadcrumb "Questões do exercicio #{@exercise.title}", teacher_lo_exercise_path(@lo, @exercise)
+    add_breadcrumb "Passos do exercicio #{@exercise.title}", teacher_lo_exercise_path(@lo, @exercise)
   end
 
   def new

@@ -194,3 +194,15 @@ a.btn-cancel {
 	text-align: justify;
 	word-wrap: break-word;
 }
+
+/*************************************************************
+* collapsible constumizations
+**************************************************************/
+
+.collapsible {
+  border-top: none;
+
+  .collapsible-header {
+    padding: 5px 0;
+  }
+}

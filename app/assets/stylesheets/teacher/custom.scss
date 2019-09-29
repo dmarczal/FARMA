@@ -134,11 +134,18 @@
   background-color: white;
   width: 100%;
   margin: 0;
-  margin-top: 40px;
   padding: 20px 30px;
   color: $palletegrey2;
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 }
 
+#steps-app {
+  padding: 10px 0;
+}
 
 /*************************************************************
 /* Team index styles - Team

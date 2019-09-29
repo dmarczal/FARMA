@@ -16,7 +16,6 @@
   "plugins": [
     "syntax-dynamic-import",
     "transform-object-rest-spread",
-    "emotion",
     [
       "transform-class-properties",
       {
