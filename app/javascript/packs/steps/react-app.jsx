@@ -7,10 +7,12 @@ $(document).on('turbolinks:load', function () {
   var el = document.getElementById('steps-app');
 
   if (el) {
-    var exerciseId = $(el).data('exercise-id');
+    var exerciseId = parseInt($(el).data('exercise-id'));
 
     ReactDOM.render(
-      <App exerciseId={exerciseId}/>,
+      <App
+        exerciseId={exerciseId}
+      />,
       el
     );
   }

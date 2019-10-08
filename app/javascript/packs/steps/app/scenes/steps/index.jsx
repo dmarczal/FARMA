@@ -1,30 +1,45 @@
-import React, { Fragment } from 'react';
-import { Fab } from '@material-ui/core';
-import { Add } from '@material-ui/icons';
-import { makeStyles } from '@material-ui/core/styles';
+import Steps from './Steps';
+import { connect } from 'react-redux'
+import {
+  fetchSteps,
+  formStep,
+  closeForm,
+  createStep,
+  editStep,
+} from '../../store/actions/steps';
 
-import Step from './Step';
-import Form from './Form';
-
-const styles = makeStyles(theme => ({
-  fab: {
-    position: 'fixed',
-    right: '10px',
-    bottom: '10px',
-  }
-}));
-
-export default () => {
-  const classes = styles();
-
-  return (
-    <Fragment>
-      <Form />
-      <Step />
-      <Step />
-      <Fab color="primary" aria-label="add" className={classes.fab}>
-        <Add />
-      </Fab>
-    </Fragment>
-  );
+const mapStateToProps = ({ steps }) => {
+  return {
+    steps: steps.items,
+    isLoad: steps.isFetching,
+    step: steps.item,
+    openForm: steps.openForm,
+  };
 }
+
+const mapDispatchToProps = dispatch => ({
+  load () {
+    dispatch(fetchSteps());
+  },
+
+  newStep () {
+    dispatch(formStep());
+  },
+
+  closeStep () {
+    dispatch(closeForm());
+  },
+
+  onSubmit (step) {
+    if (step.id) {
+      return dispatch(editStep(step));
+    }
+
+    dispatch(createStep(step));
+  },
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+  )(Steps);

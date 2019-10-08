@@ -8,18 +8,31 @@ const TextField = ({
   onChange,
   label,
   col,
-}) => (
-  <div className={`input-field col ${col}`}>
-    <input
-      id={id}
-      type="text"
-      name={name}
-      value={value}
-      onChange={onChange}
-    />
-    <label htmlFor={id}>{label}</label>
-  </div>
-);
+  errors,
+}) => {
+  errors = errors || [];
+  let errorClass = '';
+  let errorMessage = '';
+
+  if (errors.length > 0) {
+    errorMessage = <span className="help-block">{errors[0]}</span>
+    errorClass = 'has-error';
+  }
+
+  return (
+    <div className={`input-field col ${col} ${errorClass}`}>
+      <input
+        id={id}
+        type="text"
+        name={name}
+        value={value}
+        onChange={onChange}
+      />
+      <label htmlFor={id}>{label}</label>
+      {errorMessage}
+    </div>
+  )
+};
 
 TextField.propTypes = {
   value:    PropTypes.string.isRequired,
@@ -28,6 +41,7 @@ TextField.propTypes = {
   onChange: PropTypes.func.isRequired,
   label:    PropTypes.string.isRequired,
   col:      PropTypes.string.isRequired,
+  errors:   PropTypes.array,
 }
 
 export default TextField;

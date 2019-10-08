@@ -3,6 +3,7 @@ FactoryBot.define do
     title       { Faker::Name.name }
     content     { Faker::Name.name }
     correct_answer { "a*5 + b" }
+    answer_tex { "a*5 + b" }
 
     exercise
   end

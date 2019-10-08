@@ -14,7 +14,7 @@ RSpec.describe API::QuestionsController, type: :controller do
     before { get :index, format: :json, params: { exercise_id: exercise.id } }
 
     it { is_expected.to be_success }
-    it { is_expected.to match_response_schema("questions") }
+    it { is_expected.to match_response_schema('questions') }
 
     it "returns all the questions" do
       expect(json_response["data"].size).to eq(10)

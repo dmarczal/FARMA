@@ -6,8 +6,15 @@ class Question < ActiveRecord::Base
   has_many :answers, dependent: :destroy
   has_many :tips_counts, dependent: :destroy
 
-  validates :correct_answer, :title, :content, presence: true
+  validates :correct_answer,
+            :title,
+            :content,
+            :answer_tex,
+            presence: true
 
+  validates :precision,
+            numericality: { only_integer: true, less_than: 6, greater_than: 0 },
+            allow_nil: true
 
   delegate :user, to: :exercise
 

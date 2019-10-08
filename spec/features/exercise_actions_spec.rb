@@ -12,7 +12,7 @@ describe 'Exercise features' do
     it 'display the correct' do
       visit(teacher_lo_exercise_path(lo, exercise))
 
-      expect(page).to have_content truncate("Questões do exercicio #{exercise.title}", length: 25)
+      expect(page).to have_content truncate("Passos do exercicio #{exercise.title}", length: 25)
     end
   end
 

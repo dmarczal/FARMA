@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
+import MathJax from 'react-mathjax';
 
 import {
   green,
@@ -52,7 +53,7 @@ const styles = makeStyles(theme => ({
   },
   boxResponse: {
     margin: '10px',
-    padding: '5px 10px',
+    padding: '0 10px',
     border: '0.8px solid',
     borderColor: grey[300],
     display: 'inline-block',
@@ -81,8 +82,10 @@ const styles = makeStyles(theme => ({
 const StepComponent = ({
   openCollapse,
   number,
-  title,
+  data,
   onOpen,
+  onEditStep,
+  deleteStep,
 }) => {
   const classes = styles();
 
@@ -98,6 +101,13 @@ const StepComponent = ({
       color="action"
       onClick={onOpen}
     />);
+
+  let precision = data.precision ?
+    (
+      <Typography component="span">
+        PRECISÃO: {data.precision}
+      </Typography>
+    ): '';
 
   return (
     <Paper className={classes.root}>
@@ -120,16 +130,24 @@ const StepComponent = ({
             spacing={3}
           >
             <Grid item>
-              <Create color="action" className={classes.actions}/>
+              <Create
+                color="action"
+                className={classes.actions}
+                onClick={() => onEditStep(data)}
+              />
             </Grid>
             <Grid item>
-              <Delete color="action" className={classes.actions}/>
+              <Delete
+                color="action"
+                className={classes.actions}
+                onClick={() => deleteStep(data.id)}
+              />
             </Grid>
           </Grid>
         </Grid>
         <Grid item xs={12} className={classes.title}>
           <Typography component="p">
-            {title}
+            {data.title}
           </Typography>
         </Grid>
         <Grid item xs={12}>
@@ -153,14 +171,17 @@ const StepComponent = ({
         <Grid container spacing={0}>
           <Grid item xs={12} md={9}>
             <Box className={classes.boxDesc}>
-              Descrição
+              <div dangerouslySetInnerHTML={{ __html: data.content }}></div>
             </Box>
             <Typography component="span">
               RESPOSTA:
             </Typography>
             <Box className={classes.boxResponse}>
-              $2+x^2$
+              <MathJax.Provider>
+                <MathJax.Node formula={data.answer_tex} />
+              </MathJax.Provider>
             </Box>
+            {precision}
           </Grid>
           <Grid item xs={12} md={3}>
             <Button variant="contained" className={classes.tips}>
@@ -176,8 +197,18 @@ const StepComponent = ({
 StepComponent.propTypes = {
   openCollapse: PropTypes.bool.isRequired,
   number: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
   onOpen: PropTypes.func.isRequired,
+  onEditStep: PropTypes.func.isRequired,
+  deleteStep: PropTypes.func.isRequired,
+  data: PropTypes.exact({
+    id: PropTypes.number,
+    title: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
+    correct_answer: PropTypes.string.isRequired,
+    answer_tex: PropTypes.string.isRequired,
+    precision: PropTypes.number,
+    variables: PropTypes.array.isRequired,
+  }).isRequired,
 }
 
 export default StepComponent;
