@@ -13,6 +13,7 @@
     "react-material-keyboard": "https://github.com/henroca/react-material-keyboard",
     "react-mathjax": "^1.0.1",
     "react-redux": "^7.1.1",
+    "react-router-dom": "^5.1.2",
     "react-spinners": "^0.6.1",
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0"

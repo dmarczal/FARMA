@@ -1,5 +1,6 @@
 import Steps from './Steps';
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom';
 import {
   fetchSteps,
   formStep,
@@ -39,7 +40,7 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-  )(Steps);
+  )(Steps));

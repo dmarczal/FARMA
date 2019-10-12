@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import MathJax from 'react-mathjax';
+import { Link } from 'react-router-dom';
 
 import {
   green,
@@ -184,7 +185,12 @@ const StepComponent = ({
             {precision}
           </Grid>
           <Grid item xs={12} md={3}>
-            <Button variant="contained" className={classes.tips}>
+            <Button
+              component={Link}
+              to={`/${data.id}/tips`}
+              variant="contained"
+              className={classes.tips}
+            >
               <EmojiObjects /> Dicas
             </Button>
           </Grid>
