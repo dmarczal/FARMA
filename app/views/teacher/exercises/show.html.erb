@@ -1,11 +1,17 @@
-<article>
-  <header class="center">
-    <h5><%= @exercise.title %> - Questões</h5>
-  </header>
+<% provide(:title, "Exercício #{@exercise.title}") %>
 
-  <span class="center"><%= @exercise.content.to_s.html_safe %></span>
+<div class="container-fluid">
+  <ul class="collapsible">
+    <li>
+      <div class="collapsible-header center"><h2><%= @exercise.title %></h2></div>
+      <div class="collapsible-body paper-sheet">
+        <%= @exercise.content.html_safe %>
+      </div>
+    </li>
+  </ul>
 
   <div class="divider"></div>
-
-  <div id="react-app" data-exercise-id="<%= @exercise.id %>"></div>
-</article>
+  <h2 class="center">Passos</h2>
+  <div class="divider"></div>
+  <div id="steps-app" data-exercise-id="<%= @exercise.id %>"></div>
+</div>

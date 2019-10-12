@@ -1,3 +1,9 @@
 class QuestionSerializer < ActiveModel::Serializer
-  attributes :id, :title, :position, :content, :correct_answer, :precision, :exercise_id
+  attributes :id,
+             :title,
+             :content,
+             :correct_answer,
+             :answer_tex,
+             :precision,
+             :variables
 end

@@ -10,8 +10,10 @@ RSpec.describe Question, type: :model do
 
   describe 'validates' do
     it { is_expected.to validate_presence_of(:correct_answer) }
+    it { is_expected.to validate_presence_of(:answer_tex) }
     it { is_expected.to validate_presence_of(:title) }
     it { is_expected.to validate_presence_of(:content) }
+    it { is_expected.to validate_numericality_of(:precision) }
   end
 
   context 'Content completion' do

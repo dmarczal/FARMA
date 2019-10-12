@@ -8,8 +8,10 @@ Rails.application.routes.draw do
       get '/load_student_questions' => 'questions#load_student_questions'
     end
 
-    resources :questions, except: [:new, :edit] do
-      resources :tips, except: [:new, :edit]
+    scope '/exercises/:exercise_id' do
+      resources :questions, except: [:new, :edit] do
+        resources :tips, except: [:new, :edit]
+      end
     end
 
     resources :gallery, only: :create

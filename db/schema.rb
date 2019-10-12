@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190916235754) do
+ActiveRecord::Schema.define(version: 20191010001956) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -182,10 +182,11 @@ ActiveRecord::Schema.define(version: 20190916235754) do
     t.text "content", null: false
     t.text "correct_answer", null: false
     t.integer "precision"
-    t.boolean "cmas_order"
     t.integer "exercise_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "answer_tex", null: false
+    t.string "variables", limit: 1, default: [], array: true
     t.index ["exercise_id"], name: "index_questions_on_exercise_id"
   end
 

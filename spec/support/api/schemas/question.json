@@ -16,15 +16,15 @@
         "data": {
             "description": "The response data",
             "type": "object",
-            "required": ["id", "title", "position", "content", "correct_answer", "precision", "exercise_id"],
+            "required": ["id", "title", "content", "correct_answer", "precision", "answer_tex", "variables"],
             "properties": {
                 "id": { "type": "integer" },
                 "title": { "type": "string" },
-                "position": { "type": "integer" },
                 "content": { "type": "string" },
                 "correct_answer": { "type": "string" },
-                "precision": { "type": ["integer", "null"] },
-                "exercise_id": { "type": "integer" }
+                "answer_tex": { "type": "string" },
+                "variables": { "type": "type", "items": { "type": "string" } },
+                "precision": { "type": ["integer", "null"] }
             }
         }
     }

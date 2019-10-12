@@ -199,7 +199,12 @@ class API::QuestionsController < API::ApplicationController
   end
 
   def question_params
-    params.permit(:title, :content, :correct_answer, :precision)
+    params.permit :title,
+                  :content,
+                  :correct_answer,
+                  :precision,
+                  :answer_tex,
+                  variables: []
   end
 
   def find_question
