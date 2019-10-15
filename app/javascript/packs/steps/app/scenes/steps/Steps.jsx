@@ -23,7 +23,8 @@ const loaderOverride = `
 `;
 
 class Steps extends Component {
-  componentWillMount () {
+  constructor (props) {
+    super (props);
     this.props.load();
   }
 
@@ -39,13 +40,6 @@ class Steps extends Component {
       onSubmit,
     } = this.props;
 
-    let form = openForm ? (
-      <Form
-          step={step}
-          close={closeStep}
-          onSubmit={onSubmit}
-        />
-    ) : '';
 
     if (isLoad) {
       return (
@@ -59,8 +53,19 @@ class Steps extends Component {
       );
     }
 
+    let form = openForm ? (
+      <Form
+          step={step}
+          close={closeStep}
+          onSubmit={onSubmit}
+        />
+    ) : '';
+
     return (
       <Fragment>
+        <div className="divider"></div>
+          <h2 className="center">Passos</h2>
+        <div className="divider"></div>
         {form}
         {steps.map((step, index) => (
           <Step key={step.id} number={index + 1} {...step} />

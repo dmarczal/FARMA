@@ -1,26 +1,28 @@
 import iziToast from 'izitoast';
+import httpFactory from '../http-factory';
 import {
   LOAD_STEPS,
-  REQUEST_STEPS,
+  LOAD_STEP,
   FORM_STEP,
   CLOSE_FORM_STEP,
+  ERROR_SUBMIT_STEP,
   invalidateLoad,
   validateLoad,
-  ERROR_SUBMIT_STEP,
+  isFetching,
+  stopFetching,
  } from './index';
 
-import httpFactory from '../http-factory';
-
-const requestSteps = () => ({
-  type: REQUEST_STEPS,
-});
+const getExerciseId = ({ requestLoad }) => requestLoad.exerciseId
 
 const loadSteps = (items) => ({
   type: LOAD_STEPS,
   items
 });
 
-const getExerciseId = ({ requestLoad }) => requestLoad.exerciseId
+const loadStep = (current) => ({
+  type: LOAD_STEP,
+  current
+});
 
 export const formStep = (data = {}) => ({
     type: FORM_STEP,
@@ -44,14 +46,28 @@ export const closeForm = () => ({
   type: CLOSE_FORM_STEP,
 });
 
+export const fetchStep = (stepId) => async (dispatch, getState) => {
+  let http = httpFactory(getExerciseId(getState()));
+
+  dispatch(isFetching());
+
+  return http.get('/'+stepId)
+    .then(({ data }) => {
+      dispatch(loadStep(data));
+      dispatch(stopFetching());
+    }).catch(response => console.log(response));
+}
+
 export const fetchSteps = () => async (dispatch, getState) => {
   let http = httpFactory(getExerciseId(getState()));
 
-  dispatch(requestSteps());
+  dispatch(isFetching());
 
   return http.get('/')
-    .then(({ data }) => dispatch(loadSteps(data)))
-    .catch(response => console.log(response));
+    .then(({ data }) => {
+      dispatch(loadSteps(data));
+      dispatch(stopFetching());
+    }).catch(response => console.log(response));
 }
 
 export const createStep = (step) => async (dispatch, getState) => {
@@ -59,17 +75,17 @@ export const createStep = (step) => async (dispatch, getState) => {
   let data = {...step};
   delete data.id;
 
-  dispatch(requestSteps());
+  dispatch(isFetching());
 
   return http.post('/', data)
     .then(() => {
-      dispatch(fetchSteps());
       iziToast.success({
         title: 'Passo criado com sucesso',
         position: 'topRight',
       });
       dispatch(validateLoad());
       dispatch(closeForm());
+      dispatch(fetchSteps());
     }).catch((err) => {
       let { error_type, error } = err.data;
       iziToast.error({
@@ -78,6 +94,7 @@ export const createStep = (step) => async (dispatch, getState) => {
       });
       dispatch(invalidateLoad(error_type, error));
       dispatch(errorForm(step));
+      dispatch(stopFetching());
     });
 }
 
@@ -86,17 +103,17 @@ export const editStep = (step) => async (dispatch, getState) => {
   let data = {...step};
   delete data.id;
 
-  dispatch(requestSteps());
+  dispatch(isFetching());
 
   return http.put('/'+step.id, data)
     .then(() => {
-      dispatch(fetchSteps());
       iziToast.success({
         title: 'Passo editado com sucesso',
         position: 'topRight',
       });
       dispatch(validateLoad());
       dispatch(closeForm());
+      dispatch(fetchSteps());
     }).catch((err) => {
       let { error_type, error } = err.data;
       iziToast.error({
@@ -105,21 +122,22 @@ export const editStep = (step) => async (dispatch, getState) => {
       });
       dispatch(invalidateLoad(error_type, error));
       dispatch(errorForm(step));
+      dispatch(stopFetching());
     });
 }
 
 export const deleteStep = (id) => async (dispatch, getState) => {
   let http = httpFactory(getExerciseId(getState()));
 
-  dispatch(requestSteps());
+  dispatch(isFetching());
 
   return http.delete('/'+id)
     .then(() => {
-      dispatch(fetchSteps())
+      dispatch(fetchSteps());
       iziToast.success({
         title: 'Passo deletado com sucesso',
         position: 'topRight',
       });
     })
-    .then((err) => console.log(err));
+    .catch((err) => console.log(err));
 }

@@ -9,10 +9,10 @@ import {
   editStep,
 } from '../../store/actions/steps';
 
-const mapStateToProps = ({ steps }) => {
+const mapStateToProps = ({ steps, requestLoad }) => {
   return {
     steps: steps.items,
-    isLoad: steps.isFetching,
+    isLoad: requestLoad.isFetching,
     step: steps.item,
     openForm: steps.openForm,
   };
@@ -43,4 +43,4 @@ const mapDispatchToProps = dispatch => ({
 export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-  )(Steps));
+)(Steps));
