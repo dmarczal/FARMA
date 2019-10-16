@@ -22,7 +22,7 @@ class ImagePreviewInput < SimpleForm::Inputs::FileInput
 
   def image_preview
     if object.send("#{attribute_name}?")
-      template.image_tag(object.send("#{attribute_name}"), :class => 'file_preview active') if object.send("#{attribute_name}?")
+      template.image_tag(Refile.attachment_url(object, :image), :class => 'file_preview active')
     else
       template.image_tag('', :class => 'file_preview')
     end

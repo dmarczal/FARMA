@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191010001956) do
+ActiveRecord::Schema.define(version: 20191015235021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -119,15 +119,6 @@ ActiveRecord::Schema.define(version: 20191010001956) do
     t.integer "lo_id", null: false
   end
 
-  create_table "los_teams", id: :serial, force: :cascade do |t|
-    t.integer "lo_id"
-    t.integer "team_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["lo_id"], name: "index_los_teams_on_lo_id"
-    t.index ["team_id"], name: "index_los_teams_on_team_id"
-  end
-
   create_table "pictures", force: :cascade do |t|
     t.string "image_id"
     t.string "image_filename"
@@ -203,6 +194,8 @@ ActiveRecord::Schema.define(version: 20191010001956) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "opened"
+    t.bigint "lo_id"
+    t.index ["lo_id"], name: "index_teams_on_lo_id"
     t.index ["user_id"], name: "index_teams_on_user_id"
   end
 
@@ -262,8 +255,6 @@ ActiveRecord::Schema.define(version: 20191010001956) do
   add_foreign_key "answers", "teams"
   add_foreign_key "answers", "users"
   add_foreign_key "ck_images", "users"
-  add_foreign_key "los_teams", "los"
-  add_foreign_key "los_teams", "teams"
   add_foreign_key "progress_exercises", "exercises"
   add_foreign_key "progress_exercises", "teams"
   add_foreign_key "progress_exercises", "users"
@@ -273,6 +264,7 @@ ActiveRecord::Schema.define(version: 20191010001956) do
   add_foreign_key "progress_los", "los"
   add_foreign_key "progress_los", "teams"
   add_foreign_key "progress_los", "users"
+  add_foreign_key "teams", "los"
   add_foreign_key "teams", "users"
   add_foreign_key "tips_counts", "questions"
   add_foreign_key "tips_counts", "teams"

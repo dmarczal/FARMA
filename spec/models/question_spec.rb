@@ -26,7 +26,7 @@ RSpec.describe Question, type: :model do
 
     before do
       team.users << student
-      team.los << lo
+      team.lo = lo
     end
 
     context "when it's incorrect answer" do

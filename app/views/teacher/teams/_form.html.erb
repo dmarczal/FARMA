@@ -2,7 +2,8 @@
 
   <%= f.input :name, autofocus: true %>
   <%= f.input :code %>
-  <%= f.input :los,as: :mult_select, collection: @los, name: "Selecione os objetos que deseja adicionar" %>
+  <%= f.input :opened, as: :checkbox_materialize %>
+  <%= f.association :lo, prompt: "Escolha um OA para a turma" %>
 
   <div id="box-image-preview" class="col s4 offset-s8">
     <%= f.simple_fields_for :image do |image| %>

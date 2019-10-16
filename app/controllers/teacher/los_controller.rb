@@ -22,6 +22,7 @@ class Teacher::LosController < Teacher::TeacherApplicationController
 
   def edit
     add_breadcrumb "Editar #{@lo.name}", edit_teacher_lo_path(@lo)
+    @lo.build_image if @lo.image.nil?
   end
 
   def create
@@ -39,6 +40,7 @@ class Teacher::LosController < Teacher::TeacherApplicationController
     if @lo.update(lo_params)
       redirect_to teacher_los_path, flash: { success: 'OA editado com sucesso.' }
     else
+      @lo.build_image if @lo.image.nil?
       flash.now[:error] = 'Existem dados incorretos.'
       render :edit
     end

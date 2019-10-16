@@ -6,7 +6,7 @@ RSpec.describe Lo, type: :model do
     it { is_expected.to have_many(:introductions).dependent(:destroy) }
     it { is_expected.to have_many(:exercises).dependent(:destroy) }
     it { is_expected.to have_many(:progress_los).class_name('Progress::Lo') }
-    it { is_expected.to have_and_belong_to_many(:teams) }
+    it { is_expected.to have_one(:team) }
     it { is_expected.to have_and_belong_to_many(:tags) }
   end
 

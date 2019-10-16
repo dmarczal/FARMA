@@ -141,17 +141,5 @@ describe 'Lo features', type: :feature do
 
       expect(Lo).to_not be_exists(lo.id)
     end
-
-    context 'when the lo is in a team' do
-      let(:team) { create(:team) }
-
-      before { team.los << lo }
-
-      it 'does not deletes the lo' do
-        page.find('.destroy').click
-
-        expect(Lo).to be_exists(lo.id)
-      end
-    end
   end
 end

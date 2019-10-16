@@ -3,11 +3,14 @@ $(document).on 'turbolinks:load', ->
 
 FARMA.reloadMaterilizeEffects = ->
   Waves.displayEffect()            # reinitialize wave effect on button
-  $('.dropdown-button').dropdown() # reinitialize dropdown
-  Materialize.updateTextFields()   # reinitialize form label
+  M.AutoInit()
+  M.updateTextFields()
+
+  if $('.materialize-textarea').lenght
+    M.textareaAutoResize($('.materialize-textarea'))
+
+  $('.dropdown-button').dropdown()
   $('input[autofocus]').siblings('label, i').addClass('active')
   $('.tooltipped').tooltip({delay: 200})
-  $('.button-collapse').sideNav() # reinitialize nav-mobile
-  # $('.modal-trigger').modal()
   $('.modal').modal()
-  $('select').material_select()
+  $('select').formSelect()

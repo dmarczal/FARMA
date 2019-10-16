@@ -12,9 +12,11 @@
     <%= f.input :available, as: :checkbox_materialize %>
   </div>
 
-  <%= f.simple_fields_for :image do |image| %>
-    <%= image.input :image, as: :file_materialize, direct: true %>
-  <% end %>
+  <div id="box-image-preview" class="col s4 offset-s8">
+    <%= f.simple_fields_for :image do |image| %>
+      <%= image.input :image, as: :image_preview, direct: true %>
+    <% end %>
+  </div>
 
   <%= f.button :submit_materialize, cancel: teacher_los_path %>
 

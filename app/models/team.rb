@@ -1,7 +1,5 @@
 class Team < ActiveRecord::Base
   has_many :users_teams, dependent: :destroy
-  has_many :los_teams, dependent: :destroy
-  has_many :los , through: :los_teams
   has_many :users, through: :users_teams
   has_many :tips_counts, dependent: :destroy
   has_many :answers, dependent: :destroy
@@ -10,10 +8,11 @@ class Team < ActiveRecord::Base
   has_many :progress_exercises, class_name: "Progress::Exercise", dependent: :destroy
   has_one  :image, class_name: "Picture", as: :subject
   belongs_to :user
+  belongs_to :lo
 
   accepts_nested_attributes_for :image
 
-  validates :name, :code, presence: true
+  validates :name, :code, :lo, presence: true
 
   # scopes
   scope :opened, -> { where(opened: true) }
@@ -26,9 +25,7 @@ class Team < ActiveRecord::Base
   end
 
   def register_lo(lo)
-    unless los_teams.exists? lo_id: lo
-      los_teams.create(lo_id: lo)
-    end
+    self.lo = lo
   end
 
   def create_lo_progress(lo, user)
@@ -38,5 +35,4 @@ class Team < ActiveRecord::Base
 
     progress
   end
-
 end

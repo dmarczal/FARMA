@@ -4,18 +4,12 @@ class Lo < ActiveRecord::Base
   has_many :exercises, dependent: :destroy
   has_many :progress_los, dependent: :destroy, class_name: 'Progress::Lo'
   has_one  :image, class_name: "Picture", as: :subject
+  has_one :team, dependent: :nullify
   has_and_belongs_to_many :tags
-  has_and_belongs_to_many :teams
 
   accepts_nested_attributes_for :image
 
   validates :name, :description, :user, presence: true
-
-  def destroy
-    return false unless teams.empty?
-
-    super
-  end
 
   def progress_lo(team)
     @progress_los ||= progress_los.find_by(team_id: team.id, user_id: user.id)
