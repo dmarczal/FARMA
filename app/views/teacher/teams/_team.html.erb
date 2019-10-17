@@ -13,5 +13,11 @@
     <div class="card-action center">
       <%= link_to "Visualizar conteúdo", teacher_team_path(team) %>
     </div>
+    <div class="card-action center edit">
+      <%= link_to "Editar Turma", edit_teacher_team_path(team) %>
+    </div>
+    <div class="card-action center remove">
+      <%= link_to "Deletar Turma", teacher_team_path(team), method: :delete %>
+    </div>
   </div>
 </div>

@@ -225,7 +225,20 @@ div.team {
       background-color: $palletegreen2;
 
       a {
-        color: $palletegrey2;
+        color: $palleteblack !important;
+        margin-right: 0 !important;
+      }
+
+      &.remove {
+        background-color: $palletepink2;
+
+        a {
+          color: $palletewhite !important;
+        }
+      }
+
+      &.edit {
+        background-color: $palletegrey3;
       }
     }
   }

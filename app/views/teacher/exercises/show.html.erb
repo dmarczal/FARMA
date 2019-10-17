@@ -3,7 +3,9 @@
 <div class="container-fluid">
   <ul class="collapsible">
     <li>
-      <div class="collapsible-header center"><h2><%= @exercise.title %></h2></div>
+      <div class="collapsible-header center">
+        <h2><%= @exercise.title %></h2>
+      </div>
       <div class="collapsible-body paper-sheet">
         <%= @exercise.content.html_safe %>
       </div>

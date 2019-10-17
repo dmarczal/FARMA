@@ -93,7 +93,7 @@ RSpec.describe Answer, type: :model do
 
       before do
         team.users << user2
-        team.los << lo
+        team.lo = lo
       end
 
       it 'responses are separated by teams' do

@@ -1,18 +1,4 @@
 <div class="navbar-fixed">
-
-  <ul id='dropdown_user' class='dropdown-content'>
-    <li>
-      <%= link_to(edit_user_registration_path) do %>
-        Perfil <%= fa_icon('user', 'aria-hidden': true) %>
-      <% end %>
-    </li>
-    <li>
-      <%= link_to(destroy_user_session_path, method: :delete) do %>
-        Sair <%= fa_icon('sign-out', 'aria-hidden': true) %>
-      <% end %>
-    </li>
-  </ul>
-
   <nav>
     <%= link_to root_path, class: "brand-logo center" do %>
         <%= image_tag "logos/logo-farma-white.png", class: 'logo' %>
@@ -32,11 +18,11 @@
 
       <!-- Dropdown Trigger -->
       <li class="user-profile">
-        <a class="dropdown-button" href="#!" data-activates="dropdown_user">
-          <%= attachment_image_tag current_user.avatar, 
-                                   :image, 
-                                   :fill, 
-                                   34, 
+        <a class="dropdown-button" href="#!" data-target="dropdown_user">
+          <%= attachment_image_tag current_user.avatar,
+                                   :image,
+                                   :fill,
+                                   34,
                                    34,
                                    fallback: "default-avatar.png",
                                    class: "circle responsive-img" %>
@@ -45,5 +31,16 @@
       </li>
     </ul>
   </nav>
-
+  <ul id='dropdown_user' class='dropdown-content'>
+    <li>
+      <%= link_to(edit_user_registration_path) do %>
+        Perfil <%= fa_icon('user', 'aria-hidden': true) %>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to(destroy_user_session_path, method: :delete) do %>
+        Sair <%= fa_icon('sign-out', 'aria-hidden': true) %>
+      <% end %>
+    </li>
+  </ul>
 </div>

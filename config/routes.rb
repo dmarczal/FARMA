@@ -49,7 +49,7 @@ Rails.application.routes.draw do
     get '/' => 'dashboard#index'
 
     #routes for teams (get: [index, new, show], post: create)
-    resources :teams, except: [:edit, :update]
+    resources :teams
 
     #routes for los (get: [index, new, edit], post: create, delete: destroy, put: update)
     resources :los do

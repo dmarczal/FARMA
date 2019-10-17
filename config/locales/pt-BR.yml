@@ -56,7 +56,7 @@
           <<: *commons
         lo:
           description: "Descrição"
-          available: "Disponível"
+          available: "Disponível na área publica"
           <<: *commons
         introduction:
           <<: *commons
@@ -64,6 +64,8 @@
           <<: *commons
         team:
           code: "Código"
+          lo: "OA"
+          opened: "Aberta"
           <<: *commons
         question:
           correct_answer: 'Resposta correta'

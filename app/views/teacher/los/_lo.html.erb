@@ -19,10 +19,6 @@
      <span class="card-title grey-text text-darken-4 center-align">
        <%= truncate_and_set_tooltip(lo.name, length: 20) %>
        <%= fa_icon 'close', class: 'right close' %>
-
-        <% if lo.available %>
-          <%= fa_icon 'check', class: 'right green-text' %>
-        <% end %>
      </span>
      <p class="content"><%= truncate_and_set_popup(lo.name, lo.description, length: 100, separator: ' ') %></p>
 

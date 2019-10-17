@@ -1,31 +1,22 @@
 @charset "UTF-8";
 
-/*
- * Added material components as necessary
- * https://github.com/mkhairi/materialize-sass/blob/739d5bc640debf116c2934437c9928f858c11c01/app/assets/stylesheets/materialize.scss
- * ______________________________*/
-
-@import "materialize/components/color";
+// Color
+@import "materialize/components/color-variables";
+@import "materialize/components/color-classes";
 
 $primary-color: color("green", "accent-4") !default;
 $secondary-color: color("green", "darken-1") !default;
 
-// Mixins
-@import "materialize/components/prefixer";
-@import "materialize/components/mixins";
-
-// Variables
+// Variables;
 @import "materialize/components/variables";
 
 // Reset
 @import "materialize/components/normalize";
 
-// materialize/components
 @import "materialize/components/global";
 @import "materialize/components/icons-material-design";
 @import "materialize/components/grid";
 @import "materialize/components/navbar";
-@import "materialize/components/roboto";
 @import "materialize/components/typography";
 @import "materialize/components/tooltip";
 @import "materialize/components/forms/forms";

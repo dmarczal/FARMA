@@ -1,6 +1,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require refile
 
 // Gems
 //--------------------
@@ -21,4 +22,3 @@
 //-----------------------
 //= require shared/events
 //= require teacher/events
-//= require teacher/functions

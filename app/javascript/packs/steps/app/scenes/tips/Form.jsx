@@ -45,11 +45,11 @@ class Form extends Component {
   }
 
   componentDidUpdate () {
-    Materialize.updateTextFields()
+    M.updateTextFields();
   }
 
   componentDidMount () {
-    Materialize.updateTextFields()
+    M.updateTextFields();
   }
 
   render () {
