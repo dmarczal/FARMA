@@ -1,11 +1,10 @@
 class Student::LosController < Student::StudentApplicationController
   before_action :set_team
 
-  layout "view_lo/los"
+  layout "lo/application"
 
   def show
-    @lo = @team.los.find params[:id]
-    @page = params[:page].to_i
+    @lo = @team.lo
   end
 
   private
@@ -13,5 +12,4 @@ class Student::LosController < Student::StudentApplicationController
   def set_team
     @team = current_user.teams.find params[:team_id]
   end
-
 end

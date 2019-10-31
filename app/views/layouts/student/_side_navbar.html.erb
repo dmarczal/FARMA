@@ -9,11 +9,11 @@
       <%= link_to '#teams', class: 'dropdown-sidebar' do %>
         <%= fa_icon('bars', 'aria-hidden': true) %> Turma
         <%= fa_icon('caret-down', 'aria-hidden': true, class: 'right more') %>
-        <%= fa_icon('caret-up', 'aria-hidden': true, class: 'right less') %> 
+        <%= fa_icon('caret-up', 'aria-hidden': true, class: 'right less') %>
       <% end %>
     </li>
 
-    <li id="teams" class="dropdown" data-dropdown="#dropdown-teams">
+    <li id="teams" class="dropdown" data-target="dropdown-teams">
       <ul class="clearfix">
         <%= active_link_to student_teams_path, wrap_tag: :li, active: :exclusive do %>
           <div class="left"></div>

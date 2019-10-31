@@ -37,7 +37,7 @@
     <% if user_signed_in? %>
        <ul class="right hide-on-med-and-down"> <!-- Dropdown Trigger -->
          <li>
-         <a class="dropdown-button" href="#!" data-activates="dropdown-user">
+         <a class="dropdown-button" href="#!" data-target="dropdown-user">
            <%= current_user.name %>
            <%= fa_icon('caret-down fa-5', 'aria-hidden': true) %>
          </a>

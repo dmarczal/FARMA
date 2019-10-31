@@ -80,7 +80,7 @@ Rails.application.routes.draw do
     #routes for teams (get: [index, new], post: create)
     resources :teams, only: [:index, :show, :create] do
 
-      get '/los/:id/page/:page' => 'los#show', as: :lo
+      get '/lo/page/:page' => 'los#show', as: :lo
     end
 
     get '/find_teams' => 'teams#find_teams'
