@@ -6,18 +6,20 @@ import {
 } from '@material-ui/core'
 import styles from './styles';
 
-export default () => {
+export default ({
+  data
+}) => {
   const classes = styles();
 
   return (
     <Paper className={classes.root}>
       <Typography variant="h6">
-        Introdução 1
+        Introdução {data.position}
       </Typography>
       <Typography variant="h5">
-        Introdução teste
+        {data.title}
       </Typography>
-      {renderHTML('<p>Descrição <strong>test</strong></p>')}
+      {renderHTML(data.content)}
     </Paper>
   );
 };

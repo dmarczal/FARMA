@@ -3,6 +3,48 @@ import Root from './Root';
 
 let content = {
   type: 'Exercise',
+  data: {
+    position: 1,
+    title: 'Exercício teste',
+    content: '<p>Descrição <strong>test</strong></p>',
+    steps: [
+      {
+        position: 1,
+        title: 'Passo teste',
+        content: '<p>Descrição <strong>test</strong></p>',
+        variables: ['x'],
+        current: {
+          value: '2*x',
+          correct: true,
+        },
+        responses: [
+          {
+            value: '3*x',
+            correct: false,
+          }
+        ],
+      },
+      {
+        position: 2,
+        title: 'Passo teste',
+        content: '<p>Descrição <strong>test</strong></p>',
+        variables: ['x'],
+        current: {
+          value: '2*x',
+          correct: false,
+        },
+        responses: [],
+      },
+      {
+        position: 3,
+        title: 'Passo teste',
+        content: '<p>Descrição <strong>test</strong></p>',
+        variables: ['x'],
+        current: null,
+        responses: [],
+      }
+    ],
+  },
   links: [
     {
       id: 'Introduction1',

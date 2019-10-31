@@ -41,6 +41,8 @@ class Exercise extends React.Component {
       variables,
     } = this.state;
 
+    let { data } = this.props;
+
     let currentValue = value === null ? null : {
       value, correct
     };
@@ -52,6 +54,7 @@ class Exercise extends React.Component {
         value={currentValue}
         isOpenKeyboard={isOpenKeyboard}
         variables={variables}
+        data={data}
       />
     )
   }

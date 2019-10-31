@@ -14,10 +14,10 @@ class Root extends Component {
     let { content } = this.props;
 
     if (content.type === 'Exercise') {
-      return <Exercise />;
+      return <Exercise data={content.data} />;
     }
 
-    return <Introduction />;
+    return <Introduction data={content.data} />;
   }
 
   getLinks() {

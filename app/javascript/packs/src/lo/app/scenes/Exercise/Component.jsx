@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import renderHTML from 'react-render-html';
 import MathJax from 'react-mathjax';
 import { Close } from '@material-ui/icons';
@@ -53,12 +53,84 @@ function getKeyboard (variables = []) {
   };
 }
 
+function getStepComponent(step, openKeyboard, classes) {
+  let value = step.current === null ? {
+    value: null,
+    correct: false,
+  } : {
+    value: step.current.value,
+    correct: step.current.correct,
+  };
+
+  let valueComponet = step.current === null ? (
+    <div
+      className={classes.responseEmpty}
+    >
+      <Typography>
+        Clique aqui para responser
+      </Typography>
+    </div>
+  ) : (
+    <div
+      className={classes.response}
+      style={{borderColor: value.correct ? '#228416' : '#ec211d'}}
+    >
+      <MathJax.Provider>
+        <MathJax.Node formula={value.value} />
+      </MathJax.Provider>
+      <Typography
+        variant="inherit"
+        component="span"
+        className={classes.status}
+        style={{color: value.correct ? '#228416' : '#ec211d'}}
+      >
+        {value.correct ? 'Correto' : 'Incorreto'}
+      </Typography>
+    </div>
+  );
+
+  let responsesBtn = step.responses.length > 0 ?
+    <Fab
+      color="primary"
+      size="small"
+      className={classes.btnResponses}
+    >
+      {step.responses.length}
+    </Fab> : '';
+
+  return (
+    <Fragment key={'step' + step.position}>
+      <Grid item xs={8} className={classes.marginGrid}>
+        <Paper className={classes.step}>
+          <Typography variant="h6">
+            Passo {step.position}
+          </Typography>
+          <Typography variant="h5">
+            {step.title}
+          </Typography>
+          {renderHTML(step.content)}
+        </Paper>
+        {responsesBtn}
+        <Paper
+          className={classes.responsePaper}
+          onClick={() => openKeyboard(value.value, value.correct, step.variables)}
+        >
+          {valueComponet}
+        </Paper>
+      </Grid>
+
+      <Grid item xs={4} className={classes.marginGrid}></Grid>
+    </Fragment>
+  )
+}
+
 export default ({
   openKeyboard,
   value,
   isOpenKeyboard,
   closeKeyboard,
   variables,
+  data,
 }) => {
   const classes = styles();
   let keyboardComp = '';
@@ -101,115 +173,16 @@ export default ({
       <Grid item xs={12} className={classes.marginGrid}>
         <Paper className={classes.rootPaper}>
           <Typography variant="h6">
-            Exercício 1
+            Exercício {data.position}
           </Typography>
           <Typography variant="h5">
-            Exercício teste
+            {data.title}
           </Typography>
-          {renderHTML('<p>Descrição <strong>test</strong></p>')}
+          {renderHTML(data.content)}
         </Paper>
       </Grid>
 
-      <Grid item xs={8} className={classes.marginGrid}>
-        <Paper className={classes.step}>
-          <Typography variant="h6">
-            Passo 1
-          </Typography>
-          <Typography variant="h5">
-          Passo teste
-          </Typography>
-          {renderHTML('<p>Descrição <strong>test</strong></p>')}
-        </Paper>
-        <Fab
-            color="primary"
-            size="small"
-            className={classes.btnResponses}
-        >
-          5
-        </Fab>
-        <Paper
-          className={classes.responsePaper}
-          onClick={() => openKeyboard('2*x', true, ['x'])}
-        >
-          <div
-            className={classes.response}
-            style={{borderColor: '#228416'}}
-          >
-            <MathJax.Provider>
-              <MathJax.Node formula={'2*x'} />
-            </MathJax.Provider>
-            <Typography
-              variant="inherit"
-              component="span"
-              className={classes.status}
-              style={{color: "#228416"}}
-            >
-              Correto
-            </Typography>
-          </div>
-        </Paper>
-      </Grid>
-
-      <Grid item xs={4} className={classes.marginGrid}></Grid>
-
-      <Grid item xs={8} className={classes.marginGrid}>
-        <Paper className={classes.step}>
-          <Typography variant="h6">
-            Passo 1
-          </Typography>
-          <Typography variant="h5">
-          Passo teste
-          </Typography>
-          {renderHTML('<p>Descrição <strong>test</strong></p>')}
-        </Paper>
-        <Paper
-          className={classes.responsePaper}
-          onClick={() => openKeyboard('2*x', false, ['x'])}
-        >
-          <div
-            className={classes.response}
-            style={{borderColor: "#ec211d"}}
-          >
-            <MathJax.Provider>
-              <MathJax.Node formula={'2*x'} />
-            </MathJax.Provider>
-            <Typography
-              variant="inherit"
-              component="span"
-              className={classes.status}
-              style={{color: "#ec211d"}}
-            >
-              Incorreto
-            </Typography>
-          </div>
-        </Paper>
-      </Grid>
-
-      <Grid item xs={4} className={classes.marginGrid}></Grid>
-
-      <Grid item xs={8} className={classes.marginGrid}>
-        <Paper className={classes.step}>
-          <Typography variant="h6">
-            Passo 1
-          </Typography>
-          <Typography variant="h5">
-          Passo teste
-          </Typography>
-          {renderHTML('<p>Descrição <strong>test</strong></p>')}
-        </Paper>
-        <Paper
-          className={classes.responsePaper}
-          onClick={() => openKeyboard(null)}
-        >
-          <div className={classes.responseEmpty}>
-            <Typography variant="h6">
-              Clique aqui para responder
-            </Typography>
-          </div>
-        </Paper>
-      </Grid>
-
-      <Grid item xs={4} className={classes.marginGrid}></Grid>
+      {data.steps.map((step) => getStepComponent(step, openKeyboard, classes))}
     </Grid>
   );
 };
