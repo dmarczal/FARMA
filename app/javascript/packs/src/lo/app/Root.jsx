@@ -44,8 +44,24 @@ class Root extends Component {
   }
 
   render () {
+    let {
+      onClickLink,
+      loName,
+      userName,
+      back,
+      content,
+    } = this.props;
+
     return (
-      <Layout sideLinks={this.getLinks()}>
+      <Layout
+        userName={userName}
+        loName={loName}
+        sideLinks={this.getLinks()}
+        onClickLink={onClickLink}
+        previewPercent={content.preview_percent}
+        progressPercent={content.progress_percent}
+        back={back}
+      >
         {this.getContent()}
       </Layout>
     );

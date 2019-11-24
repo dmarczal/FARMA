@@ -11,6 +11,7 @@ export default makeStyles(theme => ({
   },
 
   step: {
+    position: 'relative',
     paddingLeft: theme.spacing(6),
     paddingRight: theme.spacing(6),
     paddingTop: theme.spacing(3),
@@ -89,4 +90,29 @@ export default makeStyles(theme => ({
     cursor: 'pointer',
     color: green[100],
   },
+
+  table: {
+    paddingTop: 25,
+    backgroundColor: 'white',
+  },
+
+  tips: {
+    textAlign: 'center',
+    marginBottom: 10,
+  },
+
+  tipRight: {
+    float: 'right',
+  },
+
+  tipLeft: {
+    float: 'left',
+  },
+
+  tipShow: {
+    position: 'absolute',
+    top: 10,
+    right: 10,
+    cursor: 'pointer',
+  }
 }));

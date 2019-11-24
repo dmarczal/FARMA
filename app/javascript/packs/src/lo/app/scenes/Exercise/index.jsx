@@ -10,18 +10,25 @@ class Exercise extends React.Component {
       correct: false,
       value: null,
       variables: [],
+      responses: [],
     };
 
     this.handleOpenKeyboard = this.handleOpenKeyboard.bind(this);
     this.handleCloseKeyboard = this.handleCloseKeyboard.bind(this);
   }
 
-  handleOpenKeyboard (value, correct, variables) {
+  handleOpenKeyboard (
+    value,
+    correct,
+    variables,
+    responses
+  ) {
     this.setState({
       value,
       correct,
       variables,
       isOpenKeyboard: true,
+      responses,
     });
   }
 
@@ -30,6 +37,7 @@ class Exercise extends React.Component {
       value: null,
       isOpenKeyboard: false,
       variables: [],
+      responses: [],
     });
   }
 
@@ -39,6 +47,7 @@ class Exercise extends React.Component {
       isOpenKeyboard,
       correct,
       variables,
+      responses,
     } = this.state;
 
     let { data } = this.props;
@@ -55,6 +64,7 @@ class Exercise extends React.Component {
         isOpenKeyboard={isOpenKeyboard}
         variables={variables}
         data={data}
+        responses={responses}
       />
     )
   }

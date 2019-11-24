@@ -1,7 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './app';
-
+import Page from './app';
 
 var el = document.getElementById('lo-app');
-ReactDOM.render(<App />, el);
+
+let type = el.dataset.type;
+let teamId = el.dataset.teamId;
+let lo = el.dataset.lo;
+let userName = el.dataset.user;
+
+ReactDOM.render(<Page
+  type={type}
+  teamId={teamId}
+  loName={lo}
+  userName={userName}
+/>,
+  el
+);

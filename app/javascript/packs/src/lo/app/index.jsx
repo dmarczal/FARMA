@@ -1,77 +1,87 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Root from './Root';
+import Http from '../../libs/Http';
 
-let content = {
-  type: 'Exercise',
-  data: {
-    position: 1,
-    title: 'Exercício teste',
-    content: '<p>Descrição <strong>test</strong></p>',
-    steps: [
-      {
-        position: 1,
-        title: 'Passo teste',
-        content: '<p>Descrição <strong>test</strong></p>',
-        variables: ['x'],
-        current: {
-          value: '2*x',
-          correct: true,
-        },
-        responses: [
-          {
-            value: '3*x',
-            correct: false,
-          }
-        ],
-      },
-      {
-        position: 2,
-        title: 'Passo teste',
-        content: '<p>Descrição <strong>test</strong></p>',
-        variables: ['x'],
-        current: {
-          value: '2*x',
-          correct: false,
-        },
-        responses: [],
-      },
-      {
-        position: 3,
-        title: 'Passo teste',
-        content: '<p>Descrição <strong>test</strong></p>',
-        variables: ['x'],
-        current: null,
-        responses: [],
-      }
-    ],
-  },
-  links: [
-    {
-      id: 'Introduction1',
-      position: 1,
-      type: 'Introduction',
-      page: 1,
-      active: true,
-    },
-    {
-      id: 'Exercise1',
-      position: 1,
-      type: 'Exercise',
-      page: 2,
-      steps: [true, true, false, null],
-      active: false,
-    },
-    {
-      id: 'Exercise2',
-      position: 2,
-      type: 'Exercise',
-      steps: [true, true, false, null],
-      page: 3,
-      active: false,
+class Page extends Component {
+  constructor (props) {
+    super (props);
+    let http = new Http(this.getPath());
+
+    this.state = {
+      http,
+      content: {},
+      isLoad: true,
+    };
+
+    this.load = this.load.bind(this);
+    this.back = this.back.bind(this);
+    this.load(1);
+  }
+
+  getPath () {
+    let { type, teamId } = this.props;
+
+    switch (type) {
+      case 'student':
+        return `/api/team/${teamId}/contents`;
+      default:
+        break;
     }
-  ]
-};
+  }
 
-export default () => (
-  <Root content={content}/>
-);
+  componentDidMount () {
+    window.onpopstate = (event) => {
+      let { page } = event.state;
+      this.load(page, false);
+    }
+  }
+
+  back () {
+    let { type, teamId } = this.props;
+
+    switch (type) {
+      case 'student':
+        location.href = '/student/teams/'+teamId;
+      default:
+        break;
+    }
+  }
+
+  load (page, pushState = true) {
+    let { http, isLoad } = this.state;
+
+    if (pushState) {
+      history.pushState({ page }, 'page ' + page, `?page=${page}`);
+    }
+
+    if (!isLoad) {
+      this.setState({ isLoad: true });
+    }
+
+    http.get('/'+page)
+      .then(({ data }) => {
+        this.setState({ content: data, isLoad: false });
+      })
+      .catch(console.warn);
+  }
+
+  render () {
+    let { content, isLoad } = this.state;
+    let { loName, userName } = this.props;
+    let pageContent = '';
+
+    if (!isLoad) {
+      pageContent = <Root
+        content={content}
+        onClickLink={this.load}
+        loName={loName}
+        userName={userName}
+        back={this.back}
+      />
+    }
+
+    return pageContent;
+  }
+}
+
+export default Page;

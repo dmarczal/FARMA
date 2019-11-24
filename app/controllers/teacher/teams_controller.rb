@@ -11,6 +11,12 @@ class Teacher::TeamsController < Teacher::TeacherApplicationController
     add_breadcrumb "Turma #{@team.name}", teacher_team_path(@team)
   end
 
+  def time_line
+    @team = current_user.my_teams.find params[:team_id]
+    add_breadcrumb "Turma #{@team.name}", teacher_team_path(@team)
+    add_breadcrumb "Linha do tempo de Jefferson", teacher_team_time_line_path(@team)
+  end
+
   def new
     @team = current_user.my_teams.new
     @team.build_image

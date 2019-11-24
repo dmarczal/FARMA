@@ -1,6 +1,4 @@
-class API::GalleryController < ApplicationController
-  skip_before_action :verify_authenticity_token
-
+class API::GalleryController < API::ApplicationController
   def create
     ck_image = current_user.ck_images.new()
     ck_image.build_image image: params[:upload] unless params[:upload].nil?

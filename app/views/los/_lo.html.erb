@@ -1,27 +1,28 @@
-<div class="card col s3">
-  <div class="card-image waves-effect waves-block waves-light">
-    <%= image_tag lo.image.url , class: "responsive-img activator"%>
-  </div>
+<div class="col s12">
+  <div class="row">
+    <div class="card-lo z-depth-1 clearfix col s12">
+      <div class="card-image col s2">
+        <%= link_to '#' do %>
+          <%= attachment_image_tag lo.image,
+                                  :image,
+                                  :fill,
+                                  200,
+                                  200,
+                                  fallback: "default-image.png",
+                                  class: "responsive-img" %>
+        <% end %>
+      </div>
 
-  <div class="card-content">
-    <span class="activator grey-text text-darken-4">
-      <%= fa_icon 'ellipsis-v', class: :right %>
-    </span>
-    <p class="card-title hide-on-med-and-down" >
-     <%= truncate_and_set_tooltip(lo.name, length: 10) %>
-    </p>
-  </div>
+      <div class="card-content left-align col s7">
+        <h4 class="title"><%= lo.name %></h4>
+        <p class="description"><%= truncate_and_set_popup(lo.name, lo.description, length: 360, separator: ' ') %></p>
+      </div>
 
-  <div class="card-reveal">
-    <span class="card-title grey-text text-darken-4 clearfix">
-       <%= fa_icon 'close' %>
-       <%= truncate_and_set_tooltip(lo.name, length: 10) %>
-    </span>
-
-    <%= truncate_and_set_popup(lo.name, lo.description, length: 180, separator: ' ') %>
-  </div>
-
-  <div class="card-action">
-    <%= link_to 'LO', '#' %>
+      <div class="card-progress col s3">
+        <a class="waves-effect waves-light btn-large">
+          Testar OA
+        </a>
+      </div>
+    </div>
   </div>
 </div>

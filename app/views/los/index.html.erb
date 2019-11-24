@@ -1,7 +1,16 @@
 <article id="los-content" class="container">
   <header class="center">
-    <h3>Todos os OAs</h3>
+    <h1>Todos os OAs</h1>
   </header>
+
+  <form id="find-teams" class="col s6 offset-s3 form-find">
+    <div class="input-form">
+      <input name="query" type="text" />
+    </div>
+
+    <button type="submit"><%= fa_icon 'search', class: 'fa-2' %></button>
+  </form>
+
   <div class="divider"></div>
 
   <div id="los_list" class="row">

@@ -35,6 +35,12 @@ const Template = ({
   children,
   onToggleSide,
   sideLinks,
+  onClickLink,
+  loName,
+  userName,
+  previewPercent,
+  progressPercent,
+  back,
 }) => {
   const classes = styles();
   let [avatarEl, setAvatarEl] = React.useState(null);
@@ -70,7 +76,7 @@ const Template = ({
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="h6" className={classes.title}>
-            h6. Heading
+            {loName}
           </Typography>
           <a href="/" className={classes.logo}>
             <img
@@ -80,7 +86,7 @@ const Template = ({
             />
           </a>
           <Button className={classes.progressBarButton} onClick={handleOpenProgress}>
-            <ProgressBar completedPercent={50} viewedPercent={70} width={200} />
+            <ProgressBar completedPercent={progressPercent} viewedPercent={previewPercent} width={200} />
           </Button>
           <Menu
             keepMounted
@@ -100,7 +106,7 @@ const Template = ({
                 </Grid>
                 <Grid item xs={9}>
                   <Typography component="p">
-                    70% do OA Concluído
+                    {progressPercent}% concluído
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
@@ -121,7 +127,7 @@ const Template = ({
                 </Grid>
                 <Grid item xs={9}>
                   <Typography component="p">
-                    70% do OA Concluído
+                    {previewPercent}% visualizado
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
@@ -142,7 +148,7 @@ const Template = ({
                 </Grid>
                 <Grid item xs={9}>
                   <Typography component="p">
-                    70% do OA Concluído
+                    {100 - previewPercent}% não visualizado
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
@@ -155,7 +161,7 @@ const Template = ({
           </Menu>
           <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleOpenAvatar}>
             <Avatar alt="Avatar" src={logo} className={classes.avatar}/>
-             Open Menu
+              {userName}
             <ArrowDropDown />
           </Button>
           <Menu
@@ -165,9 +171,7 @@ const Template = ({
             anchorEl={avatarEl}
             className={classes.avatarDrop}
           >
-            <MenuItem onClick={handleCloseAvatar}>Profile</MenuItem>
-            <MenuItem onClick={handleCloseAvatar}>My account</MenuItem>
-            <MenuItem onClick={handleCloseAvatar}>Logout</MenuItem>
+            <MenuItem onClick={back}>Voltar</MenuItem>
           </Menu>
         </Toolbar>
       </AppBar>
@@ -190,6 +194,7 @@ const Template = ({
           {sideLinks.map((link) => (
             <ListItem
               button
+              onClick={() => onClickLink(link.page)}
               key={link.id}
               style={{borderLeft: '4px solid ' + (link.active ? green[300] : 'transparent')}}
             >
@@ -205,7 +210,10 @@ const Template = ({
           ))}
         </List>
       </Drawer>
-      <main className={classes.content}>
+      <main className={clsx({
+        [classes.content]: isOpenSide,
+        [classes.contentClose]: !isOpenSide,
+      })}>
         <div className={classes.toolbar} />
         {children}
       </main>

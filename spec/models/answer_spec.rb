@@ -6,6 +6,13 @@ RSpec.describe Answer, type: :model do
   let(:lo)       { create(:lo, user: user) }
   let(:user)     { create(:user, :actived) }
 
+  describe 'validates' do
+    it { is_expected.to validate_presence_of(:response) }
+    it { is_expected.to validate_presence_of(:answer_tex) }
+    it { is_expected.to validate_presence_of(:user) }
+    it { is_expected.to validate_presence_of(:question) }
+  end
+
   describe 'Create the answers' do
     context 'when has precision' do
       let(:question) { create(:question, correct_answer: '0.1234', precision: 2) }
@@ -69,8 +76,8 @@ RSpec.describe Answer, type: :model do
       end
 
       it 'has two attempts' do
-        question.answers.create user_id: user.id, response: '4'
-        answer = question.answers.new user_id: user.id, response: '10'
+        Answer.create user: user, question: question, response: '4', answer_tex: '4'
+        answer = question.answers.new user_id: user.id, response: '10', answer_tex: '10'
 
         expect(answer.attempt_number).to eq 2
       end
@@ -80,8 +87,8 @@ RSpec.describe Answer, type: :model do
       let(:user2) { create(:user, :actived) }
 
       it 'has only one attempt' do
-        question.answers.create user_id: user2.id, response: '10'
-        answer2 = question.answers.new user_id: user.id, response: '10'
+        Answer.create user: user2, question: question, response: '10', answer_tex: '10'
+        answer2 = Answer.new user: user, question: question, response: '10', answer_tex: '10'
 
         expect(answer2.attempt_number).to eq 1
       end
@@ -97,9 +104,9 @@ RSpec.describe Answer, type: :model do
       end
 
       it 'responses are separated by teams' do
-        answer1 = question.answers.create user_id: user.id, response: '3'
-        answer2 = question.answers.create user_id: user.id, response: '5', team_id: team.id
-        answer3 = question.answers.new user_id: user.id, response: '10', team_id: team.id
+        answer1 = Answer.create user: user2, question: question, response: '3', answer_tex: '3'
+        answer2 = Answer.create user: user2, question: question, response: '5', answer_tex: '5', team: team
+        answer3 = Answer.create user: user2, question: question, response: '10', answer_tex: '10', team: team
 
         expect(answer1.attempt_number).to eq 1
         expect(answer2.attempt_number).to eq 1

@@ -24,7 +24,21 @@ class Layout extends Component {
     let {
       children,
       sideLinks,
+      onClickLink,
+      loName,
+      userName,
+      back,
+      previewPercent,
+      progressPercent,
     } = this.props;
+
+    if (previewPercent === null) {
+      previewPercent = 0;
+    }
+
+    if (progressPercent === null) {
+      progressPercent = 0;
+    }
 
     return (
       <ThemeProvider theme={theme}>
@@ -32,6 +46,12 @@ class Layout extends Component {
           isOpenSide={this.state.isOpenSide}
           onToggleSide={this.handleToggleSide}
           sideLinks={sideLinks}
+          onClickLink={onClickLink}
+          loName={loName}
+          userName={userName}
+          previewPercent={previewPercent}
+          progressPercent={progressPercent}
+          back={back}
         >
           {children}
         </Template>

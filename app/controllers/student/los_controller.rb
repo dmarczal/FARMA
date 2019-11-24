@@ -4,7 +4,6 @@ class Student::LosController < Student::StudentApplicationController
   layout "lo/application"
 
   def show
-    @lo = @team.lo
   end
 
   private
