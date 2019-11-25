@@ -2,7 +2,7 @@
   <div class="row">
     <div class="card-lo z-depth-1 clearfix col s12">
       <div class="card-image col s2">
-        <%= link_to '#' do %>
+        <%= link_to test_path(lo.id) do %>
           <%= attachment_image_tag lo.image,
                                   :image,
                                   :fill,
@@ -19,9 +19,9 @@
       </div>
 
       <div class="card-progress col s3">
-        <a class="waves-effect waves-light btn-large">
+        <%= link_to test_path(lo.id), class: 'waves-effect waves-light btn-large', target: '_blank' do %>
           Testar OA
-        </a>
+        <% end %>
       </div>
     </div>
   </div>

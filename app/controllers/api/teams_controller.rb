@@ -1,4 +1,4 @@
-class API::TeamsController < API::ApplicationController
+class API::TeamsController < API::AuthenticateController
   def show
     team = current_user.teams.find params[:id]
     lo = team.lo

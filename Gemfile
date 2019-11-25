@@ -19,6 +19,7 @@ gem 'sdoc',         '0.4.0', group: :doc
 gem 'pg',           '~> 0.20.0'
 gem 'devise'
 gem 'simple_form'
+gem 'kaminari'
 gem 'materialize-sass', '~> 1.0.0'
 gem 'rails-i18n', '~> 5.0.0' # For 5.x
 gem 'math-comparison', tag: '0.1.1', github: 'henroca/math-comparison'

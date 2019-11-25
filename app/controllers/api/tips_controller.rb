@@ -1,4 +1,4 @@
-class API::TipsController < API::ApplicationController
+class API::TipsController < API::AuthenticateController
   before_action :find_exercise
   before_action :find_question
   before_action :find_tip, except: [:create, :index]

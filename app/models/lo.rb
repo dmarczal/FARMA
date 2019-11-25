@@ -11,6 +11,11 @@ class Lo < ActiveRecord::Base
 
   validates :name, :description, :user, presence: true
 
+  # scopes
+  scope :available, -> { where(available: true) }
+  scope :find_with_like, ->(query) { where('name LIKE ?', "%#{query}%") }
+  # scopes-end
+
   def progress_lo(team)
     @progress_los ||= progress_los.find_by(team_id: team.id, user_id: user.id)
   end

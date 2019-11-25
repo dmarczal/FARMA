@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Root from './Root';
 import Http from '../../libs/Http';
+import { PulseLoader } from 'react-spinners';
 
 class Page extends Component {
   constructor (props) {
@@ -102,7 +103,7 @@ class Page extends Component {
   render () {
     let { content, isLoad } = this.state;
     let { loName, userName, userImage } = this.props;
-    let pageContent = '';
+    let pageContent = <PulseLoader />;
 
     if (!isLoad) {
       pageContent = <Root

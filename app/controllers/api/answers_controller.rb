@@ -1,4 +1,4 @@
-class API::AnswersController < API::ApplicationController
+class API::AnswersController < API::AuthenticateController
   def create
     answer = answer_service.build
     if answer.save
@@ -16,47 +16,6 @@ class API::AnswersController < API::ApplicationController
 
       bad_request_response
     end
-  end
-
-  def test
-    answer = Answer.new(
-      question_id: params[:question_id],
-      response: params[:response],
-      answer_tex: params[:answer_tex],
-      test: true
-    )
-
-    answers = {}
-    json_answers = cookies[:answers]
-    answers = JSON.parse(json_answers) if !json_answers.nil?
-
-    answers[params[:question_id]] = [] if answers[params[:question_id]].nil?
-
-    tries = answers[params[:question_id]].length
-
-    unless answer.correct
-      tries = tries + 1
-    end
-
-    answer = {
-      'value'      => answer.response,
-      'answer_tex' => answer.answer_tex,
-      'correct'     => answer.correct,
-      'tries'       => tries
-    }
-
-    answers[params[:question_id]].push(answer)
-    lo = current_user.los.find params[:lo_id]
-    page = params[:page].to_i
-
-    service = Student::LoTestService.new lo, page, answers
-    cookies[:answers] = JSON.generate(answers)
-
-    self.data_type = 'Content[]'
-    self.status_response = :ok
-    self.data = service.data
-
-    json_response
   end
 
   private

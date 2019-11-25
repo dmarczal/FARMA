@@ -1,9 +1,11 @@
 <% provide(:title, "Introdução #{@introduction.title}") %>
 
 <div class="container">
-  <a class="waves-effect waves-light btn">
+  <%= link_to teacher_test_lo_path(@lo, page: @page),
+              class: 'waves-effect waves-light btn',
+              target: '_blank' do %>
     Testar OA
-  </a>
+  <% end %>
   <div class="divider"></div>
   <article class="paper-sheet">
     <header class="center">

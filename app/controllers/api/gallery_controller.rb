@@ -1,4 +1,4 @@
-class API::GalleryController < API::ApplicationController
+class API::GalleryController < API::AuthenticateController
   def create
     ck_image = current_user.ck_images.new()
     ck_image.build_image image: params[:upload] unless params[:upload].nil?

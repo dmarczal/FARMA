@@ -1,4 +1,4 @@
-class API::QuestionsController < API::ApplicationController
+class API::QuestionsController < API::AuthenticateController
   before_action :find_exercise
   before_action :find_question, except: [:create, :index, :load_student_questions]
   before_action :set_data_type

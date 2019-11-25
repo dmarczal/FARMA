@@ -3,9 +3,9 @@
     <h1>Todos os OAs</h1>
   </header>
 
-  <form id="find-teams" class="col s6 offset-s3 form-find">
+  <form class="col s6 offset-s3 form-find">
     <div class="input-form">
-      <input name="query" type="text" />
+      <input name="query" type="text" value="<%= @query %>" />
     </div>
 
     <button type="submit"><%= fa_icon 'search', class: 'fa-2' %></button>
@@ -16,4 +16,26 @@
   <div id="los_list" class="row">
     <%= render @los %>
   </div>
+
+  <% if @los.total_pages > 1 %>
+    <ul class="pagination">
+      <li class="<%= @los.first_page? ? 'disabled' : 'waves-effect' %>">
+        <%= link_to los_path(page: 1, query: @query) do %>
+          <i class="material-icons">chevron_left</i>
+        <% end %>
+      </li>
+      <% for page in 1..@los.total_pages %>
+        <li class="<%= @los.current_page == page ? 'disabled' : 'waves-effect' %>">
+          <%= link_to los_path(page: page, query: @query) do %>
+            <%= page %>
+          <% end %>
+        </li>
+      <% end %>
+      <li class="<%= @los.last_page? ? 'disabled' : 'waves-effect' %>">
+        <%= link_to los_path(page: @los.total_pages, query: @query) do %>
+          <i class="material-icons">chevron_right</i>
+        <% end %>
+      </li>
+    </ul>
+  <% end %>
 </article>

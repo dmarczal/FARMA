@@ -1,9 +1,11 @@
 class Answer < ActiveRecord::Base
+  include Math::Comparison
+
   belongs_to :user
   belongs_to :question
   belongs_to :team
 
-  validates :response, :answer_tex, :user, :question, presence: true
+  validates :response, :answer_tex, :question, presence: true
 
   def initialize(attributes={})
     @for_test = attributes.delete(:test)
@@ -24,7 +26,7 @@ class Answer < ActiveRecord::Base
       end
     rescue Exceptions::MathematicalSyntaxError
       self.correct = false
-      errors.add(:response, :invalid, message: 'Resposta não é valida')
+      self.errors.add(:response, :invalid, message: 'Resposta não é valida')
     end
   end
 
