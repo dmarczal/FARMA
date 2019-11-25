@@ -6,18 +6,19 @@ class Page extends Component {
   constructor (props) {
     super (props);
     let http = new Http(this.getPath());
+    let page = props.page || 1;
 
     this.state = {
       http,
       content: {},
       isLoad: true,
-      page: 1,
+      page,
     };
 
     this.load = this.load.bind(this);
     this.back = this.back.bind(this);
     this.handleCreateAnswer = this.handleCreateAnswer.bind(this);
-    this.load(1);
+    this.load(page);
   }
 
   componentDidMount () {
@@ -28,22 +29,26 @@ class Page extends Component {
   }
 
   getPath () {
-    let { type, teamId } = this.props;
+    let { type, teamId, loId } = this.props;
 
     switch (type) {
       case 'student':
         return `/api/team/${teamId}/contents`;
+      case 'teacher':
+        return `/api/lo/${loId}/contents`;
       default:
         break;
     }
   }
 
   getAnswerPath (exerciseId, questionId) {
-    let { type, teamId } = this.props;
+    let { type, teamId, loId } = this.props;
 
     switch (type) {
       case 'student':
         return `/api/team/${teamId}/exercise/${exerciseId}/questions/${questionId}`;
+      case 'teacher':
+          return `/api/lo/${loId}/exercise/${exerciseId}/questions/${questionId}`;
       default:
         break;
     }

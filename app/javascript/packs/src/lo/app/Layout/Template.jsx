@@ -58,6 +58,16 @@ const Template = ({
     setProgressEl(null);
   };
 
+  let progress = '';
+
+  if (progressPercent !== null) {
+    progress = (
+      <Button className={classes.progressBarButton} onClick={handleOpenProgress}>
+        <ProgressBar completedPercent={progressPercent} viewedPercent={previewPercent} width={200} />
+      </Button>
+    );
+  }
+
   return (
     <div className={classes.root}>
       <AppBar className={classes.appBar} position="fixed">
@@ -81,9 +91,7 @@ const Template = ({
               className={classes.logo}
             />
           </a>
-          <Button className={classes.progressBarButton} onClick={handleOpenProgress}>
-            <ProgressBar completedPercent={progressPercent} viewedPercent={previewPercent} width={200} />
-          </Button>
+          {progress}
           <Menu
             keepMounted
             open={Boolean(progressEl)}

@@ -25,9 +25,11 @@
 <article class="col s12 row">
   <h2 class="center"><%= @lo.name %></h2>
 
-  <a class="waves-effect waves-light btn">
+  <%= link_to teacher_test_lo_path(@lo, page: 1), class: 'waves-effect waves-light btn' do %>
     Testar OA
-  </a>
+  <% end %>
+
+  <a href=""></a>
 
   <ul id='list-content-los' class="collection col s12 row">
 

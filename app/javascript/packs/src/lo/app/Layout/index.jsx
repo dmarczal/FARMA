@@ -33,14 +33,6 @@ class Layout extends Component {
       userImage,
     } = this.props;
 
-    if (previewPercent === null) {
-      previewPercent = 0;
-    }
-
-    if (progressPercent === null) {
-      progressPercent = 0;
-    }
-
     return (
       <ThemeProvider theme={theme}>
         <Template

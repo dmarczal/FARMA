@@ -6,6 +6,7 @@ class Teacher::ExercisesController < Teacher::TeacherApplicationController
 
   def show
     add_breadcrumb "Passos do exercicio #{@exercise.title}", teacher_lo_exercise_path(@lo, @exercise)
+    @page = page
   end
 
   def new
@@ -43,6 +44,12 @@ class Teacher::ExercisesController < Teacher::TeacherApplicationController
   end
 
   private
+    def page
+      @lo.contents.each_with_index do |content, index|
+        return index + 1 if content.instance_of?(Exercise) && content.id == @exercise.id
+      end
+    end
+
     def exercise_params
       params.require(:exercise).permit(:title, :content)
     end

@@ -9,12 +9,16 @@ class Exercise < ActiveRecord::Base
 
   delegate :user, to: :lo
 
+  def link_test_steps(answers)
+    questions.map do |question|
+      answers[question.id.to_s].last['correct'] if !answers[question.id.to_s].nil? && !answers[question.id.to_s].last.nil?
+    end
+  end
+
   def link_steps(team, user)
     questions.map do |question|
       answers = question.answers.where(user_id: user, team_id: team)
-      return nil if answers.nil?
-
-      answers.last&.correct
+      answers.last&.correct if !answers.nil?
     end
   end
 end

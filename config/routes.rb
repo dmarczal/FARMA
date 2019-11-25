@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   namespace :api do
-    post '/questions/:id/test_answer' => 'questions#test_answer'
-    post '/questions/:id/reset_tries' => 'questions#reset_tries'
     get '/team/:id/contents/:page' => 'teams#show'
+    get '/lo/:id/contents/:page' => 'los#show'
+    post '/lo/:lo_id/exercise/:exercise_id/questions/:question_id/answers' => 'answers#test'
 
     scope '/team/:team_id/exercise/:exercise_id' do
       post '/questions/:question_id/answers' => 'answers#create'
@@ -73,6 +73,8 @@ Rails.application.routes.draw do
         end
       end
     end
+
+    get '/los_test/:lo_id' => 'test#test', as: 'test_lo'
   end
 
   #################################### Student Layout ##########################################
