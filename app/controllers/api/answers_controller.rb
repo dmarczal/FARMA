@@ -1,9 +1,9 @@
 class API::AnswersController < API::ApplicationController
-  include Student
-
   def create
     answer = answer_service.build
     if answer.save
+      lo_service.tip_question= params[:question_id].to_i if !answer.correct
+
       self.data_type = 'Content[]'
       self.status_response = :ok
       self.data = lo_service.data
@@ -21,9 +21,11 @@ class API::AnswersController < API::ApplicationController
   private
 
   def answer_service
-    @answer_service ||= AnswerService.new params[:question_id],
-                                          params[:response],
-                                          params[:team_id]
+    @answer_service ||= Student::AnswerService.new params[:question_id],
+                                                   params[:response],
+                                                   params[:answer_tex],
+                                                   params[:team_id],
+                                                   current_user
   end
 
   def lo_service

@@ -30,6 +30,7 @@ class Layout extends Component {
       back,
       previewPercent,
       progressPercent,
+      userImage,
     } = this.props;
 
     if (previewPercent === null) {
@@ -49,6 +50,7 @@ class Layout extends Component {
           onClickLink={onClickLink}
           loName={loName}
           userName={userName}
+          userImage={userImage}
           previewPercent={previewPercent}
           progressPercent={progressPercent}
           back={back}

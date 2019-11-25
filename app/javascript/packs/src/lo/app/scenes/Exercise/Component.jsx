@@ -62,6 +62,8 @@ export default ({
   variables,
   data,
   responses,
+  stepId,
+  onCreateAnswer,
 }) => {
   const classes = styles();
   let keyboardComp = '';
@@ -92,7 +94,9 @@ export default ({
             mapKeys={mapKeys}
             responses={responses}
             current={value}
-            onSubmit={(data) => console.log(data)}
+            onSubmit={({ value, value_tex }) =>
+              onCreateAnswer(data.id, stepId, value, value_tex)
+            }
           />
         </Grid>
       </Grid>

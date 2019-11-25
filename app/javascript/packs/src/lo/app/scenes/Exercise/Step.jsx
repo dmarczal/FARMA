@@ -106,8 +106,8 @@ class Step extends Component {
             </TableRow>
           </TableHead>
           <TableBody>
-            {responses.map((response) => (
-              <TableRow key={response.id}>
+            {responses.map((response, index) => (
+              <TableRow key={response.tex + index}>
                 <TableCell align="center">
                   <MathJax.Node formula={response.tex} />
                 </TableCell>
@@ -146,6 +146,7 @@ class Step extends Component {
       correct: false,
     } : {
         value: step.current.value,
+        tex: step.current.answer_tex,
         correct: step.current.correct,
       };
 
@@ -162,7 +163,7 @@ class Step extends Component {
           className={classes.response}
           style={{ borderColor: value.correct ? '#228416' : '#ec211d' }}
         >
-          <MathJax.Node formula={value.value} />
+          <MathJax.Node formula={value.tex} />
           <Typography
             variant="inherit"
             component="span"
@@ -250,6 +251,7 @@ class Step extends Component {
           <Paper
             className={classes.responsePaper}
             onClick={() => openKeyboard(
+              step.id,
               value.value,
               value.correct,
               step.variables,

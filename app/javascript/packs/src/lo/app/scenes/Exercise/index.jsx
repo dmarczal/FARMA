@@ -9,6 +9,7 @@ class Exercise extends React.Component {
       isOpenKeyboard: false,
       correct: false,
       value: null,
+      stepId: null,
       variables: [],
       responses: [],
     };
@@ -18,12 +19,14 @@ class Exercise extends React.Component {
   }
 
   handleOpenKeyboard (
+    stepId,
     value,
     correct,
     variables,
     responses
   ) {
     this.setState({
+      stepId,
       value,
       correct,
       variables,
@@ -36,6 +39,7 @@ class Exercise extends React.Component {
     this.setState({
       value: null,
       isOpenKeyboard: false,
+      stepId: null,
       variables: [],
       responses: [],
     });
@@ -48,9 +52,10 @@ class Exercise extends React.Component {
       correct,
       variables,
       responses,
+      stepId,
     } = this.state;
 
-    let { data } = this.props;
+    let { data, onCreateAnswer } = this.props;
 
     let currentValue = value === null ? null : {
       value, correct
@@ -63,8 +68,10 @@ class Exercise extends React.Component {
         value={currentValue}
         isOpenKeyboard={isOpenKeyboard}
         variables={variables}
+        onCreateAnswer={onCreateAnswer}
         data={data}
         responses={responses}
+        stepId={stepId}
       />
     )
   }

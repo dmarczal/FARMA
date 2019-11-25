@@ -11,11 +11,20 @@ class Page extends Component {
       http,
       content: {},
       isLoad: true,
+      page: 1,
     };
 
     this.load = this.load.bind(this);
     this.back = this.back.bind(this);
+    this.handleCreateAnswer = this.handleCreateAnswer.bind(this);
     this.load(1);
+  }
+
+  componentDidMount () {
+    window.onpopstate = (event) => {
+      let { page } = event.state;
+      this.load(page, false);
+    }
   }
 
   getPath () {
@@ -29,11 +38,31 @@ class Page extends Component {
     }
   }
 
-  componentDidMount () {
-    window.onpopstate = (event) => {
-      let { page } = event.state;
-      this.load(page, false);
+  getAnswerPath (exerciseId, questionId) {
+    let { type, teamId } = this.props;
+
+    switch (type) {
+      case 'student':
+        return `/api/team/${teamId}/exercise/${exerciseId}/questions/${questionId}`;
+      default:
+        break;
     }
+  }
+
+  handleCreateAnswer (exerciseId, questionId, response, answer_tex) {
+    let { isLoad, page } = this.state;
+    let path = this.getAnswerPath(exerciseId, questionId);
+    let http = new Http(path);
+
+    if (!isLoad) {
+      this.setState({ isLoad: true });
+    }
+
+    http.post('/answers', { response, answer_tex, page })
+      .then(({ data }) => {
+        this.setState({ content: data, isLoad: false });
+      })
+      .catch(console.warn);
   }
 
   back () {
@@ -60,14 +89,14 @@ class Page extends Component {
 
     http.get('/'+page)
       .then(({ data }) => {
-        this.setState({ content: data, isLoad: false });
+        this.setState({ content: data, isLoad: false, page });
       })
       .catch(console.warn);
   }
 
   render () {
     let { content, isLoad } = this.state;
-    let { loName, userName } = this.props;
+    let { loName, userName, userImage } = this.props;
     let pageContent = '';
 
     if (!isLoad) {
@@ -76,7 +105,9 @@ class Page extends Component {
         onClickLink={this.load}
         loName={loName}
         userName={userName}
+        userImage={userImage}
         back={this.back}
+        onCreateAnswer={this.handleCreateAnswer}
       />
     }
 

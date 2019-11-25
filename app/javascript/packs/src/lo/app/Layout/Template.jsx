@@ -36,6 +36,7 @@ const Template = ({
   onToggleSide,
   sideLinks,
   onClickLink,
+  userImage,
   loName,
   userName,
   previewPercent,
@@ -43,12 +44,7 @@ const Template = ({
   back,
 }) => {
   const classes = styles();
-  let [avatarEl, setAvatarEl] = React.useState(null);
   let [progressEl, setProgressEl] = React.useState(null);
-
-  const handleOpenAvatar = event => {
-    setAvatarEl(event.currentTarget);
-  };
 
   const handleCloseAvatar = () => {
     setAvatarEl(null);
@@ -159,20 +155,10 @@ const Template = ({
               </Grid>
             </MenuItem>
           </Menu>
-          <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleOpenAvatar}>
-            <Avatar alt="Avatar" src={logo} className={classes.avatar}/>
-              {userName}
-            <ArrowDropDown />
+          <Button aria-controls="simple-menu" aria-haspopup="true">
+            <Avatar alt="Avatar" src={userImage} className={classes.avatar}/>
+            {userName}
           </Button>
-          <Menu
-            keepMounted
-            open={Boolean(avatarEl)}
-            onClose={handleCloseAvatar}
-            anchorEl={avatarEl}
-            className={classes.avatarDrop}
-          >
-            <MenuItem onClick={back}>Voltar</MenuItem>
-          </Menu>
         </Toolbar>
       </AppBar>
       <Drawer

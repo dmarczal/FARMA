@@ -1,6 +1,7 @@
 GIT
   remote: https://github.com/henroca/math-comparison.git
-  revision: e9c99d30678db3d7bb2271fab8587ebdcbe23c09
+  revision: cc101fe8c585f6df28a35ed9ace048831e06d56a
+  tag: 0.1.1
   specs:
     math-comparison (0.1.0)
 

@@ -21,7 +21,7 @@ gem 'devise'
 gem 'simple_form'
 gem 'materialize-sass', '~> 1.0.0'
 gem 'rails-i18n', '~> 5.0.0' # For 5.x
-gem 'math-comparison', github: 'henroca/math-comparison'
+gem 'math-comparison', tag: '0.1.1', github: 'henroca/math-comparison'
 
 gem 'font-awesome-rails'
 gem "mini_magick"
@@ -61,7 +61,4 @@ group :test do
   gem 'database_cleaner'
   gem 'shoulda-matchers'
   gem 'json-schema', '~> 2.7'
-end
-
-group :production do
 end

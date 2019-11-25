@@ -6495,7 +6495,7 @@ react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.6, react-is@^16.9.0:
 
 "react-material-keyboard@https://github.com/henroca/react-material-keyboard":
   version "1.0.0"
-  resolved "https://github.com/henroca/react-material-keyboard#f14f39f5eddb572d7158045d61ae1076c4cc45d1"
+  resolved "https://github.com/henroca/react-material-keyboard#371a64ee2a56280de18fdea8b58a3bd310c889eb"
 
 react-mathjax@^1.0.1:
   version "1.0.1"

@@ -2,6 +2,14 @@
   id="lo-app"
   data-team-id="<%= @team.id %>"
   data-type="student"
-  data-lo="Equações"
+  data-lo="<%= @team.lo.name %>"
   data-user="<%= current_user.name %>"
+  data-user-image="<%= attachment_url(
+    current_user.avatar,
+    :image,
+    :fill,
+    200,
+    200,
+    fallback: 'default-avatar.png'
+  ) %>"
 ></div>

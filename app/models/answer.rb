@@ -1,7 +1,4 @@
 class Answer < ActiveRecord::Base
-  include Math::Comparison
-  include Student
-
   belongs_to :user
   belongs_to :question
   belongs_to :team
@@ -9,7 +6,7 @@ class Answer < ActiveRecord::Base
   validates :response, :answer_tex, :user, :question, presence: true
 
   def initialize(attributes={})
-    for_test = attributes.delete(:test)
+    @for_test = attributes.delete(:test)
     super attributes
     before_initialize
   end
@@ -20,7 +17,7 @@ class Answer < ActiveRecord::Base
       unless question.nil?
         set_correct
 
-        unless for_test
+        unless @for_test
           set_progress
           set_attempt_number
         end
@@ -32,7 +29,7 @@ class Answer < ActiveRecord::Base
   end
 
   def set_correct
-    service = ResponseService.new question.correct_answer,
+    service = Student::ResponseService.new question.correct_answer,
                                   response,
                                   question.precision
 

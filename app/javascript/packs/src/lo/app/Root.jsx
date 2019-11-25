@@ -11,10 +11,10 @@ import Introduction from './scenes/Introduction';
 
 class Root extends Component {
   getContent () {
-    let { content } = this.props;
+    let { content, onCreateAnswer } = this.props;
 
     if (content.type === 'Exercise') {
-      return <Exercise data={content.data} />;
+      return <Exercise data={content.data} onCreateAnswer={onCreateAnswer} />;
     }
 
     return <Introduction data={content.data} />;
@@ -50,14 +50,18 @@ class Root extends Component {
       userName,
       back,
       content,
+      onCreateAnswer,
+      userImage,
     } = this.props;
 
     return (
       <Layout
         userName={userName}
+        userImage={userImage}
         loName={loName}
         sideLinks={this.getLinks()}
         onClickLink={onClickLink}
+        onCreateAnswer={onCreateAnswer}
         previewPercent={content.preview_percent}
         progressPercent={content.progress_percent}
         back={back}

@@ -4,14 +4,14 @@ class Student::ResponseService
   attr_accessor :correct_answer, :response, :precision
 
   def initialize(correct_answer, response, precision)
-    @correct_answer = correct_answer
-    @response = response
+    @correct_answer = correct_answer.gsub('[', '(').gsub(']', ')')
+    @response = response.gsub('[', '(').gsub(']', ')')
     @precision = precision
   end
 
   def equal?
     prepare_responses
-    comparison = Comparator.make(correct_answer, response)
+    comparison = Comparator.make(self.correct_answer, self.response)
     comparison.equal?
   end
 
@@ -23,8 +23,8 @@ class Student::ResponseService
     Float(response)
     Float(correct_answer)
 
-    correct_answer= slice_by_precision(correct_answer)
-    response= slice_by_precision(response)
+    self.correct_answer= slice_by_precision self.correct_answer
+    self.response= slice_by_precision self.response
   end
 
   def slice_by_precision(math)

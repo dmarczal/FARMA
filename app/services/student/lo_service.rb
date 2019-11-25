@@ -1,4 +1,6 @@
 class Student::LoService
+  attr_accessor :tip_question
+
   def initialize(team, user, lo, page)
     @team = team
     @user = user
@@ -6,6 +8,7 @@ class Student::LoService
     @progress = lo.progress_lo(team)
     @content = @contents[page - 1]
     @page = page
+    @tip_question = nil
   end
 
   def data
@@ -23,12 +26,14 @@ class Student::LoService
   def content
     if @content.is_a? Introduction
       {
+        id: @content.id,
         position: @content.index,
         title: @content.title,
         content: @content.content
       }
     else
       {
+        id: @content.id,
         position: @content.index,
         title: @content.title,
         content: @content.content,
@@ -76,14 +81,16 @@ class Student::LoService
       end
 
       tips = question.tips_to_show({ user: @user, team: @team }) || []
+      new_tip = tip_question.nil? && tip_question == question.id
 
       {
+        id:        question.id,
         position:  question.index,
         title:     question.title,
         content:   question.content,
         variables: question.variables,
         current: current,
-        newTip: false,
+        newTip: new_tip,
         tips: tips.map { |tip| {
           id:              tip.id,
           number_of_tries: tip.number_of_tries,
@@ -92,7 +99,7 @@ class Student::LoService
         responses: answers.map { |answer| {
           tips:      answer.response,
           tex:       answer.answer_tex,
-          'Correto': answer.correct,
+          'Correto': answer.correct ? 'SIM' : 'NÃO',
           'Data':    I18n.l(answer.created_at, format: :short)
         }}
       }
