@@ -5,6 +5,7 @@ class Teacher::IntroductionsController < Teacher::TeacherApplicationController
   before_action :find_introduction, except: [:new, :create]
 
   def show
+    @page = page
     add_breadcrumb "Introdução #{@introduction.title}",
                    teacher_lo_introduction_path(@lo, @introduction)
   end
@@ -44,6 +45,12 @@ class Teacher::IntroductionsController < Teacher::TeacherApplicationController
   end
 
   private
+
+  def page
+    @lo.contents.each_with_index do |content, index|
+      return index + 1 if content.instance_of?(Introduction) && content.id == @introduction.id
+    end
+  end
 
   def introduction_params
     params.require(:introduction).permit(:title, :content)

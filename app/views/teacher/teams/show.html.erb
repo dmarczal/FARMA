@@ -1,10 +1,53 @@
 <article id="los" class="col s12">
-
-  <header class="page-header">
-    <h1><%= @team.name %></h5>
-  </header>
-
+  <h2 class="center"><%= @team.name %></h2>
   <h4>Objeto de Aprendizagem</h4>
+  <div class="divider"></div>
 
-  <%= render @team.lo %>
+  <div class="row">
+    <div class="col l4 s12">
+      <%= render @team.lo %>
+    </div>
+
+    <div class="col l8 s12 white">
+      <table>
+        <thead>
+          <tr>
+              <th>Nome</th>
+              <th>Progresso</th>
+              <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Fernando</td>
+            <td>0%</td>
+            <td>
+              <%= link_to(teacher_team_time_line_path(@team), class: 'waves-effect waves-light btn-small') do %>
+                Linha to tempo
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td>Jefferson</td>
+            <td>63%</td>
+            <td>
+              <%= link_to(teacher_team_time_line_path(@team), class: 'waves-effect waves-light btn-small') do %>
+                Linha to tempo
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td>Jonathan</td>
+            <td>100%</td>
+            <td>
+              <%= link_to(teacher_team_time_line_path(@team), class: 'waves-effect waves-light btn-small') do %>
+                Linha to tempo
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </article>

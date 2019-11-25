@@ -1,7 +1,7 @@
 class Teacher::LosController < Teacher::TeacherApplicationController
   include FindModels
 
-  before_action :find_lo, only: [:show, :edit, :update, :destroy]
+  before_action :find_lo, only: [:show, :edit, :update, :destroy, :test]
 
   def index
     @los = current_user.los.order :name

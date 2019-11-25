@@ -11,5 +11,11 @@
       </div>
     </li>
   </ul>
+  <%= link_to teacher_test_lo_path(@lo, page: @page),
+              class: 'waves-effect waves-light btn',
+              target: '_blank' do %>
+    Testar OA
+  <% end %>
+
   <div id="steps-app" data-exercise-id="<%= @exercise.id %>"></div>
 </div>

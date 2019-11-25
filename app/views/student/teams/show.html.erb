@@ -3,5 +3,7 @@
     <h1>Turma <%= @team.name %></h1>
   </header>
 
-  <%= render @los %>
+  <% unless @team.lo.nil? %>
+    <%= render @team.lo %>
+  <% end %>
 </article>

@@ -1,14 +1,19 @@
 require 'rails_helper'
 
 RSpec.describe API::QuestionsController, type: :controller do
-  let!(:exercise) { create(:exercise) }
+  let(:user) { create(:user, :actived) }
+  let(:lo) { create(:lo, user: user) }
+  let!(:exercise) { create(:exercise, lo: lo) }
   let!(:questions) { create_list(:question, 10, exercise: exercise) }
   let(:question) { questions.first }
   let(:json_response) { JSON.parse(response.body) }
   let(:question_params) { attributes_for(:question, exercise: exercise) }
   subject { response }
 
-  before { create_list(:question, 5) }
+  before do
+    sign_in user
+    create_list(:question, 5)
+  end
 
   describe "GET 'index'" do
     before { get :index, format: :json, params: { exercise_id: exercise.id } }

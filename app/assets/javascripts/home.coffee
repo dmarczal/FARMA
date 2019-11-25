@@ -4,7 +4,6 @@
 
 $(document).on 'turbolinks:load', ->
   FARMA.navBarFixed()
-  FARMA.loadMouseOverOnCard()
   FARMA.researchIcon()
   FARMA.sidebarScrollSpy()
   FARMA.tabbedResearchs()
@@ -12,9 +11,7 @@ $(document).on 'turbolinks:load', ->
 FARMA.reloadMaterilizeEffects = ->
   Waves.displayEffect() # reinitialize wave effect on button
   $('.dropdown-button').dropdown() # reinitialize dropdown
-  # Materialize.updateTextFields() # reinitialize form label
   $('input[autofocus]').siblings('label, i').addClass('active')
-  $('.button-collapse').sideNav() # reinitialize nav-mobile
   $('.parallax').parallax() # reinitialize parallax
   $('.slider').slider()
 
@@ -26,9 +23,6 @@ FARMA.navBarFixed = ->
     else
       $('img.logo').removeClass 'nav-bar-fixed'
       $('#home-page-navbar').removeClass 'active'
-
-FARMA.loadMouseOverOnCard = ->
-  FARMA.mouseOverOnCard("#home-page-team .card")
 
 FARMA.researchIcon = ->
   $('#home-page-researchs .collapsible-header').click (e)->

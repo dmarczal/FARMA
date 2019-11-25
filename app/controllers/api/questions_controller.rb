@@ -1,4 +1,5 @@
-class API::QuestionsController < API::ApplicationController
+class API::QuestionsController < API::AuthenticateController
+  before_action :find_exercise
   before_action :find_question, except: [:create, :index, :load_student_questions]
   before_action :set_data_type
 
@@ -83,39 +84,6 @@ class API::QuestionsController < API::ApplicationController
     json_response
   end
 
-  def create_answer
-    answer = current_user.answers.new(
-      question_id: @question.id,
-      response: params[:response],
-      team_id: team.id
-    )
-
-    unless answer.correct
-      tips_count = answer.question.tips_counts.new(
-        user_id: current_user.id,
-        team_id: team.id
-      )
-
-      tips_count = tips_count.save_or_update
-    end
-
-    if answer.save
-      tips = @question.tips_to_show(user: current_user, team: team) || []
-
-      self.data_type = 'Object'
-      self.data = { answer: answer, tips: tips, progress: progress_los }
-      self.status_response = :ok
-
-      json_response
-    else
-      self.data_type = 'Bad request'
-      self.error = answer.errors
-      self.status_response = :bad_request
-
-      bad_request_response
-    end
-  end
-
   def test_answer
     answer = current_user.answers.new(
       test: true,
@@ -153,6 +121,16 @@ class API::QuestionsController < API::ApplicationController
     self.status_response = :no_content
 
     json_response
+  end
+
+  protected
+
+  def question_param
+    params[:id]
+  end
+
+  def exercise_param
+    params[:exercise_id]
   end
 
   private
@@ -205,10 +183,6 @@ class API::QuestionsController < API::ApplicationController
                   :precision,
                   :answer_tex,
                   variables: []
-  end
-
-  def find_question
-    @question = @exercise.questions.find(params[:id])
   end
 
   def set_data_type

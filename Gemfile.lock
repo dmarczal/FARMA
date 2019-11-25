@@ -1,6 +1,7 @@
 GIT
   remote: https://github.com/henroca/math-comparison.git
-  revision: e9c99d30678db3d7bb2271fab8587ebdcbe23c09
+  revision: cc101fe8c585f6df28a35ed9ace048831e06d56a
+  tag: 0.1.1
   specs:
     math-comparison (0.1.0)
 
@@ -186,6 +187,18 @@ GEM
     json-schema (2.8.1)
       addressable (>= 2.4)
     jsonapi-renderer (0.2.0)
+    kaminari (1.1.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.1.1)
+      kaminari-activerecord (= 1.1.1)
+      kaminari-core (= 1.1.1)
+    kaminari-actionview (1.1.1)
+      actionview
+      kaminari-core (= 1.1.1)
+    kaminari-activerecord (1.1.1)
+      activerecord
+      kaminari-core (= 1.1.1)
+    kaminari-core (1.1.1)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -398,6 +411,7 @@ DEPENDENCIES
   guard-rspec
   jquery-rails (~> 4.3.1)
   json-schema (~> 2.7)
+  kaminari
   materialize-sass (~> 1.0.0)
   math-comparison!
   mini_magick

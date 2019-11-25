@@ -4,27 +4,24 @@
   <header class="center">
     <h1>Turmas Matriculadas</h1>
   </header>
+  <div class="col s12">
+    <ul class="tabs">
+      <li class="tab col s6"><a class="active" href="#opened_teams">Em progresso</a></li>
+      <li class="tab col s6"><a href="#closed_teams">Fechadas</a></li>
+    </ul>
+  </div>
+
   <div class="row">
-    <div class="col s12">
-      <ul class="tabs">
-        <li class="tab col s6"><a class="active" href="#opened_teams">Em progresso</a></li>
-        <li class="tab col s6"><a href="#closed_teams">Fechadas</a></li>
-      </ul>
-    </div>
-
-    <div class="row">
-      <div id="opened_teams" class="col s12">
-        <%= split_in_columns(per_row: 3, collection: @opened_teams) do |team| %>
-          <%= render team %>
-        <% end %>
-      </div>
-    </div>
-
-    <div id="closed_teams" class="col s12">
-      <%= split_in_columns(per_row: 3, collection: @closed_team) do |team| %>
+    <div id="opened_teams" class="col s12">
+      <%= split_in_columns(per_row: 3, collection: @opened_teams) do |team| %>
         <%= render team %>
       <% end %>
     </div>
   </div>
 
+  <div id="closed_teams" class="col s12">
+    <%= split_in_columns(per_row: 3, collection: @closed_team) do |team| %>
+      <%= render team %>
+    <% end %>
+  </div>
 </article>

@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   namespace :api do
-    post '/questions/:id/test_answer' => 'questions#test_answer'
-    post '/questions/:id/reset_tries' => 'questions#reset_tries'
+    get '/team/:id/contents/:page' => 'teams#show'
+    get '/lo/:id/contents/:page' => 'los#show'
+    post '/lo/:lo_id/exercise/:exercise_id/questions/:question_id/answers' => 'los#test'
 
     scope '/team/:team_id/exercise/:exercise_id' do
-      post '/questions/:id/create_answer' => 'questions#create_answer'
+      post '/questions/:question_id/answers' => 'answers#create'
       get '/load_student_questions' => 'questions#load_student_questions'
     end
 
@@ -43,13 +44,17 @@ Rails.application.routes.draw do
   # Routes for los
   resources :los, only: [:index]
 
+  resources :test, only: [:show]
+
   #################################### Teacher Layout ##########################################
 
   namespace :teacher do
     get '/' => 'dashboard#index'
 
     #routes for teams (get: [index, new, show], post: create)
-    resources :teams
+    resources :teams do
+      get '/time_line' => 'teams#time_line'
+    end
 
     #routes for los (get: [index, new, edit], post: create, delete: destroy, put: update)
     resources :los do
@@ -70,6 +75,8 @@ Rails.application.routes.draw do
         end
       end
     end
+
+    get '/los_test/:lo_id' => 'test#test', as: 'test_lo'
   end
 
   #################################### Student Layout ##########################################
@@ -80,7 +87,7 @@ Rails.application.routes.draw do
     #routes for teams (get: [index, new], post: create)
     resources :teams, only: [:index, :show, :create] do
 
-      get '/los/:id/page/:page' => 'los#show', as: :lo
+      get '/lo' => 'los#show', as: :lo
     end
 
     get '/find_teams' => 'teams#find_teams'

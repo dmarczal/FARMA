@@ -193,6 +193,7 @@ class Form extends Component {
       title,
       content,
       variable,
+      variables,
       keyboard,
       mapKeys,
       mapEvents,
@@ -257,6 +258,7 @@ class Form extends Component {
               <p>Resposta</p>
               {errorAnswer}
               <Keyboard
+                key={'keyboard'+variables.length}
                 keyboard={keyboard}
                 mapEvents={mapEvents}
                 mapKeys={mapKeys}

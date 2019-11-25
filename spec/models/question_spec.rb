@@ -31,7 +31,7 @@ RSpec.describe Question, type: :model do
 
     context "when it's incorrect answer" do
       context 'when has team' do
-        before { subject.answers.create user_id: user.id, response: '5', team_id: team.id }
+        before { Answer.create question: subject, user_id: user.id, response: '5', answer_tex: '5', team_id: team.id }
 
         it { is_expected.to be_visualized(team) }
         it { is_expected.to_not be_completed(team) }
@@ -40,7 +40,7 @@ RSpec.describe Question, type: :model do
       end
 
       context 'when there is no team' do
-        before { subject.answers.create user_id: user.id, response: '5' }
+        before { Answer.create question: subject, user_id: user.id, response: '5', answer_tex: '5' }
 
         it { is_expected.to_not be_visualized(team) }
         it { is_expected.to_not be_completed(team) }
@@ -51,7 +51,7 @@ RSpec.describe Question, type: :model do
 
     context "when it's correct answer" do
       context 'when has team' do
-        before { subject.answers.create user_id: user.id, response: '10', team_id: team.id }
+        before { Answer.create question: subject, user_id: user.id, response: '10', answer_tex: '10', team_id: team.id }
 
         it { is_expected.to be_visualized(team) }
         it { is_expected.to be_completed(team) }
@@ -60,7 +60,7 @@ RSpec.describe Question, type: :model do
       end
 
       context 'when there is no team' do
-        before { subject.answers.create user_id: user.id, response: '10' }
+        before { Answer.create question: subject, user_id: user.id, response: '10', answer_tex: '10' }
 
         it { is_expected.to_not be_visualized(team) }
         it { is_expected.to_not be_completed(team) }

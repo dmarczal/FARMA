@@ -1,4 +1,5 @@
-class API::TipsController < API::ApplicationController
+class API::TipsController < API::AuthenticateController
+  before_action :find_exercise
   before_action :find_question
   before_action :find_tip, except: [:create, :index]
 
@@ -73,14 +74,20 @@ class API::TipsController < API::ApplicationController
     json_response
   end
 
+  protected
+
+  def question_param
+    params[:question_id]
+  end
+
+  def exercise_param
+    params[:exercise_id]
+  end
+
   private
 
   def tips_params
     params.permit(:content, :number_of_tries)
-  end
-
-  def find_question
-    @question = @exercise.questions.find(params[:question_id])
   end
 
   def find_tip

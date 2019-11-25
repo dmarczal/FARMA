@@ -1,0 +1,16 @@
+<div
+  id="lo-app"
+  data-type="teacher"
+  data-lo-id="<%= @lo.id %>"
+  data-lo="<%= @lo.name %>"
+  data-user="Usuário teste"
+  data-page="<%= 1 %>"
+  data-user-image="<%= attachment_url(
+    Picture.new,
+    :image,
+    :fill,
+    200,
+    200,
+    fallback: 'default-avatar.png'
+  ) %>"
+></div>
