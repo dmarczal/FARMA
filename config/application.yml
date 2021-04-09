@@ -1,0 +1,23 @@
+database: &database
+  db.username: postgres
+  db.password: postgres
+  db.host: db
+
+mailer: &mailer
+  mailer.host: localhost
+  mailer.port: '3000'
+  mailer.from: 'mdfazendas@gmail.com'
+  mailer.smtp: 'smtp.mailtrap.io'
+  mailer.smtp.port: '2525'
+  mailer.smtp.domain: 'smtp.mailtrap.io'
+  mailer.smtp.username: 'username'
+  mailer.smtp.password: 'password'
+  mailer.smtp.authentication: 'cram_md5'
+
+development:
+  <<: *database
+  <<: *mailer
+
+test:
+  <<: *database
+  <<: *mailer
