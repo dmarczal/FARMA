@@ -1,6 +1,6 @@
 
 # Base Image
-FROM ruby:2.6.3
+FROM ruby:2.7
 
 # Encoding
 # C.UTF8 locale supports Computer English language
@@ -65,18 +65,18 @@ ARG GROUP_ID=1000
 #    It contains free, kill, pkill, pgrep, pmap, ps, pwdx, skill, slabtop,
 #    snice, sysctl, tload, top, uptime, vmstat, w, and watch.
 RUN apt-get update -qq && \
-    apt-get install -y curl          \
-                       libpq-dev     \
-                       libxml2-dev   \
-                       libxslt1-dev  \
-                       imagemagick   \
-                       openssl       \
-                       git           \
-                       sudo          \
-                       ssh           \
-                       rsync         \
-                       procps        \
-                       vim
+  apt-get install -y curl          \
+  libpq-dev     \
+  libxml2-dev   \
+  libxslt1-dev  \
+  imagemagick   \
+  openssl       \
+  git           \
+  sudo          \
+  ssh           \
+  rsync         \
+  procps        \
+  vim
 
 # --------------------------
 # INSTALL NODEJS BY NVM
@@ -103,7 +103,7 @@ RUN npm -v
 RUN npm install -g yarn
 
 # Define environment variables
-ENV APP_NAME realstate
+ENV APP_NAME farma
 ENV _USER devel
 ENV HOME /home/${_USER}
 ENV APP /var/www/${APP_NAME}
@@ -138,9 +138,10 @@ USER ${_USER}:${_USER}
 WORKDIR $APP
 
 # Install bundler and rails
-RUN gem install bundler  \
- #&& gem install rake -v 11.3.0 \
- #&& gem install sprockets -v 3.7.0  \
- #&& gem install nokogiri -v 1.6.8.1 \
- && gem install rails -v 5.1.2
+RUN gem install bundler -v 2.4.22 \
+  && gem install nokogiri -v 1.14 \
+  #&& gem install rake -v 11.3.0 \
+  #&& gem install sprockets -v 3.7.0  \
+  #&& gem install nokogiri -v 1.6.8.1 \
+  && gem install rails -v 5.1.2
 

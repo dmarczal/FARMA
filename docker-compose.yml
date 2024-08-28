@@ -1,10 +1,9 @@
-version: '3.8'
 x-app: &app
   build:
     context: .
     dockerfile: Dockerfile
   volumes:
-    - .:/var/www/realstate
+    - .:/var/www/farma
     - bundle_path:/bundle
   tmpfs:
     - /tmp
@@ -24,9 +23,9 @@ services:
         bundle exec rails s -p 3000 -b '0.0.0.0'
         " # Removing server.pid is technically a cleanup script
     ports:
-      - 3000:3000
-    environment:
-      RAILS_ENV: development
+      - ${SERVER_PORT}:3000
+    env_file:
+      - .env
 
   db:
     image: postgres

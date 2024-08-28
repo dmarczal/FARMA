@@ -53,7 +53,6 @@ ActiveRecord::Schema.define(version: 20191103163637) do
     t.integer "team_id"
     t.string "answer_tex", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
-    t.index ["team_id"], name: "index_answers_on_team_id"
     t.index ["user_id"], name: "index_answers_on_user_id"
   end
 
@@ -80,7 +79,6 @@ ActiveRecord::Schema.define(version: 20191103163637) do
     t.integer "lo_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["lo_id"], name: "index_exercises_on_lo_id"
   end
 
   create_table "exercises_tags", id: false, force: :cascade do |t|
@@ -95,7 +93,6 @@ ActiveRecord::Schema.define(version: 20191103163637) do
     t.integer "lo_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["lo_id"], name: "index_introductions_on_lo_id"
   end
 
   create_table "introductions_tags", id: false, force: :cascade do |t|
@@ -111,8 +108,11 @@ ActiveRecord::Schema.define(version: 20191103163637) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
     t.boolean "available", default: false, null: false
-    t.index ["user_id"], name: "index_los_on_user_id"
   end
 
   create_table "los_tags", id: false, force: :cascade do |t|
@@ -177,9 +177,8 @@ ActiveRecord::Schema.define(version: 20191103163637) do
     t.integer "exercise_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "answer_tex", null: false
+    t.string "answer_tex", default: "", null: false
     t.string "variables", limit: 1, default: [], array: true
-    t.index ["exercise_id"], name: "index_questions_on_exercise_id"
   end
 
   create_table "tags", id: :serial, force: :cascade do |t|
@@ -206,7 +205,6 @@ ActiveRecord::Schema.define(version: 20191103163637) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "number_of_tries", default: 1
-    t.index ["question_id"], name: "index_tips_on_question_id"
   end
 
   create_table "tips_counts", id: :serial, force: :cascade do |t|
@@ -239,6 +237,10 @@ ActiveRecord::Schema.define(version: 20191103163637) do
     t.string "unconfirmed_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "avatar_file_name"
+    t.string "avatar_content_type"
+    t.integer "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
