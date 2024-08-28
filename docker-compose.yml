@@ -5,6 +5,7 @@ x-app: &app
   volumes:
     - .:/var/www/farma
     - bundle_path:/bundle
+    - /dev/shm:/dev/shm
   tmpfs:
     - /tmp
   depends_on:

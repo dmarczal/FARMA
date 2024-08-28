@@ -21,3 +21,6 @@ development:
 test:
   <<: *database
   <<: *mailer
+
+production:
+  <<: *database
