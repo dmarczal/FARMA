@@ -8,7 +8,7 @@ end
 
 gem 'coffee-rails', '~> 4.2.1'
 gem 'jquery-rails', '~> 4.3.1'
-gem 'puma',         '~> 3.9.1'
+gem 'puma',         '~> 5.6.9'
 gem 'rails',        '~> 5.1.2'
 gem 'sass-rails',   '~> 5.0.6'
 gem 'sdoc',         '0.4.0', group: :doc
